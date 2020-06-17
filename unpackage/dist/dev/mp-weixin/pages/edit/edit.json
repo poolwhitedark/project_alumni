@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "jx-img-text-edit": "/components/jx-imgText-edit/jx-imgText-edit"
+  }
+}

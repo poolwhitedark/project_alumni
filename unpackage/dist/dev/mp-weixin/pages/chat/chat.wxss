@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.xw-content {
+  top: 120rpx;
+  position: relative;
+  z-index: -1;
+}
+.xw-content .xw-chat-wrap {
+  top: 60rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left {
+  display: block;
+  padding-bottom: 100rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left .xw-chat-time {
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-shadow: 2rpx 2rpx 2rpx rgba(255, 255, 255, 0.6);
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left .xw-chat-servicer {
+  margin-bottom: 60rpx;
+  padding-left: 40rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left .xw-chat-servicer .xw-servicer-avantar-wrap {
+  float: left;
+  left: 0;
+  padding-top: 0px;
+  line-height: 0;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left .xw-chat-servicer .xw-servicer-avantar-wrap ._img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left .xw-chat-servicer .xw-chat-msg {
+  float: left;
+  background: #f4f4f4;
+  border-radius: 0rpx 20rpx 20rpx 20rpx;
+  margin-left: 10px;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-left .xw-chat-servicer .xw-chat-msg .notice {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  padding: 0rpx 20rpx;
+  color: #272832;
+  line-height: 44rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right {
+  display: block;
+  padding-bottom: 160rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right .xw-chat-time {
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-shadow: 2rpx 2rpx 2rpx rgba(255, 255, 255, 0.6);
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right .xw-chat-customer {
+  bottom: 0;
+  line-height: 0;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right .xw-chat-customer .xw-customer-avantar-wrap {
+  float: right;
+  padding-right: 16rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right .xw-chat-customer .xw-customer-avantar-wrap ._img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right .xw-chat-customer .xw-chat-msg {
+  float: right;
+  margin-right: 20rpx;
+  background: #ffeade;
+  border-radius: 20rpx 0rpx 20rpx 20rpx;
+}
+.xw-content .xw-chat-wrap .xw-chat-wrap-right .xw-chat-customer .xw-chat-msg .notice {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  padding: 0rpx 20rpx;
+  color: #272832;
+  line-height: 44rpx;
+}
+.xw-footer-wrap {
+  position: fixed;
+  bottom: 24rpx;
+  height: 88rpx;
+}
+.xw-footer-wrap .xw-footer-content {
+  position: fixed;
+  width: 100%;
+  height: 120rpx;
+  background: white;
+}
+.xw-footer-wrap .xw-footer-content .xw-vmodel-wrap {
+  position: fixed;
+  width: 100%;
+  height: 88rpx;
+  color: white;
+}
+.xw-footer-wrap .xw-footer-content .xw-vmodel-wrap .xw-content-textarea {
+  margin-left: 30rpx;
+  width: 700rpx;
+  height: 88rpx;
+  background: #f2f2f2;
+  border-radius: 24rpx;
+  border: white;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #191d23;
+  line-height: 40rpx;
+}
+.xw-footer-wrap .xw-footer-content .xw-chat-tool .xw-chat-tool-item {
+  position: fixed;
+  right: 46rpx;
+  bottom: 40rpx;
+}
+.xw-footer-wrap .xw-footer-content .xw-chat-tool .xw-chat-tool-item ._img {
+  width: 40rpx;
+  height: 40rpx;
+}
+.bg {
+  z-index: -1;
+  position: relative;
+  width: 100%;
+  height: 220rpx;
+  color: white;
+}
+

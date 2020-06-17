@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "sl-filter": "/components/sl-filter/sl-filter",
+    "search": "/components/mehaotian-search-revision/mehaotian-search-revision",
+    "listcard": "/components/hm-head-portrait-card/index"
+  }
+}

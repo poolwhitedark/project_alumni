@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "top_bar": "/components/room/Top-bar/Top-bar",
+    "user_info": "/components/room/user-info/user-info",
+    "award": "/components/room/award/award",
+    "room": "/components/room/room-content/room-content"
+  }
+}
