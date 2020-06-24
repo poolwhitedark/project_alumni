@@ -11,6 +11,16 @@
  *
  * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
  */
+page, page {
+  font-family: PingFangSC,'PingFang SC',PingFangSC-light,PingHei,"Helvetica Neue",STHeiti,"黑体",'思源黑体',Arial,HelveticaNeueW01-55Roma,HelveticaNeueW02-55Roma,HelveticaNeueW10-55Roma,Helvetica,Arial,sans-serif;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
 /* 颜色变量 */
 /* 行为相关颜色 */
 /* 文字基本颜色 */
@@ -24,6 +34,153 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.f12 {
+  font-size: 24rpx;
+}
+.f14 {
+  font-size: 28rpx;
+}
+.f16 {
+  font-size: 32rpx;
+}
+.f18 {
+  font-size: 36rpx;
+}
+.f20 {
+  font-size: 40rpx;
+}
+.f22 {
+  font-size: 44rpx;
+}
+.fb {
+  font-weight: bold;
+}
+.tr {
+  text-align: right;
+}
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.pt_5 {
+  padding-top: 10rpx;
+}
+.pb_5 {
+  padding-bottom: 10rpx;
+}
+.pl_5 {
+  padding-left: 10rpx;
+}
+.pr_5 {
+  padding-right: 10rpx;
+}
+.pt_8 {
+  padding-top: 16rpx;
+}
+.pt_10 {
+  padding-top: 20rpx;
+}
+.pb_10 {
+  padding-bottom: 20rpx;
+}
+.pl_10 {
+  padding-left: 20rpx;
+}
+.pr_10 {
+  padding-right: 20rpx;
+}
+.pt_15 {
+  padding-top: 30rpx;
+}
+.pb_15 {
+  padding-bottom: 30rpx;
+}
+.pl_15 {
+  padding-left: 30rpx;
+}
+.pr_15 {
+  padding-right: 30rpx;
+}
+.pt_20 {
+  padding-top: 40rpx;
+}
+.pb_20 {
+  padding-bottom: 40rpx;
+}
+.pl_20 {
+  padding-left: 40rpx;
+}
+.pl_25 {
+  padding-left: 50rpx;
+}
+.pt_30 {
+  padding-top: 60rpx;
+}
+.pb_30 {
+  padding-bottom: 60rpx;
+}
+.pl_30 {
+  padding-left: 60;
+}
+.mt_5 {
+  margin-top: 10rpx;
+}
+.mr_5 {
+  margin-right: 10rpx;
+}
+.mb_5 {
+  margin-bottom: 10rpx;
+}
+.ml_5 {
+  margin-left: 10rpx;
+}
+.mt_10 {
+  margin-top: 20rpx;
+}
+.mr_10 {
+  margin-right: 20rpx;
+}
+.mb_10 {
+  margin-bottom: 20rpx;
+}
+.ml_8 {
+  margin-left: 16rpx;
+}
+.mt_8 {
+  margin-top: 16rpx;
+}
+.mr_15 {
+  margin-right: 30rpx;
+}
+.mb_15 {
+  margin-bottom: 30rpx;
+}
+.ml_15 {
+  margin-left: 30rpx;
+}
+.mt_15 {
+  margin-top: 30rpx;
+}
+.mt_20 {
+  margin-top: 40rpx;
+}
+.mb_20 {
+  margin-bottom: 40rpx;
+}
+.mt_30 {
+  margin-top: 60rpx;
+}
+.ml_30 {
+  margin-left: 60rpx;
+}
 .content {
   position: fixed;
   height: 100%;

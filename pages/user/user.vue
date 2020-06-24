@@ -4,15 +4,15 @@
 			<view class="tap-main-top"><useredit :user="user" @up_avatar="upAvatar" @up_name="upName" @up_sex="upSex"></useredit></view>
 			<view class="tap-main-bottom">
 				<view class="tap-bottom-item">
-					<h>{{ user.friends }}</h>
+					<text>{{ user.friends }}</text>
 					<p>我的职友</p>
 				</view>
 				<view class="tap-bottom-item">
-					<h>{{ user.followings }}</h>
+					<text>{{ user.followings }}</text>
 					<p>关注</p>
 				</view>
 				<view class="tap-bottom-item">
-					<h>{{ user.collection }}</h>
+					<text>{{ user.collection }}</text>
 					<p>收藏</p>
 				</view>
 			</view>

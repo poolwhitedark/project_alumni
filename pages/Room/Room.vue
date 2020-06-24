@@ -8,7 +8,7 @@
 			<text>更多</text>
 		</view>
 
-		<view class="room-content" v-for="item in article"><room :list="item"  @add="add"></room></view>
+		<view class="room-content" v-for="item in article"><room :list="item" @gotoWatch="gotoWatch"  @add="add"></room></view>
 	</view>
 </template>
 

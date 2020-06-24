@@ -9,11 +9,11 @@
 				<input class="input pt_10" type="number" placeholder="请输入手机号/账号" maxlength="11" v-model="user" @blur="getUser" />
 				<input class="input pt_10" type="text" :placeholder="LoginMethod ? '请输入验证码' : '请输入密码'" password="true" v-model="password" @blur="getPwd" />
 				<text v-if="LoginMethod" class="pwdCol f12" @click="checkPhone">{{ smsFlag ? '获取验证码' : '剩余' + startVal + 's' }}</text>
-				<view v-else class="pwdCol fr tr f12">忘记密码</view>
+				<view v-else class="pwdCol fr tr f12" @click="$router.push({path:'/pages/register/register',query:{resetPwd:true}})">忘记密码</view>
 			</view>
 			<view class="tips f14" v-show="login">{{ rulesTxt }}</view>
 		</view>
-		<!-- 登陆按钮 -->
+		<!-- 登陆按钮 --> 
 		<view class="submit" @click="onlogin">登录</view>
 		<view class="pwdCol mt_10 tc f12" @click="setLoginMethod">{{ LoginMethod ? '账号密码登录' : '手机快速登录' }}</view>
 		<view class="pt_20 tc">
@@ -126,8 +126,10 @@ export default {
 			}
 			if(this.codeDisabled){
 				this.codeDisabled = false;
+				
 				this.settime()
-				this.isuser = true;
+				
+				
 			}
 			
 		}
@@ -222,8 +224,8 @@ export default {
 	}
 }
 .wxIcon {
-	width: 85rpx;
-	height: 85rpx;
+	width: 76rpx;
+	height: 76rpx;
 }
 .submit {
 	margin: 0 auto;

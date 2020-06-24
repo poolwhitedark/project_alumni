@@ -1694,991 +1694,1197 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 11:
-/*!*******************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/store/index.js ***!
-  \*******************************************************************************/
+/*!***************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/router/index.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // vuex 状态管理
-_vue.default.use(_vuex.default);
-var store = new _vuex.default.Store({
-  state: {
-    user_id: '123132' },
-
-  mutations: {
-    setUser_id: function setUser_id(state, id) {
-      state.user_id = id;
-      uni.setStorage({
-        key: 'user_id',
-        data: state.user_id });
-
-    } } });var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "RouterMount", { enumerable: true, get: function get() {return _uniSimpleRouter.RouterMount;} });exports.router = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 19));var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _uniSimpleRouter = _interopRequireWildcard(__webpack_require__(/*! uni-simple-router */ 12));
 
 
-store;exports.default = _default;
+var _modules = _interopRequireDefault(__webpack_require__(/*! ./modules */ 44));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+_vue.default.use(_uniSimpleRouter.default);
+//初始化
+var router = new _uniSimpleRouter.default({
+  routes: _toConsumableArray(_modules.default) //路由表
+});exports.router = router;
+var token = '';
+uni.getStorage('token').then(function (res) {return token = res.data;});
+
+//全局路由前置守卫
+router.beforeEach( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(to, from, next) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+            if (to.path !== '/pages/login/login') {
+              next({
+                path: '/pages/login/login',
+                query: {
+                  msg: '我拦截了tab5并重定向到了路由4页面上' },
+
+                NAVTYPE: 'push' });
+
+            } else {
+              // next({
+              // 	name: 'login',
+              // 	params: {
+              // 		msg: '我拦截了tab5并重定向到了路由4页面上',
+              // 	},
+              // 	NAVTYPE: 'push'
+              // })
+              next();
+            }case 1:case "end":return _context.stop();}}}, _callee);}));return function (_x, _x2, _x3) {return _ref.apply(this, arguments);};}());
+
+
+// 全局路由后置守卫
+router.afterEach(function (to, from) {
+  console.log('afterEach----守卫');
+});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
 /***/ 12:
-/*!********************************************!*\
-  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
-  \********************************************/
-/*! exports provided: Store, install, mapState, mapMutations, mapGetters, mapActions, createNamespacedHelpers, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*!***************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/index.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
+Object.defineProperty(exports, "__esModule", { value: true });exports.RouterMount = exports.default = void 0;var _util = __webpack_require__(/*! ./helpers/util */ 13);
+var _navJump = _interopRequireDefault(__webpack_require__(/*! ./helpers/navJump */ 17));
+var _util2 = __webpack_require__(/*! ./vueRouter/util */ 29);
+var _util3 = __webpack_require__(/*! ./appRouter/util */ 22);
+var _util4 = __webpack_require__(/*! ./appletsRouter/util */ 25);
+var _config = __webpack_require__(/*! ./helpers/config */ 14);
+var _warn = __webpack_require__(/*! ./helpers/warn */ 16);
+var _hooks = __webpack_require__(/*! ./lifeCycle/hooks */ 33);
+var _base = __webpack_require__(/*! ./vueRouter/base */ 15);
+var _appletsPatch = _interopRequireDefault(__webpack_require__(/*! ./patch/applets-patch */ 34));
+var _appPatch = _interopRequireDefault(__webpack_require__(/*! ./patch/app-patch */ 35));
+var _mixins = _interopRequireDefault(__webpack_require__(/*! ./helpers/mixins */ 36));
+var _urlQuery = _interopRequireDefault(__webpack_require__(/*! ./helpers/urlQuery */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+
+
+
+
+var H5PATCH = null;
+
+
+
+
+var parseQuery = new _urlQuery.default();
+
+_config.Global.H5RouterReady = new Promise(function (resolve) {return _config.Global.RouterReadyPromise = resolve;});var
+
+Router = /*#__PURE__*/function () {
+  function Router(arg) {_classCallCheck(this, Router);
+    Router.$root = this;
+    _config.Global.Router = this; // 全局缓存一个对象，不必使用时都传递
+    _config.Global.$parseQuery = parseQuery;
+    this.CONFIG = (0, _util.formatConfig)(arg);
+    this.lifeCycle = _config.lifeCycle;
+    _hooks.registerRouterHooks.call(this); // 注册全局Router生命钩子
+    if ((0, _util.appPlatform)() === 'H5') {
+      H5PATCH.setLoadingStatus(this.CONFIG.h5);
+    }
+  }_createClass(Router, [{ key: "push",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /** 动态的导航到一个新 URL 保留浏览历史
+                                        * navigateTo
+                                        * @param {Object} rule
+                                        */value: function push(
+    rule) {
+      _navJump.default.call(this, rule, 'push');
+    }
+
+    /** 动态的导航到一个新 URL 关闭当前页面，跳转到的某个页面。
+      * redirectTo
+      * @param {Object} rule
+      */ }, { key: "replace", value: function replace(
+    rule) {
+      _navJump.default.call(this, rule, 'replace');
+    }
+
+    /** 动态的导航到一个新 URL 关闭所有页面，打开到应用内的某个页面
+      * 	reLaunch
+      * @param {Object} rule
+      */ }, { key: "replaceAll", value: function replaceAll(
+    rule) {
+      _navJump.default.call(this, rule, 'replaceAll');
+    }
+
+    /** 动态的导航到一个新 url 关闭所有页面，打开到应用内的某个tab
+      * @param {Object} rule
+      */ }, { key: "pushTab", value: function pushTab(
+    rule) {
+      _navJump.default.call(this, rule, 'pushTab');
+    }
+
+    /**
+      * 返回到指定层级页面上
+       * @param {Number} backLayer 需要返回的页面层级 默认 1
+       * @param {Object} delta 暂时无用
+       * @param {enforce} 是否强制越过跳转加锁检查 默认 false
+      */ }, { key: "back", value: function back()
+    {var backLayer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;var delta = arguments.length > 1 ? arguments[1] : undefined;var enforce = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      if (backLayer.constructor != Number) {
+        return (0, _warn.err)("\u8FD4\u56DE\u5C42\u7EA7\u53C2\u6570\u5FC5\u987B\u662F\u4E00\u4E2ANumber\u7C7B\u578B\u4E14\u5FC5\u987B\u5927\u4E8E1\uFF1A".concat(
+        backLayer));
+
+      }
+      _navJump.default.call(this, {
+        backLayer: backLayer, delta: delta, H5PATCH: H5PATCH },
+      'back', true, enforce);
+    }
+
+    /**
+      * 获取当前页面下的 Route 信息
+      *
+      * @param {Object} Vim 当前开发者可以传递一个 vue 组件对象 来获取当前下的 Route 信息
+      */ }, { key: "getPageRoute", value: function getPageRoute(
+    Vim) {
+      var pages = getCurrentPages();
+      switch ((0, _util.appPlatform)(true)) {
+        case 'H5':
+          return _util2.H5GetPageRoute.call(this, pages, Vim);
+        case 'APP':
+          return (0, _util3.APPGetPageRoute)(pages, Vim);
+        case 'APPLETS':
+          return (0, _util4.AppletsPageRoute)(pages, Vim);
+        default:
+          break;}
+
+    } }, { key: "beforeEach", value: function beforeEach(
+
+    fn) {
+      return (0, _hooks.registerHook)(this.lifeCycle.beforeHooks, fn);
+    } }, { key: "afterEach", value: function afterEach(
+
+    fn) {
+      return (0, _hooks.registerHook)(this.lifeCycle.afterHooks, fn);
+    } }, { key: "$Route", get: function get() {return this.getPageRoute();} /**
+                                                                             * 获取 url 参数帮助类实例
+                                                                             */ }, { key: "$parseQuery", get: function get() {return _config.Global.$parseQuery;} /**
+                                                                                                                                                                   * 获取当前是否处于正在跳转的状态
+                                                                                                                                                                   * H5 状态下始终为false
+                                                                                                                                                                   */ }, { key: "$lockStatus", get: function get() {return _config.Global.LockStatus;} /**
+                                                                                                                                                                                                                                                        * 动态设置拦截状态
+                                                                                                                                                                                                                                                        */, set: function set(status) {(0, _warn.warn)('你确定要这么做？你知道后果？', true);_config.Global.LockStatus = status;} }]);return Router;}();Router.install = function (Vue) {(0, _mixins.default)(Vue, Router);Object.defineProperty(Vue.prototype, '$Router', { get: function get() {return Router.$root;
+    } });
+
+  Object.defineProperty(Vue.prototype, '$Route', {
+    get: function get() {
+      return Router.$root.getPageRoute(this);
+    } });
+
+};var _default =
+Router;
 /**
- * vuex v3.0.1
- * (c) 2017 Evan You
- * @license MIT
- */
-var applyMixin = function (Vue) {
-  var version = Number(Vue.version.split('.')[0]);
-
-  if (version >= 2) {
-    Vue.mixin({ beforeCreate: vuexInit });
-  } else {
-    // override init and inject vuex init procedure
-    // for 1.x backwards compatibility.
-    var _init = Vue.prototype._init;
-    Vue.prototype._init = function (options) {
-      if ( options === void 0 ) options = {};
-
-      options.init = options.init
-        ? [vuexInit].concat(options.init)
-        : vuexInit;
-      _init.call(this, options);
-    };
-  }
-
-  /**
-   * Vuex init hook, injected into each instances init hooks list.
-   */
-
-  function vuexInit () {
-    var options = this.$options;
-    // store injection
-    if (options.store) {
-      this.$store = typeof options.store === 'function'
-        ? options.store()
-        : options.store;
-    } else if (options.parent && options.parent.$store) {
-      this.$store = options.parent.$store;
-    }
-  }
-};
-
-var devtoolHook =
-  typeof window !== 'undefined' &&
-  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
-function devtoolPlugin (store) {
-  if (!devtoolHook) { return }
-
-  store._devtoolHook = devtoolHook;
-
-  devtoolHook.emit('vuex:init', store);
-
-  devtoolHook.on('vuex:travel-to-state', function (targetState) {
-    store.replaceState(targetState);
-  });
-
-  store.subscribe(function (mutation, state) {
-    devtoolHook.emit('vuex:mutation', mutation, state);
-  });
-}
-
-/**
- * Get the first item that pass the test
- * by second argument function
- *
- * @param {Array} list
- * @param {Function} f
- * @return {*}
- */
-/**
- * Deep copy the given object considering circular structure.
- * This function caches all nested objects and its copies.
- * If it detects circular structure, use cached copy to avoid infinite loop.
- *
- * @param {*} obj
- * @param {Array<Object>} cache
- * @return {*}
- */
-
-
-/**
- * forEach for object
- */
-function forEachValue (obj, fn) {
-  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
-}
-
-function isObject (obj) {
-  return obj !== null && typeof obj === 'object'
-}
-
-function isPromise (val) {
-  return val && typeof val.then === 'function'
-}
-
-function assert (condition, msg) {
-  if (!condition) { throw new Error(("[vuex] " + msg)) }
-}
-
-var Module = function Module (rawModule, runtime) {
-  this.runtime = runtime;
-  this._children = Object.create(null);
-  this._rawModule = rawModule;
-  var rawState = rawModule.state;
-  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
-};
-
-var prototypeAccessors$1 = { namespaced: { configurable: true } };
-
-prototypeAccessors$1.namespaced.get = function () {
-  return !!this._rawModule.namespaced
-};
-
-Module.prototype.addChild = function addChild (key, module) {
-  this._children[key] = module;
-};
-
-Module.prototype.removeChild = function removeChild (key) {
-  delete this._children[key];
-};
-
-Module.prototype.getChild = function getChild (key) {
-  return this._children[key]
-};
-
-Module.prototype.update = function update (rawModule) {
-  this._rawModule.namespaced = rawModule.namespaced;
-  if (rawModule.actions) {
-    this._rawModule.actions = rawModule.actions;
-  }
-  if (rawModule.mutations) {
-    this._rawModule.mutations = rawModule.mutations;
-  }
-  if (rawModule.getters) {
-    this._rawModule.getters = rawModule.getters;
-  }
-};
-
-Module.prototype.forEachChild = function forEachChild (fn) {
-  forEachValue(this._children, fn);
-};
-
-Module.prototype.forEachGetter = function forEachGetter (fn) {
-  if (this._rawModule.getters) {
-    forEachValue(this._rawModule.getters, fn);
-  }
-};
-
-Module.prototype.forEachAction = function forEachAction (fn) {
-  if (this._rawModule.actions) {
-    forEachValue(this._rawModule.actions, fn);
-  }
-};
-
-Module.prototype.forEachMutation = function forEachMutation (fn) {
-  if (this._rawModule.mutations) {
-    forEachValue(this._rawModule.mutations, fn);
-  }
-};
-
-Object.defineProperties( Module.prototype, prototypeAccessors$1 );
-
-var ModuleCollection = function ModuleCollection (rawRootModule) {
-  // register root module (Vuex.Store options)
-  this.register([], rawRootModule, false);
-};
-
-ModuleCollection.prototype.get = function get (path) {
-  return path.reduce(function (module, key) {
-    return module.getChild(key)
-  }, this.root)
-};
-
-ModuleCollection.prototype.getNamespace = function getNamespace (path) {
-  var module = this.root;
-  return path.reduce(function (namespace, key) {
-    module = module.getChild(key);
-    return namespace + (module.namespaced ? key + '/' : '')
-  }, '')
-};
-
-ModuleCollection.prototype.update = function update$1 (rawRootModule) {
-  update([], this.root, rawRootModule);
-};
-
-ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
-    var this$1 = this;
-    if ( runtime === void 0 ) runtime = true;
-
-  if (true) {
-    assertRawModule(path, rawModule);
-  }
-
-  var newModule = new Module(rawModule, runtime);
-  if (path.length === 0) {
-    this.root = newModule;
-  } else {
-    var parent = this.get(path.slice(0, -1));
-    parent.addChild(path[path.length - 1], newModule);
-  }
-
-  // register nested modules
-  if (rawModule.modules) {
-    forEachValue(rawModule.modules, function (rawChildModule, key) {
-      this$1.register(path.concat(key), rawChildModule, runtime);
-    });
-  }
-};
-
-ModuleCollection.prototype.unregister = function unregister (path) {
-  var parent = this.get(path.slice(0, -1));
-  var key = path[path.length - 1];
-  if (!parent.getChild(key).runtime) { return }
-
-  parent.removeChild(key);
-};
-
-function update (path, targetModule, newModule) {
-  if (true) {
-    assertRawModule(path, newModule);
-  }
-
-  // update target module
-  targetModule.update(newModule);
-
-  // update nested modules
-  if (newModule.modules) {
-    for (var key in newModule.modules) {
-      if (!targetModule.getChild(key)) {
-        if (true) {
-          console.warn(
-            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
-            'manual reload is needed'
-          );
-        }
-        return
-      }
-      update(
-        path.concat(key),
-        targetModule.getChild(key),
-        newModule.modules[key]
-      );
-    }
-  }
-}
-
-var functionAssert = {
-  assert: function (value) { return typeof value === 'function'; },
-  expected: 'function'
-};
-
-var objectAssert = {
-  assert: function (value) { return typeof value === 'function' ||
-    (typeof value === 'object' && typeof value.handler === 'function'); },
-  expected: 'function or object with "handler" function'
-};
-
-var assertTypes = {
-  getters: functionAssert,
-  mutations: functionAssert,
-  actions: objectAssert
-};
-
-function assertRawModule (path, rawModule) {
-  Object.keys(assertTypes).forEach(function (key) {
-    if (!rawModule[key]) { return }
-
-    var assertOptions = assertTypes[key];
-
-    forEachValue(rawModule[key], function (value, type) {
-      assert(
-        assertOptions.assert(value),
-        makeAssertionMessage(path, key, type, value, assertOptions.expected)
-      );
-    });
-  });
-}
-
-function makeAssertionMessage (path, key, type, value, expected) {
-  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
-  if (path.length > 0) {
-    buf += " in module \"" + (path.join('.')) + "\"";
-  }
-  buf += " is " + (JSON.stringify(value)) + ".";
-  return buf
-}
-
-var Vue; // bind on install
-
-var Store = function Store (options) {
-  var this$1 = this;
-  if ( options === void 0 ) options = {};
-
-  // Auto install if it is not done yet and `window` has `Vue`.
-  // To allow users to avoid auto-installation in some cases,
-  // this code should be placed here. See #731
-  if (!Vue && typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
-  }
-
-  if (true) {
-    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
-    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
-    assert(this instanceof Store, "Store must be called with the new operator.");
-  }
-
-  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
-  var strict = options.strict; if ( strict === void 0 ) strict = false;
-
-  var state = options.state; if ( state === void 0 ) state = {};
-  if (typeof state === 'function') {
-    state = state() || {};
-  }
-
-  // store internal state
-  this._committing = false;
-  this._actions = Object.create(null);
-  this._actionSubscribers = [];
-  this._mutations = Object.create(null);
-  this._wrappedGetters = Object.create(null);
-  this._modules = new ModuleCollection(options);
-  this._modulesNamespaceMap = Object.create(null);
-  this._subscribers = [];
-  this._watcherVM = new Vue();
-
-  // bind commit and dispatch to self
-  var store = this;
-  var ref = this;
-  var dispatch = ref.dispatch;
-  var commit = ref.commit;
-  this.dispatch = function boundDispatch (type, payload) {
-    return dispatch.call(store, type, payload)
-  };
-  this.commit = function boundCommit (type, payload, options) {
-    return commit.call(store, type, payload, options)
-  };
-
-  // strict mode
-  this.strict = strict;
-
-  // init root module.
-  // this also recursively registers all sub-modules
-  // and collects all module getters inside this._wrappedGetters
-  installModule(this, state, [], this._modules.root);
-
-  // initialize the store vm, which is responsible for the reactivity
-  // (also registers _wrappedGetters as computed properties)
-  resetStoreVM(this, state);
-
-  // apply plugins
-  plugins.forEach(function (plugin) { return plugin(this$1); });
-
-  if (Vue.config.devtools) {
-    devtoolPlugin(this);
-  }
-};
-
-var prototypeAccessors = { state: { configurable: true } };
-
-prototypeAccessors.state.get = function () {
-  return this._vm._data.$$state
-};
-
-prototypeAccessors.state.set = function (v) {
-  if (true) {
-    assert(false, "Use store.replaceState() to explicit replace store state.");
-  }
-};
-
-Store.prototype.commit = function commit (_type, _payload, _options) {
-    var this$1 = this;
-
-  // check object-style commit
-  var ref = unifyObjectStyle(_type, _payload, _options);
-    var type = ref.type;
-    var payload = ref.payload;
-    var options = ref.options;
-
-  var mutation = { type: type, payload: payload };
-  var entry = this._mutations[type];
-  if (!entry) {
-    if (true) {
-      console.error(("[vuex] unknown mutation type: " + type));
-    }
-    return
-  }
-  this._withCommit(function () {
-    entry.forEach(function commitIterator (handler) {
-      handler(payload);
-    });
-  });
-  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
-
-  if (
-     true &&
-    options && options.silent
-  ) {
-    console.warn(
-      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
-      'Use the filter functionality in the vue-devtools'
-    );
-  }
-};
-
-Store.prototype.dispatch = function dispatch (_type, _payload) {
-    var this$1 = this;
-
-  // check object-style dispatch
-  var ref = unifyObjectStyle(_type, _payload);
-    var type = ref.type;
-    var payload = ref.payload;
-
-  var action = { type: type, payload: payload };
-  var entry = this._actions[type];
-  if (!entry) {
-    if (true) {
-      console.error(("[vuex] unknown action type: " + type));
-    }
-    return
-  }
-
-  this._actionSubscribers.forEach(function (sub) { return sub(action, this$1.state); });
-
-  return entry.length > 1
-    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
-    : entry[0](payload)
-};
-
-Store.prototype.subscribe = function subscribe (fn) {
-  return genericSubscribe(fn, this._subscribers)
-};
-
-Store.prototype.subscribeAction = function subscribeAction (fn) {
-  return genericSubscribe(fn, this._actionSubscribers)
-};
-
-Store.prototype.watch = function watch (getter, cb, options) {
-    var this$1 = this;
-
-  if (true) {
-    assert(typeof getter === 'function', "store.watch only accepts a function.");
-  }
-  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
-};
-
-Store.prototype.replaceState = function replaceState (state) {
-    var this$1 = this;
-
-  this._withCommit(function () {
-    this$1._vm._data.$$state = state;
-  });
-};
-
-Store.prototype.registerModule = function registerModule (path, rawModule, options) {
-    if ( options === void 0 ) options = {};
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if (true) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-    assert(path.length > 0, 'cannot register the root module by using registerModule.');
-  }
-
-  this._modules.register(path, rawModule);
-  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
-  // reset store to update getters...
-  resetStoreVM(this, this.state);
-};
-
-Store.prototype.unregisterModule = function unregisterModule (path) {
-    var this$1 = this;
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if (true) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-  }
-
-  this._modules.unregister(path);
-  this._withCommit(function () {
-    var parentState = getNestedState(this$1.state, path.slice(0, -1));
-    Vue.delete(parentState, path[path.length - 1]);
-  });
-  resetStore(this);
-};
-
-Store.prototype.hotUpdate = function hotUpdate (newOptions) {
-  this._modules.update(newOptions);
-  resetStore(this, true);
-};
-
-Store.prototype._withCommit = function _withCommit (fn) {
-  var committing = this._committing;
-  this._committing = true;
-  fn();
-  this._committing = committing;
-};
-
-Object.defineProperties( Store.prototype, prototypeAccessors );
-
-function genericSubscribe (fn, subs) {
-  if (subs.indexOf(fn) < 0) {
-    subs.push(fn);
-  }
-  return function () {
-    var i = subs.indexOf(fn);
-    if (i > -1) {
-      subs.splice(i, 1);
-    }
-  }
-}
-
-function resetStore (store, hot) {
-  store._actions = Object.create(null);
-  store._mutations = Object.create(null);
-  store._wrappedGetters = Object.create(null);
-  store._modulesNamespaceMap = Object.create(null);
-  var state = store.state;
-  // init all modules
-  installModule(store, state, [], store._modules.root, true);
-  // reset vm
-  resetStoreVM(store, state, hot);
-}
-
-function resetStoreVM (store, state, hot) {
-  var oldVm = store._vm;
-
-  // bind store public getters
-  store.getters = {};
-  var wrappedGetters = store._wrappedGetters;
-  var computed = {};
-  forEachValue(wrappedGetters, function (fn, key) {
-    // use computed to leverage its lazy-caching mechanism
-    computed[key] = function () { return fn(store); };
-    Object.defineProperty(store.getters, key, {
-      get: function () { return store._vm[key]; },
-      enumerable: true // for local getters
-    });
-  });
-
-  // use a Vue instance to store the state tree
-  // suppress warnings just in case the user has added
-  // some funky global mixins
-  var silent = Vue.config.silent;
-  Vue.config.silent = true;
-  store._vm = new Vue({
-    data: {
-      $$state: state
-    },
-    computed: computed
-  });
-  Vue.config.silent = silent;
-
-  // enable strict mode for new vm
-  if (store.strict) {
-    enableStrictMode(store);
-  }
-
-  if (oldVm) {
-    if (hot) {
-      // dispatch changes in all subscribed watchers
-      // to force getter re-evaluation for hot reloading.
-      store._withCommit(function () {
-        oldVm._data.$$state = null;
-      });
-    }
-    Vue.nextTick(function () { return oldVm.$destroy(); });
-  }
-}
-
-function installModule (store, rootState, path, module, hot) {
-  var isRoot = !path.length;
-  var namespace = store._modules.getNamespace(path);
-
-  // register in namespace map
-  if (module.namespaced) {
-    store._modulesNamespaceMap[namespace] = module;
-  }
-
-  // set state
-  if (!isRoot && !hot) {
-    var parentState = getNestedState(rootState, path.slice(0, -1));
-    var moduleName = path[path.length - 1];
-    store._withCommit(function () {
-      Vue.set(parentState, moduleName, module.state);
-    });
-  }
-
-  var local = module.context = makeLocalContext(store, namespace, path);
-
-  module.forEachMutation(function (mutation, key) {
-    var namespacedType = namespace + key;
-    registerMutation(store, namespacedType, mutation, local);
-  });
-
-  module.forEachAction(function (action, key) {
-    var type = action.root ? key : namespace + key;
-    var handler = action.handler || action;
-    registerAction(store, type, handler, local);
-  });
-
-  module.forEachGetter(function (getter, key) {
-    var namespacedType = namespace + key;
-    registerGetter(store, namespacedType, getter, local);
-  });
-
-  module.forEachChild(function (child, key) {
-    installModule(store, rootState, path.concat(key), child, hot);
-  });
-}
-
-/**
- * make localized dispatch, commit, getters and state
- * if there is no namespace, just use root ones
- */
-function makeLocalContext (store, namespace, path) {
-  var noNamespace = namespace === '';
-
-  var local = {
-    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if ( true && !store._actions[type]) {
-          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      return store.dispatch(type, payload)
-    },
-
-    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if ( true && !store._mutations[type]) {
-          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      store.commit(type, payload, options);
-    }
-  };
-
-  // getters and state object must be gotten lazily
-  // because they will be changed by vm update
-  Object.defineProperties(local, {
-    getters: {
-      get: noNamespace
-        ? function () { return store.getters; }
-        : function () { return makeLocalGetters(store, namespace); }
-    },
-    state: {
-      get: function () { return getNestedState(store.state, path); }
-    }
-  });
-
-  return local
-}
-
-function makeLocalGetters (store, namespace) {
-  var gettersProxy = {};
-
-  var splitPos = namespace.length;
-  Object.keys(store.getters).forEach(function (type) {
-    // skip if the target getter is not match this namespace
-    if (type.slice(0, splitPos) !== namespace) { return }
-
-    // extract local getter type
-    var localType = type.slice(splitPos);
-
-    // Add a port to the getters proxy.
-    // Define as getter property because
-    // we do not want to evaluate the getters in this time.
-    Object.defineProperty(gettersProxy, localType, {
-      get: function () { return store.getters[type]; },
-      enumerable: true
-    });
-  });
-
-  return gettersProxy
-}
-
-function registerMutation (store, type, handler, local) {
-  var entry = store._mutations[type] || (store._mutations[type] = []);
-  entry.push(function wrappedMutationHandler (payload) {
-    handler.call(store, local.state, payload);
-  });
-}
-
-function registerAction (store, type, handler, local) {
-  var entry = store._actions[type] || (store._actions[type] = []);
-  entry.push(function wrappedActionHandler (payload, cb) {
-    var res = handler.call(store, {
-      dispatch: local.dispatch,
-      commit: local.commit,
-      getters: local.getters,
-      state: local.state,
-      rootGetters: store.getters,
-      rootState: store.state
-    }, payload, cb);
-    if (!isPromise(res)) {
-      res = Promise.resolve(res);
-    }
-    if (store._devtoolHook) {
-      return res.catch(function (err) {
-        store._devtoolHook.emit('vuex:error', err);
-        throw err
-      })
-    } else {
-      return res
-    }
-  });
-}
-
-function registerGetter (store, type, rawGetter, local) {
-  if (store._wrappedGetters[type]) {
-    if (true) {
-      console.error(("[vuex] duplicate getter key: " + type));
-    }
-    return
-  }
-  store._wrappedGetters[type] = function wrappedGetter (store) {
-    return rawGetter(
-      local.state, // local state
-      local.getters, // local getters
-      store.state, // root state
-      store.getters // root getters
-    )
-  };
-}
-
-function enableStrictMode (store) {
-  store._vm.$watch(function () { return this._data.$$state }, function () {
-    if (true) {
-      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
-    }
-  }, { deep: true, sync: true });
-}
-
-function getNestedState (state, path) {
-  return path.length
-    ? path.reduce(function (state, key) { return state[key]; }, state)
-    : state
-}
-
-function unifyObjectStyle (type, payload, options) {
-  if (isObject(type) && type.type) {
-    options = payload;
-    payload = type;
-    type = type.type;
-  }
-
-  if (true) {
-    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
-  }
-
-  return { type: type, payload: payload, options: options }
-}
-
-function install (_Vue) {
-  if (Vue && _Vue === Vue) {
-    if (true) {
-      console.error(
-        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
-      );
-    }
-    return
-  }
-  Vue = _Vue;
-  applyMixin(Vue);
-}
-
-var mapState = normalizeNamespace(function (namespace, states) {
-  var res = {};
-  normalizeMap(states).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedState () {
-      var state = this.$store.state;
-      var getters = this.$store.getters;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
-        if (!module) {
-          return
-        }
-        state = module.context.state;
-        getters = module.context.getters;
-      }
-      return typeof val === 'function'
-        ? val.call(this, state, getters)
-        : state[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-var mapMutations = normalizeNamespace(function (namespace, mutations) {
-  var res = {};
-  normalizeMap(mutations).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedMutation () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      var commit = this.$store.commit;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
-        if (!module) {
-          return
-        }
-        commit = module.context.commit;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [commit].concat(args))
-        : commit.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-var mapGetters = normalizeNamespace(function (namespace, getters) {
-  var res = {};
-  normalizeMap(getters).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    val = namespace + val;
-    res[key] = function mappedGetter () {
-      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
-        return
-      }
-      if ( true && !(val in this.$store.getters)) {
-        console.error(("[vuex] unknown getter: " + val));
-        return
-      }
-      return this.$store.getters[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-var mapActions = normalizeNamespace(function (namespace, actions) {
-  var res = {};
-  normalizeMap(actions).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedAction () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      var dispatch = this.$store.dispatch;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
-        if (!module) {
-          return
-        }
-        dispatch = module.context.dispatch;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [dispatch].concat(args))
-        : dispatch.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-var createNamespacedHelpers = function (namespace) { return ({
-  mapState: mapState.bind(null, namespace),
-  mapGetters: mapGetters.bind(null, namespace),
-  mapMutations: mapMutations.bind(null, namespace),
-  mapActions: mapActions.bind(null, namespace)
-}); };
-
-function normalizeMap (map) {
-  return Array.isArray(map)
-    ? map.map(function (key) { return ({ key: key, val: key }); })
-    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
-}
-
-function normalizeNamespace (fn) {
-  return function (namespace, map) {
-    if (typeof namespace !== 'string') {
-      map = namespace;
-      namespace = '';
-    } else if (namespace.charAt(namespace.length - 1) !== '/') {
-      namespace += '/';
-    }
-    return fn(namespace, map)
-  }
-}
-
-function getModuleByNamespace (store, helper, namespace) {
-  var module = store._modulesNamespaceMap[namespace];
-  if ( true && !module) {
-    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
-  }
-  return module
-}
-
-var index_esm = {
-  Store: Store,
-  install: install,
-  version: '3.0.1',
-  mapState: mapState,
-  mapMutations: mapMutations,
-  mapGetters: mapGetters,
-  mapActions: mapActions,
-  createNamespacedHelpers: createNamespacedHelpers
-};
-
-
-/* harmony default export */ __webpack_exports__["default"] = (index_esm);
-
+         *
+         * @param {VueComponent } Vim vue实例对象
+         * @param {dom} el	dom节点选择器
+         */exports.default = _default;
+var RouterMount = function RouterMount(Vim, el) {
+  switch ((0, _util.appPlatform)(true)) {
+    case 'APP':
+      (0, _appPatch.default)(Vim, el);
+      break;
+    case 'APPLETS':
+      (0, _appletsPatch.default)(Vim, el);
+      break;
+    case 'H5':
+      _base.vueMount.push({ Vim: Vim, el: el });
+      break;
+    default:
+      (0, _warn.warn)('糟糕！！！还有其他的执行环境？？？没听说过啊。一脸懵逼？？？加QQ群问问：769241495');
+      break;}
+
+};exports.RouterMount = RouterMount;
 
 /***/ }),
 
-/***/ 162:
-/*!**********************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/components/uni-icons/icons.js ***!
-  \**********************************************************************************************/
+/***/ 13:
+/*!**********************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/util.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.copyObject = exports.formatURLQuery = exports.resolveRule = exports.exactRule = exports.parseQuery = exports.parseQueryD = exports.parseQueryN = exports.filter = exports.formatConfig = exports.noop = exports.appPlatform = exports.isObject = exports.isH5 = void 0;var _config = __webpack_require__(/*! ./config */ 14);
+var _base = __webpack_require__(/*! ../vueRouter/base */ 15);
+var _warn = __webpack_require__(/*! ./warn */ 16);function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * 当前是不是H5运行环境
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+var isH5 = function isH5() {
+  return typeof window !== 'undefined' && typeof document !== 'undefined';
+};
+/**
+    * 判断当前变量是否为Object
+    * @param {Object} strObj
+    */exports.isH5 = isH5;
+var isObject = function isObject(strObj) {
+  return strObj.toString() === '[object Object]' && strObj.constructor === Object;
+};
+/**
+    * 获取当前运行平台
+    * @param {Boolean} applets 默认false  true时所有小程序平台统一返回 APPLETS
+    */exports.isObject = isObject;
+var appPlatform = function appPlatform() {var applets = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var platform = '';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  platform = 'WEIXIN';
+
+
+
+
+
+
+  if (applets) {
+
+    platform = 'APPLETS';
+
+  }
+
+  return platform;
+};
+/**
+    * 定义一个空方法 如果最后一个参数为true则打印所有参数
+    * @param  {...any} args
+    */exports.appPlatform = appPlatform;
+var noop = function noop() {for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}
+  if (args[args.length - 1] === true) {
+    (0, _warn.log)(args);
+  }
+};
+/**
+    * 格式化基础配置信息 通过new Router传递过来的参数
+    */exports.noop = noop;
+var formatConfig = function formatConfig(userConfig) {
+  if (!userConfig.routes || userConfig.routes.constructor !== Array) {
+    return (0, _warn.err)("\u8DEF\u7531\u53C2\u6570 'routes' \u5FC5\u987B\u4F20\u9012 \r\n\r\n".concat(JSON.stringify(userConfig)));
+  }
+  if (userConfig.h5 != null && userConfig.h5.constructor !== Object) {
+    return (0, _warn.err)("h5\u53C2\u6570\u4F20\u9012\u9519\u8BEF\uFF0C\u5E94\u8BE5\u662F\u4E00\u4E2A 'Object' \u7C7B\u578B \u793A\u4F8B\uFF1A\r\n\r\n".concat(JSON.stringify(_config.baseConfig.h5)));
+  }
+  var config = Object.create(null);
+  var baseConfigKeys = Object.keys(_config.baseConfig);
+  for (var i = 0; i < baseConfigKeys.length; i += 1) {
+    var key = baseConfigKeys[i];
+    if (userConfig[key] != null) {
+      if (userConfig[key].constructor === Object) {
+        config[key] = _objectSpread({},
+        _config.baseConfig[key], {},
+        userConfig[key]);
+
+      } else if (key == 'routes') {// 需要加入已知的白名单
+        config[key] = [].concat(_toConsumableArray(_config.baseConfig[key]), _toConsumableArray(userConfig[key]), _toConsumableArray(_base.builtIn));
+      } else {
+        config[key] = userConfig[key];
+      }
+    } else {
+      config[key] = _config.baseConfig[key];
+    }
+  }
+  return config;
+};exports.formatConfig = formatConfig;
+var filter = function filter(str) {
+  str += '';
+  str = str.replace(/%/g, '%25');
+  str = str.replace(/\+/g, '%2B');
+  str = str.replace(/ /g, '%20');
+  str = str.replace(/\//g, '%2F');
+  str = str.replace(/\?/g, '%3F');
+  str = str.replace(/&/g, '%26');
+  str = str.replace(/=/g, '%3D');
+  str = str.replace(/#/g, '%23');
+  return str;
+};
+/**
+    * 使用encodeURI:true的情况	需要进行编码后再传递，解码等等 可以传递深度对象并会在路径后面加入一个query=
+    *
+    * @param {String} routerName //路径名称
+    * @param {JSON} query 	//需要格式化参数
+    * @param {Boolean} Encode 	//是获取还是编码后传递
+    */exports.filter = filter;
+var parseQueryN = function parseQueryN(routerName, query, Encode) {
+  if (Encode) {
+    return {
+      url: routerName,
+      query: JSON.parse(decodeURIComponent(query.replace(/^query=/, ''))) };
+
+  }
+  return {
+    url: routerName,
+    query: "query=".concat(encodeURIComponent(JSON.stringify(query))) };
+
+};
+/**
+    * 使用encodeURI:false的情况 直接格式化为普通的queryURl参数形式传递即可 扁平深度对象
+    *
+    * @param {String} routerName //路径名称
+    * @param {JSON} query 	//需要格式化参数
+    * @param {Boolean} Encode 	//是获取还是编码后传递
+    */exports.parseQueryN = parseQueryN;
+var parseQueryD = function parseQueryD(routerName, query, Encode) {
+  if (Encode) {
+    var obj = {};
+    var reg = /([^=&\s]+)[=\s]*([^&\s]*)/g;
+    while (reg.exec(query)) {
+      obj[RegExp.$1] = RegExp.$2;
+    }
+    return {
+      url: routerName,
+      query: obj };
+
+  }
+  var encodeArr = [];
+  var queryKeys = Object.keys(query);
+  for (var i = 0; i < queryKeys.length; i += 1) {
+    var attr = queryKeys[i];
+    var encodeStr = '';
+    if (query[attr].constructor == Object) {
+      encodeStr = parseQueryD(routerName, query[attr], Encode).query;
+      encodeArr.push(encodeStr);
+    } else {
+      encodeStr = filter(query[attr]);
+      encodeArr.push("".concat(attr, "=").concat(encodeStr));
+    }
+  }
+  return {
+    url: routerName,
+    query: encodeArr.join('&') };
+
+};
+/**
+    * @param {String} routerName //路径名称
+    * @param {JSON} query 	//需要格式化参数
+    * @param {Boolean} Encode 	//是获取还是编码后传递
+    */exports.parseQueryD = parseQueryD;
+var parseQuery = function parseQuery(routerName, query) {var Encode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  if (_config.Global.Router.CONFIG.encodeURI) {
+    return parseQueryN(routerName, query, Encode);
+  }
+  return parseQueryD(routerName, query, Encode);
+};exports.parseQuery = parseQuery;
+
+var exactRule = function exactRule(cloneRule, routes, ruleKey) {var getRule = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  var params = {};
+  var i = 0;
+  // eslint-disable-next-line
+  while (true) {
+    var item = routes[i];
+    if (item == null) {
+      if (!getRule) {
+        (0, _warn.err)("\u8DEF\u7531\u8868\u4E2D\u672A\u67E5\u627E\u5230 '".concat(ruleKey, "' \u4E3A '").concat(cloneRule[ruleKey], "'"));
+      }
+      return {
+        path: '',
+        name: '' };
+
+    }
+    if (item[ruleKey] != null && item[ruleKey] === cloneRule[ruleKey]) {
+      if (!getRule) {
+        params.url = item.path;
+        params.rule = item;
+        if (isH5()) {// 如果是h5 则使用优先使用自定义路径名称
+          params.url = item.aliasPath || item.path;
+        }
+        return params;
+      }
+      return item;
+    }
+    i += 1;
+  }
+};exports.exactRule = exactRule;
+
+var resolveRule = function resolveRule(router, rule) {var query = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};var ruleKey = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'path';
+  var ruleInfo = (0, _config.route)(
+  exactRule(_objectSpread({},
+  rule),
+
+  router.CONFIG.routes,
+  ruleKey,
+  router));
+
+  return _objectSpread({},
+  ruleInfo, {
+    query: query });
+
+};
+/**
+    * 把一些不必要的参数进行格式化掉，完成url的美观
+    * @param {String} URLQuery URL中传递的参数
+    */exports.resolveRule = resolveRule;
+var formatURLQuery = function formatURLQuery(URLQuery) {
+  switch (URLQuery.trim()) {
+    case 'query=%7B%7D':
+    case '%7B%7D':
+    case '?query=%7B%7D':
+    case '?':
+    case '?[object Object]':
+    case '?query={}':
+      URLQuery = '';
+      break;
+    default:
+      (0, _warn.warn)('url已经很完美啦，不需要格式化！');
+      break;}
+
+  return URLQuery;
+};
+/**
+    * 拷贝对象
+    * @param {Object} object
+    */exports.formatURLQuery = formatURLQuery;
+var copyObject = function copyObject(object) {
+  return JSON.parse(JSON.stringify(object));
+};exports.copyObject = copyObject;
+
+/***/ }),
+
+/***/ 14:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/config.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.route = exports.appletsConfig = exports.uniAppHook = exports.Global = exports.lifeCycle = exports.H5FnTypeToggle = exports.methods = exports.baseConfig = void 0;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+var baseConfig = {
+  h5: {
+    rewriteFun: true, // 是否对uni-app reLaunch/navigateBack 两个方法重写 处理uni刷新直接返回到首页和触发路由守卫
+    paramsToQuery: false, // h5端上通过params传参时规则是vue-router 刷新会丢失 开启此开关将变成?连接的方式
+    loading: true, // 是否显示加载动画
+    hinderTab: false, // 是否拦截uni-app自带底部菜单   TODO
+    vueRouterDev: false, // 完全使用采用vue-router的开发模式
+    useUniConfig: true, // 是否采用在pages.json下的所有页面配置信息,false时需开发者自行设置页面
+    keepUniIntercept: false, // 保留uni-app使用vue-router的拦截器
+    vueNext: false, // 在next管道函数中是否获取vueRouter next的原本参数
+    replaceStyle: false, // 是否对resetStyle函数中返回的style节点进行全部替换，否则为追加
+    resetStyle: function resetStyle() {return JSON.parse('{}');}, // 自定义加载样式函数 可返回一个包涵 html、style、script 的对象来重置Router内置的加载动画
+    mode: 'hash',
+    base: '/',
+    linkActiveClass: 'router-link-active',
+    linkExactActiveClass: 'router-link-exact-active',
+    scrollBehavior: function scrollBehavior(to, from, savedPostion) {return savedPostion;},
+    fallback: true },
+
+  APP: {
+    holdTabbar: true, // 是否开启底部菜单拦截
+    loddingPageStyle: function loddingPageStyle() {return JSON.parse('{"backgroundColor":"#FFF"}');}, // 当前等待页面的样式 必须返回一个json
+    loddingPageHook: function loddingPageHook(view) {plus.navigator.closeSplashscreen();view.show();}, // 刚刚打开页面处于等待状态,会触发此事件
+    animation: { animationType: 'pop-in', animationDuration: 300 }, // 页面切换动画
+    switchPageOutTime: 1000 // 最高能忍耐的页面切换时间 达到此时间 不管切换有没有完成都会显示页面出来 这对启动页帮助很大
+  },
+  debugger: false, // 是否处于开发阶段 设置为true则打印日志
+  encodeURI: true, // 是否对url传递的参数进行编码
+  routerBeforeEach: function routerBeforeEach() {}, // router 前置路由函数 每次触发跳转前先会触发此函数
+  routerAfterEach: function routerAfterEach() {}, // router 后置路由函数 每次触发跳转后会触发此函数
+  routes: [] };exports.baseConfig = baseConfig;
+
+
+var methods = {
+  push: 'navigateTo',
+  replace: 'redirectTo',
+  replaceAll: 'reLaunch',
+  pushTab: 'switchTab',
+  back: 'navigateBack' };exports.methods = methods;
+
+
+var H5FnTypeToggle = {
+  push: 'push',
+  replace: 'replace',
+  replaceAll: 'replace',
+  pushTab: 'replace' };exports.H5FnTypeToggle = H5FnTypeToggle;
+
+
+var lifeCycle = {
+  beforeHooks: [],
+  afterHooks: [],
+  routerHooks: [],
+  routerbeforeHooks: [], // 内部跳转前生命周期
+  routerAfterHooks: [] // 内部跳转后生命周期
+};exports.lifeCycle = lifeCycle;
+
+var Global = { // 缓存一些必要的对象，作为全局可以访问的参数
+  $parseQuery: null, // url query 帮助类实例
+  Router: {},
+  vueRouter: {},
+  addedRoutes: [], // 用于缓存用户动态添加的路由
+  RouterReadyPromise: function RouterReadyPromise() {},
+  H5RouterReady: null, // 当前router是否就绪
+  backLayerC: 1, // 返回api调用时开发者传递的 delta
+  LockStatus: false // 当前是否正在进行跳转 正在跳转调用api是不给跳转的
+};exports.Global = Global;
+
+var uniAppHook = {
+  indexVue: {}, // 首页 组件对象
+  toutiaoIndexThis: {}, // 头条小程序Index this对象
+  appVue: {}, // 同getApp()获取到的对象一毛一样的  其实就是app.vue组件
+  onLaunch: { fun: [], args: {}, isHijack: false }, // 这两个是app.vue
+  onShow: { fun: [], args: {}, isHijack: false },
+  variationFuns: ['onReady', 'onUnload'], // 一些uni-app的变异方法 需要处理下
+  waitHooks: {}, // 首页等待中的生命钩子 一些需要等待的Hooks,就是在页面没有进来之前一些提前触发的生命钩子 主要是用户已经声明好的
+  indexCallHooks: ['onLoad', 'onReady', 'created', 'onShow'], // 在首页首次启动时需要触发的生命周期
+  needHooks: ['onLoad', 'onReady', 'onShow', 'created', 'onHide', 'onUnload', 'onResize'], // 首页需要拦截的生命钩子
+  pageReady: false,
+  onLaunched: false // 否触发onLaunch事件
+};exports.uniAppHook = uniAppHook;
+
+var appletsConfig = { // 小程序端的一些路由所需配置
+  onLaunchEd: false // 当前小程序端是否触发onLaunch事件
+};exports.appletsConfig = appletsConfig;
+
+var route = function route() {var object = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return _objectSpread({},
+  object, {
+    params: {},
+    query: {} });
+
+};exports.route = route;
+
+/***/ }),
+
+/***/ 15:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/base.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.vueMount = exports.vuelifeHooks = exports.builtIn = void 0;var builtIn = [{
+  path: '/preview-image',
+  name: 'previewImage',
+  component: {
+    render: function render() {} } },
+
+{
+  path: '/choose-location',
+  name: 'chooseLocation',
+  component: {
+    render: function render() {} } },
+
+{
+  path: '/open-location',
+  name: 'openLocation',
+  component: {
+    render: function render() {} } }];
+
+// uni-app内置路由
+exports.builtIn = builtIn;var vuelifeHooks = { // vueRouter的原始生命周期
+  beforeHooks: [],
+  afterHooks: [] };exports.vuelifeHooks = vuelifeHooks;
+
+var vueMount = []; // 使用内部对象保留实例化下的appVue,并使用Router进行挂载触发第一次路由钩子
+exports.vueMount = vueMount;
+
+/***/ }),
+
+/***/ 16:
+/*!**********************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/warn.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.warnLock = exports.log = exports.warn = exports.err = void 0;var _config = __webpack_require__(/*! ./config */ 14);
+
+
+var isLog = function isLog(type, errText, enforce) {
+  if (!enforce) {
+    var dev = _config.Global.Router.CONFIG.debugger;
+    var isObject = dev.toString() === '[object Object]';
+    if (dev === false) {
+      return false;
+    }if (dev === false) {
+      return false;
+    }if (isObject) {
+      if (dev[type] === false) {
+        return false;
+      }
+    }
+  }
+  /* eslint no-console:"off" */
+  console[type](errText);
+};
+var err = function err(errInfo) {var enforce = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  isLog('error', errInfo, enforce);
+};exports.err = err;
+
+var warn = function warn(errInfo) {var enforce = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  isLog('warn', errInfo, enforce);
+};exports.warn = warn;
+
+var log = function log(errInfo) {var enforce = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  isLog('log', errInfo, enforce);
+};exports.log = log;
+var warnLock = function warnLock(errInfo) {
+  console.warn(errInfo);
+};exports.warnLock = warnLock;
+
+/***/ }),
+
+/***/ 17:
+/*!*************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/navJump.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _util = __webpack_require__(/*! ./util */ 13);
+var _config = __webpack_require__(/*! ./config */ 14);
+var _hooks = __webpack_require__(/*! ../appRouter/hooks */ 18);
+var _hooks2 = __webpack_require__(/*! ../appletsRouter/hooks */ 24);
+var _uniNav = _interopRequireDefault(__webpack_require__(/*! ../appRouter/uniNav */ 23));
+var _appletsNav = _interopRequireDefault(__webpack_require__(/*! ../appletsRouter/appletsNav */ 27));
+var _warn = __webpack_require__(/*! ./warn */ 16);
+var _routerNav = _interopRequireDefault(__webpack_require__(/*! ../vueRouter/routerNav */ 28));
+var compile = _interopRequireWildcard(__webpack_require__(/*! ./compile */ 26));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * 返回api 触发的公共函数
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @param {Object/String} rule  当前跳转规则
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @param {String} fnType    跳转页面的类型方法
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * this 为当前 Router 实例
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+var isBcakNav = function isBcakNav(_ref)
+
+
+
+{var _this = this;var backLayer = _ref.backLayer,delta = _ref.delta,H5PATCH = _ref.H5PATCH;
+  compile.H5(function () {
+    H5PATCH.on('historyBack', {
+      backLayer: backLayer,
+      delta: delta });
+
+  });
+  compile.APP(function () {
+    _config.Global.backLayerC = backLayer; // 告诉路由需要返回几层
+    uni.navigateBack({
+      delta: backLayer,
+      complete: function complete() {
+        _config.Global.LockStatus = false; // 跳转完成解锁状态
+      } });
+
+  });
+  compile.mp(function () {
+    _hooks2.backCallHook.call(_this, backLayer, function () {
+      uni.navigateBack({
+        delta: backLayer });
+
+    });
+  });
+};
+
+/**
+    * 非 返回api 触发的公共函数
+    * @param {Object/String} rule  当前跳转规则
+    * @param {String} fnType    跳转页面的类型方法
+    *
+    * this 为当前 Router 实例
+    */
+
+var notBackNav = function notBackNav(rule, fnType) {
+  if (rule == null) {
+    return (0, _warn.err)('跳转规则为空，不允许这样操作');
+  }
+  if (rule.constructor === String) {// 单独 path 的情况   允许？拼接参数
+    var ruleArray = rule.split('?');
+    if (ruleArray.length > 1) {
+      rule = {
+        path: ruleArray[0],
+        query: _config.Global.$parseQuery.parse(ruleArray[1]) };
+
+    }
+  }
+  switch ((0, _util.appPlatform)(true)) {
+    case 'H5':
+      return _routerNav.default.call(this, _config.H5FnTypeToggle[fnType], rule, _config.methods[fnType]);
+    case 'APP':
+      _config.Global.LockStatus = true; // 设置为锁住状态
+      return _hooks.transitionTo.call(this, rule, fnType, _uniNav.default);
+    case 'APPLETS':
+      _config.Global.LockStatus = true; // 设置为锁住状态
+      return _hooks2.appletsTransitionTo.call(this, rule, fnType, _appletsNav.default);
+    default:
+      (0, _warn.err)('糟糕！！！还有其他的执行环境？？？没听说过啊。一脸懵逼？？？加QQ群问问：769241495');
+      break;}
+
+};
+
+/**
+    * 处理正在跳转的公共api
+    * @param {Object/String} rule  当前跳转规则
+    * @param {String} fnType    跳转页面的类型方法
+    * @param {Boolean} isBack  是否通过 back() api 调用的 默认为false
+    * @param {Boolean} enforce 是否强制越过跳转加锁检查 默认false  目前只有back() api 传递了
+    *
+    * this 为当前 Router 实例
+    */
+var navjump = function navjump(rule, fnType) {var isBack = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;var enforce = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  if (_config.Global.LockStatus && !enforce) {// 正在跳转的状态下 给出提示正在跳转
+    return (0, _warn.warn)('当前页面正在处于跳转状态，请稍后再进行跳转....');
+  }
+  if (isBack) {// 是返回api触发的
+    return isBcakNav.call(this, rule, fnType);
+  }
+  return notBackNav.call(this, rule, fnType);
+};var _default =
+
+navjump;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 18:
+/*!*************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appRouter/hooks.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.beforeTabHooks = exports.triggerLifeCycle = exports.transitionTo = exports.backApiCallHook = exports.beforeBackHooks = exports.proxyIndexHook = exports.proxyLaunchHook = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 19));var _config = __webpack_require__(/*! ../helpers/config */ 14);
+var _util = __webpack_require__(/*! ./util */ 22);
+
+
+var _util2 = __webpack_require__(/*! ../helpers/util */ 13);
+var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _uniNav = _interopRequireDefault(__webpack_require__(/*! ./uniNav */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+var startBack = false; // 主要是兼容低端手机返回卡 然后多次返回直接提示退出的问题
+
+/**
+ * 还原并执行所有 拦截下来的生命周期 app.vue 及 index 下的生命周期
+ * @param {Boolean} callHome // 是否触发首页的生命周期
+ *
+ * this 为当前 page 对象
+ */
+var callwaitHooks = function callwaitHooks(callHome) {var _this = this;
+  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve) {var variation, appVue, indexVue, onLaunch, onShow, waitHooks, variationFuns, indexCallHooks, app, key, _loop, _key;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              variation = []; // 存储一下在uni-app上的变异生命钩子  奇葩的要死
+
+              appVue =
+              _config.uniAppHook.appVue, indexVue = _config.uniAppHook.indexVue, onLaunch = _config.uniAppHook.onLaunch, onShow = _config.uniAppHook.onShow, waitHooks = _config.uniAppHook.waitHooks, variationFuns = _config.uniAppHook.variationFuns, indexCallHooks = _config.uniAppHook.indexCallHooks;
+              app = appVue.$options;_context.next = 5;return (
+                onLaunch.fun[onLaunch.fun.length - 1].call(appVue, onLaunch.args));case 5: // 确保只执行最后一个 并且强化异步操作
+              onShow.fun[onShow.fun.length - 1].call(appVue, onShow.args); // onshow 不保证异步 直接确保执行最后一个
+              if (callHome) {// 触发首页生命周期
+                // eslint-disable-next-line
+                for (key in waitHooks) {
+                  if (indexCallHooks.includes(key)) {// 只有在被包含的情况下才执行
+                    _util.callAppHook.call(_this, waitHooks[key].fun);
+                  }
+                }
+              }
+              if (onLaunch.isHijack) {// 还原 onLaunch生命钩子
+                app.onLaunch.splice(app.onLaunch.length - 1, 1, onLaunch.fun[0]);
+              }
+              if (onShow.isHijack) {// 继续还原 onShow
+                app.onShow.splice(app.onShow.length - 1, 1, onShow.fun[0]);
+              }
+              // eslint-disable-next-line
+              _loop = function _loop(_key) {// 还原 首页下的生命钩子
+                var item = waitHooks[_key];
+                if (item.isHijack) {
+                  if (variationFuns.includes(_key)) {// 变异方法
+                    variation.push({ key: _key, fun: item.fun[0] });
+                  } else {
+                    var indeHooks = indexVue[_key];
+                    // 修复 https://github.com/SilurianYang/uni-simple-router/issues/76
+                    setTimeout(function () {// 异步延迟还原 不然 uni-app 给给触发了
+                      indeHooks.splice(indeHooks.length - 1, 1, item.fun[0]);
+                    }, 50);
+                  }
+                }};for (_key in waitHooks) {_loop(_key);
+              }
+              resolve(variation);case 12:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}());
+
+};
+/**
+    * 还原剩下的奇葩生命钩子
+    * @param {Object} variation 当前uni-app中的一些变异方法  奇葩生命钩子
+    */
+var callVariationHooks = function callVariationHooks(variation) {
+  for (var i = 0; i < variation.length; i += 1) {var _variation$i =
+    variation[i],key = _variation$i.key,fun = _variation$i.fun;
+    var indeHooks = _config.uniAppHook.indexVue[key];
+    indeHooks.splice(indeHooks.length - 1, 1, fun);
+  }
+};
+
+/**
+    * 主要是对app.vue下onLaunch和onShow生命周期进行劫持
+    *
+    * this 为当前 page 对象
+    */
+var proxyLaunchHook = function proxyLaunchHook() {var _this2 = this;var _this$$options =
+
+
+
+  this.$options,onLaunch = _this$$options.onLaunch,onShow = _this$$options.onShow;
+  _config.uniAppHook.appVue = this; // 缓存 当前app.vue组件对象
+  if (onLaunch.length > 1) {// 确保有写 onLaunch 可能有其他混入 那也办法
+    _config.uniAppHook.onLaunch.isHijack = true;
+    _config.uniAppHook.onLaunch.fun = onLaunch.splice(onLaunch.length - 1, 1, function (arg) {
+      _config.uniAppHook.onLaunch.args = arg;
+    }); // 替换uni-app自带的生命周期
+  }
+  if (onShow.length > 0) {
+    _config.uniAppHook.onShow.isHijack = true;
+    _config.uniAppHook.onShow.fun = onShow.splice(onShow.length - 1, 1, function (arg) {
+      _config.uniAppHook.onShow.args = arg;
+      if (_config.uniAppHook.pageReady) {// 因为还有app切前台后台的操作
+        _util.callAppHook.call(_this2, _config.uniAppHook.onShow.fun, arg);
+      }
+    }); // 替换替换 都替换
+  }
+};
+
+/**
+    * 把指定页面的生命钩子函数保存并替换
+    * this 为当前 page 对象
+    */exports.proxyLaunchHook = proxyLaunchHook;
+var proxyIndexHook = function proxyIndexHook(Router) {var
+  needHooks = _config.uniAppHook.needHooks,waitHooks = _config.uniAppHook.waitHooks;
+  var options = this.$options;
+  _config.uniAppHook.indexVue = options;
+  for (var i = 0; i < needHooks.length; i += 1) {
+    var key = needHooks[i];
+    if (options[key] != null) {// 只劫持开发者声明的生命周期
+      var length = options[key].length;
+      // eslint-disable-next-line
+      var whObject = waitHooks[key] = {};
+      whObject.fun = options[key].splice(length - 1, 1, _util2.noop); // 把实际的页面生命钩子函数缓存起来,替换原有的生命钩子
+      whObject.isHijack = true;
+    }
+  }
+  // eslint-disable-next-line
+  triggerLifeCycle.call(this, Router); // 接着 主动我们触发导航守卫
+};
+/**
+    * 触发全局beforeHooks 生命钩子
+    * @param {Object} _from // from  参数
+    * @param {Object} _to  // to 参数
+    *
+    * this 为当前 Router 对象
+    */exports.proxyIndexHook = proxyIndexHook;
+var beforeHooks = function beforeHooks(_from, _to) {var _this3 = this;
+  return new Promise( /*#__PURE__*/function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(resolve) {var beforeHooksFun;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+              beforeHooksFun = _this3.lifeCycle.beforeHooks[0];if (!(
+              beforeHooksFun == null)) {_context2.next = 3;break;}return _context2.abrupt("return",
+              resolve());case 3:_context2.next = 5;return (
+
+                beforeHooksFun.call(_this3, _to, _from, resolve));case 5:case "end":return _context2.stop();}}}, _callee2);}));return function (_x2) {return _ref2.apply(this, arguments);};}());
+
+};
+/**
+    * 触发全局afterEachHooks 生命钩子
+    * @param {Object} _from // from  参数
+    * @param {Object} _to  // to 参数
+    *
+    * this 为当前 Router 对象
+    */
+var afterEachHooks = function afterEachHooks(_from, _to) {
+  var afterHooks = this.lifeCycle.afterHooks[0];
+  if (afterHooks != null && afterHooks.constructor === Function) {
+    afterHooks.call(this, _to, _from);
+  }
+};
+/**
+    * 触发全局 beforeEnter 生命钩子
+    * @param {Object} finalRoute 	// 当前格式化后的路由参数
+    * @param {Object} _from // from  参数
+    * @param {Object} _to  // to 参数
+    *
+    * this 为当前 Router 对象
+    */
+var beforeEnterHooks = function beforeEnterHooks(finalRoute, _from, _to) {var _this4 = this;
+  return new Promise( /*#__PURE__*/function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(resolve) {var beforeEnter;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+              beforeEnter = finalRoute.route.beforeEnter;if (!(
+              beforeEnter == null || beforeEnter.constructor !== Function)) {_context3.next = 3;break;}return _context3.abrupt("return",
+              resolve());case 3:_context3.next = 5;return (
+
+                beforeEnter.call(_this4, _to, _from, resolve));case 5:case "end":return _context3.stop();}}}, _callee3);}));return function (_x3) {return _ref3.apply(this, arguments);};}());
+
+};
+/**
+    * 触发返回事件公共方法
+    * @param {Object} page	用getPages获取到的页面栈对象
+    * @param {Object} options 	当前vue页面对象
+    * @param {Object} backLayerC	需要返回页面的层级
+      *
+    * this 为当前 Router 对象
+    */
+var backCallHook = function backCallHook(page, options) {var _this5 = this;var backLayerC = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  var route = (0, _util.APPGetPageRoute)([page]);
+  var NAVTYPE = 'RouterBack';
+  // eslint-disable-next-line
+  transitionTo.call(this, { path: route.path, query: route.query }, NAVTYPE, function (finalRoute, fnType) {
+    if (fnType != NAVTYPE) {// 返回时的api如果有next到其他页面 那么必须带上NAVTYPE  不相同则表示需要跳转到其他页面
+      return (0, _uniNav.default)(finalRoute, fnType);
+    }
+    if (startBack) {// 如果当前处于正在返回的状态
+      return (0, _warn.warn)('当前处于正在返回的状态，请稍后再试！');
+    }
+    startBack = true; // 标记开始返回
+    options.onBackPress = [_util2.noop]; // 改回uni-app可执行的状态
+    setTimeout(function () {
+      _this5.back(backLayerC, undefined, true); // 越过加锁验证
+      startBack = false; // 返回结束
+    });
+  });
+};
+/**
+    * 处理返回按钮的生命钩子
+    * @param {Object} options 当前 vue 组件对象下的$options对象
+    * @param {Array} args  当前页面是点击头部返回还是底部返回
+    *
+    * this 为当前 Router 对象
+    */
+var beforeBackHooks = /*#__PURE__*/function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4(options, args) {var isNext, page;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+              (0, _util.getPageOnBeforeBack)(args));case 2:isNext = _context4.sent;if (!(
+            isNext === false)) {_context4.next = 6;break;} // onBeforeBack  返回了true 阻止了跳转
+            _config.Global.LockStatus = false; // 也需要解锁
+            return _context4.abrupt("return", false);case 6:
+
+            page = (0, _util.getPages)(-3); // 上一个页面对象
+            backCallHook.call(this, page, options);case 8:case "end":return _context4.stop();}}}, _callee4, this);}));return function beforeBackHooks(_x4, _x5) {return _ref4.apply(this, arguments);};}();
+
+/**
+                                                                                                                                                                                                             * 处理back api的生命钩子
+                                                                                                                                                                                                             * @param {Object} options 当前 vue 组件对象下的$options对象
+                                                                                                                                                                                                             * @param {Array} args  当前页面是点击头部返回还是底部返回
+                                                                                                                                                                                                             *
+                                                                                                                                                                                                             * this 为当前 Router 对象
+                                                                                                                                                                                                             */exports.beforeBackHooks = beforeBackHooks;
+var backApiCallHook = /*#__PURE__*/function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5(options, args) {var backLayerC, pages, page;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
+              (0, _util.getPageOnBeforeBack)(args));case 2:
+            backLayerC = _config.Global.backLayerC;
+            pages = (0, _util.getPages)();
+            page = null;
+            if (backLayerC > pages.length - 1 || backLayerC == pages.length - 1) {// 返回的首页 我们需要显示tabbar拦截
+              // eslint-disable-next-line
+              page = pages[0];
+            } else {
+              page = pages[pages.length - 2];
+            }
+            backCallHook.call(this, page, options, backLayerC);case 7:case "end":return _context5.stop();}}}, _callee5, this);}));return function backApiCallHook(_x6, _x7) {return _ref5.apply(this, arguments);};}();
+
+/**
+                                                                                                                                                                                                                         *  v1.5.4+
+                                                                                                                                                                                                                         * beforeRouteLeave 生命周期
+                                                                                                                                                                                                                         * @param {Object} to       将要去的那个页面 to对象
+                                                                                                                                                                                                                         * @param {Object} from     从那个页面触发的 from对象
+                                                                                                                                                                                                                         *  @param {Boolean} leaveHook:? 是否为 beforeRouteLeave 触发的next 到别处 如果是则不再触发 beforeRouteLeave 生命钩子
+                                                                                                                                                                                                                         * this 为当前 Router 对象
+                                                                                                                                                                                                                         */exports.backApiCallHook = backApiCallHook;
+var beforeRouteLeaveHooks = function beforeRouteLeaveHooks(from, to, leaveHook) {
+  return new Promise(function (resolve) {
+    if (leaveHook) {// 我们知道这个是来自页面beforeRouteLeave next到其他地方，所有不必再执行啦
+      (0, _warn.warn)('beforeRouteLeave next到其他地方，无须再执行！');
+      return resolve();
+    }
+    if (from.path == to.path) {// 进入首页的时候不触发
+      return resolve();
+    }
+    var currentPage = (0, _util.getPages)(-2); // 获取到全部的页面对象
+    var callThis = (0, _util.getPageVmOrMp)(currentPage); // 获取到页面的 $vm 对象 及 page页面的this对象
+    var beforeRouteLeave = callThis.$options.beforeRouteLeave; // 查看当前是否有开发者声明
+    if (beforeRouteLeave == null) {
+      (0, _warn.warn)('当前页面下无 beforeRouteLeave 钩子声明，无须执行！');
+      return resolve();
+    }
+    if (beforeRouteLeave != null && beforeRouteLeave.constructor !== Function) {
+      (0, _warn.warn)('beforeRouteLeave 生命钩子声明错误，必须是一个函数！');
+      return resolve();
+    }
+    beforeRouteLeave.call(callThis, to, from, resolve); // 执行生命钩子
+  });
+};
+
+/**
+    * 验证当前 next() 管道函数是否支持下一步
+    *
+    * @param {Object} Intercept 拦截到的新路由规则
+    * @param {Object} fnType 跳转页面的类型方法 原始的
+    * @param {Object} navCB 回调函数 原始的
+    * @param {Boolean} leaveHookCall:? 是否为 beforeRouteLeave 触发的next 做拦截判断
+    * this 为当前 Router 对象
+    *
+    */
+var isNext = function isNext(Intercept, fnType, navCB) {var _this6 = this;var leaveHookCall = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  return new Promise(function (resolve, reject) {
+    if (Intercept == null) {// 什么也不做 直接执行下一个钩子
+      return resolve();
+    }
+    if (Intercept === false) {// 路由中断
+      _config.Global.LockStatus = false; // 解锁跳转状态
+      return reject('路由终止');
+    }
+    if (Intercept.constructor === String) {// 说明 开发者直接传的path 并且没有指定 NAVTYPE 那么采用原来的navType
+      reject('next到其他页面');
+      // eslint-disable-next-line
+      return transitionTo.call(_this6, Intercept, fnType, navCB, leaveHookCall);
+    }
+    if (Intercept.constructor === Object) {// 有一系列的配置 包括页面切换动画什么的
+      reject('next到其他页面');
+      // eslint-disable-next-line
+      return transitionTo.call(_this6, Intercept, Intercept.NAVTYPE || fnType, navCB, leaveHookCall);
+    }
+  });
+};
+/**
+    * 核心方法 处理一系列的跳转配置
+    * @param {Object} rule 当前跳转规则
+    * @param {Object} fnType 跳转页面的类型方法
+    * @param {Object} navCB:? 回调函数
+    * @param {Boolean} leaveHook:? 是否为 beforeRouteLeave 触发的next 到别处 如果是则不再触发 beforeRouteLeave 生命钩子
+    *
+    * this 为当前 Router 对象
+    */
+var transitionTo = /*#__PURE__*/function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6(rule, fnType, navCB) {var leaveHook,finalRoute,_from,_to,leaveResult,beforeResult,enterResult,_args6 = arguments;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:leaveHook = _args6.length > 3 && _args6[3] !== undefined ? _args6[3] : false;_context6.next = 3;return (
+              this.lifeCycle.routerbeforeHooks[0].call(this));case 3: // 触发内部跳转前的生命周期
+            finalRoute = (0, _util.ruleToUniNavInfo)(rule, this.CONFIG.routes); // 获得到最终的 route 对象
+            _from = (0, _util.formatFrom)(this.CONFIG.routes); // 先根据跳转类型获取 from 数据
+            _to = (0, _util.formatTo)(finalRoute); // 再根据跳转类型获取 to 数据
+            _context6.prev = 6;_context6.next = 9;return (
+              beforeRouteLeaveHooks.call(this, _from, _to, leaveHook));case 9:leaveResult = _context6.sent;_context6.next = 12;return (
+              isNext.call(this, leaveResult, fnType, navCB, true));case 12:_context6.next = 14;return (
+
+              beforeHooks.call(this, _from, _to));case 14:beforeResult = _context6.sent;_context6.next = 17;return (
+              isNext.call(this, beforeResult, fnType, navCB));case 17:_context6.next = 19;return (
+
+              beforeEnterHooks.call(this, finalRoute, _from, _to));case 19:enterResult = _context6.sent;_context6.next = 22;return (
+              isNext.call(this, enterResult, fnType, navCB));case 22:_context6.next = 28;break;case 24:_context6.prev = 24;_context6.t0 = _context6["catch"](6);
+
+            (0, _warn.warn)(_context6.t0); // 打印开发者操作的日志
+            return _context6.abrupt("return", false);case 28:
+
+            if (navCB) {
+              navCB.call(this, finalRoute, fnType); // 执行当前回调生命周期
+            }
+            afterEachHooks.call(this, _from, _to);_context6.next = 32;return (
+              this.lifeCycle.routerAfterHooks[0].call(this));case 32:case "end":return _context6.stop();}}}, _callee6, this, [[6, 24]]);}));return function transitionTo(_x8, _x9, _x10) {return _ref6.apply(this, arguments);};}();
+
+/**
+                                                                                                                                                                                                                                      * 主动触发导航守卫
+                                                                                                                                                                                                                                      * @param {Object} Router 当前路由对象
+                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                      * this  当前vue页面组件对象
+                                                                                                                                                                                                                                      */exports.transitionTo = transitionTo;
+var triggerLifeCycle = function triggerLifeCycle(Router) {var _this7 = this;
+  var topPage = getCurrentPages()[0];
+  if (topPage == null) {
+    return (0, _warn.warn)('打扰了,当前一个页面也没有 这不是官方的bug是什么??');
+  }var _getPageVmOrMp =
+  (0, _util.getPageVmOrMp)(topPage, false),query = _getPageVmOrMp.query,page = _getPageVmOrMp.page;
+  transitionTo.call(Router, { path: page.route, query: query }, 'push', /*#__PURE__*/function () {var _ref7 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee7(finalRoute, fnType) {var variation;return _regenerator.default.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:
+              variation = [];if (!(
+              "/".concat(page.route) == finalRoute.route.path)) {_context7.next = 7;break;} // 在首页不动的情况下
+              _config.uniAppHook.pageReady = true; // 标致着路由已经就绪 可能准备起飞
+              _context7.next = 5;return callwaitHooks.call(_this7, true);case 5:_context7.next = 12;break;case 7:_context7.next = 9;return (
+
+                callwaitHooks.call(_this7, false));case 9:variation = _context7.sent;_context7.next = 12;return (
+                (0, _uniNav.default)(finalRoute, fnType));case 12:
+
+              plus.nativeObj.View.getViewById('router-loadding').close();
+              callVariationHooks(variation);
+              _config.uniAppHook.pageReady = true; // 标致着路由已经就绪 可能准备起飞
+            case 15:case "end":return _context7.stop();}}}, _callee7);}));return function (_x11, _x12) {return _ref7.apply(this, arguments);};}());
+};
+
+/**
+    * 处理tabbar点击拦截事件
+    * @param {Object} path 当前需要跳转的tab页面路径
+    *
+    * this 为当前 Router 对象
+    */exports.triggerLifeCycle = triggerLifeCycle;
+var beforeTabHooks = function beforeTabHooks(path) {
+  transitionTo.call(this, { path: "/".concat(path), query: {} }, 'pushTab', function (finalRoute, fnType) {
+    (0, _uniNav.default)(finalRoute, fnType);
+  });
+};exports.beforeTabHooks = beforeTabHooks;
+
+/***/ }),
+
+/***/ 19:
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator/index.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ 20);
+
+/***/ }),
+
+/***/ 197:
+/*!*****************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/components/uni-icons/icons.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2814,743 +3020,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   "cloud-download-filled": "\uE8E9",
   "headphones": "\uE8BF",
   "shop": "\uE609" };exports.default = _default;
-
-/***/ }),
-
-/***/ 170:
-/*!**********************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/components/uni-popup/popup.js ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 171));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-// 定义 type 类型:弹出类型：top/bottom/center
-var config = {
-  // 顶部弹出
-  top: 'top',
-  // 底部弹出
-  bottom: 'bottom',
-  // 居中弹出
-  center: 'center',
-  // 消息提示
-  message: 'top',
-  // 对话框
-  dialog: 'center',
-  // 分享
-  share: 'bottom' };var _default =
-
-
-{
-  data: function data() {
-    return {
-      config: config };
-
-  },
-  mixins: [_message.default] };exports.default = _default;
-
-/***/ }),
-
-/***/ 171:
-/*!************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/components/uni-popup/message.js ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  created: function created() {
-    if (this.type === 'message') {
-      // 不显示遮罩
-      this.maskShow = false;
-      // 获取子组件对象
-      this.childrenMsg = null;
-    }
-  },
-  methods: {
-    customOpen: function customOpen() {
-      if (this.childrenMsg) {
-        this.childrenMsg.open();
-      }
-    },
-    customClose: function customClose() {
-      if (this.childrenMsg) {
-        this.childrenMsg.close();
-      }
-    } } };exports.default = _default;
-
-/***/ }),
-
-/***/ 179:
-/*!**********************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/components/gaoyia-parse/libs/html2json.js ***!
-  \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _wxDiscode = _interopRequireDefault(__webpack_require__(/*! ./wxDiscode */ 180));
-var _htmlparser = _interopRequireDefault(__webpack_require__(/*! ./htmlparser */ 181));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /**
-                                                                                                                                                                 * html2Json 改造来自: https://github.com/Jxck/html2json
-                                                                                                                                                                 *
-                                                                                                                                                                 *
-                                                                                                                                                                 * author: Di (微信小程序开发工程师)
-                                                                                                                                                                 * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
-                                                                                                                                                                 *               垂直微信小程序开发交流社区
-                                                                                                                                                                 *
-                                                                                                                                                                 * github地址: https://github.com/icindy/wxParse
-                                                                                                                                                                 *
-                                                                                                                                                                 * for: 微信小程序富文本解析
-                                                                                                                                                                 * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
-                                                                                                                                                                 */function makeMap(str) {var obj = {};var items = str.split(',');for (var i = 0; i < items.length; i += 1) {obj[items[i]] = true;}return obj;} // Block Elements - HTML 5
-var block = makeMap('br,code,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video'); // Inline Elements - HTML 5
-var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
-// Elements that you can, intentionally, leave open
-// (and which close themselves)
-var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
-
-function removeDOCTYPE(html) {
-  var isDocument = /<body.*>([^]*)<\/body>/.test(html);
-  return isDocument ? RegExp.$1 : html;
-}
-
-function trimHtml(html) {
-  return html.
-  replace(/<!--.*?-->/gi, '').
-  replace(/\/\*.*?\*\//gi, '').
-  replace(/[ ]+</gi, '<').
-  replace(/<script[^]*<\/script>/gi, '').
-  replace(/<style[^]*<\/style>/gi, '');
-}
-
-function getScreenInfo() {
-  var screen = {};
-  wx.getSystemInfo({
-    success: function success(res) {
-      screen.width = res.windowWidth;
-      screen.height = res.windowHeight;
-    } });
-
-  return screen;
-}
-
-function html2json(html, customHandler, imageProp, host) {
-  // 处理字符串
-  html = removeDOCTYPE(html);
-  html = trimHtml(html);
-  html = _wxDiscode.default.strDiscode(html);
-  // 生成node节点
-  var bufArray = [];
-  var results = {
-    nodes: [],
-    imageUrls: [] };
-
-
-  var screen = getScreenInfo();
-  function Node(tag) {
-    this.node = 'element';
-    this.tag = tag;
-
-    this.$screen = screen;
-  }
-
-  (0, _htmlparser.default)(html, {
-    start: function start(tag, attrs, unary) {
-      // node for this element
-      var node = new Node(tag);
-
-      if (bufArray.length !== 0) {
-        var parent = bufArray[0];
-        if (parent.nodes === undefined) {
-          parent.nodes = [];
-        }
-      }
-
-      if (block[tag]) {
-        node.tagType = 'block';
-      } else if (inline[tag]) {
-        node.tagType = 'inline';
-      } else if (closeSelf[tag]) {
-        node.tagType = 'closeSelf';
-      }
-
-      node.attr = attrs.reduce(function (pre, attr) {var
-        name = attr.name;var
-        value = attr.value;
-        if (name === 'class') {
-          node.classStr = value;
-        }
-        // has multi attibutes
-        // make it array of attribute
-        if (name === 'style') {
-          node.styleStr = value;
-        }
-        if (value.match(/ /)) {
-          value = value.split(' ');
-        }
-
-        // if attr already exists
-        // merge it
-        if (pre[name]) {
-          if (Array.isArray(pre[name])) {
-            // already array, push to last
-            pre[name].push(value);
-          } else {
-            // single value, make it array
-            pre[name] = [pre[name], value];
-          }
-        } else {
-          // not exist, put it
-          pre[name] = value;
-        }
-
-        return pre;
-      }, {});
-
-      // 优化样式相关属性
-      if (node.classStr) {
-        node.classStr += " ".concat(node.tag);
-      } else {
-        node.classStr = node.tag;
-      }
-      if (node.tagType === 'inline') {
-        node.classStr += ' inline';
-      }
-
-      // 对img添加额外数据
-      if (node.tag === 'img') {
-        var imgUrl = node.attr.src;
-        imgUrl = _wxDiscode.default.urlToHttpUrl(imgUrl, imageProp.domain);
-        Object.assign(node.attr, imageProp, {
-          src: imgUrl || '' });
-
-        if (imgUrl) {
-          results.imageUrls.push(imgUrl);
-        }
-      }
-
-      // 处理a标签属性
-      if (node.tag === 'a') {
-        node.attr.href = node.attr.href || '';
-      }
-
-      // 处理font标签样式属性
-      if (node.tag === 'font') {
-        var fontSize = [
-        'x-small',
-        'small',
-        'medium',
-        'large',
-        'x-large',
-        'xx-large',
-        '-webkit-xxx-large'];
-
-        var styleAttrs = {
-          color: 'color',
-          face: 'font-family',
-          size: 'font-size' };
-
-        if (!node.styleStr) node.styleStr = '';
-        Object.keys(styleAttrs).forEach(function (key) {
-          if (node.attr[key]) {
-            var value = key === 'size' ? fontSize[node.attr[key] - 1] : node.attr[key];
-            node.styleStr += "".concat(styleAttrs[key], ": ").concat(value, ";");
-          }
-        });
-      }
-
-      // 临时记录source资源
-      if (node.tag === 'source') {
-        results.source = node.attr.src;
-      }
-
-      if (customHandler.start) {
-        customHandler.start(node, results);
-      }
-
-      if (unary) {
-        // if this tag doesn't have end tag
-        // like <img src="hoge.png"/>
-        // add to parents
-        var _parent = bufArray[0] || results;
-        if (_parent.nodes === undefined) {
-          _parent.nodes = [];
-        }
-        _parent.nodes.push(node);
-      } else {
-        bufArray.unshift(node);
-      }
-    },
-    end: function end(tag) {
-      // merge into parent tag
-      var node = bufArray.shift();
-      if (node.tag !== tag) {
-        console.error('invalid state: mismatch end tag');
-      }
-
-      // 当有缓存source资源时于于video补上src资源
-      if (node.tag === 'video' && results.source) {
-        node.attr.src = results.source;
-        delete results.source;
-      }
-
-      if (customHandler.end) {
-        customHandler.end(node, results);
-      }
-
-      if (bufArray.length === 0) {
-        results.nodes.push(node);
-      } else {
-        var parent = bufArray[0];
-        if (!parent.nodes) {
-          parent.nodes = [];
-        }
-        parent.nodes.push(node);
-      }
-    },
-    chars: function chars(text) {
-      if (!text.trim()) return;
-
-      var node = {
-        node: 'text',
-        text: text };
-
-
-      if (customHandler.chars) {
-        customHandler.chars(node, results);
-      }
-
-      if (bufArray.length === 0) {
-        results.nodes.push(node);
-      } else {
-        var parent = bufArray[0];
-        if (parent.nodes === undefined) {
-          parent.nodes = [];
-        }
-        parent.nodes.push(node);
-      }
-    } });
-
-
-  return results;
-}var _default =
-
-html2json;exports.default = _default;
-
-/***/ }),
-
-/***/ 180:
-/*!**********************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/components/gaoyia-parse/libs/wxDiscode.js ***!
-  \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // HTML 支持的数学符号
-function strNumDiscode(str) {
-  str = str.replace(/&forall;|&#8704;|&#x2200;/g, '∀');
-  str = str.replace(/&part;|&#8706;|&#x2202;/g, '∂');
-  str = str.replace(/&exist;|&#8707;|&#x2203;/g, '∃');
-  str = str.replace(/&empty;|&#8709;|&#x2205;/g, '∅');
-  str = str.replace(/&nabla;|&#8711;|&#x2207;/g, '∇');
-  str = str.replace(/&isin;|&#8712;|&#x2208;/g, '∈');
-  str = str.replace(/&notin;|&#8713;|&#x2209;/g, '∉');
-  str = str.replace(/&ni;|&#8715;|&#x220b;/g, '∋');
-  str = str.replace(/&prod;|&#8719;|&#x220f;/g, '∏');
-  str = str.replace(/&sum;|&#8721;|&#x2211;/g, '∑');
-  str = str.replace(/&minus;|&#8722;|&#x2212;/g, '−');
-  str = str.replace(/&lowast;|&#8727;|&#x2217;/g, '∗');
-  str = str.replace(/&radic;|&#8730;|&#x221a;/g, '√');
-  str = str.replace(/&prop;|&#8733;|&#x221d;/g, '∝');
-  str = str.replace(/&infin;|&#8734;|&#x221e;/g, '∞');
-  str = str.replace(/&ang;|&#8736;|&#x2220;/g, '∠');
-  str = str.replace(/&and;|&#8743;|&#x2227;/g, '∧');
-  str = str.replace(/&or;|&#8744;|&#x2228;/g, '∨');
-  str = str.replace(/&cap;|&#8745;|&#x2229;/g, '∩');
-  str = str.replace(/&cup;|&#8746;|&#x222a;/g, '∪');
-  str = str.replace(/&int;|&#8747;|&#x222b;/g, '∫');
-  str = str.replace(/&there4;|&#8756;|&#x2234;/g, '∴');
-  str = str.replace(/&sim;|&#8764;|&#x223c;/g, '∼');
-  str = str.replace(/&cong;|&#8773;|&#x2245;/g, '≅');
-  str = str.replace(/&asymp;|&#8776;|&#x2248;/g, '≈');
-  str = str.replace(/&ne;|&#8800;|&#x2260;/g, '≠');
-  str = str.replace(/&le;|&#8804;|&#x2264;/g, '≤');
-  str = str.replace(/&ge;|&#8805;|&#x2265;/g, '≥');
-  str = str.replace(/&sub;|&#8834;|&#x2282;/g, '⊂');
-  str = str.replace(/&sup;|&#8835;|&#x2283;/g, '⊃');
-  str = str.replace(/&nsub;|&#8836;|&#x2284;/g, '⊄');
-  str = str.replace(/&sube;|&#8838;|&#x2286;/g, '⊆');
-  str = str.replace(/&supe;|&#8839;|&#x2287;/g, '⊇');
-  str = str.replace(/&oplus;|&#8853;|&#x2295;/g, '⊕');
-  str = str.replace(/&otimes;|&#8855;|&#x2297;/g, '⊗');
-  str = str.replace(/&perp;|&#8869;|&#x22a5;/g, '⊥');
-  str = str.replace(/&sdot;|&#8901;|&#x22c5;/g, '⋅');
-  return str;
-}
-
-// HTML 支持的希腊字母
-function strGreeceDiscode(str) {
-  str = str.replace(/&Alpha;|&#913;|&#x391;/g, 'Α');
-  str = str.replace(/&Beta;|&#914;|&#x392;/g, 'Β');
-  str = str.replace(/&Gamma;|&#915;|&#x393;/g, 'Γ');
-  str = str.replace(/&Delta;|&#916;|&#x394;/g, 'Δ');
-  str = str.replace(/&Epsilon;|&#917;|&#x395;/g, 'Ε');
-  str = str.replace(/&Zeta;|&#918;|&#x396;/g, 'Ζ');
-  str = str.replace(/&Eta;|&#919;|&#x397;/g, 'Η');
-  str = str.replace(/&Theta;|&#920;|&#x398;/g, 'Θ');
-  str = str.replace(/&Iota;|&#921;|&#x399;/g, 'Ι');
-  str = str.replace(/&Kappa;|&#922;|&#x39a;/g, 'Κ');
-  str = str.replace(/&Lambda;|&#923;|&#x39b;/g, 'Λ');
-  str = str.replace(/&Mu;|&#924;|&#x39c;/g, 'Μ');
-  str = str.replace(/&Nu;|&#925;|&#x39d;/g, 'Ν');
-  str = str.replace(/&Xi;|&#925;|&#x39d;/g, 'Ν');
-  str = str.replace(/&Omicron;|&#927;|&#x39f;/g, 'Ο');
-  str = str.replace(/&Pi;|&#928;|&#x3a0;/g, 'Π');
-  str = str.replace(/&Rho;|&#929;|&#x3a1;/g, 'Ρ');
-  str = str.replace(/&Sigma;|&#931;|&#x3a3;/g, 'Σ');
-  str = str.replace(/&Tau;|&#932;|&#x3a4;/g, 'Τ');
-  str = str.replace(/&Upsilon;|&#933;|&#x3a5;/g, 'Υ');
-  str = str.replace(/&Phi;|&#934;|&#x3a6;/g, 'Φ');
-  str = str.replace(/&Chi;|&#935;|&#x3a7;/g, 'Χ');
-  str = str.replace(/&Psi;|&#936;|&#x3a8;/g, 'Ψ');
-  str = str.replace(/&Omega;|&#937;|&#x3a9;/g, 'Ω');
-
-  str = str.replace(/&alpha;|&#945;|&#x3b1;/g, 'α');
-  str = str.replace(/&beta;|&#946;|&#x3b2;/g, 'β');
-  str = str.replace(/&gamma;|&#947;|&#x3b3;/g, 'γ');
-  str = str.replace(/&delta;|&#948;|&#x3b4;/g, 'δ');
-  str = str.replace(/&epsilon;|&#949;|&#x3b5;/g, 'ε');
-  str = str.replace(/&zeta;|&#950;|&#x3b6;/g, 'ζ');
-  str = str.replace(/&eta;|&#951;|&#x3b7;/g, 'η');
-  str = str.replace(/&theta;|&#952;|&#x3b8;/g, 'θ');
-  str = str.replace(/&iota;|&#953;|&#x3b9;/g, 'ι');
-  str = str.replace(/&kappa;|&#954;|&#x3ba;/g, 'κ');
-  str = str.replace(/&lambda;|&#955;|&#x3bb;/g, 'λ');
-  str = str.replace(/&mu;|&#956;|&#x3bc;/g, 'μ');
-  str = str.replace(/&nu;|&#957;|&#x3bd;/g, 'ν');
-  str = str.replace(/&xi;|&#958;|&#x3be;/g, 'ξ');
-  str = str.replace(/&omicron;|&#959;|&#x3bf;/g, 'ο');
-  str = str.replace(/&pi;|&#960;|&#x3c0;/g, 'π');
-  str = str.replace(/&rho;|&#961;|&#x3c1;/g, 'ρ');
-  str = str.replace(/&sigmaf;|&#962;|&#x3c2;/g, 'ς');
-  str = str.replace(/&sigma;|&#963;|&#x3c3;/g, 'σ');
-  str = str.replace(/&tau;|&#964;|&#x3c4;/g, 'τ');
-  str = str.replace(/&upsilon;|&#965;|&#x3c5;/g, 'υ');
-  str = str.replace(/&phi;|&#966;|&#x3c6;/g, 'φ');
-  str = str.replace(/&chi;|&#967;|&#x3c7;/g, 'χ');
-  str = str.replace(/&psi;|&#968;|&#x3c8;/g, 'ψ');
-  str = str.replace(/&omega;|&#969;|&#x3c9;/g, 'ω');
-  str = str.replace(/&thetasym;|&#977;|&#x3d1;/g, 'ϑ');
-  str = str.replace(/&upsih;|&#978;|&#x3d2;/g, 'ϒ');
-  str = str.replace(/&piv;|&#982;|&#x3d6;/g, 'ϖ');
-  str = str.replace(/&middot;|&#183;|&#xb7;/g, '·');
-  return str;
-}
-
-function strcharacterDiscode(str) {
-  // 加入常用解析
-
-  // str = str.replace(/&nbsp;|&#32;|&#x20;/g, "&nbsp;");
-  // str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '&ensp;');
-  // str = str.replace(/&#12288;|&#x3000;/g, '<span class=\'spaceshow\'>　</span>');
-  // str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '&emsp;');
-  // str = str.replace(/&quot;|&#34;|&#x22;/g, "\"");
-  // str = str.replace(/&apos;|&#39;|&#x27;/g, "&apos;");
-  // str = str.replace(/&acute;|&#180;|&#xB4;/g, "´");
-  // str = str.replace(/&times;|&#215;|&#xD7;/g, "×");
-  // str = str.replace(/&divide;|&#247;|&#xF7;/g, "÷");
-  // str = str.replace(/&amp;|&#38;|&#x26;/g, '&amp;');
-  // str = str.replace(/&lt;|&#60;|&#x3c;/g, '&lt;');
-  // str = str.replace(/&gt;|&#62;|&#x3e;/g, '&gt;');
-
-
-
-
-  str = str.replace(/&nbsp;|&#32;|&#x20;/g, "<span class='spaceshow'> </span>");
-  str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '<span class=\'spaceshow\'> </span>');
-  str = str.replace(/&#12288;|&#x3000;/g, '<span class=\'spaceshow\'>　</span>');
-  str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '<span class=\'spaceshow\'> </span>');
-  str = str.replace(/&quot;|&#34;|&#x22;/g, "\"");
-  str = str.replace(/&quot;|&#39;|&#x27;/g, "'");
-  str = str.replace(/&acute;|&#180;|&#xB4;/g, "´");
-  str = str.replace(/&times;|&#215;|&#xD7;/g, "×");
-  str = str.replace(/&divide;|&#247;|&#xF7;/g, "÷");
-  str = str.replace(/&amp;|&#38;|&#x26;/g, '&');
-  str = str.replace(/&lt;|&#60;|&#x3c;/g, '<');
-  str = str.replace(/&gt;|&#62;|&#x3e;/g, '>');
-  return str;
-}
-
-// HTML 支持的其他实体
-function strOtherDiscode(str) {
-  str = str.replace(/&OElig;|&#338;|&#x152;/g, 'Œ');
-  str = str.replace(/&oelig;|&#339;|&#x153;/g, 'œ');
-  str = str.replace(/&Scaron;|&#352;|&#x160;/g, 'Š');
-  str = str.replace(/&scaron;|&#353;|&#x161;/g, 'š');
-  str = str.replace(/&Yuml;|&#376;|&#x178;/g, 'Ÿ');
-  str = str.replace(/&fnof;|&#402;|&#x192;/g, 'ƒ');
-  str = str.replace(/&circ;|&#710;|&#x2c6;/g, 'ˆ');
-  str = str.replace(/&tilde;|&#732;|&#x2dc;/g, '˜');
-  str = str.replace(/&thinsp;|$#8201;|&#x2009;/g, '<span class=\'spaceshow\'> </span>');
-  str = str.replace(/&zwnj;|&#8204;|&#x200C;/g, '<span class=\'spaceshow\'>‌</span>');
-  str = str.replace(/&zwj;|$#8205;|&#x200D;/g, '<span class=\'spaceshow\'>‍</span>');
-  str = str.replace(/&lrm;|$#8206;|&#x200E;/g, '<span class=\'spaceshow\'>‎</span>');
-  str = str.replace(/&rlm;|&#8207;|&#x200F;/g, '<span class=\'spaceshow\'>‏</span>');
-  str = str.replace(/&ndash;|&#8211;|&#x2013;/g, '–');
-  str = str.replace(/&mdash;|&#8212;|&#x2014;/g, '—');
-  str = str.replace(/&lsquo;|&#8216;|&#x2018;/g, '‘');
-  str = str.replace(/&rsquo;|&#8217;|&#x2019;/g, '’');
-  str = str.replace(/&sbquo;|&#8218;|&#x201a;/g, '‚');
-  str = str.replace(/&ldquo;|&#8220;|&#x201c;/g, '“');
-  str = str.replace(/&rdquo;|&#8221;|&#x201d;/g, '”');
-  str = str.replace(/&bdquo;|&#8222;|&#x201e;/g, '„');
-  str = str.replace(/&dagger;|&#8224;|&#x2020;/g, '†');
-  str = str.replace(/&Dagger;|&#8225;|&#x2021;/g, '‡');
-  str = str.replace(/&bull;|&#8226;|&#x2022;/g, '•');
-  str = str.replace(/&hellip;|&#8230;|&#x2026;/g, '…');
-  str = str.replace(/&permil;|&#8240;|&#x2030;/g, '‰');
-  str = str.replace(/&prime;|&#8242;|&#x2032;/g, '′');
-  str = str.replace(/&Prime;|&#8243;|&#x2033;/g, '″');
-  str = str.replace(/&lsaquo;|&#8249;|&#x2039;/g, '‹');
-  str = str.replace(/&rsaquo;|&#8250;|&#x203a;/g, '›');
-  str = str.replace(/&oline;|&#8254;|&#x203e;/g, '‾');
-  str = str.replace(/&euro;|&#8364;|&#x20ac;/g, '€');
-  str = str.replace(/&trade;|&#8482;|&#x2122;/g, '™');
-  str = str.replace(/&larr;|&#8592;|&#x2190;/g, '←');
-  str = str.replace(/&uarr;|&#8593;|&#x2191;/g, '↑');
-  str = str.replace(/&rarr;|&#8594;|&#x2192;/g, '→');
-  str = str.replace(/&darr;|&#8595;|&#x2193;/g, '↓');
-  str = str.replace(/&harr;|&#8596;|&#x2194;/g, '↔');
-  str = str.replace(/&crarr;|&#8629;|&#x21b5;/g, '↵');
-  str = str.replace(/&lceil;|&#8968;|&#x2308;/g, '⌈');
-  str = str.replace(/&rceil;|&#8969;|&#x2309;/g, '⌉');
-  str = str.replace(/&lfloor;|&#8970;|&#x230a;/g, '⌊');
-  str = str.replace(/&rfloor;|&#8971;|&#x230b;/g, '⌋');
-  str = str.replace(/&loz;|&#9674;|&#x25ca;/g, '◊');
-  str = str.replace(/&spades;|&#9824;|&#x2660;/g, '♠');
-  str = str.replace(/&clubs;|&#9827;|&#x2663;/g, '♣');
-  str = str.replace(/&hearts;|&#9829;|&#x2665;/g, '♥');
-  str = str.replace(/&diams;|&#9830;|&#x2666;/g, '♦');
-  return str;
-}
-
-function strDiscode(str) {
-  str = strNumDiscode(str);
-  str = strGreeceDiscode(str);
-  str = strcharacterDiscode(str);
-  str = strOtherDiscode(str);
-  return str;
-}
-
-function urlToHttpUrl(url, domain) {
-  if (/^\/\//.test(url)) {
-    return "https:".concat(url);
-  } else if (/^\//.test(url)) {
-    return "https://".concat(domain).concat(url);
-  }
-  return url;
-}var _default =
-
-{
-  strDiscode: strDiscode,
-  urlToHttpUrl: urlToHttpUrl };exports.default = _default;
-
-/***/ }),
-
-/***/ 181:
-/*!***********************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/components/gaoyia-parse/libs/htmlparser.js ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
-                                                                                                      *
-                                                                                                      * htmlParser改造自: https://github.com/blowsie/Pure-JavaScript-HTML5-Parser
-                                                                                                      *
-                                                                                                      * author: Di (微信小程序开发工程师)
-                                                                                                      * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
-                                                                                                      *               垂直微信小程序开发交流社区
-                                                                                                      *
-                                                                                                      * github地址: https://github.com/icindy/wxParse
-                                                                                                      *
-                                                                                                      * for: 微信小程序富文本解析
-                                                                                                      * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
-                                                                                                      */
-// Regular Expressions for parsing tags and attributes
-
-var startTag = /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z0-9_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/;
-var endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/;
-var attr = /([a-zA-Z0-9_:][-a-zA-Z0-9_:.]*)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g;
-
-function makeMap(str) {
-  var obj = {};
-  var items = str.split(',');
-  for (var i = 0; i < items.length; i += 1) {obj[items[i]] = true;}
-  return obj;
-}
-
-// Empty Elements - HTML 5
-var empty = makeMap('area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr');
-
-// Block Elements - HTML 5
-var block = makeMap('address,code,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
-
-// Inline Elements - HTML 5
-var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
-
-// Elements that you can, intentionally, leave open
-// (and which close themselves)
-var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
-
-// Attributes that have their values filled in disabled="disabled"
-var fillAttrs = makeMap('checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected');
-
-function HTMLParser(html, handler) {
-  var index;
-  var chars;
-  var match;
-  var last = html;
-  var stack = [];
-
-  stack.last = function () {return stack[stack.length - 1];};
-
-  function parseEndTag(tag, tagName) {
-    // If no tag name is provided, clean shop
-    var pos;
-    if (!tagName) {
-      pos = 0;
-    } else {
-      // Find the closest opened tag of the same type
-      tagName = tagName.toLowerCase();
-      for (pos = stack.length - 1; pos >= 0; pos -= 1) {
-        if (stack[pos] === tagName) break;
-      }
-    }
-    if (pos >= 0) {
-      // Close all the open elements, up the stack
-      for (var i = stack.length - 1; i >= pos; i -= 1) {
-        if (handler.end) handler.end(stack[i]);
-      }
-
-      // Remove the open elements from the stack
-      stack.length = pos;
-    }
-  }
-
-  function parseStartTag(tag, tagName, rest, unary) {
-    tagName = tagName.toLowerCase();
-
-    if (block[tagName]) {
-      while (stack.last() && inline[stack.last()]) {
-        parseEndTag('', stack.last());
-      }
-    }
-
-    if (closeSelf[tagName] && stack.last() === tagName) {
-      parseEndTag('', tagName);
-    }
-
-    unary = empty[tagName] || !!unary;
-
-    if (!unary) stack.push(tagName);
-
-    if (handler.start) {
-      var attrs = [];
-
-      rest.replace(attr, function genAttr(matches, name) {
-        var value = arguments[2] || arguments[3] || arguments[4] || (fillAttrs[name] ? name : '');
-
-        attrs.push({
-          name: name,
-          value: value,
-          escaped: value.replace(/(^|[^\\])"/g, '$1\\"') // "
-        });
-      });
-
-      if (handler.start) {
-        handler.start(tagName, attrs, unary);
-      }
-    }
-  }
-
-  while (html) {
-    chars = true;
-
-    if (html.indexOf('</') === 0) {
-      match = html.match(endTag);
-
-      if (match) {
-        html = html.substring(match[0].length);
-        match[0].replace(endTag, parseEndTag);
-        chars = false;
-      }
-
-      // start tag
-    } else if (html.indexOf('<') === 0) {
-      match = html.match(startTag);
-
-      if (match) {
-        html = html.substring(match[0].length);
-        match[0].replace(startTag, parseStartTag);
-        chars = false;
-      }
-    }
-
-    if (chars) {
-      index = html.indexOf('<');
-      var text = '';
-      while (index === 0) {
-        text += '<';
-        html = html.substring(1);
-        index = html.indexOf('<');
-      }
-      text += index < 0 ? html : html.substring(0, index);
-      html = index < 0 ? '' : html.substring(index);
-
-      if (handler.chars) handler.chars(text);
-    }
-
-    if (html === last) throw new Error("Parse Error: ".concat(html));
-    last = html;
-  }
-
-  // Clean up any remaining tags
-  parseEndTag();
-}var _default =
-
-HTMLParser;exports.default = _default;
-
-/***/ }),
-
-/***/ 19:
-/*!************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _createSuper(Derived) {return function () {var Super = _getPrototypeOf(Derived),result;if (_isNativeReflectConstruct()) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _wrapNativeSuper(Class) {var _cache = typeof Map === "function" ? new Map() : undefined;_wrapNativeSuper = function _wrapNativeSuper(Class) {if (Class === null || !_isNativeFunction(Class)) return Class;if (typeof Class !== "function") {throw new TypeError("Super expression must either be null or a function");}if (typeof _cache !== "undefined") {if (_cache.has(Class)) return _cache.get(Class);_cache.set(Class, Wrapper);}function Wrapper() {return _construct(Class, arguments, _getPrototypeOf(this).constructor);}Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });return _setPrototypeOf(Wrapper, Class);};return _wrapNativeSuper(Class);}function _construct(Parent, args, Class) {if (_isNativeReflectConstruct()) {_construct = Reflect.construct;} else {_construct = function _construct(Parent, args, Class) {var a = [null];a.push.apply(a, args);var Constructor = Function.bind.apply(Parent, a);var instance = new Constructor();if (Class) _setPrototypeOf(instance, Class.prototype);return instance;};}return _construct.apply(null, arguments);}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _isNativeFunction(fn) {return Function.toString.call(fn).indexOf("[native code]") !== -1;}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var e = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {};function t(e) {return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;}function n(e, t) {return e(t = { exports: {} }, t.exports), t.exports;}var r = n(function (e, t) {var n;e.exports = (n = n || function (e, t) {var n = Object.create || function () {function e() {}return function (t) {var n;return e.prototype = t, n = new e(), e.prototype = null, n;};}(),r = {},o = r.lib = {},s = o.Base = { extend: function extend(e) {var t = n(this);return e && t.mixIn(e), t.hasOwnProperty("init") && this.init !== t.init || (t.init = function () {t.$super.init.apply(this, arguments);}), t.init.prototype = t, t.$super = this, t;}, create: function create() {var e = this.extend();return e.init.apply(e, arguments), e;}, init: function init() {}, mixIn: function mixIn(e) {for (var t in e) {e.hasOwnProperty(t) && (this[t] = e[t]);}e.hasOwnProperty("toString") && (this.toString = e.toString);}, clone: function clone() {return this.init.prototype.extend(this);} },i = o.WordArray = s.extend({ init: function init(e, t) {e = this.words = e || [], this.sigBytes = null != t ? t : 4 * e.length;}, toString: function toString(e) {return (e || c).stringify(this);}, concat: function concat(e) {var t = this.words,n = e.words,r = this.sigBytes,o = e.sigBytes;if (this.clamp(), r % 4) for (var s = 0; s < o; s++) {var i = n[s >>> 2] >>> 24 - s % 4 * 8 & 255;t[r + s >>> 2] |= i << 24 - (r + s) % 4 * 8;} else for (s = 0; s < o; s += 4) {t[r + s >>> 2] = n[s >>> 2];}return this.sigBytes += o, this;}, clamp: function clamp() {var t = this.words,n = this.sigBytes;t[n >>> 2] &= 4294967295 << 32 - n % 4 * 8, t.length = e.ceil(n / 4);}, clone: function clone() {var e = s.clone.call(this);return e.words = this.words.slice(0), e;}, random: function random(t) {for (var n, r = [], o = function o(t) {t = t;var n = 987654321,r = 4294967295;return function () {var o = ((n = 36969 * (65535 & n) + (n >> 16) & r) << 16) + (t = 18e3 * (65535 & t) + (t >> 16) & r) & r;return o /= 4294967296, (o += .5) * (e.random() > .5 ? 1 : -1);};}, s = 0; s < t; s += 4) {var a = o(4294967296 * (n || e.random()));n = 987654071 * a(), r.push(4294967296 * a() | 0);}return new i.init(r, t);} }),a = r.enc = {},c = a.Hex = { stringify: function stringify(e) {for (var t = e.words, n = e.sigBytes, r = [], o = 0; o < n; o++) {var s = t[o >>> 2] >>> 24 - o % 4 * 8 & 255;r.push((s >>> 4).toString(16)), r.push((15 & s).toString(16));}return r.join("");}, parse: function parse(e) {for (var t = e.length, n = [], r = 0; r < t; r += 2) {n[r >>> 3] |= parseInt(e.substr(r, 2), 16) << 24 - r % 8 * 4;}return new i.init(n, t / 2);} },u = a.Latin1 = { stringify: function stringify(e) {for (var t = e.words, n = e.sigBytes, r = [], o = 0; o < n; o++) {var s = t[o >>> 2] >>> 24 - o % 4 * 8 & 255;r.push(String.fromCharCode(s));}return r.join("");}, parse: function parse(e) {for (var t = e.length, n = [], r = 0; r < t; r++) {n[r >>> 2] |= (255 & e.charCodeAt(r)) << 24 - r % 4 * 8;}return new i.init(n, t);} },l = a.Utf8 = { stringify: function stringify(e) {try {return decodeURIComponent(escape(u.stringify(e)));} catch (e) {throw new Error("Malformed UTF-8 data");}}, parse: function parse(e) {return u.parse(unescape(encodeURIComponent(e)));} },f = o.BufferedBlockAlgorithm = s.extend({ reset: function reset() {this._data = new i.init(), this._nDataBytes = 0;}, _append: function _append(e) {"string" == typeof e && (e = l.parse(e)), this._data.concat(e), this._nDataBytes += e.sigBytes;}, _process: function _process(t) {var n = this._data,r = n.words,o = n.sigBytes,s = this.blockSize,a = o / (4 * s),c = (a = t ? e.ceil(a) : e.max((0 | a) - this._minBufferSize, 0)) * s,u = e.min(4 * c, o);if (c) {for (var l = 0; l < c; l += s) {this._doProcessBlock(r, l);}var f = r.splice(0, c);n.sigBytes -= u;}return new i.init(f, u);}, clone: function clone() {var e = s.clone.call(this);return e._data = this._data.clone(), e;}, _minBufferSize: 0 }),p = (o.Hasher = f.extend({ cfg: s.extend(), init: function init(e) {this.cfg = this.cfg.extend(e), this.reset();}, reset: function reset() {f.reset.call(this), this._doReset();}, update: function update(e) {return this._append(e), this._process(), this;}, finalize: function finalize(e) {return e && this._append(e), this._doFinalize();}, blockSize: 16, _createHelper: function _createHelper(e) {return function (t, n) {return new e.init(n).finalize(t);};}, _createHmacHelper: function _createHmacHelper(e) {return function (t, n) {return new p.HMAC.init(e, n).finalize(t);};} }), r.algo = {});return r;}(Math), n);}),o = (n(function (e, t) {var n;e.exports = (n = r, function (e) {var t = n,r = t.lib,o = r.WordArray,s = r.Hasher,i = t.algo,a = [];!function () {for (var t = 0; t < 64; t++) {a[t] = 4294967296 * e.abs(e.sin(t + 1)) | 0;}}();var c = i.MD5 = s.extend({ _doReset: function _doReset() {this._hash = new o.init([1732584193, 4023233417, 2562383102, 271733878]);}, _doProcessBlock: function _doProcessBlock(e, t) {for (var n = 0; n < 16; n++) {var r = t + n,o = e[r];e[r] = 16711935 & (o << 8 | o >>> 24) | 4278255360 & (o << 24 | o >>> 8);}var s = this._hash.words,i = e[t + 0],c = e[t + 1],h = e[t + 2],d = e[t + 3],y = e[t + 4],v = e[t + 5],g = e[t + 6],_ = e[t + 7],m = e[t + 8],b = e[t + 9],w = e[t + 10],E = e[t + 11],T = e[t + 12],O = e[t + 13],S = e[t + 14],k = e[t + 15],A = s[0],P = s[1],I = s[2],N = s[3];A = u(A, P, I, N, i, 7, a[0]), N = u(N, A, P, I, c, 12, a[1]), I = u(I, N, A, P, h, 17, a[2]), P = u(P, I, N, A, d, 22, a[3]), A = u(A, P, I, N, y, 7, a[4]), N = u(N, A, P, I, v, 12, a[5]), I = u(I, N, A, P, g, 17, a[6]), P = u(P, I, N, A, _, 22, a[7]), A = u(A, P, I, N, m, 7, a[8]), N = u(N, A, P, I, b, 12, a[9]), I = u(I, N, A, P, w, 17, a[10]), P = u(P, I, N, A, E, 22, a[11]), A = u(A, P, I, N, T, 7, a[12]), N = u(N, A, P, I, O, 12, a[13]), I = u(I, N, A, P, S, 17, a[14]), A = l(A, P = u(P, I, N, A, k, 22, a[15]), I, N, c, 5, a[16]), N = l(N, A, P, I, g, 9, a[17]), I = l(I, N, A, P, E, 14, a[18]), P = l(P, I, N, A, i, 20, a[19]), A = l(A, P, I, N, v, 5, a[20]), N = l(N, A, P, I, w, 9, a[21]), I = l(I, N, A, P, k, 14, a[22]), P = l(P, I, N, A, y, 20, a[23]), A = l(A, P, I, N, b, 5, a[24]), N = l(N, A, P, I, S, 9, a[25]), I = l(I, N, A, P, d, 14, a[26]), P = l(P, I, N, A, m, 20, a[27]), A = l(A, P, I, N, O, 5, a[28]), N = l(N, A, P, I, h, 9, a[29]), I = l(I, N, A, P, _, 14, a[30]), A = f(A, P = l(P, I, N, A, T, 20, a[31]), I, N, v, 4, a[32]), N = f(N, A, P, I, m, 11, a[33]), I = f(I, N, A, P, E, 16, a[34]), P = f(P, I, N, A, S, 23, a[35]), A = f(A, P, I, N, c, 4, a[36]), N = f(N, A, P, I, y, 11, a[37]), I = f(I, N, A, P, _, 16, a[38]), P = f(P, I, N, A, w, 23, a[39]), A = f(A, P, I, N, O, 4, a[40]), N = f(N, A, P, I, i, 11, a[41]), I = f(I, N, A, P, d, 16, a[42]), P = f(P, I, N, A, g, 23, a[43]), A = f(A, P, I, N, b, 4, a[44]), N = f(N, A, P, I, T, 11, a[45]), I = f(I, N, A, P, k, 16, a[46]), A = p(A, P = f(P, I, N, A, h, 23, a[47]), I, N, i, 6, a[48]), N = p(N, A, P, I, _, 10, a[49]), I = p(I, N, A, P, S, 15, a[50]), P = p(P, I, N, A, v, 21, a[51]), A = p(A, P, I, N, T, 6, a[52]), N = p(N, A, P, I, d, 10, a[53]), I = p(I, N, A, P, w, 15, a[54]), P = p(P, I, N, A, c, 21, a[55]), A = p(A, P, I, N, m, 6, a[56]), N = p(N, A, P, I, k, 10, a[57]), I = p(I, N, A, P, g, 15, a[58]), P = p(P, I, N, A, O, 21, a[59]), A = p(A, P, I, N, y, 6, a[60]), N = p(N, A, P, I, E, 10, a[61]), I = p(I, N, A, P, h, 15, a[62]), P = p(P, I, N, A, b, 21, a[63]), s[0] = s[0] + A | 0, s[1] = s[1] + P | 0, s[2] = s[2] + I | 0, s[3] = s[3] + N | 0;}, _doFinalize: function _doFinalize() {var t = this._data,n = t.words,r = 8 * this._nDataBytes,o = 8 * t.sigBytes;n[o >>> 5] |= 128 << 24 - o % 32;var s = e.floor(r / 4294967296),i = r;n[15 + (o + 64 >>> 9 << 4)] = 16711935 & (s << 8 | s >>> 24) | 4278255360 & (s << 24 | s >>> 8), n[14 + (o + 64 >>> 9 << 4)] = 16711935 & (i << 8 | i >>> 24) | 4278255360 & (i << 24 | i >>> 8), t.sigBytes = 4 * (n.length + 1), this._process();for (var a = this._hash, c = a.words, u = 0; u < 4; u++) {var l = c[u];c[u] = 16711935 & (l << 8 | l >>> 24) | 4278255360 & (l << 24 | l >>> 8);}return a;}, clone: function clone() {var e = s.clone.call(this);return e._hash = this._hash.clone(), e;} });function u(e, t, n, r, o, s, i) {var a = e + (t & n | ~t & r) + o + i;return (a << s | a >>> 32 - s) + t;}function l(e, t, n, r, o, s, i) {var a = e + (t & r | n & ~r) + o + i;return (a << s | a >>> 32 - s) + t;}function f(e, t, n, r, o, s, i) {var a = e + (t ^ n ^ r) + o + i;return (a << s | a >>> 32 - s) + t;}function p(e, t, n, r, o, s, i) {var a = e + (n ^ (t | ~r)) + o + i;return (a << s | a >>> 32 - s) + t;}t.MD5 = s._createHelper(c), t.HmacMD5 = s._createHmacHelper(c);}(Math), n.MD5);}), n(function (e, t) {var n, o, s;e.exports = (o = (n = r).lib.Base, s = n.enc.Utf8, void (n.algo.HMAC = o.extend({ init: function init(e, t) {e = this._hasher = new e.init(), "string" == typeof t && (t = s.parse(t));var n = e.blockSize,r = 4 * n;t.sigBytes > r && (t = e.finalize(t)), t.clamp();for (var o = this._oKey = t.clone(), i = this._iKey = t.clone(), a = o.words, c = i.words, u = 0; u < n; u++) {a[u] ^= 1549556828, c[u] ^= 909522486;}o.sigBytes = i.sigBytes = r, this.reset();}, reset: function reset() {var e = this._hasher;e.reset(), e.update(this._iKey);}, update: function update(e) {return this._hasher.update(e), this;}, finalize: function finalize(e) {var t = this._hasher,n = t.finalize(e);return t.reset(), t.finalize(this._oKey.clone().concat(n));} })));}), n(function (e, t) {e.exports = r.HmacMD5;}));var s = /*#__PURE__*/function (_Error) {_inherits(s, _Error);var _super = _createSuper(s);function s(e) {var _this;_classCallCheck(this, s);_this = _super.call(this, e.message), _this.errMsg = e.message || "", Object.defineProperties(_assertThisInitialized(_this), { code: { get: function get() {return e.code;} }, requestId: { get: function get() {return e.requestId;} }, message: { get: function get() {return this.errMsg;}, set: function set(e) {this.errMsg = e;} } });return _this;}return s;}( /*#__PURE__*/_wrapNativeSuper(Error));var i = { sign: function sign(e, t) {var n = "";return Object.keys(e).sort().forEach(function (t) {e[t] && (n = n + "&" + t + "=" + e[t]);}), n = n.slice(1), o(n, t).toString();}, wrappedRequest: function wrappedRequest(e) {return new Promise(function (t, n) {uni.request(Object.assign(e, { complete: function complete(e) {e || (e = {}), 0 === e.errMsg.indexOf("request:fail") && "h5" === "mp-weixin" && "development" === "development" && console.warn("发布H5，需要在uniCloud后台操作，绑定安全域名，否则会因为跨域问题而无法访问。教程参考：https://uniapp.dcloud.io/uniCloud/quickstart?id=H5%E4%B8%AD%E4%BD%BF%E7%94%A8unicloud");var r = e.data && e.data.header && e.data.header["x-serverless-request-id"] || e.header && e.header["request-id"];if (!e.statusCode || e.statusCode >= 400) return n(new s({ code: "SYS_ERR", message: e.errMsg || "request:fail", requestId: r }));var o = e.data;if (o.error) return n(new s({ code: o.error.code, message: o.error.message, requestId: r }));o.result = o.data, o.requestId = r, delete o.data, t(o);} }));});} };var a = { image: "image/*", jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp", svg: "image/svg+xml", mp3: "audio/mp3", mp4: "video/mp4", ogg: "audio/ogg", webm: "video/webm" };function c(e) {return a[e.toLowerCase()];}var u = /*#__PURE__*/function () {function u(e) {_classCallCheck(this, u);["spaceId", "clientSecret"].forEach(function (t) {if (!Object.prototype.hasOwnProperty.call(e, t)) throw new Error("\u7F3A\u5C11\u53C2\u6570".concat(t));}), this.config = Object.assign({}, { endpoint: "https://api.bspapp.com" }, e), this.config.provider = "aliyun", this.config.requestUrl = this.config.endpoint + "/client", this.config.envType = this.config.envType || "public", this.config.accessTokenKey = "access_token_" + this.config.spaceId;}_createClass(u, [{ key: "setAccessToken", value: function setAccessToken(e) {this.accessToken = e;} }, { key: "requestAuth", value: function requestAuth(e) {return i.wrappedRequest(e);} }, { key: "request", value: function request(e, t) {var _this2 = this;return this.hasAccessToken ? t ? i.wrappedRequest(e) : i.wrappedRequest(e).catch(function (t) {return new Promise(function (e, n) {!t || "GATEWAY_INVALID_TOKEN" !== t.code && "InvalidParameter.InvalidToken" !== t.code ? n(t) : e();}).then(function () {return _this2.getAccessToken();}).then(function () {var t = _this2.rebuildRequest(e);return _this2.request(t, !0);});}) : this.getAccessToken().then(function () {var t = _this2.rebuildRequest(e);return _this2.request(t, !0);});} }, { key: "rebuildRequest", value: function rebuildRequest(e) {var t = Object.assign({}, e);return t.data.token = this.accessToken, t.header["x-basement-token"] = this.accessToken, t.header["x-serverless-sign"] = i.sign(t.data, this.config.clientSecret), t;} }, { key: "setupRequest", value: function setupRequest(e, t) {var n = Object.assign({}, e, { spaceId: this.config.spaceId, timestamp: Date.now() }),r = { "Content-Type": "application/json" };return "auth" !== t && (n.token = this.accessToken, r["x-basement-token"] = this.accessToken), r["x-serverless-sign"] = i.sign(n, this.config.clientSecret), { url: this.config.requestUrl, method: "POST", data: n, dataType: "json", header: r };} }, { key: "getAccessToken", value: function getAccessToken() {var _this3 = this;return this.requestAuth(this.setupRequest({ method: "serverless.auth.user.anonymousAuthorize", params: "{}" }, "auth")).then(function (e) {return new Promise(function (t, n) {e.result && e.result.accessToken ? (_this3.setAccessToken(e.result.accessToken), t(_this3.accessToken)) : n(new s({ code: "AUTH_FAILED", message: "获取accessToken失败" }));});});} }, { key: "authorize", value: function authorize() {this.getAccessToken();} }, { key: "callFunction", value: function callFunction(e) {var _this4 = this;var t = { method: "serverless.function.runtime.invoke", params: JSON.stringify({ functionTarget: e.name, functionArgs: e.data || {} }) };return this.config.useDebugFunction ? this.request(this.setupRequest(t)).then(function (t) {if (t && t.requestId) {var _n = JSON.stringify({ spaceId: _this4.config.spaceId, functionName: e.name, requestId: t.requestId });console.log("[aliyun-request]".concat(_n, "[/aliyun-request]"));}return Promise.resolve(t);}).catch(function (t) {if (t && t.requestId) {var _n2 = JSON.stringify({ spaceId: _this4.config.spaceId, functionName: e.name, requestId: t.requestId });console.log("[aliyun-request]".concat(_n2, "[/aliyun-request]"));}return Promise.reject(t);}) : this.request(this.setupRequest(t));} }, { key: "getOSSUploadOptionsFromPath", value: function getOSSUploadOptionsFromPath(e) {var t = { method: "serverless.file.resource.generateProximalSign", params: JSON.stringify(e) };return this.request(this.setupRequest(t));} }, { key: "uploadFileToOSS", value: function uploadFileToOSS(_ref) {var e = _ref.url,t = _ref.formData,n = _ref.fileName,r = _ref.name,o = _ref.filePath,i = _ref.fileType,a = _ref.contentType,c = _ref.onUploadProgress;return new Promise(function (a, u) {var l = uni.uploadFile({ url: e, formData: t, fileName: n, name: r, filePath: o, fileType: i, header: { "X-OSS-server-side-encrpytion": "AES256" }, success: function success(e) {e && e.statusCode < 400 ? a(e) : u(new s({ code: "UPLOAD_FAILED", message: "文件上传失败" }));}, fail: function fail(e) {u(e);} });"function" == typeof c && l.onProgressUpdate(function (e) {c({ loaded: e.totalBytesSent, total: e.totalBytesExpectedToSend });});});} }, { key: "reportOSSUpload", value: function reportOSSUpload(e) {var t = { method: "serverless.file.resource.report", params: JSON.stringify(e) };return this.request(this.setupRequest(t));} }, { key: "uploadFile", value: function uploadFile(_ref2) {var _this5 = this;var e = _ref2.filePath,t = _ref2.cloudPath,n = _ref2.onUploadProgress,r = _ref2.config;var o = r && r.envType || this.config.envType;var i,u,l,f,p,h = t || e.split("/").pop();return (i =  false ? undefined : c(u = e.split("?")[0].split(".").pop()) ? Promise.resolve() : Promise.reject(new s({ code: "UNSUPPORTED_FILE_TYPE", message: "不支持的文件类型" }))).then(function () {return new Promise(function (t, n) {uni.getFileInfo ? uni.getFileInfo({ filePath: e, success: function success(e) {t(e.size);}, fail: function fail(e) {n(e);} }) : t(0);});}).then(function (e) {return _this5.getOSSUploadOptionsFromPath({ env: o, filename: h, size: e });}).then(function (t) {var r = t.result;l = c(u), f = r.id, p = "https://" + r.cdnDomain + "/" + r.ossPath;var o = { url: "https://" + r.host, formData: { "Cache-Control": "max-age=2592000", "Content-Disposition": "attachment", OSSAccessKeyId: r.accessKeyId, Signature: r.signature, host: r.host, id: f, key: r.ossPath, policy: r.policy, success_action_status: 200 }, fileName: "file", name: "file", filePath: e, fileType: "image", contentType: l };return _this5.uploadFileToOSS(Object.assign({}, o, { onUploadProgress: n }));}).then(function () {return _this5.reportOSSUpload({ id: f, contentType: l });}).then(function (t) {return new Promise(function (n, r) {t.success ? n({ success: !0, filePath: e, fileID: p }) : r(new s({ code: "UPLOAD_FAILED", message: "文件上传失败" }));});});} }, { key: "deleteFile", value: function deleteFile(_ref3) {var e = _ref3.fileList;var t = { method: "serverless.file.resource.delete", params: JSON.stringify({ id: e[0] }) };return this.request(this.setupRequest(t));} }, { key: "hasAccessToken", get: function get() {return !!this.accessToken;} }]);return u;}();var l = __webpack_require__(/*! uni-stat-config */ 20).default || __webpack_require__(/*! uni-stat-config */ 20),f = "__DC_STAT_UUID",p = "__DC_UUID_VALUE",h = "https://ide.dcloud.net.cn/serverless/function/invoke";var d, y;function v() {if ("n" === g()) {try {d = plus.runtime.getDCloudId();} catch (e) {d = "";}return d;}return d || (d = Date.now() + "" + Math.floor(1e7 * Math.random()), uni.setStorage({ key: f, data: d })), d;}function g() {return { "app-plus": "n", h5: "h5", "mp-weixin": "wx", "mp-alipay": "ali", "mp-baidu": "bd", "mp-toutiao": "tt", "mp-qq": "qq", "quickapp-native": "qn" }["mp-weixin"];}function _(e) {return function (t) {if (!((t = t || {}).success || t.fail || t.complete)) return e.call(this, t);e.call(this, t).then(function (e) {t.success && t.success(e), t.complete && t.complete(e);}).catch(function (e) {t.fail && t.fail(e), t.complete && t.complete(e);});};}setTimeout(function () {uni.getStorage({ key: f, success: function success(e) {d = e.data;}, fail: function fail() {d = p;} }), y = "qn" === g() ? "android" : uni.getSystemInfoSync().platform;}, 0);var m = { init: function init(e) {var t = new u(e);return ["uploadFile", "deleteFile"].forEach(function (e) {t[e] = _(t[e]).bind(t);}), setTimeout(function () {t.authorize();}, 0), t;} };var b;function w(e, t, n) {void 0 === n && (n = {});var r = /\?/.test(t),o = "";for (var s in n) {"" === o ? !r && (t += "?") : o += "&", o += s + "=" + encodeURIComponent(n[s]);}return /^http(s)?\:\/\//.test(t += o) ? t : "" + e + t;}!function (e) {e.local = "local", e.none = "none", e.session = "session";}(b || (b = {}));var _E,T = (_E = function E(e, t) {return (_E = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(e, t);}, function (e, t) {function n() {this.constructor = e;}_E(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n());}),_O = function O() {return (_O = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);};var S = function (e) {function t() {return null !== e && e.apply(this, arguments) || this;}return T(t, e), t.prototype.post = function (e) {var t = e.url,n = e.data,r = e.headers;return new Promise(function (e, o) {uni.request({ url: w("https:", t), data: n, method: "POST", header: r, success: function success(t) {e(t);}, fail: function fail(e) {o(e);} });});}, t.prototype.upload = function (e) {return new Promise(function (t) {var n = e.url,r = e.file,o = e.data,s = e.headers;uni.uploadFile({ url: w("https:", n), name: "file", formData: Object.assign({}, o), filePath: r, header: s, success: function success(e) {var n = { statusCode: e.statusCode, data: e.data || {} };200 === e.statusCode && o.success_action_status && (n.statusCode = parseInt(o.success_action_status, 10)), t(n);}, fail: function fail(e) {t(e);} });});}, t.prototype.download = function (e) {var t = e.url,n = e.headers;return new Promise(function (e, r) {uni.downloadFile({ url: w("https:", t), header: n, success: function success(t) {200 === t.statusCode && t.tempFilePath ? e({ statusCode: 200, tempFilePath: t.tempFilePath }) : e(t);}, fail: function fail(e) {r(e);} });});}, t;}(function () {}),k = { setItem: function setItem(e, t) {uni.setStorageSync(e, t);}, getItem: function getItem(e) {return uni.getStorageSync(e);}, removeItem: function removeItem(e) {uni.removeStorageSync(e);}, clear: function clear() {uni.clearStorageSync();} },A = function A(e, t) {void 0 === t && (t = {});var n = uni.connectSocket(_O({ url: e }, t));return { set onopen(e) {n.onOpen(e);}, set onmessage(e) {n.onMessage(e);}, set onclose(e) {n.onClose(e);}, set onerror(e) {n.onError(e);}, send: function send(e) {return n.send({ data: e });}, close: function close(e, t) {return n.close({ code: e, reason: t });}, get readyState() {return n.readyState;}, CONNECTING: 0, OPEN: 1, CLOSING: 2, CLOSED: 3 };};var P = { genAdapter: function genAdapter() {return { root: {}, reqClass: S, wsClass: A, localStorage: k, primaryStorage: b.local };}, isMatch: function isMatch() {return "undefined" != typeof uni && !!uni.request;}, runtime: "uni_app" },I = n(function (e, t) {Object.defineProperty(t, "__esModule", { value: !0 }), t.getQuery = function (e, t) {if ("undefined" == typeof window) return !1;var n = t || window.location.search,r = new RegExp("(^|&)" + e + "=([^&]*)(&|$)"),o = n.substr(n.indexOf("?") + 1).match(r);return null != o ? o[2] : "";}, t.getHash = function (e) {var t = window.location.hash.match(new RegExp("[#?&/]" + e + "=([^&#]*)"));return t ? t[1] : "";}, t.removeParam = function (e, t) {var n = t.split("?")[0],r = [],o = -1 !== t.indexOf("?") ? t.split("?")[1] : "";if ("" !== o) {for (var s = (r = o.split("&")).length - 1; s >= 0; s -= 1) {r[s].split("=")[0] === e && r.splice(s, 1);}n = n + "?" + r.join("&");}return n;}, t.createPromiseCallback = function () {var e;if (!Promise) {(e = function e() {}).promise = {};var t = function t() {throw new Error('Your Node runtime does support ES6 Promises. Set "global.Promise" to your preferred implementation of promises.');};return Object.defineProperty(e.promise, "then", { get: t }), Object.defineProperty(e.promise, "catch", { get: t }), e;}var n = new Promise(function (t, n) {e = function e(_e, r) {return _e ? n(_e) : t(r);};});return e.promise = n, e;}, t.getWeixinCode = function () {return t.getQuery("code") || t.getHash("code");}, t.getMiniAppCode = function () {return new Promise(function (e, t) {wx.login({ success: function success(t) {e(t.code);}, fail: function fail(e) {t(e);} });});}, t.isArray = function (e) {return "[object Array]" === Object.prototype.toString.call(e);}, t.isString = function (e) {return "string" == typeof e;}, t.isUndefined = function (e) {return void 0 === e;}, t.isInstanceOf = function (e, t) {return e instanceof t;}, t.isFormData = function (e) {return "[object FormData]" === Object.prototype.toString.call(e);}, t.genSeqId = function () {return Math.random().toString(16).slice(2);}, t.getArgNames = function (e) {var t = e.toString();return t.slice(t.indexOf("(") + 1, t.indexOf(")")).match(/([^\s,]+)/g);}, t.formatUrl = function (e, t, n) {void 0 === n && (n = {});var r = /\?/.test(t),o = "";for (var s in n) {"" === o ? !r && (t += "?") : o += "&", o += s + "=" + encodeURIComponent(n[s]);}return /^http(s)?\:\/\//.test(t += o) ? t : "" + e + t;};});t(I);I.getQuery, I.getHash, I.removeParam, I.createPromiseCallback, I.getWeixinCode, I.getMiniAppCode, I.isArray, I.isString, I.isUndefined, I.isInstanceOf, I.isFormData, I.genSeqId, I.getArgNames, I.formatUrl;var N,C = "dist/index.js",R = "./dist/index.d.ts",x = { build: "npm run tsc && webpack", tsc: "tsc -p tsconfig.json", "tsc:w": "tsc -p tsconfig.json -w", test: "jest --verbose false -i", e2e: 'NODE_ENV=e2e webpack && jest --config="./jest.e2e.config.js"  --verbose false -i "e2e"', start: "webpack-dev-server --hot --open", eslint: 'eslint "./**/*.js" "./**/*.ts"', "eslint-fix": 'eslint --fix "./**/*.js" "./**/*.ts"', test_web: "npm run tsc && webpack-dev-server --devtool eval-source-map --progress --colors --hot --inline --content-base ./dist --host jimmytest-088bef.tcb.qcloud.la --port 80 --disableHostCheck true --mode development --config webpack.test.js" },q = { type: "git", url: "https://github.com/TencentCloudBase/tcb-js-sdk" },U = ["tcb", "js-sdk"],j = { "@cloudbase/adapter-interface": "^0.2.0", "@cloudbase/adapter-wx_mp": "^0.2.1", "@cloudbase/database": "^0.9.8" },L = { "@babel/core": "^7.6.2", "@babel/plugin-proposal-class-properties": "^7.5.5", "@babel/plugin-proposal-object-rest-spread": "^7.6.2", "@babel/plugin-transform-runtime": "^7.6.2", "@babel/preset-env": "^7.6.2", "@babel/preset-typescript": "^7.6.0", "@babel/runtime": "^7.6.2", "@types/jest": "^23.1.4", "@types/node": "^10.14.4", "@types/superagent": "^4.1.4", axios: "^0.19.0", "babel-eslint": "^10.0.1", "babel-loader": "^8.0.6", "babel-polyfill": "^6.26.0", eslint: "^5.16.0", "eslint-config-alloy": "^1.4.2", "eslint-config-prettier": "^4.1.0", "eslint-plugin-prettier": "^3.0.1", "eslint-plugin-typescript": "^1.0.0-rc.3", express: "^4.17.1", husky: "^3.1.0", jest: "^24.7.1", "jest-puppeteer": "^4.3.0", "lint-staged": "^9.5.0", "power-assert": "^1.6.1", puppeteer: "^1.20.0", "serve-static": "^1.14.1", "ts-jest": "^23.10.4", "ts-loader": "^6.2.1", typescript: "^3.4.3", "typescript-eslint-parser": "^22.0.0", webpack: "^4.41.3", "webpack-bundle-analyzer": "^3.4.1", "webpack-cli": "^3.3.0", "webpack-dev-server": "^3.3.1", "webpack-merge": "^4.2.2", "webpack-visualizer-plugin": "^0.1.11" },D = { hooks: { "pre-commit": "lint-staged" } },F = { name: "tcb-js-sdk", version: "1.3.5", description: "js sdk for tcb", main: C, types: R, scripts: x, repository: q, keywords: U, author: "jimmyjzhang", license: "ISC", dependencies: j, devDependencies: L, husky: D, "lint-staged": { "*.{js,ts}": ["eslint --fix", "git add"] } },M = (N = Object.freeze({ __proto__: null, name: "tcb-js-sdk", version: "1.3.5", description: "js sdk for tcb", main: C, types: R, scripts: x, repository: q, keywords: U, author: "jimmyjzhang", license: "ISC", dependencies: j, devDependencies: L, husky: D, default: F })) && N.default || N,K = n(function (t, n) {var r = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var o = r(M);n.SDK_VERISON = o.version, n.ACCESS_TOKEN = "access_token", n.ACCESS_TOKEN_Expire = "access_token_expire", n.REFRESH_TOKEN = "refresh_token", n.ANONYMOUS_UUID = "anonymous_uuid", n.LOGIN_TYPE_KEY = "login_type", n.protocol = "undefined" != typeof location && "http:" === location.protocol ? "http:" : "https:", n.BASE_URL =  false ? undefined : "//tcb-api.tencentcloudapi.com/web";});t(K);var G;K.SDK_VERISON, K.ACCESS_TOKEN, K.ACCESS_TOKEN_Expire, K.REFRESH_TOKEN, K.ANONYMOUS_UUID, K.LOGIN_TYPE_KEY, K.protocol, K.BASE_URL;!function (e) {e.local = "local", e.none = "none", e.session = "session";}(G || (G = {}));var H = function H() {},Y = function Y() {};var V = Object.freeze({ __proto__: null, get StorageType() {return G;}, AbstractSDKRequest: H, AbstractStorage: Y, formatUrl: function formatUrl(e, t, n) {void 0 === n && (n = {});var r = /\?/.test(t),o = "";for (var s in n) {"" === o ? !r && (t += "?") : o += "&", o += s + "=" + encodeURIComponent(n[s]);}return /^http(s)?\:\/\//.test(t += o) ? t : "" + e + t;} }),B = n(function (t, n) {var r = e && e.__extends || function () {var _e2 = function e(t, n) {return (_e2 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e2(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__assign || function () {return (o = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},s = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},i = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 });var a = function (e) {function t() {return null !== e && e.apply(this, arguments) || this;}return r(t, e), t.prototype.get = function (e) {return this._request(o(o({}, e), { method: "get" }));}, t.prototype.post = function (e) {return this._request(o(o({}, e), { method: "post" }));}, t.prototype.upload = function (e) {var t = e.data,n = e.file,r = e.name,s = new FormData();for (var i in t) {s.append(i, t[i]);}return s.append("key", r), s.append("file", n), this._request(o(o({}, e), { data: s, method: "post" }));}, t.prototype.download = function (e) {return s(this, void 0, void 0, function () {var t, n;return i(this, function (r) {return t = decodeURIComponent(new URL(e.url).pathname.split("/").pop() || ""), (n = document.createElement("a")).href = e.url, n.setAttribute("download", t), n.setAttribute("target", "_blank"), document.body.appendChild(n), n.click(), [2, new Promise(function (t) {t({ statusCode: 200, tempFilePath: e.url });})];});});}, t.prototype._request = function (e) {var t = String(e.method).toLowerCase() || "get";return new Promise(function (n) {var r = e.url,o = e.headers,s = void 0 === o ? {} : o,i = e.data,a = e.responseType,c = I.formatUrl(K.protocol, r, "get" === t ? i : {}),u = new XMLHttpRequest();for (var l in u.open(t, c), a && (u.responseType = a), s) {u.setRequestHeader(l, s[l]);}u.onreadystatechange = function () {if (4 === u.readyState) {var e = { statusCode: u.status };try {e.data = JSON.parse(u.responseText);} catch (e) {}n(e);}}, u.send("post" === t && I.isFormData(i) ? i : JSON.stringify(i || {}));});}, t;}(V.AbstractSDKRequest);n.WebRequest = a, n.genAdapter = function () {return { root: window, reqClass: a, wsClass: WebSocket, localStorage: localStorage, sessionStorage: sessionStorage };};});t(B);B.WebRequest, B.genAdapter;var W = n(function (t, n) {var r = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var o,s = r(B);!function (e) {e.WEB = "web", e.WX_MP = "wx_mp";}(o = n.RUNTIME || (n.RUNTIME = {})), n.useAdapters = function (e) {for (var t = 0, n = I.isArray(e) ? e : [e]; t < n.length; t++) {var r = n[t],o = r.isMatch,s = r.genAdapter,i = r.runtime;if (o()) return { adapter: s(), runtime: i };}}, n.useDefaultAdapter = function () {return { adapter: s.genAdapter(), runtime: o.WEB };}, n.Adapter = { adapter: null, runtime: void 0 };});t(W);W.RUNTIME, W.useAdapters, W.useDefaultAdapter, W.Adapter;var z = n(function (t, n) {var r = e && e.__extends || function () {var _e3 = function e(t, n) {return (_e3 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e3(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}();Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {function e(e) {switch (W.Adapter.adapter.primaryStorage || e) {case "local":this.storageClass = W.Adapter.adapter.localStorage || new s();break;case "none":this.storageClass = new s();break;default:this.storageClass = W.Adapter.adapter.sessionStorage || new s();}}return e.prototype.setStore = function (e, t, n) {try {if (!this.storageClass) return;} catch (e) {return;}var r,o = {};o.version = n || "localCachev1", o.content = t, r = JSON.stringify(o);try {this.storageClass.setItem(e, r);} catch (e) {return;}}, e.prototype.getStore = function (e, t) {try {if (!this.storageClass) return;} catch (e) {return "";}t = t || "localCachev1";var n = this.storageClass.getItem(e);return n && n.indexOf(t) >= 0 ? JSON.parse(n).content : "";}, e.prototype.removeStore = function (e) {this.storageClass.removeItem(e);}, e;}();n.Cache = o;var s = function (e) {function t() {var t = e.call(this) || this;return W.Adapter.adapter.root.tcbObject || (W.Adapter.adapter.root.tcbObject = {}), t;}return r(t, e), t.prototype.setItem = function (e, t) {W.Adapter.adapter.root.tcbObject[e] = t;}, t.prototype.getItem = function (e) {return W.Adapter.adapter.root.tcbObject[e];}, t.prototype.removeItem = function (e) {delete W.Adapter.adapter.root.tcbObject[e];}, t.prototype.clear = function () {delete W.Adapter.adapter.root.tcbObject;}, t;}(V.AbstractStorage);});t(z);z.Cache;var J = n(function (t, n) {var r = e && e.__extends || function () {var _e4 = function e(t, n) {return (_e4 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e4(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__spreadArrays || function () {for (var e = 0, t = 0, n = arguments.length; t < n; t++) {e += arguments[t].length;}var r = Array(e),o = 0;for (t = 0; t < n; t++) {for (var s = arguments[t], i = 0, a = s.length; i < a; i++, o++) {r[o] = s[i];}}return r;};Object.defineProperty(n, "__esModule", { value: !0 });var s = function s(e, t) {this.data = t || null, this.name = e;};n.IEvent = s;var i = function (e) {function t(t, n) {var r = e.call(this, "error", { error: t, data: n }) || this;return r.error = t, r;}return r(t, e), t;}(s);n.IErrorEvent = i;var a = function () {function e() {this._listeners = {};}return e.prototype.on = function (e, t) {return function (e, t, n) {n[e] = n[e] || [], n[e].push(t);}(e, t, this._listeners), this;}, e.prototype.off = function (e, t) {return function (e, t, n) {if (n && n[e]) {var r = n[e].indexOf(t);-1 !== r && n[e].splice(r, 1);}}(e, t, this._listeners), this;}, e.prototype.fire = function (e, t) {if (I.isInstanceOf(e, i)) return console.error(e.error), this;var n = I.isString(e) ? new s(e, t || {}) : e,r = n.name;if (this._listens(r)) {n.target = this;for (var a = 0, c = this._listeners[r] ? o(this._listeners[r]) : []; a < c.length; a++) {c[a].call(this, n);}}return this;}, e.prototype._listens = function (e) {return this._listeners[e] && this._listeners[e].length > 0;}, e;}();n.IEventEmitter = a;var c = new a();n.addEventListener = function (e, t) {c.on(e, t);}, n.activateEvent = function (e, t) {void 0 === t && (t = {}), c.fire(e, t);}, n.removeEventListener = function (e, t) {c.off(e, t);}, n.EVENTS = { LOGIN_STATE_CHANGED: "loginStateChanged", LOGIN_STATE_EXPIRE: "loginStateExpire", LOGIN_TYPE_CHANGE: "loginTypeChanged", ANONYMOUS_CONVERTED: "anonymousConverted", REFRESH_ACCESS_TOKEN: "refreshAccessToken" };});t(J);J.IEvent, J.IErrorEvent, J.IEventEmitter, J.addEventListener, J.activateEvent, J.removeEventListener, J.EVENTS;var X = n(function (t, n) {var r = e && e.__assign || function () {return (r = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},o = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},s = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 });var i = ["auth.getJwt", "auth.logout", "auth.signInWithTicket", "auth.signInAnonymously"],a = { "X-SDK-Version": K.SDK_VERISON };function c(e, t, n) {var o = e[t];e[t] = function (t) {var s = {},i = {};n.forEach(function (n) {var r = n.call(e, t),o = r.data,a = r.headers;Object.assign(s, o), Object.assign(i, a);});var a = t.data;return a && function () {if (I.isFormData(a)) for (var e in s) {a.append(e, s[e]);} else t.data = r(r({}, a), s);}(), t.headers = r(r({}, t.headers || {}), i), o.call(e, t);};}function u() {var e = I.genSeqId();return { data: { seqId: e }, headers: r(r({}, a), { "x-seqid": e }) };}var l = function () {function e(e) {void 0 === e && (e = {}), this.config = e, this.cache = new z.Cache(e.persistence), this.accessTokenKey = K.ACCESS_TOKEN + "_" + e.env, this.accessTokenExpireKey = K.ACCESS_TOKEN_Expire + "_" + e.env, this.refreshTokenKey = K.REFRESH_TOKEN + "_" + e.env, this.anonymousUuidKey = K.ANONYMOUS_UUID + "_" + e.env, this.loginTypeKey = K.LOGIN_TYPE_KEY + "_" + e.env, this._reqClass = new W.Adapter.adapter.reqClass(), c(this._reqClass, "post", [u]), c(this._reqClass, "upload", [u]), c(this._reqClass, "download", [u]);}return e.prototype.post = function (e) {return o(this, void 0, void 0, function () {return s(this, function (t) {switch (t.label) {case 0:return [4, this._reqClass.post(e)];case 1:return [2, t.sent()];}});});}, e.prototype.upload = function (e) {return o(this, void 0, void 0, function () {return s(this, function (t) {switch (t.label) {case 0:return [4, this._reqClass.upload(e)];case 1:return [2, t.sent()];}});});}, e.prototype.download = function (e) {return o(this, void 0, void 0, function () {return s(this, function (t) {switch (t.label) {case 0:return [4, this._reqClass.download(e)];case 1:return [2, t.sent()];}});});}, e.prototype.refreshAccessToken = function () {return o(this, void 0, void 0, function () {var e, t, n;return s(this, function (r) {switch (r.label) {case 0:this._refreshAccessTokenPromise || (this._refreshAccessTokenPromise = this._refreshAccessToken()), r.label = 1;case 1:return r.trys.push([1, 3,, 4]), [4, this._refreshAccessTokenPromise];case 2:return e = r.sent(), [3, 4];case 3:return n = r.sent(), t = n, [3, 4];case 4:if (this._refreshAccessTokenPromise = null, this._shouldRefreshAccessTokenHook = null, t) throw t;return [2, e];}});});}, e.prototype._refreshAccessToken = function () {return o(this, void 0, void 0, function () {var e, t, n, r;return s(this, function (o) {switch (o.label) {case 0:if (this.cache.removeStore(this.accessTokenKey), this.cache.removeStore(this.accessTokenExpireKey), !(e = this.cache.getStore(this.refreshTokenKey))) throw new Error("[tcb-js-sdk] 未登录CloudBase");return t = { refresh_token: e }, this.cache.getStore(this.loginTypeKey) === $.LOGINTYPE.ANONYMOUS && (t.anonymous_uuid = this.cache.getStore(this.anonymousUuidKey)), [4, this.request("auth.getJwt", t)];case 1:if ((n = o.sent()).data.code) throw "SIGN_PARAM_INVALID" !== (r = n.data.code) && "REFRESH_TOKEN_EXPIRED" !== r && "INVALID_REFRESH_TOKEN" !== r || (J.activateEvent(J.EVENTS.LOGIN_STATE_EXPIRE), this.cache.removeStore(this.refreshTokenKey)), new Error("[tcb-js-sdk] 刷新access token失败：" + n.data.code);return n.data.access_token ? (J.activateEvent(J.EVENTS.REFRESH_ACCESS_TOKEN), this.cache.setStore(this.accessTokenKey, n.data.access_token), this.cache.setStore(this.accessTokenExpireKey, n.data.access_token_expire + Date.now()), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, n.data.login_type), [2, { accessToken: n.data.access_token, accessTokenExpire: n.data.access_token_expire }]) : (n.data.refresh_token && (this.cache.removeStore(this.refreshTokenKey), this.cache.setStore(this.refreshTokenKey, n.data.refresh_token), this._refreshAccessToken()), [2]);}});});}, e.prototype.getAccessToken = function () {return o(this, void 0, void 0, function () {var e, t, n, r;return s(this, function (o) {switch (o.label) {case 0:return e = this.cache.getStore(this.accessTokenKey), t = this.cache.getStore(this.accessTokenExpireKey), n = !0, (r = this._shouldRefreshAccessTokenHook) ? [4, this._shouldRefreshAccessTokenHook(e, t)] : [3, 2];case 1:r = !o.sent(), o.label = 2;case 2:return r && (n = !1), (!e || !t || t < Date.now()) && n ? [2, this.refreshAccessToken()] : [2, { accessToken: e, accessTokenExpire: t }];}});});}, e.prototype.request = function (e, t, n) {return o(this, void 0, void 0, function () {var o, a, c, u, l, f, p, h, d, y, v, g;return s(this, function (s) {switch (s.label) {case 0:return o = "application/x-www-form-urlencoded", a = r({ action: e, env: this.config.env, dataVersion: "2019-08-16" }, t), -1 !== i.indexOf(e) ? [3, 2] : (c = a, [4, this.getAccessToken()]);case 1:c.access_token = s.sent().accessToken, s.label = 2;case 2:if ("storage.uploadFile" === e) {for (l in u = new FormData()) {u.hasOwnProperty(l) && void 0 !== u[l] && u.append(l, a[l]);}o = "multipart/form-data";} else o = "application/json;charset=UTF-8", u = a;return f = { headers: { "content-type": o } }, n && n.onUploadProgress && (f.onUploadProgress = n.onUploadProgress), p = t.parse, h = t.query, d = t.search, y = { env: this.config.env }, p && (y.parse = !0), h && (y = r(r({}, h), y)), v = I.formatUrl(K.protocol, K.BASE_URL, y), d && (v += d), [4, this.post(r({ url: v, data: u }, f))];case 3:if (g = s.sent(), 200 !== Number(g.status) && 200 !== Number(g.statusCode) || !g.data) throw new Error("network request error");return [2, g];}});});}, e.prototype.send = function (e, t) {return void 0 === t && (t = {}), o(this, void 0, void 0, function () {var n, r, o;return s(this, function (s) {switch (s.label) {case 0:return n = setTimeout(function () {console.warn("Database operation is longer than 3s. Please check query performance and your network environment.");}, 3e3), [4, this.request(e, t, { onUploadProgress: t.onUploadProgress })];case 1:return r = s.sent(), clearTimeout(n), "ACCESS_TOKEN_EXPIRED" !== r.data.code || -1 !== i.indexOf(e) ? [3, 4] : [4, this.refreshAccessToken()];case 2:return s.sent(), [4, this.request(e, t, { onUploadProgress: t.onUploadProgress })];case 3:if ((o = s.sent()).data.code) throw new Error("[" + o.data.code + "] " + o.data.message);return [2, o.data];case 4:if (r.data.code) throw new Error("[" + r.data.code + "] " + r.data.message);return [2, r.data];}});});}, e;}();n.Request = l;});t(X);X.Request;var $ = n(function (t, n) {var r,o = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},s = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 }), function (e) {e.ANONYMOUS = "ANONYMOUS", e.WECHAT = "WECHAT", e.CUSTOM = "CUSTOM", e.NULL = "NULL";}(r = n.LOGINTYPE || (n.LOGINTYPE = {}));var i = function () {function e(e) {this._loginType = r.NULL, this.config = e, this.onLoginTypeChanged = this.onLoginTypeChanged.bind(this), J.addEventListener(J.EVENTS.LOGIN_TYPE_CHANGE, this.onLoginTypeChanged);}return e.prototype.init = function () {this.httpRequest = new X.Request(this.config), this.cache = new z.Cache(this.config.persistence), this.accessTokenKey = K.ACCESS_TOKEN + "_" + this.config.env, this.accessTokenExpireKey = K.ACCESS_TOKEN_Expire + "_" + this.config.env, this.refreshTokenKey = K.REFRESH_TOKEN + "_" + this.config.env, this.loginTypeKey = K.LOGIN_TYPE_KEY + "_" + this.config.env;}, e.prototype.onLoginTypeChanged = function (e) {this._loginType = e.data, this.cache.setStore(this.loginTypeKey, this._loginType);}, Object.defineProperty(e.prototype, "loginType", { get: function get() {return this._loginType;}, enumerable: !0, configurable: !0 }), e.prototype.setRefreshToken = function (e) {this.cache.removeStore(this.accessTokenKey), this.cache.removeStore(this.accessTokenExpireKey), this.cache.setStore(this.refreshTokenKey, e);}, e.prototype.getRefreshTokenByWXCode = function (e, t, n) {return o(this, void 0, void 0, function () {var r;return s(this, function (o) {return "auth.getJwt", r = W.Adapter.runtime === W.RUNTIME.WX_MP ? "1" : "0", [2, this.httpRequest.send("auth.getJwt", { appid: e, loginType: t, code: n, hybridMiniapp: r }).then(function (e) {if (e.code) throw new Error("[tcb-js-sdk] 微信登录失败: " + e.code);if (e.refresh_token) return { refreshToken: e.refresh_token, accessToken: e.access_token, accessTokenExpire: e.access_token_expire };throw new Error("[tcb-js-sdk] getJwt未返回refreshToken");})];});});}, e;}();n.default = i;});t($);$.LOGINTYPE;var Q = n(function (t, n) {var r = e && e.__extends || function () {var _e5 = function e(t, n) {return (_e5 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e5(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},s = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}},i = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var a,c,u = i(I),l = i($);!function (e) {e.snsapi_base = "snsapi_base", e.snsapi_userinfo = "snsapi_userinfo", e.snsapi_login = "snsapi_login";}(a || (a = {})), function (e) {e.redirect = "redirect", e.prompt = "prompt";}(c || (c = {}));var f = {},p = function (e) {function t(t, n, r, o, s) {var i = e.call(this, t) || this;return i.config = t, i.appid = n, i.scope = W.Adapter.runtime === W.RUNTIME.WX_MP ? "snsapi_base" : r, i.state = s || "weixin", i.loginMode = o || "redirect", i;}return r(t, e), t.prototype.signIn = function () {return o(this, void 0, void 0, function () {var e, t, n;return s(this, function (r) {switch (r.label) {case 0:f[this.config.env] || (f[this.config.env] = this._signIn()), r.label = 1;case 1:return r.trys.push([1, 3,, 4]), [4, f[this.config.env]];case 2:return e = r.sent(), [3, 4];case 3:return n = r.sent(), t = n, [3, 4];case 4:if (f[this.config.env] = null, t) throw t;return [2, e];}});});}, t.prototype._signIn = function () {return o(this, void 0, void 0, function () {var e, t, n, r, o, i;return s(this, function (s) {switch (s.label) {case 0:if (e = this.cache.getStore(this.accessTokenKey), t = this.cache.getStore(this.accessTokenExpireKey), e) {if (t && t > Date.now()) return [2, { credential: { accessToken: e, refreshToken: this.cache.getStore(this.refreshTokenKey) } }];this.cache.removeStore(this.accessTokenKey), this.cache.removeStore(this.accessTokenExpireKey);}if (!1 === Object.values(a).includes(a[this.scope])) throw new Error("错误的scope类型");return W.Adapter.runtime !== W.RUNTIME.WX_MP ? [3, 2] : [4, u.getMiniAppCode()];case 1:return n = s.sent(), [3, 4];case 2:return [4, u.getWeixinCode()];case 3:if (!(n = s.sent())) return [2, this.redirect()];s.label = 4;case 4:return r = function (e) {switch (e) {case a.snsapi_login:return "WECHAT-OPEN";default:return "WECHAT-PUBLIC";}}(this.scope), [4, this.getRefreshTokenByWXCode(this.appid, r, n)];case 5:return o = s.sent(), i = o.refreshToken, this.cache.setStore(this.refreshTokenKey, i), o.accessToken && this.cache.setStore(this.accessTokenKey, o.accessToken), o.accessTokenExpire && this.cache.setStore(this.accessTokenExpireKey, o.accessTokenExpire + Date.now()), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, l.LOGINTYPE.WECHAT), [2, { credential: { refreshToken: i } }];}});});}, t.prototype.redirect = function () {var e = u.removeParam("code", location.href);e = u.removeParam("state", e), e = encodeURIComponent(e);var t = "//open.weixin.qq.com/connect/oauth2/authorize";"snsapi_login" === this.scope && (t = "//open.weixin.qq.com/connect/qrconnect"), "redirect" === c[this.loginMode] && (location.href = t + "?appid=" + this.appid + "&redirect_uri=" + e + "&response_type=code&scope=" + this.scope + "&state=" + this.state + "#wechat_redirect");}, t;}(l.default);n.default = p;});t(Q);var Z = n(function (t, n) {var r = e && e.__extends || function () {var _e6 = function e(t, n) {return (_e6 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e6(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__assign || function () {return (o = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},s = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},i = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}},a = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var c = a($),u = function (e) {function t(t) {var n = e.call(this, o(o({}, t), { persistence: "local" })) || this;return n._anonymousUuidKey = K.ANONYMOUS_UUID + "_" + n.config.env, n._loginTypeKey = K.LOGIN_TYPE_KEY + "_" + n.config.env, n;}return r(t, e), t.prototype.init = function () {e.prototype.init.call(this);}, t.prototype.signIn = function () {return s(this, void 0, void 0, function () {var e, t, n;return i(this, function (r) {switch (r.label) {case 0:return e = this.cache.getStore(this._anonymousUuidKey) || void 0, t = this.cache.getStore(this.refreshTokenKey) || void 0, [4, this.httpRequest.send("auth.signInAnonymously", { anonymous_uuid: e, refresh_token: t })];case 1:return (n = r.sent()).uuid && n.refresh_token ? (this._setAnonymousUUID(n.uuid), this.setRefreshToken(n.refresh_token), [4, this.httpRequest.refreshAccessToken()]) : [3, 3];case 2:return r.sent(), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, c.LOGINTYPE.ANONYMOUS), [2, { credential: { refreshToken: n.refresh_token } }];case 3:throw new Error("[tcb-js-sdk] 匿名登录失败");}});});}, t.prototype.linkAndRetrieveDataWithTicket = function (e) {return s(this, void 0, void 0, function () {var t, n, r;return i(this, function (o) {switch (o.label) {case 0:return t = this.cache.getStore(this._anonymousUuidKey), n = this.cache.getStore(this.refreshTokenKey), [4, this.httpRequest.send("auth.linkAndRetrieveDataWithTicket", { anonymous_uuid: t, refresh_token: n, ticket: e })];case 1:return (r = o.sent()).refresh_token ? (this._clearAnonymousUUID(), this.setRefreshToken(r.refresh_token), [4, this.httpRequest.refreshAccessToken()]) : [3, 3];case 2:return o.sent(), J.activateEvent(J.EVENTS.ANONYMOUS_CONVERTED, { refresh_token: r.refresh_token }), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, c.LOGINTYPE.CUSTOM), [2, { credential: { refreshToken: r.refresh_token } }];case 3:throw new Error("[tcb-js-sdk] 匿名转化失败");}});});}, t.prototype.getAllStore = function () {var e = {};return e[this.refreshTokenKey] = this.cache.getStore(this.refreshTokenKey) || "", e[this._loginTypeKey] = this.cache.getStore(this._loginTypeKey) || "", e[this.accessTokenKey] = this.cache.getStore(this.accessTokenKey) || "", e[this.accessTokenExpireKey] = this.cache.getStore(this.accessTokenExpireKey) || "", e;}, t.prototype._setAnonymousUUID = function (e) {this.cache.removeStore(this._anonymousUuidKey), this.cache.setStore(this._anonymousUuidKey, e), this.cache.setStore(this._loginTypeKey, c.LOGINTYPE.ANONYMOUS);}, t.prototype._clearAnonymousUUID = function () {this.cache.removeStore(this._anonymousUuidKey);}, t;}(c.default);n.AnonymousAuthProvider = u;});t(Z);Z.AnonymousAuthProvider;var ee = n(function (t, n) {var r = e && e.__extends || function () {var _e7 = function e(t, n) {return (_e7 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e7(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__assign || function () {return (o = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},s = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},i = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}},a = e && e.__importDefault || function (e) {return e && e.__esModule ? e : { default: e };},c = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var u = a(Q),l = c($),f = function (e) {function t(t) {var n = e.call(this, t) || this;return n.config = t, n;}return r(t, e), t.prototype.init = function () {e.prototype.init.call(this), this.customAuthProvider = new l.default(this.config), this.customAuthProvider.init();}, t.prototype.weixinAuthProvider = function (e) {var t = e.appid,n = e.scope,r = e.loginMode,o = e.state,s = new u.default(this.config, t, n, r, o);return s.init(), s;}, t.prototype.signInAnonymously = function () {return s(this, void 0, void 0, function () {var e = this;return i(this, function (t) {switch (t.label) {case 0:return this._anonymousAuthProvider || (this._anonymousAuthProvider = new Z.AnonymousAuthProvider(this.config), this._anonymousAuthProvider.init()), J.addEventListener(J.EVENTS.LOGIN_TYPE_CHANGE, function (t) {if (t && t.data === l.LOGINTYPE.ANONYMOUS) {var n = e._anonymousAuthProvider.getAllStore();for (var r in n) {n[r] && e.httpRequest.cache.setStore(r, n[r]);}}}), [4, this._anonymousAuthProvider.signIn()];case 1:return [2, t.sent()];}});});}, t.prototype.linkAndRetrieveDataWithTicket = function (e) {return s(this, void 0, void 0, function () {var t = this;return i(this, function (n) {switch (n.label) {case 0:return this._anonymousAuthProvider || (this._anonymousAuthProvider = new Z.AnonymousAuthProvider(this.config), this._anonymousAuthProvider.init()), J.addEventListener(J.EVENTS.ANONYMOUS_CONVERTED, function (e) {var n = e.data.refresh_token;n && t.httpRequest.cache.setStore(t.refreshTokenKey, n);}), [4, this._anonymousAuthProvider.linkAndRetrieveDataWithTicket(e)];case 1:return [2, n.sent()];}});});}, t.prototype.signOut = function () {return s(this, void 0, void 0, function () {var e, t, n, r, o, s, a;return i(this, function (i) {switch (i.label) {case 0:if (this.loginType === l.LOGINTYPE.ANONYMOUS) throw new Error("[tcb-js-sdk] 匿名用户不支持登出操作");return e = this.httpRequest, t = e.cache, n = e.refreshTokenKey, r = e.accessTokenKey, o = e.accessTokenExpireKey, "auth.logout", (s = t.getStore(n)) ? [4, this.httpRequest.send("auth.logout", { refresh_token: s })] : [2];case 1:return a = i.sent(), t.removeStore(n), t.removeStore(r), t.removeStore(o), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, l.LOGINTYPE.NULL), [2, a];}});});}, t.prototype.getAccessToken = function () {return s(this, void 0, void 0, function () {var e;return i(this, function (t) {switch (t.label) {case 0:return e = {}, [4, this.httpRequest.getAccessToken()];case 1:return [2, (e.accessToken = t.sent().accessToken, e.env = this.config.env, e)];}});});}, t.prototype.onLoginStateExpire = function (e) {J.addEventListener("loginStateExpire", e);}, t.prototype.getLoginState = function () {return s(this, void 0, void 0, function () {var e, t, n, r, o;return i(this, function (s) {switch (s.label) {case 0:if (e = this.httpRequest, t = e.cache, n = e.refreshTokenKey, r = e.accessTokenKey, !(o = t.getStore(n))) return [3, 5];s.label = 1;case 1:return s.trys.push([1, 3,, 4]), [4, this.httpRequest.refreshAccessToken()];case 2:return s.sent(), [3, 4];case 3:return s.sent(), [2, null];case 4:return [2, { isAnonymous: this.loginType === l.LOGINTYPE.ANONYMOUS, credential: { refreshToken: o, accessToken: t.getStore(r) } }];case 5:return [2, null];}});});}, t.prototype.signInWithTicket = function (e) {return s(this, void 0, void 0, function () {var t, n, r, o;return i(this, function (s) {switch (s.label) {case 0:if ("string" != typeof e) throw new Error("ticket must be a string");return t = this.httpRequest, n = t.cache, r = t.refreshTokenKey, [4, this.httpRequest.send("auth.signInWithTicket", { ticket: e, refresh_token: n.getStore(r) || "" })];case 1:return (o = s.sent()).refresh_token ? (this.customAuthProvider.setRefreshToken(o.refresh_token), [4, this.httpRequest.refreshAccessToken()]) : [3, 3];case 2:return s.sent(), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, l.LOGINTYPE.CUSTOM), [2, { credential: { refreshToken: o.refresh_token } }];case 3:throw new Error("[tcb-js-sdk] 自定义登录失败");}});});}, t.prototype.shouldRefreshAccessToken = function (e) {this.httpRequest._shouldRefreshAccessTokenHook = e.bind(this);}, t.prototype.getUserInfo = function () {return this.httpRequest.send("auth.getUserInfo", {}).then(function (e) {return e.code ? e : o(o({}, e.data), { requestId: e.seqId });});}, t;}(l.default);n.default = f;});t(ee);var te = n(function (t, n) {var r = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},o = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 }), n.uploadFile = function (e, t) {t = t || I.createPromiseCallback();var n = new X.Request(this.config),r = e.cloudPath,o = e.filePath,s = e.onUploadProgress;return n.send("storage.getUploadMetadata", { path: r }).then(function (e) {var i = e.data,a = i.url,c = i.authorization,u = i.token,l = i.fileId,f = i.cosFileId,p = e.requestId,h = { key: r, signature: c, "x-cos-meta-fileid": f, success_action_status: "201", "x-cos-security-token": u };n.upload({ url: a, data: h, file: o, name: r, onUploadProgress: s }).then(function (e) {201 === e.statusCode ? t(null, { fileID: l, requestId: p }) : t(new Error("STORAGE_REQUEST_FAIL: " + e.data));}).catch(function (e) {t(e);});}).catch(function (e) {t(e);}), t.promise;}, n.deleteFile = function (e, t) {var n = e.fileList;if (t = t || I.createPromiseCallback(), !n || !Array.isArray(n)) return { code: "INVALID_PARAM", message: "fileList必须是非空的数组" };for (var r = 0, o = n; r < o.length; r++) {var s = o[r];if (!s || "string" != typeof s) return { code: "INVALID_PARAM", message: "fileList的元素必须是非空的字符串" };}var i = { fileid_list: n };return new X.Request(this.config).send("storage.batchDeleteFile", i).then(function (e) {e.code ? t(null, e) : t(null, { fileList: e.data.delete_list, requestId: e.requestId });}).catch(function (e) {t(e);}), t.promise;}, n.getTempFileURL = function (e, t) {var n = e.fileList;t = t || I.createPromiseCallback(), n && Array.isArray(n) || t(null, { code: "INVALID_PARAM", message: "fileList必须是非空的数组" });for (var r = [], o = 0, s = n; o < s.length; o++) {var i = s[o];"object" == typeof i ? (i.hasOwnProperty("fileID") && i.hasOwnProperty("maxAge") || t(null, { code: "INVALID_PARAM", message: "fileList的元素必须是包含fileID和maxAge的对象" }), r.push({ fileid: i.fileID, max_age: i.maxAge })) : "string" == typeof i ? r.push({ fileid: i }) : t(null, { code: "INVALID_PARAM", message: "fileList的元素必须是字符串" });}var a = { file_list: r };return new X.Request(this.config).send("storage.batchGetDownloadUrl", a).then(function (e) {e.code ? t(null, e) : t(null, { fileList: e.data.download_list, requestId: e.requestId });}).catch(function (e) {t(e);}), t.promise;}, n.downloadFile = function (e, t) {var s = e.fileID;return r(this, void 0, void 0, function () {var e, r, i, a, c;return o(this, function (o) {switch (o.label) {case 0:return [4, n.getTempFileURL.call(this, { fileList: [{ fileID: s, maxAge: 600 }] })];case 1:return e = o.sent(), "SUCCESS" !== (r = e.fileList[0]).code ? [2, t ? t(r) : new Promise(function (e) {e(r);})] : (i = r.download_url, i = encodeURI(i), a = new X.Request(this.config), t ? [4, a.download({ url: i })] : [3, 3]);case 2:return c = o.sent(), t(c), [3, 4];case 3:return [2, a.download({ url: i })];case 4:return [2];}});});};});t(te);te.uploadFile, te.deleteFile, te.getTempFileURL, te.downloadFile;var ne = n(function (e, t) {Object.defineProperty(t, "__esModule", { value: !0 }), t.callFunction = function (e, t) {var n,r = e.name,o = e.data,s = e.query,i = e.parse,a = e.search,c = t || I.createPromiseCallback();try {n = o ? JSON.stringify(o) : "";} catch (e) {return Promise.reject(e);}if (!r) return Promise.reject(new Error("函数名不能为空"));var u = { query: s, parse: i, search: a, function_name: r, request_data: n };return new X.Request(this.config).send("functions.invokeFunction", u).then(function (e) {if (e.code) c(null, e);else {var t = e.data.response_data;if (i) c(null, { result: t, requestId: e.requestId });else try {t = JSON.parse(e.data.response_data), c(null, { result: t, requestId: e.requestId });} catch (e) {c(new Error("response data must be json"));}}return c.promise;}).catch(function (e) {c(e);}), c.promise;};});t(ne);ne.callFunction;var re = t(n(function (t) {var n = e && e.__assign || function () {return (n = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},r = e && e.__importDefault || function (e) {return e && e.__esModule ? e : { default: e };},o = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;},s = r(P),i = r(ee),a = o(te),c = o(ne),u = { timeout: 15e3 },l = new (function () {function e(e) {var t = this;this.config = e || this.config, this.authObj = void 0, J.addEventListener(J.EVENTS.LOGIN_TYPE_CHANGE, function (e) {e.data === $.LOGINTYPE.ANONYMOUS && (t.config.persistence = "local");});}return e.prototype.init = function (t) {return this.config = n(n({}, u), t), W.Adapter.adapter || this._useDefaultAdapter(), new e(this.config);}, e.prototype.auth = function (e) {var t = (void 0 === e ? {} : e).persistence;return this.authObj ? this.authObj : (this.config = n(n({}, this.config), { persistence: t || W.Adapter.adapter.primaryStorage || "session" }), this.authObj = new i.default(this.config), this.authObj.init(), this.authObj);}, e.prototype.on = function (e, t) {return J.addEventListener.apply(this, [e, t]);}, e.prototype.off = function (e, t) {return J.removeEventListener.apply(this, [e, t]);}, e.prototype.callFunction = function (e, t) {return c.callFunction.apply(this, [e, t]);}, e.prototype.deleteFile = function (e, t) {return a.deleteFile.apply(this, [e, t]);}, e.prototype.getTempFileURL = function (e, t) {return a.getTempFileURL.apply(this, [e, t]);}, e.prototype.downloadFile = function (e, t) {return a.downloadFile.apply(this, [e, t]);}, e.prototype.uploadFile = function (e, t) {return a.uploadFile.apply(this, [e, t]);}, e.prototype.useAdapters = function (e) {var t = W.useAdapters(e) || {},n = t.adapter,r = t.runtime;n && (W.Adapter.adapter = n), r && (W.Adapter.runtime = r);}, e.prototype._useDefaultAdapter = function () {var e = W.useDefaultAdapter(),t = e.adapter,n = e.runtime;W.Adapter.adapter = t, W.Adapter.runtime = n;}, e;}())();l.useAdapters(s.default);try {window.tcb = l;} catch (e) {}t.exports = l;}));re.useAdapters(P);var oe = re,se = oe.init;var ie, ae;function ce(e) {ie || (ie = { PLATFORM: "mp-weixin", OS: y, APPID: l.appid }, ae = { ak: l.appid, p: "android" === y ? "a" : "i", ut: g(), uuid: v() });var t = JSON.parse(JSON.stringify(e.data || {})),n = e.name,r = this.config.spaceId,o = { tencent: "t", aliyun: "a" }[this.config.provider],s = Object.assign({}, ae, { fn: n, sid: r, pvd: o });return Object.assign(t, { clientInfo: ie, uniCloudClientInfo: encodeURIComponent(JSON.stringify(s)) }), e.data = t, e;}function ue(e) {var t = ce.call(this, e),n = { tencent: "tcb", aliyun: "aliyun" }[this.config.provider],r = ae.ak,o = this.config.spaceId,i = JSON.stringify(t.data),a = t.name,c = JSON.stringify({ body: { provider: n, appid: r, spaceId: o, functionName: a, run_params: i }, header: { token: "ec330800-9507-11ea-b30e-e316cc8a693b" } });return new Promise(function (e, t) {uni.request({ url: h, method: "POST", data: { param: c }, complete: function complete(r) {r || (r = {});var o = r.data && r.data.body;if (!o) return void t(new s({ message: "[FUNCTIONS_EXECUTE_FAIL] Request Fail: [".concat(a, "]") }));if ("tcb" === n && o.log && "" !== o.log.trim() && console.log(o.log), 0 !== o.invokeResult && "0" !== o.invokeResult) return void t(new s({ message: o.errorMsg }));var i = o.requestId;var c = {};try {c = JSON.parse(o.result);} catch (e) {c = o.result;}e({ requestId: i, result: c });} });});}oe.init = function (e) {e.env = e.spaceId;var t = se.call(this, e);t.config.provider = "tencent", t.config.spaceId = e.spaceId;var n = t.auth;t.auth = function (e) {var t = n.call(this, e);return ["linkAndRetrieveDataWithTicket", "signInAnonymously", "signOut", "getAccessToken", "getLoginState", "signInWithTicket", "getUserInfo"].forEach(function (e) {t[e] = _(t[e]).bind(t);}), t;};if (["uploadFile", "deleteFile", "getTempFileURL", "downloadFile"].forEach(function (e) {t[e] = _(t[e]).bind(t);}), !1 !== e.autoSignIn) {var _e8 = t.auth();_e8.getLoginState().then(function (t) {t || _e8.signInAnonymously();});}return  true && console.log("使用腾讯云作为服务商时，调用云函数的同时会获取云函数运行日志，云函数响应会比发行慢，云函数实际响应时间应以发行为准"), t;};var le = { init: function init(e) {var t = {},n = !(!1 === e.debugFunction || "development" !== "development" || !"ec330800-9507-11ea-b30e-e316cc8a693b");switch (e.provider) {case "tencent":t = oe.init(Object.assign(e, { useDebugFunction: n }));break;case "aliyun":n = n && ( false || "app-plus" === "mp-weixin"), t = m.init(Object.assign(e, { useDebugFunction: n }));break;default:throw new Error("未提供正确的provider参数");}return function (e) {var t = e.callFunction;e.config.useDebugFunction && "tencent" === e.config.provider && (t = ue), e.callFunction = function (e) {var _this6 = this;var n = ce.call(this, e);return new Promise(function (r, o) {t.call(_this6, n).then(function (e) {r(e);}).catch(function (t) {t && t.message && (t.message = "[".concat(e.name, "]: ").concat(t.message)), o(t);});});};var n = e.callFunction;e.callFunction = function (e) {return _(n).call(this, e);};}(t), t.init = this.init, t;} };var fe = le;try {var _e9 = {};1 === [{"provider":"aliyun","spaceName":"baron-xiaoha","spaceId":"f25e336d-b856-4e8e-960b-8cf98037aa01","clientSecret":"+7/VV9pG+U5gtxMuikRVxA==","endpoint":"https://api.bspapp.com"}].length && (_e9 = [{"provider":"aliyun","spaceName":"baron-xiaoha","spaceId":"f25e336d-b856-4e8e-960b-8cf98037aa01","clientSecret":"+7/VV9pG+U5gtxMuikRVxA==","endpoint":"https://api.bspapp.com"}][0]), fe = le.init(_e9);} catch (e) {["auth", "callFunction", "uploadFile", "deleteFile", "getTempFileURL", "downloadFile"].forEach(function (e) {fe[e] = function () {var e = [{"provider":"aliyun","spaceName":"baron-xiaoha","spaceId":"f25e336d-b856-4e8e-960b-8cf98037aa01","clientSecret":"+7/VV9pG+U5gtxMuikRVxA==","endpoint":"https://api.bspapp.com"}].length > 0 ? "应用有多个服务空间，请通过uniCloud.init方法指定要使用的服务空间" : "应用未关联服务空间，请在cloudfunctions目录右键关联服务空间";return console.error(e), Promise.reject(new s({ code: "SYS_ERR", message: e }));};});}var pe = fe;var _default = pe;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -9585,14 +9054,2854 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 20:
-/*!*******************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/pages.json?{"type":"stat"} ***!
-  \*******************************************************************************************/
+/*!************************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(/*! ./runtime */ 21);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+
+/***/ 205:
+/*!*****************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/components/uni-popup/popup.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__A9BC531" };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 206));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+// 定义 type 类型:弹出类型：top/bottom/center
+var config = {
+  // 顶部弹出
+  top: 'top',
+  // 底部弹出
+  bottom: 'bottom',
+  // 居中弹出
+  center: 'center',
+  // 消息提示
+  message: 'top',
+  // 对话框
+  dialog: 'center',
+  // 分享
+  share: 'bottom' };var _default =
+
+
+{
+  data: function data() {
+    return {
+      config: config };
+
+  },
+  mixins: [_message.default] };exports.default = _default;
+
+/***/ }),
+
+/***/ 206:
+/*!*******************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/components/uni-popup/message.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  created: function created() {
+    if (this.type === 'message') {
+      // 不显示遮罩
+      this.maskShow = false;
+      // 获取子组件对象
+      this.childrenMsg = null;
+    }
+  },
+  methods: {
+    customOpen: function customOpen() {
+      if (this.childrenMsg) {
+        this.childrenMsg.open();
+      }
+    },
+    customClose: function customClose() {
+      if (this.childrenMsg) {
+        this.childrenMsg.close();
+      }
+    } } };exports.default = _default;
+
+/***/ }),
+
+/***/ 21:
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+!(function(global) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  var inModule = typeof module === "object";
+  var runtime = global.regeneratorRuntime;
+  if (runtime) {
+    if (inModule) {
+      // If regeneratorRuntime is defined globally and we're in a module,
+      // make the exports object identical to regeneratorRuntime.
+      module.exports = runtime;
+    }
+    // Don't bother evaluating the rest of this file if the runtime was
+    // already defined globally.
+    return;
+  }
+
+  // Define the runtime globally (as expected by generated code) as either
+  // module.exports (if we're in a module) or a new, empty object.
+  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  runtime.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  runtime.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  runtime.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        if (delegate.iterator.return) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  Gp[toStringTagSymbol] = "Generator";
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
+
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  runtime.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+})(
+  // In sloppy mode, unbound `this` refers to the global object, fallback to
+  // Function constructor if we're in global strict mode. That is sadly a form
+  // of indirect eval which violates Content Security Policy.
+  (function() {
+    return this || (typeof self === "object" && self);
+  })() || Function("return this")()
+);
+
+
+/***/ }),
+
+/***/ 214:
+/*!*****************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/components/gaoyia-parse/libs/html2json.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _wxDiscode = _interopRequireDefault(__webpack_require__(/*! ./wxDiscode */ 215));
+var _htmlparser = _interopRequireDefault(__webpack_require__(/*! ./htmlparser */ 216));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /**
+                                                                                                                                                                 * html2Json 改造来自: https://github.com/Jxck/html2json
+                                                                                                                                                                 *
+                                                                                                                                                                 *
+                                                                                                                                                                 * author: Di (微信小程序开发工程师)
+                                                                                                                                                                 * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+                                                                                                                                                                 *               垂直微信小程序开发交流社区
+                                                                                                                                                                 *
+                                                                                                                                                                 * github地址: https://github.com/icindy/wxParse
+                                                                                                                                                                 *
+                                                                                                                                                                 * for: 微信小程序富文本解析
+                                                                                                                                                                 * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+                                                                                                                                                                 */function makeMap(str) {var obj = {};var items = str.split(',');for (var i = 0; i < items.length; i += 1) {obj[items[i]] = true;}return obj;} // Block Elements - HTML 5
+var block = makeMap('br,code,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video'); // Inline Elements - HTML 5
+var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
+// Elements that you can, intentionally, leave open
+// (and which close themselves)
+var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
+
+function removeDOCTYPE(html) {
+  var isDocument = /<body.*>([^]*)<\/body>/.test(html);
+  return isDocument ? RegExp.$1 : html;
+}
+
+function trimHtml(html) {
+  return html.
+  replace(/<!--.*?-->/gi, '').
+  replace(/\/\*.*?\*\//gi, '').
+  replace(/[ ]+</gi, '<').
+  replace(/<script[^]*<\/script>/gi, '').
+  replace(/<style[^]*<\/style>/gi, '');
+}
+
+function getScreenInfo() {
+  var screen = {};
+  wx.getSystemInfo({
+    success: function success(res) {
+      screen.width = res.windowWidth;
+      screen.height = res.windowHeight;
+    } });
+
+  return screen;
+}
+
+function html2json(html, customHandler, imageProp, host) {
+  // 处理字符串
+  html = removeDOCTYPE(html);
+  html = trimHtml(html);
+  html = _wxDiscode.default.strDiscode(html);
+  // 生成node节点
+  var bufArray = [];
+  var results = {
+    nodes: [],
+    imageUrls: [] };
+
+
+  var screen = getScreenInfo();
+  function Node(tag) {
+    this.node = 'element';
+    this.tag = tag;
+
+    this.$screen = screen;
+  }
+
+  (0, _htmlparser.default)(html, {
+    start: function start(tag, attrs, unary) {
+      // node for this element
+      var node = new Node(tag);
+
+      if (bufArray.length !== 0) {
+        var parent = bufArray[0];
+        if (parent.nodes === undefined) {
+          parent.nodes = [];
+        }
+      }
+
+      if (block[tag]) {
+        node.tagType = 'block';
+      } else if (inline[tag]) {
+        node.tagType = 'inline';
+      } else if (closeSelf[tag]) {
+        node.tagType = 'closeSelf';
+      }
+
+      node.attr = attrs.reduce(function (pre, attr) {var
+        name = attr.name;var
+        value = attr.value;
+        if (name === 'class') {
+          node.classStr = value;
+        }
+        // has multi attibutes
+        // make it array of attribute
+        if (name === 'style') {
+          node.styleStr = value;
+        }
+        if (value.match(/ /)) {
+          value = value.split(' ');
+        }
+
+        // if attr already exists
+        // merge it
+        if (pre[name]) {
+          if (Array.isArray(pre[name])) {
+            // already array, push to last
+            pre[name].push(value);
+          } else {
+            // single value, make it array
+            pre[name] = [pre[name], value];
+          }
+        } else {
+          // not exist, put it
+          pre[name] = value;
+        }
+
+        return pre;
+      }, {});
+
+      // 优化样式相关属性
+      if (node.classStr) {
+        node.classStr += " ".concat(node.tag);
+      } else {
+        node.classStr = node.tag;
+      }
+      if (node.tagType === 'inline') {
+        node.classStr += ' inline';
+      }
+
+      // 对img添加额外数据
+      if (node.tag === 'img') {
+        var imgUrl = node.attr.src;
+        imgUrl = _wxDiscode.default.urlToHttpUrl(imgUrl, imageProp.domain);
+        Object.assign(node.attr, imageProp, {
+          src: imgUrl || '' });
+
+        if (imgUrl) {
+          results.imageUrls.push(imgUrl);
+        }
+      }
+
+      // 处理a标签属性
+      if (node.tag === 'a') {
+        node.attr.href = node.attr.href || '';
+      }
+
+      // 处理font标签样式属性
+      if (node.tag === 'font') {
+        var fontSize = [
+        'x-small',
+        'small',
+        'medium',
+        'large',
+        'x-large',
+        'xx-large',
+        '-webkit-xxx-large'];
+
+        var styleAttrs = {
+          color: 'color',
+          face: 'font-family',
+          size: 'font-size' };
+
+        if (!node.styleStr) node.styleStr = '';
+        Object.keys(styleAttrs).forEach(function (key) {
+          if (node.attr[key]) {
+            var value = key === 'size' ? fontSize[node.attr[key] - 1] : node.attr[key];
+            node.styleStr += "".concat(styleAttrs[key], ": ").concat(value, ";");
+          }
+        });
+      }
+
+      // 临时记录source资源
+      if (node.tag === 'source') {
+        results.source = node.attr.src;
+      }
+
+      if (customHandler.start) {
+        customHandler.start(node, results);
+      }
+
+      if (unary) {
+        // if this tag doesn't have end tag
+        // like <img src="hoge.png"/>
+        // add to parents
+        var _parent = bufArray[0] || results;
+        if (_parent.nodes === undefined) {
+          _parent.nodes = [];
+        }
+        _parent.nodes.push(node);
+      } else {
+        bufArray.unshift(node);
+      }
+    },
+    end: function end(tag) {
+      // merge into parent tag
+      var node = bufArray.shift();
+      if (node.tag !== tag) {
+        console.error('invalid state: mismatch end tag');
+      }
+
+      // 当有缓存source资源时于于video补上src资源
+      if (node.tag === 'video' && results.source) {
+        node.attr.src = results.source;
+        delete results.source;
+      }
+
+      if (customHandler.end) {
+        customHandler.end(node, results);
+      }
+
+      if (bufArray.length === 0) {
+        results.nodes.push(node);
+      } else {
+        var parent = bufArray[0];
+        if (!parent.nodes) {
+          parent.nodes = [];
+        }
+        parent.nodes.push(node);
+      }
+    },
+    chars: function chars(text) {
+      if (!text.trim()) return;
+
+      var node = {
+        node: 'text',
+        text: text };
+
+
+      if (customHandler.chars) {
+        customHandler.chars(node, results);
+      }
+
+      if (bufArray.length === 0) {
+        results.nodes.push(node);
+      } else {
+        var parent = bufArray[0];
+        if (parent.nodes === undefined) {
+          parent.nodes = [];
+        }
+        parent.nodes.push(node);
+      }
+    } });
+
+
+  return results;
+}var _default =
+
+html2json;exports.default = _default;
+
+/***/ }),
+
+/***/ 215:
+/*!*****************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/components/gaoyia-parse/libs/wxDiscode.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // HTML 支持的数学符号
+function strNumDiscode(str) {
+  str = str.replace(/&forall;|&#8704;|&#x2200;/g, '∀');
+  str = str.replace(/&part;|&#8706;|&#x2202;/g, '∂');
+  str = str.replace(/&exist;|&#8707;|&#x2203;/g, '∃');
+  str = str.replace(/&empty;|&#8709;|&#x2205;/g, '∅');
+  str = str.replace(/&nabla;|&#8711;|&#x2207;/g, '∇');
+  str = str.replace(/&isin;|&#8712;|&#x2208;/g, '∈');
+  str = str.replace(/&notin;|&#8713;|&#x2209;/g, '∉');
+  str = str.replace(/&ni;|&#8715;|&#x220b;/g, '∋');
+  str = str.replace(/&prod;|&#8719;|&#x220f;/g, '∏');
+  str = str.replace(/&sum;|&#8721;|&#x2211;/g, '∑');
+  str = str.replace(/&minus;|&#8722;|&#x2212;/g, '−');
+  str = str.replace(/&lowast;|&#8727;|&#x2217;/g, '∗');
+  str = str.replace(/&radic;|&#8730;|&#x221a;/g, '√');
+  str = str.replace(/&prop;|&#8733;|&#x221d;/g, '∝');
+  str = str.replace(/&infin;|&#8734;|&#x221e;/g, '∞');
+  str = str.replace(/&ang;|&#8736;|&#x2220;/g, '∠');
+  str = str.replace(/&and;|&#8743;|&#x2227;/g, '∧');
+  str = str.replace(/&or;|&#8744;|&#x2228;/g, '∨');
+  str = str.replace(/&cap;|&#8745;|&#x2229;/g, '∩');
+  str = str.replace(/&cup;|&#8746;|&#x222a;/g, '∪');
+  str = str.replace(/&int;|&#8747;|&#x222b;/g, '∫');
+  str = str.replace(/&there4;|&#8756;|&#x2234;/g, '∴');
+  str = str.replace(/&sim;|&#8764;|&#x223c;/g, '∼');
+  str = str.replace(/&cong;|&#8773;|&#x2245;/g, '≅');
+  str = str.replace(/&asymp;|&#8776;|&#x2248;/g, '≈');
+  str = str.replace(/&ne;|&#8800;|&#x2260;/g, '≠');
+  str = str.replace(/&le;|&#8804;|&#x2264;/g, '≤');
+  str = str.replace(/&ge;|&#8805;|&#x2265;/g, '≥');
+  str = str.replace(/&sub;|&#8834;|&#x2282;/g, '⊂');
+  str = str.replace(/&sup;|&#8835;|&#x2283;/g, '⊃');
+  str = str.replace(/&nsub;|&#8836;|&#x2284;/g, '⊄');
+  str = str.replace(/&sube;|&#8838;|&#x2286;/g, '⊆');
+  str = str.replace(/&supe;|&#8839;|&#x2287;/g, '⊇');
+  str = str.replace(/&oplus;|&#8853;|&#x2295;/g, '⊕');
+  str = str.replace(/&otimes;|&#8855;|&#x2297;/g, '⊗');
+  str = str.replace(/&perp;|&#8869;|&#x22a5;/g, '⊥');
+  str = str.replace(/&sdot;|&#8901;|&#x22c5;/g, '⋅');
+  return str;
+}
+
+// HTML 支持的希腊字母
+function strGreeceDiscode(str) {
+  str = str.replace(/&Alpha;|&#913;|&#x391;/g, 'Α');
+  str = str.replace(/&Beta;|&#914;|&#x392;/g, 'Β');
+  str = str.replace(/&Gamma;|&#915;|&#x393;/g, 'Γ');
+  str = str.replace(/&Delta;|&#916;|&#x394;/g, 'Δ');
+  str = str.replace(/&Epsilon;|&#917;|&#x395;/g, 'Ε');
+  str = str.replace(/&Zeta;|&#918;|&#x396;/g, 'Ζ');
+  str = str.replace(/&Eta;|&#919;|&#x397;/g, 'Η');
+  str = str.replace(/&Theta;|&#920;|&#x398;/g, 'Θ');
+  str = str.replace(/&Iota;|&#921;|&#x399;/g, 'Ι');
+  str = str.replace(/&Kappa;|&#922;|&#x39a;/g, 'Κ');
+  str = str.replace(/&Lambda;|&#923;|&#x39b;/g, 'Λ');
+  str = str.replace(/&Mu;|&#924;|&#x39c;/g, 'Μ');
+  str = str.replace(/&Nu;|&#925;|&#x39d;/g, 'Ν');
+  str = str.replace(/&Xi;|&#925;|&#x39d;/g, 'Ν');
+  str = str.replace(/&Omicron;|&#927;|&#x39f;/g, 'Ο');
+  str = str.replace(/&Pi;|&#928;|&#x3a0;/g, 'Π');
+  str = str.replace(/&Rho;|&#929;|&#x3a1;/g, 'Ρ');
+  str = str.replace(/&Sigma;|&#931;|&#x3a3;/g, 'Σ');
+  str = str.replace(/&Tau;|&#932;|&#x3a4;/g, 'Τ');
+  str = str.replace(/&Upsilon;|&#933;|&#x3a5;/g, 'Υ');
+  str = str.replace(/&Phi;|&#934;|&#x3a6;/g, 'Φ');
+  str = str.replace(/&Chi;|&#935;|&#x3a7;/g, 'Χ');
+  str = str.replace(/&Psi;|&#936;|&#x3a8;/g, 'Ψ');
+  str = str.replace(/&Omega;|&#937;|&#x3a9;/g, 'Ω');
+
+  str = str.replace(/&alpha;|&#945;|&#x3b1;/g, 'α');
+  str = str.replace(/&beta;|&#946;|&#x3b2;/g, 'β');
+  str = str.replace(/&gamma;|&#947;|&#x3b3;/g, 'γ');
+  str = str.replace(/&delta;|&#948;|&#x3b4;/g, 'δ');
+  str = str.replace(/&epsilon;|&#949;|&#x3b5;/g, 'ε');
+  str = str.replace(/&zeta;|&#950;|&#x3b6;/g, 'ζ');
+  str = str.replace(/&eta;|&#951;|&#x3b7;/g, 'η');
+  str = str.replace(/&theta;|&#952;|&#x3b8;/g, 'θ');
+  str = str.replace(/&iota;|&#953;|&#x3b9;/g, 'ι');
+  str = str.replace(/&kappa;|&#954;|&#x3ba;/g, 'κ');
+  str = str.replace(/&lambda;|&#955;|&#x3bb;/g, 'λ');
+  str = str.replace(/&mu;|&#956;|&#x3bc;/g, 'μ');
+  str = str.replace(/&nu;|&#957;|&#x3bd;/g, 'ν');
+  str = str.replace(/&xi;|&#958;|&#x3be;/g, 'ξ');
+  str = str.replace(/&omicron;|&#959;|&#x3bf;/g, 'ο');
+  str = str.replace(/&pi;|&#960;|&#x3c0;/g, 'π');
+  str = str.replace(/&rho;|&#961;|&#x3c1;/g, 'ρ');
+  str = str.replace(/&sigmaf;|&#962;|&#x3c2;/g, 'ς');
+  str = str.replace(/&sigma;|&#963;|&#x3c3;/g, 'σ');
+  str = str.replace(/&tau;|&#964;|&#x3c4;/g, 'τ');
+  str = str.replace(/&upsilon;|&#965;|&#x3c5;/g, 'υ');
+  str = str.replace(/&phi;|&#966;|&#x3c6;/g, 'φ');
+  str = str.replace(/&chi;|&#967;|&#x3c7;/g, 'χ');
+  str = str.replace(/&psi;|&#968;|&#x3c8;/g, 'ψ');
+  str = str.replace(/&omega;|&#969;|&#x3c9;/g, 'ω');
+  str = str.replace(/&thetasym;|&#977;|&#x3d1;/g, 'ϑ');
+  str = str.replace(/&upsih;|&#978;|&#x3d2;/g, 'ϒ');
+  str = str.replace(/&piv;|&#982;|&#x3d6;/g, 'ϖ');
+  str = str.replace(/&middot;|&#183;|&#xb7;/g, '·');
+  return str;
+}
+
+function strcharacterDiscode(str) {
+  // 加入常用解析
+
+  // str = str.replace(/&nbsp;|&#32;|&#x20;/g, "&nbsp;");
+  // str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '&ensp;');
+  // str = str.replace(/&#12288;|&#x3000;/g, '<span class=\'spaceshow\'>　</span>');
+  // str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '&emsp;');
+  // str = str.replace(/&quot;|&#34;|&#x22;/g, "\"");
+  // str = str.replace(/&apos;|&#39;|&#x27;/g, "&apos;");
+  // str = str.replace(/&acute;|&#180;|&#xB4;/g, "´");
+  // str = str.replace(/&times;|&#215;|&#xD7;/g, "×");
+  // str = str.replace(/&divide;|&#247;|&#xF7;/g, "÷");
+  // str = str.replace(/&amp;|&#38;|&#x26;/g, '&amp;');
+  // str = str.replace(/&lt;|&#60;|&#x3c;/g, '&lt;');
+  // str = str.replace(/&gt;|&#62;|&#x3e;/g, '&gt;');
+
+
+
+
+  str = str.replace(/&nbsp;|&#32;|&#x20;/g, "<span class='spaceshow'> </span>");
+  str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '<span class=\'spaceshow\'> </span>');
+  str = str.replace(/&#12288;|&#x3000;/g, '<span class=\'spaceshow\'>　</span>');
+  str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '<span class=\'spaceshow\'> </span>');
+  str = str.replace(/&quot;|&#34;|&#x22;/g, "\"");
+  str = str.replace(/&quot;|&#39;|&#x27;/g, "'");
+  str = str.replace(/&acute;|&#180;|&#xB4;/g, "´");
+  str = str.replace(/&times;|&#215;|&#xD7;/g, "×");
+  str = str.replace(/&divide;|&#247;|&#xF7;/g, "÷");
+  str = str.replace(/&amp;|&#38;|&#x26;/g, '&');
+  str = str.replace(/&lt;|&#60;|&#x3c;/g, '<');
+  str = str.replace(/&gt;|&#62;|&#x3e;/g, '>');
+  return str;
+}
+
+// HTML 支持的其他实体
+function strOtherDiscode(str) {
+  str = str.replace(/&OElig;|&#338;|&#x152;/g, 'Œ');
+  str = str.replace(/&oelig;|&#339;|&#x153;/g, 'œ');
+  str = str.replace(/&Scaron;|&#352;|&#x160;/g, 'Š');
+  str = str.replace(/&scaron;|&#353;|&#x161;/g, 'š');
+  str = str.replace(/&Yuml;|&#376;|&#x178;/g, 'Ÿ');
+  str = str.replace(/&fnof;|&#402;|&#x192;/g, 'ƒ');
+  str = str.replace(/&circ;|&#710;|&#x2c6;/g, 'ˆ');
+  str = str.replace(/&tilde;|&#732;|&#x2dc;/g, '˜');
+  str = str.replace(/&thinsp;|$#8201;|&#x2009;/g, '<span class=\'spaceshow\'> </span>');
+  str = str.replace(/&zwnj;|&#8204;|&#x200C;/g, '<span class=\'spaceshow\'>‌</span>');
+  str = str.replace(/&zwj;|$#8205;|&#x200D;/g, '<span class=\'spaceshow\'>‍</span>');
+  str = str.replace(/&lrm;|$#8206;|&#x200E;/g, '<span class=\'spaceshow\'>‎</span>');
+  str = str.replace(/&rlm;|&#8207;|&#x200F;/g, '<span class=\'spaceshow\'>‏</span>');
+  str = str.replace(/&ndash;|&#8211;|&#x2013;/g, '–');
+  str = str.replace(/&mdash;|&#8212;|&#x2014;/g, '—');
+  str = str.replace(/&lsquo;|&#8216;|&#x2018;/g, '‘');
+  str = str.replace(/&rsquo;|&#8217;|&#x2019;/g, '’');
+  str = str.replace(/&sbquo;|&#8218;|&#x201a;/g, '‚');
+  str = str.replace(/&ldquo;|&#8220;|&#x201c;/g, '“');
+  str = str.replace(/&rdquo;|&#8221;|&#x201d;/g, '”');
+  str = str.replace(/&bdquo;|&#8222;|&#x201e;/g, '„');
+  str = str.replace(/&dagger;|&#8224;|&#x2020;/g, '†');
+  str = str.replace(/&Dagger;|&#8225;|&#x2021;/g, '‡');
+  str = str.replace(/&bull;|&#8226;|&#x2022;/g, '•');
+  str = str.replace(/&hellip;|&#8230;|&#x2026;/g, '…');
+  str = str.replace(/&permil;|&#8240;|&#x2030;/g, '‰');
+  str = str.replace(/&prime;|&#8242;|&#x2032;/g, '′');
+  str = str.replace(/&Prime;|&#8243;|&#x2033;/g, '″');
+  str = str.replace(/&lsaquo;|&#8249;|&#x2039;/g, '‹');
+  str = str.replace(/&rsaquo;|&#8250;|&#x203a;/g, '›');
+  str = str.replace(/&oline;|&#8254;|&#x203e;/g, '‾');
+  str = str.replace(/&euro;|&#8364;|&#x20ac;/g, '€');
+  str = str.replace(/&trade;|&#8482;|&#x2122;/g, '™');
+  str = str.replace(/&larr;|&#8592;|&#x2190;/g, '←');
+  str = str.replace(/&uarr;|&#8593;|&#x2191;/g, '↑');
+  str = str.replace(/&rarr;|&#8594;|&#x2192;/g, '→');
+  str = str.replace(/&darr;|&#8595;|&#x2193;/g, '↓');
+  str = str.replace(/&harr;|&#8596;|&#x2194;/g, '↔');
+  str = str.replace(/&crarr;|&#8629;|&#x21b5;/g, '↵');
+  str = str.replace(/&lceil;|&#8968;|&#x2308;/g, '⌈');
+  str = str.replace(/&rceil;|&#8969;|&#x2309;/g, '⌉');
+  str = str.replace(/&lfloor;|&#8970;|&#x230a;/g, '⌊');
+  str = str.replace(/&rfloor;|&#8971;|&#x230b;/g, '⌋');
+  str = str.replace(/&loz;|&#9674;|&#x25ca;/g, '◊');
+  str = str.replace(/&spades;|&#9824;|&#x2660;/g, '♠');
+  str = str.replace(/&clubs;|&#9827;|&#x2663;/g, '♣');
+  str = str.replace(/&hearts;|&#9829;|&#x2665;/g, '♥');
+  str = str.replace(/&diams;|&#9830;|&#x2666;/g, '♦');
+  return str;
+}
+
+function strDiscode(str) {
+  str = strNumDiscode(str);
+  str = strGreeceDiscode(str);
+  str = strcharacterDiscode(str);
+  str = strOtherDiscode(str);
+  return str;
+}
+
+function urlToHttpUrl(url, domain) {
+  if (/^\/\//.test(url)) {
+    return "https:".concat(url);
+  } else if (/^\//.test(url)) {
+    return "https://".concat(domain).concat(url);
+  }
+  return url;
+}var _default =
+
+{
+  strDiscode: strDiscode,
+  urlToHttpUrl: urlToHttpUrl };exports.default = _default;
+
+/***/ }),
+
+/***/ 216:
+/*!******************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/components/gaoyia-parse/libs/htmlparser.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      *
+                                                                                                      * htmlParser改造自: https://github.com/blowsie/Pure-JavaScript-HTML5-Parser
+                                                                                                      *
+                                                                                                      * author: Di (微信小程序开发工程师)
+                                                                                                      * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+                                                                                                      *               垂直微信小程序开发交流社区
+                                                                                                      *
+                                                                                                      * github地址: https://github.com/icindy/wxParse
+                                                                                                      *
+                                                                                                      * for: 微信小程序富文本解析
+                                                                                                      * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+                                                                                                      */
+// Regular Expressions for parsing tags and attributes
+
+var startTag = /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z0-9_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/;
+var endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/;
+var attr = /([a-zA-Z0-9_:][-a-zA-Z0-9_:.]*)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g;
+
+function makeMap(str) {
+  var obj = {};
+  var items = str.split(',');
+  for (var i = 0; i < items.length; i += 1) {obj[items[i]] = true;}
+  return obj;
+}
+
+// Empty Elements - HTML 5
+var empty = makeMap('area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr');
+
+// Block Elements - HTML 5
+var block = makeMap('address,code,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
+
+// Inline Elements - HTML 5
+var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
+
+// Elements that you can, intentionally, leave open
+// (and which close themselves)
+var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
+
+// Attributes that have their values filled in disabled="disabled"
+var fillAttrs = makeMap('checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected');
+
+function HTMLParser(html, handler) {
+  var index;
+  var chars;
+  var match;
+  var last = html;
+  var stack = [];
+
+  stack.last = function () {return stack[stack.length - 1];};
+
+  function parseEndTag(tag, tagName) {
+    // If no tag name is provided, clean shop
+    var pos;
+    if (!tagName) {
+      pos = 0;
+    } else {
+      // Find the closest opened tag of the same type
+      tagName = tagName.toLowerCase();
+      for (pos = stack.length - 1; pos >= 0; pos -= 1) {
+        if (stack[pos] === tagName) break;
+      }
+    }
+    if (pos >= 0) {
+      // Close all the open elements, up the stack
+      for (var i = stack.length - 1; i >= pos; i -= 1) {
+        if (handler.end) handler.end(stack[i]);
+      }
+
+      // Remove the open elements from the stack
+      stack.length = pos;
+    }
+  }
+
+  function parseStartTag(tag, tagName, rest, unary) {
+    tagName = tagName.toLowerCase();
+
+    if (block[tagName]) {
+      while (stack.last() && inline[stack.last()]) {
+        parseEndTag('', stack.last());
+      }
+    }
+
+    if (closeSelf[tagName] && stack.last() === tagName) {
+      parseEndTag('', tagName);
+    }
+
+    unary = empty[tagName] || !!unary;
+
+    if (!unary) stack.push(tagName);
+
+    if (handler.start) {
+      var attrs = [];
+
+      rest.replace(attr, function genAttr(matches, name) {
+        var value = arguments[2] || arguments[3] || arguments[4] || (fillAttrs[name] ? name : '');
+
+        attrs.push({
+          name: name,
+          value: value,
+          escaped: value.replace(/(^|[^\\])"/g, '$1\\"') // "
+        });
+      });
+
+      if (handler.start) {
+        handler.start(tagName, attrs, unary);
+      }
+    }
+  }
+
+  while (html) {
+    chars = true;
+
+    if (html.indexOf('</') === 0) {
+      match = html.match(endTag);
+
+      if (match) {
+        html = html.substring(match[0].length);
+        match[0].replace(endTag, parseEndTag);
+        chars = false;
+      }
+
+      // start tag
+    } else if (html.indexOf('<') === 0) {
+      match = html.match(startTag);
+
+      if (match) {
+        html = html.substring(match[0].length);
+        match[0].replace(startTag, parseStartTag);
+        chars = false;
+      }
+    }
+
+    if (chars) {
+      index = html.indexOf('<');
+      var text = '';
+      while (index === 0) {
+        text += '<';
+        html = html.substring(1);
+        index = html.indexOf('<');
+      }
+      text += index < 0 ? html : html.substring(0, index);
+      html = index < 0 ? '' : html.substring(index);
+
+      if (handler.chars) handler.chars(text);
+    }
+
+    if (html === last) throw new Error("Parse Error: ".concat(html));
+    last = html;
+  }
+
+  // Clean up any remaining tags
+  parseEndTag();
+}var _default =
+
+HTMLParser;exports.default = _default;
+
+/***/ }),
+
+/***/ 22:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appRouter/util.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.assertCanBack = exports.getPageOnBeforeBack = exports.APPGetPageRoute = exports.ruleToUniNavInfo = exports.formatFrom = exports.getFormatQuery = exports.pathOrNameToRoute = exports.formatTo = exports.getPageVmOrMp = exports.isNvuePage = exports.getPages = exports.callAppHook = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 19));var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _util = __webpack_require__(/*! ../helpers/util */ 13);
+var _config = __webpack_require__(/*! ../helpers/config */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 触发指定生命钩子
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * @param {Array} funList	//需要执行的方法列表
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * @param {Object} args //触发生命钩子传递的参数
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
+var callAppHook = function callAppHook() {var funList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];var args = arguments.length > 1 ? arguments[1] : undefined;
+  for (var i = 0; i < funList.length; i += 1) {
+    funList[i].call(this, args);
+  }
+};
+/**
+    * @param {Number} index //需要获取的页面下标 -2:表示获取最后一个即当前页面 -1:表示全部 -3:当前页面的前一个页面
+    * @param {Boolean} all //是否获取全部的页面
+    */exports.callAppHook = callAppHook;
+var getPages = function getPages() {var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : -1;var all = arguments.length > 1 ? arguments[1] : undefined;
+  var pages = getCurrentPages(all);
+  if (index === -1) {
+    return pages;
+  }
+  if (index === -2) {
+    return pages[pages.length - 1];
+  }
+  if (index === -3) {
+    return pages[pages.length - 2];
+  }
+  return pages[index];
+};
+/**
+    * 验证当前页面是否为nvue页面
+    * @param {Object} page 当前页面对象
+    */exports.getPages = getPages;
+var isNvuePage = function isNvuePage(page) {
+  var cstr = page.constructor.name;
+  var pageType = {
+    s: true,
+    z: false };
+
+  return pageType[cstr];
+};
+
+/**
+    * @param {Object} page //当前顶级页面对象
+    * @param {Object} vim:? //是否获取 $vm 对象还是 $mp 对象
+    */exports.isNvuePage = isNvuePage;
+var getPageVmOrMp = function getPageVmOrMp(page) {var vim = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (vim) {
+    return page.$vm;
+  }
+  if (page.$vm.$mp) {
+    return page.$vm.$mp;
+  }
+  if (isNvuePage(page)) {// nvue 页面
+    return {
+      page: page,
+      query: page.__displayReporter.query };
+
+  }
+};
+
+/**
+    * 获取 to 的配置参数
+    * @param {Object} rule 当前跳转的规则
+    */exports.getPageVmOrMp = getPageVmOrMp;
+var formatTo = function formatTo(finalRoute) {
+  var route = (0, _util.copyObject)(finalRoute.route);var
+  rule = finalRoute.rule;
+  route.query = rule.query || rule.params || {};
+  return route;
+};
+/**
+    * 通过一个未知的路径或者名称 在路由表中查找指定路由表 并返回
+    * @param {string} type   //path 或者 name
+    * @param {Object} routes //当前对象的所有路由表
+    */exports.formatTo = formatTo;
+var pathOrNameToRoute = function pathOrNameToRoute(type) {var routes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _config.Global.Router.CONFIG.routes;
+  var routesKeys = Object.keys(routes);
+  for (var i = 0; i < routesKeys.length; i += 1) {
+    var key = routesKeys[i];
+    var item = routes[key];
+    if (item.path === "/".concat(type)) {
+      return (0, _config.route)(item); // 合并一下对象,主要是合并 query:{} 及 params:{}
+    }
+    if (item.path === type) {
+      return (0, _config.route)(item); // 合并一下对象,主要是合并 query:{} 及 params:{}
+    }
+    if (item.name == type) {
+      return (0, _config.route)(item); // 合并一下对象,主要是合并 query:{} 及 params:{}
+    }
+  }
+  (0, _warn.err)("\u5F53\u524D '".concat(type, "' \u5728\u8DEF\u7531\u8868\u4E2D\u6CA1\u6709\u627E\u5230\u5339\u914D\u7684 name \u6216\u8005 path"));
+};
+/**
+    * 统一格式话 路由传递的参数 看看是编码还是非编码 做相应的对策
+    *
+    * @param {Object} query 当前的路由参数
+    * @param {Boolean} getter 是从页面获取 route 对象下的参数 还是编码后传输
+    */exports.pathOrNameToRoute = pathOrNameToRoute;
+var getFormatQuery = function getFormatQuery() {var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  if (_config.Global.Router.CONFIG.encodeURI) {
+    try {
+      query = JSON.parse(decodeURIComponent(query.query || encodeURIComponent('{}')));
+    } catch (e) {
+      query = JSON.parse(query.query);
+    }
+  }
+  return query;
+};
+/**
+    * 获取 from 的配置参数 from 页面永远都是站在当前页面忘其它地方走 所以都是最后一个页面
+    *
+    * @param {Object} routes //当前对象的所有路由表
+    */exports.getFormatQuery = getFormatQuery;
+var formatFrom = function formatFrom(routes) {
+  var topPage = getPages(-2);var _getPageVmOrMp =
+  getPageVmOrMp(topPage, false),page = _getPageVmOrMp.page,query = _getPageVmOrMp.query;
+  var route = pathOrNameToRoute(page.route, routes); // 获取到当前路由表下的 route
+  route.query = getFormatQuery(query); // 不管是编码传输还是非编码 最后都得在 to/from 中换成json对象
+  return route;
+};
+/**
+    *
+    * 把用户的跳转路由规则格式化成uni-app可用的路由跳转规则
+    *
+    * @param {Object} rule  //当前用户跳转的路由规则
+    * @param {Object} routes //当前simple-router 下的路由表
+    */exports.formatFrom = formatFrom;
+var ruleToUniNavInfo = function ruleToUniNavInfo(rule, routes) {
+  if (rule == null) {
+    return (0, _warn.err)('当前跳转规则为空,请检查跳转代码');
+  }
+  // eslint-disable-next-line
+  var navType = 'path',route = null,query = {},animation = {};
+  if (rule.constructor === String) {// 是字符串类型 那当前就是路径啦
+    route = pathOrNameToRoute(rule, routes); // 直接把 rule 当 path 传递 完事
+  } else if (rule.constructor === Object) {// 对象类型 可以是 path 或者 name
+    route = pathOrNameToRoute(rule.path || (navType = 'name', rule.name), routes); // 两则必有其一 报错自己处理
+    query = rule.query || rule.params || {};
+    animation = rule.animation || {};
+  } else {
+    return (0, _warn.err)('传的什么乱七八糟的类型?路由跳转规则只认字符串 \'path\' , 对象 \'path\' , 对象 \'name\' ');
+  }
+  animation = _objectSpread({}, _config.Global.Router.CONFIG.APP.animation, {}, route.animation || {}, {}, animation); // 合并多种方式声明的动画效果
+  route.animation = animation; // 这才是最终的页面切换效果
+  // 路径处理完后   开始格式化参数
+  var uniRoute = (0, _util.parseQuery)(route.path, query); // uni-app 需要的跳转规则
+  return {
+    rule: rule,
+    route: route,
+    uniRoute: uniRoute };
+
+};
+/**
+    * 获取当前页面下的 Route 信息
+    *
+    * @param {Object} pages 获取页面对象集合
+    * @param {Object} Vim 用户传递的当前页面对象
+    */exports.ruleToUniNavInfo = ruleToUniNavInfo;
+var APPGetPageRoute = function APPGetPageRoute(pages, Vim) {var
+  query = {},path = '';
+  var page = pages[pages.length - 1]; // 获取到当前页面
+  if (pages.length > 0) {
+    query = getFormatQuery(page.options, true);
+    path = page.route;
+  } else if (Vim != null) {
+    query = getFormatQuery(Vim.$mp.page.options, true);
+    path = page.route;
+  }
+  var route = pathOrNameToRoute(path);
+  route.query = query;
+  return route;
+};
+/**
+    * 获取当前页面下的 onBeforeBack 生命周期并执行
+    *
+    * @param {Object} args 当前返回页面时uni-app传递的参数
+    */exports.APPGetPageRoute = APPGetPageRoute;
+var getPageOnBeforeBack = function getPageOnBeforeBack(args) {
+  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve) {var currPage, onBeforeBack, isNext;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              currPage = getPages(-2); // 获取到当前页面
+              onBeforeBack = currPage.$vm.$options.onBeforeBack;if (!(
+              onBeforeBack != null && onBeforeBack.constructor === Function)) {_context.next = 8;break;}_context.next = 5;return (
+                onBeforeBack.call(currPage.$vm, args));case 5:isNext = _context.sent;if (!(
+              isNext === true)) {_context.next = 8;break;}return _context.abrupt("return",
+              resolve(false));case 8:return _context.abrupt("return",
+
+
+              resolve(true));case 9:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}());
+
+};
+/**
+    * 断言当前页面是否可返回上一级
+    * @param {Object} page 当前页面webview对象
+    */exports.getPageOnBeforeBack = getPageOnBeforeBack;
+var assertCanBack = function assertCanBack(page) {
+  var pageStyle = page.$getAppWebview().getStyle();
+  if (pageStyle.titleNView != null && pageStyle.titleNView.autoBackButton) {// 只有处理有带返回按钮的页面
+    return true;
+  }
+  // 两种情况 1.真的是顶级页面时  2.自定义头部
+  var $page = page.$page;
+  if ($page && $page.meta.isQuit === false) {// 自定义头部 不是顶级页面
+    return true;
+  }
+  return false; // 不可返回 真的是顶级页面时 返回就直接退出app了
+};exports.assertCanBack = assertCanBack;
+
+/***/ }),
+
+/***/ 23:
+/*!**************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appRouter/uniNav.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = __webpack_require__(/*! ../helpers/config */ 14);
+var _util = __webpack_require__(/*! ../helpers/util */ 13);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var stop = null;
+
+/**
+                  * @param {Object} finalRoute 格式化后的路由跳转规则
+                  * @param {Object} NAVTYPE 需要调用的跳转方法
+                  */
+var uniPushTo = function uniPushTo(finalRoute, NAVTYPE) {
+  return new Promise(function (resolve) {
+    var query = (0, _util.formatURLQuery)("?".concat(finalRoute.uniRoute.query));var
+    APP = _config.baseConfig.APP;var
+    url = finalRoute.uniRoute.url;
+    stop = setTimeout(function () {
+      resolve(url);
+      resolve = _util.noop; // 执行完了就没了 确保不会被下一次执行
+      _config.Global.LockStatus = false; // 跳转完成解锁状态
+    }, APP.switchPageOutTime);
+
+    uni[_config.methods[NAVTYPE]](_objectSpread({
+      url: url + query },
+    finalRoute.route.animation, {
+      complete: function complete() {
+        clearTimeout(stop);
+        resolve(url);
+        resolve = _util.noop; // 执行完了就没了 确保不会被下一次执行
+        _config.Global.LockStatus = false; // 跳转完成解锁状态
+      } }),
+    true); // 这里传递true 主要是兼容重写 uni.switchTab
+  });
+};var _default =
+
+uniPushTo;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 24:
+/*!*****************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appletsRouter/hooks.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.appletsProxyIndexHook = exports.triggerLifeCycle = exports.backCallHook = exports.appletsTransitionTo = exports.proxyLaunchHook = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 19));var _config = __webpack_require__(/*! ../helpers/config */ 14);
+var _util = __webpack_require__(/*! ./util */ 25);
+
+
+var _appletsNav = _interopRequireDefault(__webpack_require__(/*! ./appletsNav */ 27));
+var _util2 = __webpack_require__(/*! ../helpers/util */ 13);
+var _warn = __webpack_require__(/*! ../helpers/warn */ 16);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * @param {String} key
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        * @param {Function} hook 需要执行及还原的生命周期函数
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        */
+var toutiaoIndexHookCall = function toutiaoIndexHookCall(key, hook) {var
+  indexVue = _config.uniAppHook.indexVue;
+  var indeHooks = indexVue[key];
+  indeHooks.splice(indeHooks.length - 1, 1, hook);
+};
+
+/**
+    * 还原并执行所有 拦截下来的生命周期 app.vue 及 index 下的生命周期
+    * @param {Boolean} callHome // 是否触发首页的生命周期
+    *
+    * this 为当前 page 对象
+    */
+var callwaitHooks = function callwaitHooks(callHome) {var _this = this;
+  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve) {var variation, appVue, onLaunch, onShow, waitHooks, variationFuns, indexCallHooks, app, key, _key, item;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              variation = []; // 存储一下在uni-app上的变异生命钩子  奇葩的要死
+
+              appVue =
+              _config.uniAppHook.appVue, onLaunch = _config.uniAppHook.onLaunch, onShow = _config.uniAppHook.onShow, waitHooks = _config.uniAppHook.waitHooks, variationFuns = _config.uniAppHook.variationFuns, indexCallHooks = _config.uniAppHook.indexCallHooks;
+              app = appVue.$options;_context.next = 5;return (
+                onLaunch.fun[onLaunch.fun.length - 1].call(appVue, onLaunch.args));case 5: // 确保只执行最后一个 并且强化异步操作
+              onShow.fun[onShow.fun.length - 1].call(appVue, onShow.args); // onshow 不保证异步 直接确保执行最后一个
+              if (callHome) {// 触发首页生命周期
+                // eslint-disable-next-line
+                for (key in waitHooks) {
+                  if (indexCallHooks.includes(key)) {// 只有在被包含的情况下才执行
+                    _util.callAppHook.call(_this, waitHooks[key].fun);
+                  }
+                }
+              }
+              if (onLaunch.isHijack) {// 还原 onLaunch生命钩子
+                app.onLaunch.splice(app.onLaunch.length - 1, 1, onLaunch.fun[0]);
+              }
+              if (onShow.isHijack) {// 继续还原 onShow
+                app.onShow.splice(app.onShow.length - 1, 1, onShow.fun[0]);
+              }
+              // eslint-disable-next-line
+              for (_key in waitHooks) {// 还原 首页下的生命钩子
+                item = waitHooks[_key];
+                if (item.isHijack) {
+                  if (variationFuns.includes(_key)) {// 变异方法
+                    variation.push({ key: _key, fun: item.fun[0] });
+                  } else {
+                    toutiaoIndexHookCall(_key, item.fun[0]);
+                  }
+                }
+              }
+              resolve(variation);case 11:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}());
+
+};
+/**
+    * 还原剩下的奇葩生命钩子
+    * @param {Object} variation 当前uni-app中的一些变异方法  奇葩生命钩子
+    */
+var callVariationHooks = function callVariationHooks(variation) {
+  for (var i = 0; i < variation.length; i += 1) {var _variation$i =
+    variation[i],key = _variation$i.key,fun = _variation$i.fun;
+    toutiaoIndexHookCall(key, fun);
+  }
+};
+
+/**
+    * 主要是对app.vue下onLaunch和onShow生命周期进行劫持
+    *
+    * this 为当前 page 对象
+    */
+var proxyLaunchHook = function proxyLaunchHook() {var _this2 = this;var _this$$options =
+
+
+
+  this.$options,onLaunch = _this$$options.onLaunch,onShow = _this$$options.onShow;
+  _config.uniAppHook.appVue = this; // 缓存 当前app.vue组件对象
+  if (onLaunch.length > 1) {// 确保有写 onLaunch 可能有其他混入 那也办法
+    _config.uniAppHook.onLaunch.isHijack = true;
+    _config.uniAppHook.onLaunch.fun = onLaunch.splice(onLaunch.length - 1, 1, function (arg) {
+      _config.uniAppHook.onLaunch.args = arg;
+    }); // 替换uni-app自带的生命周期
+  }
+  if (onShow.length > 0) {
+    _config.uniAppHook.onShow.isHijack = true;
+    _config.uniAppHook.onShow.fun = onShow.splice(onShow.length - 1, 1, function (arg) {
+      _config.uniAppHook.onShow.args = arg;
+      if (_config.uniAppHook.pageReady) {// 因为还有app切前台后台的操作
+        _util.callAppHook.call(_this2, _config.uniAppHook.onShow.fun, arg);
+      }
+    }); // 替换替换 都替换
+  }
+};
+/**
+    * 触发全局beforeHooks 生命钩子
+    * @param {Object} _from // from  参数
+    * @param {Object} _to  // to 参数
+    *
+    * this 为当前 Router 对象
+    */exports.proxyLaunchHook = proxyLaunchHook;
+var beforeHooks = function beforeHooks(_from, _to) {var _this3 = this;
+  return new Promise( /*#__PURE__*/function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(resolve) {var beforeHooksFun;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+              beforeHooksFun = _this3.lifeCycle.beforeHooks[0];if (!(
+              beforeHooksFun == null)) {_context2.next = 3;break;}return _context2.abrupt("return",
+              resolve());case 3:_context2.next = 5;return (
+
+                beforeHooksFun.call(_this3, _to, _from, resolve));case 5:case "end":return _context2.stop();}}}, _callee2);}));return function (_x2) {return _ref2.apply(this, arguments);};}());
+
+};
+/**
+    * 触发全局afterEachHooks 生命钩子
+    * @param {Object} _from // from  参数
+    * @param {Object} _to  // to 参数
+    *
+    * this 为当前 Router 对象
+    */
+var afterEachHooks = function afterEachHooks(_from, _to) {
+  var afterHooks = this.lifeCycle.afterHooks[0];
+  if (afterHooks != null && afterHooks.constructor === Function) {
+    afterHooks.call(this, _to, _from);
+  }
+};
+/**
+    * 触发全局 beforeEnter 生命钩子
+    * @param {Object} finalRoute 	// 当前格式化后的路由参数
+    * @param {Object} _from // from  参数
+    * @param {Object} _to  // to 参数
+    *
+    * this 为当前 Router 对象
+    */
+var beforeEnterHooks = function beforeEnterHooks(finalRoute, _from, _to) {var _this4 = this;
+  return new Promise( /*#__PURE__*/function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(resolve) {var beforeEnter;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+              beforeEnter = finalRoute.route.beforeEnter;if (!(
+              beforeEnter == null || beforeEnter.constructor !== Function)) {_context3.next = 3;break;}return _context3.abrupt("return",
+              resolve());case 3:_context3.next = 5;return (
+
+                beforeEnter.call(_this4, _to, _from, resolve));case 5:case "end":return _context3.stop();}}}, _callee3);}));return function (_x3) {return _ref3.apply(this, arguments);};}());
+
+};
+/**
+    *  v1.5.4+
+    * beforeRouteLeave 生命周期
+    * @param {Object} to       将要去的那个页面 to对象
+    * @param {Object} from     从那个页面触发的 from对象
+    *  @param {Boolean} leaveHook:? 是否为 beforeRouteLeave 触发的next 到别处 如果是则不再触发 beforeRouteLeave 生命钩子
+    * this 为当前 Router 对象
+    */
+var beforeRouteLeaveHooks = function beforeRouteLeaveHooks(from, to, leaveHook) {
+  return new Promise( /*#__PURE__*/function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4(resolve) {var currentPage, callThis, beforeRouteLeave;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:if (!
+              leaveHook) {_context4.next = 3;break;} // 我们知道这个是来自页面beforeRouteLeave next到其他地方，所有不必再执行啦
+              (0, _warn.warn)('beforeRouteLeave next到其他地方，无须再执行！');return _context4.abrupt("return",
+              resolve());case 3:if (!(
+
+              from.path == to.path)) {_context4.next = 5;break;}return _context4.abrupt("return",
+              resolve());case 5:
+
+              currentPage = (0, _util.getPages)(-2); // 获取到全部的页面对象
+              callThis = (0, _util.getPageVmOrMp)(currentPage); // 获取到页面的 $vm 对象 及 page页面的this对象
+              beforeRouteLeave = callThis.$options.beforeRouteLeave; // 查看当前是否有开发者声明
+              if (!(beforeRouteLeave == null)) {_context4.next = 11;break;}
+              (0, _warn.warn)('当前页面下无 beforeRouteLeave 钩子声明，无须执行！');return _context4.abrupt("return",
+              resolve());case 11:if (!(
+
+              beforeRouteLeave != null && beforeRouteLeave.constructor !== Function)) {_context4.next = 14;break;}
+              (0, _warn.warn)('beforeRouteLeave 生命钩子声明错误，必须是一个函数！');return _context4.abrupt("return",
+              resolve());case 14:_context4.next = 16;return (
+
+                beforeRouteLeave.call(callThis, to, from, resolve));case 16:case "end":return _context4.stop();}}}, _callee4);}));return function (_x4) {return _ref4.apply(this, arguments);};}());
+
+};
+
+/**
+    * 核心方法 处理一系列的跳转配置
+    * @param {Object} rule 当前跳转规则
+    * @param {Object} fnType 跳转页面的类型方法
+    * @param {Object} navCB:? 回调函数
+    * @param {Boolean} leaveHook:? 是否为 beforeRouteLeave 触发的next 到别处 如果是则不再触发 beforeRouteLeave 生命钩子
+    * this 为当前 Router 对象
+    *
+    */
+var appletsTransitionTo = /*#__PURE__*/function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5(rule, fnType, navCB) {var leaveHook,finalRoute,_from,_to,leaveResult,beforeResult,enterResult,_args5 = arguments;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:leaveHook = _args5.length > 3 && _args5[3] !== undefined ? _args5[3] : false;_context5.next = 3;return (
+              this.lifeCycle.routerbeforeHooks[0].call(this));case 3: // 触发内部跳转前的生命周期
+            finalRoute = (0, _util.ruleToUniNavInfo)(rule, this.CONFIG.routes); // 获得到最终的 route 对象
+            _from = (0, _util.formatFrom)(this.CONFIG.routes); // 先根据跳转类型获取 from 数据
+            _to = (0, _util.formatTo)(finalRoute); // 再根据跳转类型获取 to 数据
+            _context5.prev = 6;_context5.next = 9;return (
+              beforeRouteLeaveHooks.call(this, _from, _to, leaveHook));case 9:leaveResult = _context5.sent;_context5.next = 12;return (
+
+              isNext.call(this, leaveResult, fnType, navCB, true));case 12:_context5.next = 14;return (
+
+              beforeHooks.call(this, _from, _to));case 14:beforeResult = _context5.sent;_context5.next = 17;return (
+
+              isNext.call(this, beforeResult, fnType, navCB));case 17:_context5.next = 19;return (
+
+              beforeEnterHooks.call(this, finalRoute, _from, _to));case 19:enterResult = _context5.sent;_context5.next = 22;return (
+
+              isNext.call(this, enterResult, fnType, navCB));case 22:_context5.next = 28;break;case 24:_context5.prev = 24;_context5.t0 = _context5["catch"](6);
+
+            (0, _warn.warn)(_context5.t0); // 打印开发者操作的日志
+            return _context5.abrupt("return", false);case 28:
+
+            if (navCB) {
+              navCB.call(this, finalRoute, fnType); // 执行当前回调生命周期
+            }
+            afterEachHooks.call(this, _from, _to);_context5.next = 32;return (
+              this.lifeCycle.routerAfterHooks[0].call(this));case 32:case "end":return _context5.stop();}}}, _callee5, this, [[6, 24]]);}));return function appletsTransitionTo(_x5, _x6, _x7) {return _ref5.apply(this, arguments);};}();
+
+
+/**
+                                                                                                                                                                                                                                            * 触发全局 返回事件
+                                                                                                                                                                                                                                            * @param {Number} backLayer 需要返回的页面层级
+                                                                                                                                                                                                                                            * @param {Function} next 正真的回调函数
+                                                                                                                                                                                                                                            *
+                                                                                                                                                                                                                                            * this 为当前 Router 对象
+                                                                                                                                                                                                                                            */exports.appletsTransitionTo = appletsTransitionTo;
+var backCallHook = function backCallHook(backLayer, next) {
+  var pages = (0, _util.getPages)(); // 获取到全部的页面对象
+  var toPage = pages.reverse()[backLayer];
+  if (toPage == null) {// 没有匹配到的时候
+    return (0, _warn.warn)('亲爱的开发者，你确定页面栈中有这么多历史记录给你返回？');
+  }var _getPageVmOrMp =
+  (0, _util.getPageVmOrMp)(toPage, false),query = _getPageVmOrMp.query,page = _getPageVmOrMp.page;
+  var beforeFntype = 'RouterBack';
+  appletsTransitionTo.call(this, { path: page.route, query: query }, beforeFntype, function (finalRoute, fnType) {
+    var toPath = finalRoute.uniRoute.url;
+    if ("/".concat(page.route) == toPath || page.route == toPath) {// 直接调用返回api
+      next();
+    } else {// 有拦截到其他页面时
+      if (fnType == beforeFntype) {
+        return (0, _warn.warn)('调用返回api被拦截到其他页面需要指定合理的 ‘NAVTYPE’ ');
+      }
+      (0, _appletsNav.default)(finalRoute, fnType);
+    }
+  });
+};
+
+/**
+    * 主动触发导航守卫
+    * @param {Object} Router 当前路由对象
+    *
+    */exports.backCallHook = backCallHook;
+var triggerLifeCycle = function triggerLifeCycle(Router) {var _this5 = this;
+  var topPage = getCurrentPages()[0];
+  if (topPage == null) {
+    return (0, _warn.warn)('打扰了,当前一个页面也没有 这不是官方的bug是什么??');
+  }var _getPageVmOrMp2 =
+  (0, _util.getPageVmOrMp)(topPage, false),query = _getPageVmOrMp2.query,page = _getPageVmOrMp2.page;
+  appletsTransitionTo.call(Router, { path: page.route, query: query }, 'push', /*#__PURE__*/function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6(finalRoute, fnType) {var variation;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
+              variation = [];if (!(
+              "/".concat(page.route) == finalRoute.route.path || page.route == finalRoute.route.path)) {_context6.next = 7;break;} // 在首页不动的情况下
+              _config.uniAppHook.pageReady = true; // 标致着路由已经就绪 可能准备起飞
+              _context6.next = 5;return callwaitHooks.call(_this5, true);case 5:_context6.next = 12;break;case 7:_context6.next = 9;return (
+
+                callwaitHooks.call(_this5, false));case 9:variation = _context6.sent;_context6.next = 12;return (
+                (0, _appletsNav.default)(finalRoute, fnType));case 12:
+
+              _config.uniAppHook.pageReady = true; // 标致着路由已经就绪 可能准备起飞
+              callVariationHooks(variation);case 14:case "end":return _context6.stop();}}}, _callee6);}));return function (_x8, _x9) {return _ref6.apply(this, arguments);};}());
+
+};
+/**
+    * 把指定页面的生命钩子函数保存并替换
+    * this 为当前 page 对象
+    */exports.triggerLifeCycle = triggerLifeCycle;
+var appletsProxyIndexHook = function appletsProxyIndexHook(Router) {
+  if (false) {}var
+  needHooks = _config.uniAppHook.needHooks,waitHooks = _config.uniAppHook.waitHooks;
+  var options = this.$options;
+  _config.uniAppHook.indexVue = options;
+  for (var i = 0; i < needHooks.length; i += 1) {
+    var key = needHooks[i];
+    if (options[key] != null) {// 只劫持开发者声明的生命周期
+      var length = options[key].length;
+      // eslint-disable-next-line
+      var whObject = waitHooks[key] = {};
+      whObject.fun = options[key].splice(length - 1, 1, _util2.noop); // 把实际的页面生命钩子函数缓存起来,替换原有的生命钩子
+      whObject.isHijack = true;
+    }
+  }
+  triggerLifeCycle.call(this, Router); // 接着 主动我们触发导航守卫
+};
+/**
+    * 验证当前 next() 管道函数是否支持下一步
+    *
+    * @param {Object} Intercept 拦截到的新路由规则
+    * @param {Object} fnType 跳转页面的类型方法 原始的
+    * @param {Object} navCB 回调函数 原始的
+    * @param {Boolean} leaveHookCall:? 是否为 beforeRouteLeave 触发的next 做拦截判断
+    * this 为当前 Router 对象
+    *
+    */exports.appletsProxyIndexHook = appletsProxyIndexHook;
+var isNext = function isNext(Intercept, fnType, navCB) {var _this6 = this;var leaveHookCall = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  return new Promise(function (resolve, reject) {
+    if (Intercept == null) {// 什么也不做 直接执行下一个钩子
+      return resolve();
+    }
+    if (Intercept === false) {// 路由中断 我们需要把防抖设置为false
+      _config.Global.LockStatus = false; // 解锁跳转状态
+      return reject('路由终止');
+    }
+    if (Intercept.constructor === String) {// 说明 开发者直接传的path 并且没有指定 NAVTYPE 那么采用原来的navType
+      reject('next到其他页面');
+      return appletsTransitionTo.call(_this6, Intercept, fnType, navCB, leaveHookCall);
+    }
+    if (Intercept.constructor === Object) {// 有一系列的配置 包括页面切换动画什么的
+      reject('next到其他页面');
+      return appletsTransitionTo.call(_this6, Intercept, Intercept.NAVTYPE || fnType, navCB, leaveHookCall);
+    }
+  });
+};
+
+/***/ }),
+
+/***/ 25:
+/*!****************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appletsRouter/util.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.AppletsPageRoute = exports.ruleToUniNavInfo = exports.formatFrom = exports.formatTo = exports.pathOrNameToRoute = exports.getPages = exports.getFormatQuery = exports.getPageVmOrMp = exports.callAppHook = void 0;var _config = __webpack_require__(/*! ../helpers/config */ 14);
+var _util = __webpack_require__(/*! ../helpers/util */ 13);
+var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _compile = __webpack_require__(/*! ../helpers/compile */ 26);
+/**
+                                               * 触发指定生命钩子
+                                               * @param {Array} funList	//需要执行的方法列表
+                                               * @param {Object} args //触发生命钩子传递的参数
+                                               */
+var callAppHook = function callAppHook(funList, args) {
+  for (var i = 0; i < funList.length; i += 1) {
+    funList[i].call(this, args);
+  }
+};
+/**
+    * @param {Object} page //当前顶级页面对象
+    * @param {Object} vim:? //是否获取 $vm 对象还是 $mp 对象
+    */exports.callAppHook = callAppHook;
+var getPageVmOrMp = function getPageVmOrMp(page) {var vim = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (vim) {
+    return page.$vm;
+  }var
+  $mp = page.$vm.$mp;
+  (0, _compile.baiduApple)(function () {// 百度小程序新增一个route属性
+    $mp.page.route = $mp.page.is;
+  });
+  (0, _compile.touTiao)(function () {// 头条小程序新增一个route属性
+    $mp.page.route = $mp.page.is;
+  });
+  return $mp;
+};
+/**
+    * 统一格式话 路由传递的参数 看看是编码还是非编码 做相应的对策
+    *
+    * @param {Object} query 当前的路由参数
+    * @param {Boolean} getter 是从页面获取 route 对象下的参数 还是编码后传输
+    */exports.getPageVmOrMp = getPageVmOrMp;
+var getFormatQuery = function getFormatQuery() {var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var getter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  if (_config.Global.Router.CONFIG.encodeURI) {
+    if (getter) {
+      try {// 除去微信小程序都不需要 decodeURIComponent
+        query = JSON.parse(decodeURIComponent(query.query) || '{}');
+      } catch (e) {// 其他小程序
+        query = JSON.parse(query.query || '{}');
+      }
+    } else {
+      try {
+        query = JSON.parse(decodeURIComponent(query.query || encodeURIComponent('{}')));
+      } catch (e) {
+        query = JSON.parse(query.query);
+      }
+    }
+  }
+  return query;
+};
+/**
+    * @param {Number} index //需要获取的页面下标 -2:表示获取最后一个即当前页面 -1:表示全部 -3:当前页面的前一个页面
+    * @param {Boolean} all //是否获取全部的页面
+    */exports.getFormatQuery = getFormatQuery;
+var getPages = function getPages() {var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : -1;var all = arguments.length > 1 ? arguments[1] : undefined;
+  var pages = getCurrentPages(all);
+  if (index === -1) {
+    return pages;
+  }
+  if (index === -2) {
+    return pages[pages.length - 1];
+  }
+  if (index === -3) {
+    return pages[pages.length - 2];
+  }
+  return pages[index];
+};
+/**
+    * 通过一个未知的路径或者名称 在路由表中查找指定路由表 并返回
+    * @param {string} type   //path 或者 name
+    * @param {Object} routes //当前对象的所有路由表
+    */exports.getPages = getPages;
+var pathOrNameToRoute = function pathOrNameToRoute(type) {var routes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _config.Global.Router.CONFIG.routes;
+  var routesKeys = Object.keys(routes);
+  for (var i = 0; i < routesKeys.length; i += 1) {
+    var key = routesKeys[i];
+    var item = routes[key];
+    if (item.path === "/".concat(type)) {
+      return (0, _config.route)(item); // 合并一下对象,主要是合并 query:{} 及 params:{}
+    }
+    if (item.path === type) {
+      return (0, _config.route)(item); // 合并一下对象,主要是合并 query:{} 及 params:{}
+    }
+    if (item.name == type) {
+      return (0, _config.route)(item); // 合并一下对象,主要是合并 query:{} 及 params:{}
+    }
+  }
+  (0, _warn.err)("\u5F53\u524D '".concat(type, "' \u5728\u8DEF\u7531\u8868\u4E2D\u6CA1\u6709\u627E\u5230\u5339\u914D\u7684 name \u6216\u8005 path"));
+};
+
+/**
+    * 获取 to 的配置参数
+    * @param {Object} rule 当前跳转的规则
+    */exports.pathOrNameToRoute = pathOrNameToRoute;
+var formatTo = function formatTo(finalRoute) {
+  var route = (0, _util.copyObject)(finalRoute.route);var
+  rule = finalRoute.rule;
+  route.query = rule.query || rule.params || {};
+  return route;
+};
+
+/**
+    * 获取 from 的配置参数 from 页面永远都是站在当前页面忘其它地方走 所以都是最后一个页面
+    *
+    * @param {Object} routes //当前对象的所有路由表
+    */exports.formatTo = formatTo;
+var formatFrom = function formatFrom(routes) {
+  var topPage = getPages(-2);var _getPageVmOrMp =
+  getPageVmOrMp(topPage, false),page = _getPageVmOrMp.page,query = _getPageVmOrMp.query;
+  var route = pathOrNameToRoute(page.route, routes); // 获取到当前路由表下的 route
+  route.query = getFormatQuery(query); // 不管是编码传输还是非编码 最后都得在 to/from 中换成json对象
+  return route;
+};
+
+/**
+    *
+    * 把用户的跳转路由规则格式化成uni-app可用的路由跳转规则
+    *
+    * @param {Object} rule  //当前用户跳转的路由规则
+    * @param {Object} routes //当前simple-router 下的路由表
+    */exports.formatFrom = formatFrom;
+var ruleToUniNavInfo = function ruleToUniNavInfo(rule, routes) {
+  if (rule == null) {
+    return (0, _warn.err)('当前跳转规则为空,请检查跳转代码');
+  }
+  // eslint-disable-next-line
+  var navType = 'path',route = null,query = {};
+  if (rule.constructor === String) {// 是字符串类型 那当前就是路径啦
+    route = pathOrNameToRoute(rule, routes); // 直接把 rule 当 path 传递 完事
+  } else if (rule.constructor === Object) {// 对象类型 可以是 path 或者 name
+    route = pathOrNameToRoute(rule.path || (navType = 'name', rule.name), routes); // 两则必有其一 报错自己处理
+    query = rule.query || rule.params || {};
+  } else {
+    return (0, _warn.err)('传的什么乱七八糟的类型?路由跳转规则只认字符串 \'path\' , 对象 \'path\' , 对象 \'name\' ');
+  }
+  // 路径处理完后   开始格式化参数
+  var uniRoute = (0, _util.parseQuery)(route.path, query); // uni-app 需要的跳转规则
+  return {
+    rule: rule,
+    route: route,
+    uniRoute: uniRoute };
+
+};
+/**
+    * 获取当前页面下的 Route 信息
+    *
+    * @param {Object} pages 获取页面对象集合
+    * @param {Object} Vim 用户传递的当前页面对象
+    */exports.ruleToUniNavInfo = ruleToUniNavInfo;
+var AppletsPageRoute = function AppletsPageRoute(pages, Vim) {var
+  query = {},path = '';
+  var page = pages[pages.length - 1]; // 获取到当前页面
+  if (pages.length > 0) {
+    var uniQuery = getPageVmOrMp(page, false).query;
+    query = getFormatQuery(uniQuery, true);
+    path = page.route;
+  } else if (Vim != null) {
+    query = getFormatQuery(Vim.$mp.page.options, true);
+    path = page.route;
+  }
+  var route = pathOrNameToRoute(path);
+  route.query = query;
+  return route;
+};exports.AppletsPageRoute = AppletsPageRoute;
+
+/***/ }),
+
+/***/ 26:
+/*!*************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/compile.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.mp = exports.touTiao = exports.baiduApple = exports.notH5 = exports.applets = exports.APP = exports.H5 = void 0;var H5 = function H5(fn) {
+
+
+
+};exports.H5 = H5;
+var APP = function APP(fn) {
+
+
+
+};exports.APP = APP;
+var applets = function applets(fn) {
+
+  fn();
+
+};exports.applets = applets;
+var notH5 = function notH5(fn) {
+
+  fn();
+
+};exports.notH5 = notH5;
+var baiduApple = function baiduApple(fn) {
+
+
+
+};exports.baiduApple = baiduApple;
+var touTiao = function touTiao(fn) {
+
+
+
+};exports.touTiao = touTiao;
+var mp = function mp(fn) {
+
+  fn();
+
+};exports.mp = mp;
+
+/***/ }),
+
+/***/ 27:
+/*!**********************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appletsRouter/appletsNav.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _config = __webpack_require__(/*! ../helpers/config */ 14);
+var _util = __webpack_require__(/*! ../helpers/util */ 13);
+
+
+/**
+                                         * @param {Object} finalRoute 格式化后的路由跳转规则
+                                         * @param {Object} NAVTYPE 需要调用的跳转方法
+                                         */
+var appletsUniPushTo = function appletsUniPushTo(finalRoute, NAVTYPE) {
+  return new Promise(function (resolve) {
+    var query = (0, _util.formatURLQuery)("?".concat(finalRoute.uniRoute.query));var
+    url = finalRoute.uniRoute.url;
+    uni[_config.methods[NAVTYPE]]({
+      url: url + query,
+      complete: function complete() {
+        resolve(url);
+        _config.Global.LockStatus = false; // 跳转完成解锁状态
+      } });
+
+  });
+};var _default =
+appletsUniPushTo;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 28:
+/*!*****************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/routerNav.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _util = __webpack_require__(/*! ./util */ 29);
+
+/**
+                                * @param {Object} replace vue-router的跳转方式
+                                * @param {Object} rule 需要跳转到的路由匹配规则
+                                * @param {Object} type 对应的官方跳转模式
+                                *
+                                * this 为当前 Router 实例
+                                */
+var H5PushTo = function H5PushTo(replace, rule, type) {
+  if (this.$route == null) {
+    return (0, _warn.err)('h5端路由为就绪，请检查调用代码');
+  }
+  rule = (0, _util.formatUserRule)(rule, this.selfRoutes, this.CONFIG);
+  var objPath = (0, _util.strPathToObjPath)(rule);
+  objPath.type = type;
+  this.$route[replace](objPath);
+};var _default =
+
+H5PushTo;exports.default = _default;
+
+/***/ }),
+
+/***/ 29:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/util.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.diffRouter = exports.H5GetPageRoute = exports.getPages = exports.strPathToObjPath = exports.encodeURLQuery = exports.vueDevRouteProxy = exports.getRouterNextInfo = exports.formatUserRule = exports.nameToRute = exports.pathToRute = exports.getFuntionConfig = exports.fromatRoutes = exports.resloveChildrenPath = exports.resolveRender = void 0;var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _util = __webpack_require__(/*! ../helpers/util */ 13);
+var _proxy = __webpack_require__(/*! ./proxy/proxy */ 30);
+var _config = __webpack_require__(/*! ../helpers/config */ 14);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+var pagesConfigReg = /props:\s*\(.*\)\s*(\([\s\S]*\))\s*},/;
+var pagesConfigRegCli = /props:\s*Object\.assign\s*(\([\s\S]*\))\s*},/; // 脚手架项目
+var defRoutersReg = /props:\s*{([\s\S]+)}\s*},/;
+
+/**
+                                                  * 解析验证当前的 component 选项是否配置正确 只有vueRouterDev:false 才会调用此方法
+                                                  * @param {Function|Object} component
+                                                  * @param {Object} item
+                                                  * @param {Boolean} useUniConfig
+                                                  */
+var resolveRender = function resolveRender(_ref,
+
+
+item, useUniConfig) {var component = _ref.component,components = _ref.components;
+  if (components != null) {
+    (0, _warn.warn)("vueRouterDev:false\u65F6 \u8DEF\u7531\u8868\u914D\u7F6E\u4E2D \u2018components\u2019 \u65E0\u6548\uFF0C\r\n\r\n ".concat(JSON.stringify(item)));
+  }
+  if (useUniConfig == true) {// 采用uni-pages.json中的配置时component可以为空
+    return false;
+  }
+  if (item.path == '*') {// 唯独这个情况在vue-router中可以不用component
+    return true;
+  }
+  if (component == null) {
+    return (0, _warn.err)("vueRouterDev:false\u65F6 \u8DEF\u7531\u8868\u4E2D \u2018component\u2019 \u9009\u9879\u4E0D\u80FD\u4E3A\u7A7A\uFF1A\r\n\r\n ".concat(JSON.stringify(item)));
+  }
+  if (component.constructor === Function) {
+    item.component = {
+      render: component };
+
+  } else if (component.constructor === Object) {
+    if (component.render == null || component.render.constructor !== Function) {
+      (0, _warn.err)("vueRouterDev:false\u65F6 \u8DEF\u7531\u8868\u914D\u7F6E\u4E2D \u2018render\u2019 \u51FD\u6570\u7F3A\u5931\u6216\u7C7B\u578B\u4E0D\u6B63\u786E\uFF1A\r\n\r\n ".concat(JSON.stringify(item)));
+    }
+  } else {
+    (0, _warn.err)("vueRouterDev:false\u65F6 \u8DEF\u7531\u8868\u914D\u7F6E\u4E2D \u2018component\u2019 \u9009\u9879\u4EC5\u652F\u6301 Function\u3001Object \u7C7B\u578B\u3002\u5E76\u786E\u4FDD Object \u7C7B\u578B\u65F6\u4F20\u9012\u4E86 \u2018render\u2019 \u51FD\u6570  \uFF1A\r\n\r\n ".concat(
+    JSON.stringify(item)));
+
+  }
+};
+/**
+    * 递归解析 H5配置中有存在嵌套对象的情况,优先以path为key存储。没有则找aliasPath作为key
+    * @param {Object} objRoutes
+    * @param {Array} children
+    * @param {Boolean} useUniConfig 是否使用pages.json下的页面配置
+    */exports.resolveRender = resolveRender;
+var resloveChildrenPath = function resloveChildrenPath(objRoutes, children, useUniConfig) {
+  for (var i = 0; i < children.length; i += 1) {
+    var item = children[i];
+    resolveRender(item, item, useUniConfig);
+    if (item.path != null) {
+      objRoutes[item.path] = _objectSpread({},
+      item, {},
+      {
+        _ROUTERPATH: true // 使用page.json中的path为路径
+      });
+
+    } else {
+      objRoutes[item.aliasPath] = _objectSpread({},
+      item, {},
+      {
+        _ROUTERPATH: false });
+
+
+    }
+    if (item.children && item.children.constructor === Array) {
+      resloveChildrenPath(objRoutes, item.children, useUniConfig);
+    }
+  }
+};
+/**
+    * 格式化原始路由表
+    * @param {Object} routes  路由表
+    * @param {Boolean} userRoute  是否为用户自己配置的路由表
+    * @param {Boolean} H5CONFIG
+    */exports.resloveChildrenPath = resloveChildrenPath;
+var fromatRoutes = function fromatRoutes(routes, userRoute, _ref2)
+
+
+{var vueRouterDev = _ref2.vueRouterDev,useUniConfig = _ref2.useUniConfig;
+  if (userRoute && vueRouterDev) {// 如果是用户的路由表并且 完全采用vueRouter开发 则不作处理直接返回
+    return routes;
+  }
+  var objRoutes = {};
+  for (var i = 0; i < routes.length; i += 1) {
+    var item = routes[i];
+    var path = item.path === '/' ? item.alias : item.path;
+    if (userRoute) {
+      if (item.children && item.children.constructor === Array) {
+        resloveChildrenPath(objRoutes, item.children, useUniConfig);
+      }
+      resolveRender(item, item, useUniConfig); // 是否使用pages.json下的页面配置
+    }
+    objRoutes[path] = _objectSpread({},
+    item, {},
+    {
+      _PAGEPATH: path.substring(1) });
+
+
+  }
+  return objRoutes;
+};
+
+/**
+    * 解析vueRouter中 component 下 render函数中的配置信息
+    * @param {String} FunStr
+    */exports.fromatRoutes = fromatRoutes;
+var getFuntionConfig = function getFuntionConfig(FunStr) {
+  var matchText = FunStr.match(pagesConfigReg);
+  var prefix = '';
+  if (matchText == null) {// 是uni-app自带的默认路由及配置 也可能是脚手架项目
+    matchText = FunStr.match(pagesConfigRegCli);
+    if (matchText == null) {// 确认不是脚手架项目
+      try {
+        // eslint-disable-next-line
+        matchText = FunStr.match(defRoutersReg)[1];
+        // eslint-disable-next-line
+        matchText = eval("Object.assign({".concat(matchText, "})"));
+        prefix = 'system-';
+      } catch (error) {
+        (0, _warn.err)("\u8BFB\u53D6uni-app\u9875\u9762\u6784\u5EFA\u65B9\u6CD5\u914D\u7F6E\u9519\u8BEF \r\n\r\n ".concat(error));
+      }
+    } else {
+      // eslint-disable-next-line
+      matchText = eval("Object.assign".concat(matchText[1]));
+    }
+  } else {
+    // eslint-disable-next-line
+    matchText = eval("Object.assign".concat(matchText[1]));
+  }
+  return {
+    config: matchText,
+    prefix: prefix,
+    FunStr: FunStr };
+
+};
+/**
+    * 通过一个未知的路径名称 在路由表中查找指定路由表 并返回
+    * @param {String} path //不管是aliasPath名的路径还是path名的路径
+    * @param {Object} routes//当前对象的所有路由表
+    */exports.getFuntionConfig = getFuntionConfig;
+var pathToRute = function pathToRute(path, routes) {
+  var PATHKEY = '';
+  var rute = {};
+  var routeKeys = Object.keys(routes);
+  for (var i = 0; i < routeKeys.length; i += 1) {
+    var key = routeKeys[i];
+    var item = routes[key];
+    rute = item;
+    if (item.aliasPath == path) {// path参数是优先采用aliasPath为值得 所以可以先判断是否与aliasPath相同
+      PATHKEY = 'aliasPath';
+      break;
+    }
+    // eslint-disable-next-line
+    if ("/".concat(item._PAGEPATH) == path) {// 路径相同
+      PATHKEY = 'path';
+      break;
+    }
+  }
+  return {
+    PATHKEY: _defineProperty({},
+    PATHKEY, path),
+
+    rute: rute };
+
+};
+/**
+    * 通过一个路径name 在路由表中查找指定路由表 并返回
+    * @param {String} name//实例化路由时传递的路径表中所匹配的对应路由name
+    * @param {Object} routes//当前对象的所有路由表
+    */exports.pathToRute = pathToRute;
+var nameToRute = function nameToRute(name, routes) {
+  var routesKeys = Object.keys(routes);
+  for (var i = 0; i < routesKeys.length; i += 1) {
+    var key = routesKeys[i];
+    var item = routes[key];
+    if (item.name == name) {
+      return item;
+    }
+  }
+
+  (0, _warn.err)("\u8DEF\u7531\u8868\u4E2D\u6CA1\u6709\u627E\u5230 name\u4E3A:'".concat(name, "' \u7684\u8DEF\u7531"));
+};
+/**
+    * 根据用户传入的路由规则 格式化成正确的路由规则
+    * @param {Object} rule 用户需要跳转的路由规则
+    * @param {Object} selfRoutes simple-router下的所有routes对象
+    * @param {Object} CONFIG 当前路由下的所有配置信息
+    */exports.nameToRute = nameToRute;
+var formatUserRule = function formatUserRule(rule, selfRoutes, CONFIG) {
+  var type = '';
+  var ruleQuery = (type = 'query', rule.query || (type = 'params', rule.params)) || (type = '', {});
+  var rute = {}; // 默认在router中的配置
+  if (type == '' && rule.name != null) {// 那就是可能没有穿任何值咯
+    type = 'params';
+  }
+  if (type != 'params') {
+    var route = pathToRute(rule.path || rule, selfRoutes);
+    if (Object.keys(route.PATHKEY)[0] == '') {
+      (0, _warn.err)("'".concat(route.PATHKEY[''], "' \u8DEF\u5F84\u5728\u8DEF\u7531\u8868\u4E2D\u672A\u627E\u5230"));
+      return null;
+    }
+    rute = route.rute;
+    if (rule.path) {
+      rule.path = rute.path;
+    }
+  }
+  if (type != '') {// 当然是对象啦 这个主要是首页H5PushTo调用时的
+    if (type == 'params' && CONFIG.h5.paramsToQuery) {// 如果是name规则并且设置了转query,那么就转path跳转了
+      var _nameToRute =
+
+
+      nameToRute(rule.name, selfRoutes),aliasPath = _nameToRute.aliasPath,path = _nameToRute.path;
+      delete rule.name;
+      delete rule.params;
+      rule.path = aliasPath || path;
+      type = 'query';
+    }
+    var query = _config.Global.$parseQuery.transfer(ruleQuery);
+    if (CONFIG.encodeURI) {
+      if (query != '') {
+        rule[type] = {
+          query: query.replace(/^query=/, '') };
+
+      }
+    } else {
+      rule[type] = ruleQuery;
+    }
+  } else {// 纯字符串,那就只有是path啦
+    rule = rute.path;
+  }
+  return rule;
+};
+
+/**
+    * 根据是否获取非vue-Router next管道参数，来进行格式化
+    *
+    * @param {Object} to
+    * @param {Object} from
+    * @param {Router} Router  //router当前实例对象
+    */exports.formatUserRule = formatUserRule;
+var getRouterNextInfo = function getRouterNextInfo(to, from, Router) {var
+  toRoute = to,fromRoute = from;
+  var H5 = Router.CONFIG.h5;
+  if (H5.vueNext === false && H5.vueRouterDev === false) {// 不采用vue-router中的to和from,需要格式化成Router中$Route获取的一样一样的
+    var toPath = {},fromPath = {};
+    toPath[to.meta.PATHKEY] = to.meta.PATHKEY === 'path' ? "/".concat(to.meta.pagePath) : "".concat(to.path);
+    fromPath[from.meta.PATHKEY] = from.meta.PATHKEY === 'path' ? "/".concat(from.meta.pagePath) : "".concat(from.path);
+
+    if (to.meta.PATHKEY == null) {// 未使用uni-pages.json中的配置、通过addRoutes时 meta.PATHKEY 可能未undefined
+      toPath = pathToRute(to.path, Router.selfRoutes).PATHKEY;
+    }
+    if (from.meta.PATHKEY == null) {
+      fromPath = pathToRute(from.path, Router.selfRoutes).PATHKEY;
+    }
+
+    var isEmptyTo = Object.keys(to.query).length != 0 ? (0, _util.copyObject)(to.query) : (0, _util.copyObject)(to.params);
+    var isEmptyFrom = Object.keys(from.query).length != 0 ? (0, _util.copyObject)(from.query) : (0, _util.copyObject)(from.params);
+    /* eslint-disable */
+    delete isEmptyTo.__id__; // 删除uni-app下的内置属性
+    delete isEmptyFrom.__id__;
+    /* eslint-enable */
+    var toQuery = _config.Global.$parseQuery.queryGet(isEmptyTo).decode;
+    var fromQuery = _config.Global.$parseQuery.queryGet(isEmptyFrom).decode;
+    toRoute = (0, _util.resolveRule)(Router, toPath, toQuery, Object.keys(toPath)[0]);
+    fromRoute = (0, _util.resolveRule)(Router, fromPath, fromQuery, Object.keys(fromPath)[0]);
+  } else {
+    if (fromRoute.name == null && toRoute.name != null) {// 这种情况是因为uni-app在使用vue-router时搞了骚操作。
+      fromRoute = _objectSpread({},
+      fromRoute, {},
+      {
+        name: toRoute.name });
+
+      // 这个情况一般出现在首次加载页面
+    }
+  }
+  return {
+    toRoute: toRoute,
+    fromRoute: fromRoute };
+
+};exports.getRouterNextInfo = getRouterNextInfo;
+var vueDevRouteProxy = function vueDevRouteProxy(routes, Router) {
+  var proxyRoutes = [];
+  for (var i = 0; i < routes.length; i += 1) {
+    var item = routes[i];
+    var childrenRoutes = Reflect.get(item, 'children');
+    if (childrenRoutes != null) {
+      var childrenProxy = vueDevRouteProxy(childrenRoutes, Router);
+      item.children = childrenProxy;
+    }
+    var ProxyRoute = (0, _proxy.proxyBeforeEnter)(Router, item);
+    proxyRoutes.push(ProxyRoute);
+  }
+  return proxyRoutes;
+};
+/**
+    * 组装成编码后的路由query传递信息
+    * @param {Object} CONFIG simple-router 对象配置
+    * @param {Object} query 传递的参数
+    * @param {Object} mode 路由模式
+    */exports.vueDevRouteProxy = vueDevRouteProxy;
+
+var encodeURLQuery = function encodeURLQuery(CONFIG, query, mode) {
+  if (Object.keys(query).length == 0) {// 没有传值的时候 我们啥都不管
+    return '';
+  }
+  if (CONFIG.h5.vueRouterDev === false) {// 没有采取完全模式开发时 才转换
+    var _Global$$parseQuery$q = _config.Global.$parseQuery.queryGet(query),strQuery = _Global$$parseQuery$q.strQuery,historyObj = _Global$$parseQuery$q.historyObj;
+    if (mode === 'history') {
+      return historyObj;
+    }
+    return strQuery;
+  } // 完全彩种 vue-router 开发的时候 我们不用管
+  if (mode === 'history') {// 此模式下 需要的就是对象
+    return query;
+  }
+  return _config.Global.$parseQuery.stringify(query); // hash转成字符串拼接
+};
+/**
+    * 把一个未知的路由跳转规则进行格式化为 hash、history 可用的,主要表现在 history模式下直接传入path会报错__id__错误的问题
+    * @param {*} path 需要判断修改的路径规则
+    */exports.encodeURLQuery = encodeURLQuery;
+var strPathToObjPath = function strPathToObjPath(path) {
+  if (path == null) {// 我们也不用管啦,这个情况是路由守卫中传递的
+    return path;
+  }
+  if ((0, _util.isObject)(path)) {// 是对象我们不用管
+    return path;
+  }
+  return { // 这种情况就是只有path时,直接返回path对象了
+    path: path };
+
+};
+/**
+    * 通过 getCurrentPages() api 获取指定页面的 page 对象 默认是获取当前页面page对象
+    * @param {Number} index //需要获取的页面索引
+    * @param {Boolean} all //是否获取全部的页面
+    */exports.strPathToObjPath = strPathToObjPath;
+var getPages = function getPages() {var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;var all = arguments.length > 1 ? arguments[1] : undefined;
+  var pages = getCurrentPages(all);
+  return pages.reverse()[index];
+};
+/**
+    * 获取当前页面下的 Route 信息
+    *
+    * @param {Object} pages 获取页面对象集合
+    * @param {Object} Vim 用户传递的当前页面对象
+    */exports.getPages = getPages;
+var H5GetPageRoute = function H5GetPageRoute(pages, Vim) {
+  if (pages.length > 0) {// 直接取当前页面的对象
+    var currentRoute = pages[pages.length - 1].$route;
+    return getRouterNextInfo(currentRoute, currentRoute, this).toRoute;
+  }if (Vim && Vim.$route) {
+    return getRouterNextInfo(Vim.$route, Vim.$route, this).toRoute;
+  }
+  return {};
+};
+
+/**
+    * 在useUniConfig:true 的情况下重新拼装路由表 useUniConfig:false 不需要读取page.json中的数据 直接使用component作为页面组件
+    * @param {Router} Router//unis-simple-router 路由对象
+    * @param {vueRouter} vueRouter//vue-router对象
+    * @param {Boolean} useUniConfig//是否采用uni-page.json中的配置选项
+    * @param {Array} routes//需要循环的routes表
+    */exports.H5GetPageRoute = H5GetPageRoute;
+var diffRouter = function diffRouter(Router, vueRouter, useUniConfig, routes) {
+  var newRouterMap = [];
+  if (useUniConfig) {// 使用pages.json的样式配置 只是单纯的把url路径改成用户自定义的 保留uni的所以的配置及生命周期、缓存
+    var Routes = routes || vueRouter.options.routes;
+    var cloneSelfRoutes = (0, _util.copyObject)(Router.selfRoutes); // copy一个对象随便搞xxoo
+    Routes.forEach(function (item) {
+      var path = item.path === '/' ? item.alias : item.path;
+      var vueRoute = Router.vueRoutes[path] || Router.vueRoutes[item.path] || Router.selfRoutes[path];
+      var CselfRoute = Router.selfRoutes[path];
+      delete cloneSelfRoutes[path]; // 移除已经添加到容器中的路由，用于最后做对比 是否page.json中没有，而实例化时传递了
+      if (CselfRoute == null) {
+        return (0, _warn.err)("\u8BFB\u53D6 \u2018pages.json\u2019 \u4E2D\u9875\u9762\u914D\u7F6E\u9519\u8BEF\u3002\u5B9E\u4F8B\u5316\u65F6\u4F20\u9012\u7684\u8DEF\u7531\u8868\u4E2D\u672A\u627E\u5230\u8DEF\u5F84\u4E3A\uFF1A".concat(
+        path, " \r\n\r\n \u53EF\u4EE5\u5C1D\u8BD5\u628A \u2018useUniConfig\u2019 \u8BBE\u7F6E\u4E3A \u2018false\u2019\u3002\u6216\u8005\u914D\u7F6E\u6B63\u786E\u7684\u8DEF\u5F84\u3002\u5982\u679C\u4F60\u662F\u52A8\u6001\u6DFB\u52A0\u7684\u5219\u4E0D\u7528\u7406\u4F1A"));
+
+      }
+      var pageConfigJson = {
+        config: {} };
+
+      if (vueRoute.component) {
+        pageConfigJson = getFuntionConfig(vueRoute.component.render.toString());
+        CselfRoute.component = {
+          render: function render(h) {return vueRoute.component.render(h);} };
+
+      }
+      delete CselfRoute.components; // useUniConfig:true 时不允许携带components
+      delete CselfRoute.children; // useUniConfig:true 时不允许携带children
+      CselfRoute.meta = _objectSpread({},
+      pageConfigJson.config, {},
+      item.meta || {}, {
+        PATHKEY: CselfRoute.aliasPath ? 'aliasPath' : 'path',
+        pagePath: CselfRoute.path.substring(1) });
+
+      CselfRoute.path = CselfRoute.aliasPath || (item.path === '/' ? item.path : CselfRoute.path);
+      item.alias = item.path === '/' ? item.alias : CselfRoute.path; // 重新给vueRouter赋值一个新的路径，欺骗uni-app源码判断
+      var ProxyRoute = (0, _proxy.proxyBeforeEnter)(Router, CselfRoute);
+      newRouterMap.push(ProxyRoute);
+    });
+    if (Object.keys(cloneSelfRoutes).length > 0) {// 确实page.json中没有，而实例化时传递了
+      var testG = cloneSelfRoutes['*']; // 全局通配符,他是个例外'通配符'可以被添加
+      if (testG && routes == null) {
+        var ProxyRoute = (0, _proxy.proxyBeforeEnter)(Router, Router.selfRoutes['*']);
+        newRouterMap.push(ProxyRoute);
+      }
+      if (routes == null) {// 非动态添加时才打印警告
+        var cloneSelfRoutesKeys = Object.keys(cloneSelfRoutes);
+        for (var i = 0; i < cloneSelfRoutesKeys.length; i += 1) {
+          var key = cloneSelfRoutesKeys[i];
+          if (key !== '*') {// 通配符不警告
+            (0, _warn.warn)("\u5B9E\u4F8B\u5316\u65F6\u4F20\u9012\u7684routes\u53C2\u6570\uFF1A\r\n\r\n ".concat(JSON.stringify(cloneSelfRoutes[key]), " \r\n\r\n \u5728pages.json\u4E2D\u672A\u627E\u5230\u3002\u81EA\u5B9A\u6392\u9664\u6389\uFF0C\u4E0D\u4F1A\u6DFB\u52A0\u5230\u8DEF\u7531\u4E2D"));
+          }
+        }
+      }
+    }
+  } else {// 不使用任何的uni配置完全使用 完全使用component作为页面使用
+    var _Routes = routes || Router.selfRoutes;
+    var RoutesKeys = Object.keys(_Routes);
+    for (var _i = 0; _i < RoutesKeys.length; _i += 1) {
+      var _key = RoutesKeys[_i];
+      var item = _Routes[_key];
+      // eslint-disable-next-line
+      if (item._ROUTERPATH != null) {// 不寻找children下的路径，只取第一层
+        continue;
+      }
+      delete item.components;
+      delete item.children;
+      item.path = item.aliasPath || item.path; // 优先获取别名为路径
+      if (item.path !== '*') {
+        item.component = item.component.render || item.component; // render可能是用户使用addRoutes api进行动态添加的
+      }
+      item.meta = _objectSpread({},
+      item.meta || {}, {
+        PATHKEY: item.aliasPath ? 'aliasPath' : 'path',
+        pagePath: item.path.substring(1) });
+
+      var _ProxyRoute = (0, _proxy.proxyBeforeEnter)(Router, item);
+      newRouterMap.push(_ProxyRoute);
+    }
+  }
+  return newRouterMap;
+};exports.diffRouter = diffRouter;
 
 /***/ }),
 
@@ -9627,10 +11936,799 @@ module.exports = g;
 
 /***/ }),
 
+/***/ 30:
+/*!*******************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/proxy/proxy.js ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.proxyEachHooks = exports.proxyBeforeEnter = void 0;var _concat = __webpack_require__(/*! ../concat */ 31);
+var _base = __webpack_require__(/*! ../base */ 15);
+var _myArray = _interopRequireDefault(__webpack_require__(/*! ../extends/myArray */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+/**
+                                                                                                                                                                    * 通过 Object.defineProperty 代理一个对象主要是拦截beforeEnter 生命钩子
+                                                                                                                                                                    * @param {Router} Router  路由实例对象
+                                                                                                                                                                    * @param {Object} BeProxy 需要代理的路由表
+                                                                                                                                                                    */
+var proxyBeforeEnter = function proxyBeforeEnter(Router, BeProxy) {
+  var proxyDc = Object.create(null); // 创建没有继承的属性
+  var BeProxyKeys = Object.keys(BeProxy);var _loop = function _loop(
+  i) {
+    var key = BeProxyKeys[i];
+    Object.defineProperty(proxyDc, key, {
+      enumerable: true,
+      configurable: true,
+      get: function get() {
+        var value = BeProxy[key];
+        if (key == 'beforeEnter' && value !== undefined) {
+          return function (to, from, next) {
+            (0, _concat.beforeEnterHooks)(to, from, next, value, Router);
+          };
+        }
+        return value;
+      },
+      set: function set(v) {
+        BeProxy[key] = v;
+      } });};for (var i = 0; i < BeProxyKeys.length; i += 1) {_loop(i);
+
+  }
+  return proxyDc;
+};
+
+/**
+    * 在uni-app没有注入生命周期时先直接代理相关生命周期数组
+    * @param {Object} Router
+    * @param {Object} key
+    * @param {Funtion} hookFun
+    */exports.proxyBeforeEnter = proxyBeforeEnter;
+var proxyEachHooks = function proxyEachHooks(Router, key, hookFun) {
+  var vueOldHooks = _base.vuelifeHooks[key];
+  return new _myArray.default(Router, vueOldHooks, hookFun);
+};exports.proxyEachHooks = proxyEachHooks;
+
+/***/ }),
+
+/***/ 31:
+/*!**************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/concat.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.registerRouter = exports.triggerLifeCycle = exports.beforeHooks = exports.afterHooks = exports.beforeEnterHooks = exports.forMatNext = exports.appMount = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 19));var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _util = __webpack_require__(/*! ./util */ 29);
+
+
+var _util2 = __webpack_require__(/*! ../helpers/util */ 13);
+var _base = __webpack_require__(/*! ./base */ 15);
+var _config = __webpack_require__(/*! ../helpers/config */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+var beforeEachCount = 0;
+var afterEachCount = 0;
+var resolveLaunch = null;
+var beforeEnterDep = []; // 记录当前是否有重复的页面进入 避免重复触发
+var beforeEachLaunch = new Promise(function (resolve) {return resolveLaunch = resolve;});
+
+/**
+                                                                                           * 把vue实例进行挂载到dom下
+                                                                                           * @param {Router} Router uni-simple-router实例对象
+                                                                                           */
+var appMount = function appMount() {
+  if (_base.vueMount.length == 0) {
+    return (0, _warn.err)('检测到您未进行dom模型挂载操作，请调用api\r\n\r\n RouterMount(Vim: any, el: any): void');
+  }var _vueMount$ =
+
+
+
+  _base.vueMount[0],Vim = _vueMount$.Vim,el = _vueMount$.el;
+  var formatEl = el;
+  if (el == null) {
+    formatEl = '#app'; // 这是uni-app在h5中的官方节点
+  }
+  try {
+    Vim.$mount(formatEl);
+  } catch (error) {
+    (0, _warn.warn)("\u6302\u8F7Dvue\u8282\u70B9\u65F6\u9519\u8BEF\u5566".concat(error));
+  }
+};
+
+/**
+    * 格式化 next传递过来的参数 作为vue-router可用的
+    * @param {Object} to//即将跳转到的路由页面
+    * @param {*} Intercept
+    * @param {Funtion} next//路由连接管道
+    * @param {Router} Router//路由对象
+    */exports.appMount = appMount;
+var forMatNext = function forMatNext(to, Intercept, next, Router) {var
+  CONFIG = Router.CONFIG,selfRoutes = Router.selfRoutes;
+  if (CONFIG.h5.vueRouterDev) {// 完全使用vue-router开发的时候 vueRouterDev:true 不用做啥直接略过
+    next(Intercept);
+    return Intercept;
+  }
+  if (typeof Intercept === 'object') {// 只有是对象类型的时候 我们才进行格式化
+    var navType = Reflect.get(Intercept, 'NAVTYPE');
+    delete Intercept.NAVTYPE;
+    if (navType == 'push') {
+      Intercept.replace = false;
+      Intercept.type = 'navigateTo';
+    } else {
+      Intercept.replace = true; // uni-app导航api所谓的NAVTYPE取值在h5都是replace:true
+      Intercept.type = 'reLaunch';
+    }
+    var name = Reflect.get(Intercept, 'name'); // 统一格式化path
+    Intercept.query = Intercept.params || Intercept.query;
+    delete Intercept.name;
+    delete Intercept.params;
+    if (Intercept.query == null) {
+      Intercept.query = {};
+    }
+    if (name != null) {var _nameToRute =
+      (0, _util.nameToRute)(name, selfRoutes),aliasPath = _nameToRute.aliasPath,path = _nameToRute.path;
+      Intercept.path = aliasPath || path;
+    } else {// 当设置别名时可以是别名跳转也可以path跳转
+      Intercept.path = Reflect.get(Intercept, 'path');
+      var rute = (0, _util.formatUserRule)(Intercept.path, selfRoutes, CONFIG);
+      if (rute == null) {
+        return false;
+      }
+      Intercept.path = rute;
+    }
+    if (CONFIG.encodeURI) {// 如果设置的编码传递则进行编码后传递
+      var query = encodeURIComponent(JSON.stringify(Intercept.query));
+      var formatQuery = (0, _util2.formatURLQuery)(query);
+      Intercept.query = {};
+      if (formatQuery != '') {
+        Intercept.query.query = formatQuery;
+      }
+    }
+  } else if (Intercept != null && Intercept.constructor === String) {
+    Intercept = (0, _util.formatUserRule)(Intercept, selfRoutes, CONFIG);
+  }
+  var objPath = Intercept;
+  if (Intercept != null && Intercept.constructor !== Boolean) {
+    objPath = (0, _util.strPathToObjPath)(Intercept);
+    if (objPath != null) {
+      var type = Reflect.get(objPath, 'type');
+      if (type == null) {// 当next()是一个路径时
+        objPath.type = 'navigateTo';
+      }
+    }
+  } else if (Intercept === false) {
+    Router.lifeCycle.routerAfterHooks[0].call(Router, { H5Intercept: true });
+  }
+  next(objPath); // 统一格式化为对象的方式传递
+  return Intercept;
+};
+/**
+    *  v1.5.4+
+    * beforeRouteLeave 生命周期
+    * @param {Object} to       将要去的那个页面 vue-router to对象
+    * @param {Object} from     从那个页面触发的 vue-router from对象
+    * @param {Object} next      vue-router beforeEach next管道函数
+    * @param {Object} Router   Router路由对象
+    */exports.forMatNext = forMatNext;
+var beforeRouteLeaveHooks = function beforeRouteLeaveHooks(to, from, next, Router) {
+  return new Promise(function (resolve) {var
+    currentRoute = Router.$route.currentRoute;
+    if (currentRoute.path == to.path) {// 如果是同一个页面直接返回  不执行页面中的Leave事件
+      return resolve();
+    }
+    var page = (0, _util.getPages)(); // 获取到当前的页面对象
+    if (page == null || page._HHYANGbeforeRouteLeaveCalled) {
+      (0, _warn.warn)('当前环境下无须执行 beforeRouteLeave。 原因：1.page等于null  2.真的的无须执行');
+      return resolve();
+    }
+    var beforeRouteLeaveArray = page.$options.beforeRouteLeave; // 获取到页面下的 beforeRouteLeave 路由守卫
+    if (beforeRouteLeaveArray == null) {// 当前页面没有预设 beforeRouteLeave 啥都不做
+      return resolve();
+    }var _getRouterNextInfo =
+    (0, _util.getRouterNextInfo)(to, from, Router),toRoute = _getRouterNextInfo.toRoute,fromRoute = _getRouterNextInfo.fromRoute;
+    var beforeRouteLeave = beforeRouteLeaveArray[0]; // 不管怎么样 只执行第一个钩子  其他都不管
+    beforeRouteLeave.call(page, toRoute, fromRoute, function (Intercept) {// 开始执行生命周期
+      if (Intercept == null) {// 放行状态  直接返回
+        return resolve();
+      }
+      page._HHYANGbeforeRouteLeaveCalled = true; // 标记一下当前已经做过 beforeRouteLeave 啦
+      forMatNext(to, Intercept, next, Router); // 直接交给vue-router 处理
+    });
+  });
+};
+
+/**
+    * 修复首页beforeEnter执行两次的问题 https://github.com/SilurianYang/uni-simple-router/issues/67
+    *
+    * beforeEnter 生命周期
+    * @param {Object} to
+    * @param {Object} from
+    * @param {Object} next
+    * @param {Object} userHooks
+    * @param {Object} Router
+    */
+var beforeEnterHooks = function beforeEnterHooks(to, from, next, userHooks, Router) {
+  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(resolve) {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
+
+              beforeEnterDep.includes(to.path)) {_context2.next = 3;break;}
+              next();return _context2.abrupt("return",
+              resolve());case 3:
+
+              beforeEnterDep = [to.path];if (!
+
+              Reflect.get(Router, 'H5RouterReady')) {_context2.next = 11;break;}_context2.next = 7;return (
+                new Promise( /*#__PURE__*/function () {var _ref2 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolveNext) {var _getRouterNextInfo2, toRoute, fromRoute;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_getRouterNextInfo2 =
+
+
+
+                            (0, _util.getRouterNextInfo)(to, from, Router), toRoute = _getRouterNextInfo2.toRoute, fromRoute = _getRouterNextInfo2.fromRoute;_context.next = 3;return (
+                              userHooks(toRoute, fromRoute, resolveNext));case 3:case "end":return _context.stop();}}}, _callee);}));return function (_x2) {return _ref2.apply(this, arguments);};}()));case 7:res = _context2.sent;
+
+              forMatNext(to, res, next, Router);_context2.next = 12;break;case 11:
+
+              next();case 12:
+
+              resolve();case 13:case "end":return _context2.stop();}}}, _callee2);}));return function (_x) {return _ref.apply(this, arguments);};}());
+
+};
+/**
+    * vueAfter 生命周期
+    * @param {Object} to
+    * @param {Object} from
+    * @param {Object} next
+    * @param {Object} Router
+    */exports.beforeEnterHooks = beforeEnterHooks;
+var afterHooks = /*#__PURE__*/function () {var _ref3 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(to, from, next, Router) {var _getRouterNextInfo3, toRoute, fromRoute;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+            _base.vuelifeHooks.afterHooks[0](to, from);if (!
+            _config.lifeCycle.afterHooks[0]) {_context3.next = 10;break;}if (!(
+            afterEachCount === 0)) {_context3.next = 6;break;}_context3.next = 5;return (
+              beforeEachLaunch);case 5:
+            appMount(Router);case 6:_getRouterNextInfo3 =
+
+
+
+
+            (0, _util.getRouterNextInfo)(to, from, Router), toRoute = _getRouterNextInfo3.toRoute, fromRoute = _getRouterNextInfo3.fromRoute;
+            _config.lifeCycle.afterHooks[0](toRoute, fromRoute);_context3.next = 11;break;case 10:
+            if (afterEachCount === 0) {
+              appMount(Router);
+            }case 11:
+            afterEachCount += 1;
+            Router.lifeCycle.routerAfterHooks[0].call(Router);case 13:case "end":return _context3.stop();}}}, _callee3);}));return function afterHooks(_x3, _x4, _x5, _x6) {return _ref3.apply(this, arguments);};}();
+
+/**
+                                                                                                                                                                                                                        * vueBefore 生命周期
+                                                                                                                                                                                                                        * @param {Object} to       将要去的那个页面 vue-router to对象
+                                                                                                                                                                                                                        * @param {Object} from     从那个页面触发的 vue-router from对象
+                                                                                                                                                                                                                        * @param {Object} next      vue-router beforeEach next管道函数
+                                                                                                                                                                                                                        * @param {Object} H5Config
+                                                                                                                                                                                                                        */exports.afterHooks = afterHooks;
+var beforeHooks = function beforeHooks(to, from, next, Router) {
+  return new Promise( /*#__PURE__*/function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6(resolve) {var H5;return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:_context6.next = 2;return (
+                Router.lifeCycle.routerbeforeHooks[0].call(Router));case 2:_context6.next = 4;return (
+                beforeRouteLeaveHooks(to, from, next, Router));case 4: // 执行1.5.4+ beforeRouteLeave生命钩子
+              H5 = Router.CONFIG.h5;
+              _base.vuelifeHooks.beforeHooks[0](to, from, /*#__PURE__*/function () {var _ref5 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5(Intercept) {var res, beforeIntercept, selfRoutes, beforeEnter;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:if (!(
+                          Intercept != null && H5.keepUniIntercept === true && H5.vueRouterDev === false)) {_context5.next = 5;break;}
+                          next(Intercept);
+                          (0, _warn.warn)('uni-app 内部强制触发跳转拦截');
+                          beforeEachCount += 1;return _context5.abrupt("return",
+                          resolve());case 5:if (
+
+
+                          _config.lifeCycle.beforeHooks[0]) {_context5.next = 10;break;}
+                          next();
+                          beforeEachCount += 1;
+                          resolveLaunch();return _context5.abrupt("return",
+                          resolve());case 10:_context5.next = 12;return (
+
+                            new Promise( /*#__PURE__*/function () {var _ref6 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4(resolveNext) {var _getRouterNextInfo4, toRoute, fromRoute;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_getRouterNextInfo4 =
+
+
+
+                                        (0, _util.getRouterNextInfo)(to, from, Router), toRoute = _getRouterNextInfo4.toRoute, fromRoute = _getRouterNextInfo4.fromRoute;_context4.next = 3;return (
+                                          _config.lifeCycle.beforeHooks[0](toRoute, fromRoute, resolveNext));case 3:case "end":return _context4.stop();}}}, _callee4);}));return function (_x9) {return _ref6.apply(this, arguments);};}()));case 12:res = _context5.sent;
+
+                          beforeIntercept = forMatNext(to, res, next, Router);if (!(
+                          beforeEachCount == 0 && beforeIntercept == null && to.meta.isTabBar)) {_context5.next = 20;break;} // 首次触发beforeEach，并且首页没有进行跳转的情况下才触发beforeEnter 主要是keep-alive
+
+                          selfRoutes =
+                          Router.selfRoutes;
+                          beforeEnter = Reflect.get(selfRoutes["/".concat(to.meta.pagePath)], 'beforeEnter');if (!
+                          beforeEnter) {_context5.next = 20;break;}_context5.next = 20;return (
+                            beforeEnterHooks(to, from, next, beforeEnter, Router));case 20:
+
+
+                          beforeEachCount += 1;
+                          resolveLaunch();
+                          resolve();case 23:case "end":return _context5.stop();}}}, _callee5);}));return function (_x8) {return _ref5.apply(this, arguments);};}());case 6:case "end":return _context6.stop();}}}, _callee6);}));return function (_x7) {return _ref4.apply(this, arguments);};}());
+
+
+};
+/**
+    * 通过自动调用router api来完成触发生命周期
+    * 修复 history 模式下报错的问题  https://github.com/SilurianYang/uni-simple-router/issues/38
+    * 修复 history 模式下刷新页面参数丢失的问题 https://github.com/SilurianYang/uni-simple-router/issues/45
+    * 修复 history 模式下首次打开页面url错误时不走 path:* 的匹配项  https://github.com/SilurianYang/uni-simple-router/issues/58
+    *
+    * @param {Object} Router //当前simple-router 对象
+    * @param {Object} vueRouter vue-router对象
+    */exports.beforeHooks = beforeHooks;
+var triggerLifeCycle = function triggerLifeCycle(Router, vueRouter) {var
+  CONFIG = Router.CONFIG;
+  var currRoute = vueRouter.currentRoute;
+  if (vueRouter.mode === 'hash') {var
+
+    query =
+
+    currRoute.query,path = currRoute.path;
+
+    var URLQuery = (0, _util.encodeURLQuery)(CONFIG, query, 'hash');
+
+    vueRouter.replace("".concat(path).concat(URLQuery));
+  } else {var _getRouterNextInfo5 =
+
+
+    (0, _util.getRouterNextInfo)(currRoute, currRoute, Router),toRoute = _getRouterNextInfo5.toRoute;
+    var _URLQuery = (0, _util.encodeURLQuery)(CONFIG, currRoute.query, 'history');
+    vueRouter.replace({
+      path: toRoute.aliasPath || toRoute.path || currRoute.path,
+      query: _URLQuery,
+      type: 'redirectTo' });
+
+  }
+};
+
+/** 注册自定义的路由到vue-router中 前提是必须使用vueRouter开发模式
+    * @param {Object} Router
+    * @param {Object} vueRouter
+    * @param {Boolean} vueRouterDev
+    */exports.triggerLifeCycle = triggerLifeCycle;
+var registerRouter = function registerRouter(Router, vueRouter, vueRouterDev) {
+  var routeMap = [];
+  if (!vueRouterDev) {// 则进行对比两个路由表  主要工作是做路径的优化
+    routeMap = (0, _util.diffRouter)(Router, vueRouter, Router.CONFIG.h5.useUniConfig);
+  } else {// 完全使用vue-router开发时直接采用开发者的路由表
+    routeMap = (0, _util.vueDevRouteProxy)(Router.CONFIG.routes, Router);
+  }
+  var createRouter = function createRouter() {return new vueRouter.constructor({
+      base: vueRouter.options.base,
+      mode: vueRouter.options.mode,
+      routes: routeMap });};
+
+  var router = createRouter();
+  vueRouter.matcher = router.matcher;
+  _config.Global.vueRouter = vueRouter; // 把当前vueRouter缓存到全局对象中
+  _config.Global.RouterReadyPromise(); // router已经准备就绪 调用promise.resolve();
+  Router.H5RouterReady = true; // 并挂载到Router对象下
+  // 注册完成所有的钩子及相关参数，手动触发Router的生命周期
+  setTimeout(function () {
+    triggerLifeCycle(Router, vueRouter);
+  });
+};exports.registerRouter = registerRouter;
+
+/***/ }),
+
+/***/ 32:
+/*!***********************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/extends/myArray.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _createSuper(Derived) {return function () {var Super = _getPrototypeOf(Derived),result;if (_isNativeReflectConstruct()) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _wrapNativeSuper(Class) {var _cache = typeof Map === "function" ? new Map() : undefined;_wrapNativeSuper = function _wrapNativeSuper(Class) {if (Class === null || !_isNativeFunction(Class)) return Class;if (typeof Class !== "function") {throw new TypeError("Super expression must either be null or a function");}if (typeof _cache !== "undefined") {if (_cache.has(Class)) return _cache.get(Class);_cache.set(Class, Wrapper);}function Wrapper() {return _construct(Class, arguments, _getPrototypeOf(this).constructor);}Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });return _setPrototypeOf(Wrapper, Class);};return _wrapNativeSuper(Class);}function _construct(Parent, args, Class) {if (_isNativeReflectConstruct()) {_construct = Reflect.construct;} else {_construct = function _construct(Parent, args, Class) {var a = [null];a.push.apply(a, args);var Constructor = Function.bind.apply(Parent, a);var instance = new Constructor();if (Class) _setPrototypeOf(instance, Class.prototype);return instance;};}return _construct.apply(null, arguments);}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _isNativeFunction(fn) {return Function.toString.call(fn).indexOf("[native code]") !== -1;}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * 实现一个继承的 数组类  代理掉 vue-router 生命钩子的数据
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */var
+MyArray = /*#__PURE__*/function (_Array) {_inherits(MyArray, _Array);var _super = _createSuper(MyArray);
+  function MyArray(Router, vueOldHooks, hookFun) {var _this;_classCallCheck(this, MyArray);
+    _this = _super.call(this);
+    _this.Router = Router;
+    _this.vueOldHooks = vueOldHooks;
+    _this.hookFun = hookFun;return _this;
+  }_createClass(MyArray, [{ key: "push", value: function push(
+
+    v) {var _this2 = this;
+      this.vueOldHooks.splice(0, 1, v); // 把vue-router路由生命钩子保存起来
+      this[this.length] = function (to, from, next) {
+        _this2.hookFun(to, from, next, _this2.Router);
+      };
+    } }]);return MyArray;}( /*#__PURE__*/_wrapNativeSuper(Array));var _default =
+
+
+MyArray;exports.default = _default;
+
+/***/ }),
+
+/***/ 33:
+/*!*************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/lifeCycle/hooks.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.registerRouterHooks = exports.registerHook = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 19));var _util = __webpack_require__(/*! ../helpers/util */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+
+
+
+
+
+var registerHook = function registerHook(list, fn) {
+  list.push(fn);
+  return function () {
+    var i = list.indexOf(fn);
+    if (i > -1) list.splice(i, 1);
+  };
+};
+/**
+    * 注册全局Router生命钩子
+    */exports.registerHook = registerHook;
+var registerRouterHooks = function registerRouterHooks() {
+  registerHook(this.lifeCycle.routerbeforeHooks, function () {var _this = this;
+    return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                _this.CONFIG.routerBeforeEach(); // 触发暴露给开发者的生命钩子
+                if ((0, _util.appPlatform)(true) === 'H5') {
+                  H5PATCH.on('toogle', 'startLodding');
+                }return _context.abrupt("return",
+                resolve(true));case 3:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}());
+
+  });
+  registerHook(this.lifeCycle.routerAfterHooks, function () {var res = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    if (res.H5Intercept !== true) {
+      this.CONFIG.routerAfterEach(); // 触发暴露给开发者的生命钩子
+    }
+    if ((0, _util.appPlatform)(true) === 'H5') {
+      H5PATCH.on('toogle', 'stopLodding');
+    }
+    return true;
+  });
+};exports.registerRouterHooks = registerRouterHooks;
+
+/***/ }),
+
+/***/ 34:
+/*!*****************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/patch/applets-patch.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/**
+                                                                                                      * 截止 1.3.5 版本 不做任何操作
+                                                                                                      * @param {element} el dom节点
+                                                                                                      */
+var appletsMount = function appletsMount(Vim) {
+  Vim.$mount();
+};var _default =
+
+appletsMount;exports.default = _default;
+
+/***/ }),
+
+/***/ 35:
+/*!*************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/patch/app-patch.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 截止 1.3.5 版本 不做任何操作
+                                                                                                      * @param {element} el dom节点
+                                                                                                      */
+var appMount = function appMount(Vim) {
+  Vim.$mount();
+};var _default =
+appMount;exports.default = _default;
+
+/***/ }),
+
+/***/ 36:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/mixins.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = __webpack_require__(/*! ./config */ 14);
+var _init = _interopRequireDefault(__webpack_require__(/*! ../vueRouter/init */ 37));
+var _init2 = __webpack_require__(/*! ../appRouter/init */ 38);
+var _init3 = _interopRequireDefault(__webpack_require__(/*! ../appletsRouter/init */ 39));
+var _util = __webpack_require__(/*! ./util */ 13);
+var _hooks = __webpack_require__(/*! ../appRouter/hooks */ 18);
+var _hooks2 = __webpack_require__(/*! ../appletsRouter/hooks */ 24);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 获取一些需要在各个平台混入的事件
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @param {Object} Router 当前原始路由对象
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+var getMixins = function getMixins(Router) {
+  return {
+    H5: {
+      beforeCreate: function beforeCreate() {
+        if (this.$options.router) {
+          (0, _init.default)(Router.$root, this.$options.router, this);
+        }
+      } },
+
+    APP: {
+      onLaunch: function onLaunch() {
+        _config.uniAppHook.onLaunched = true; // 标志已经触发了 onLaunch 事件
+        _init2.appInit.call(this, Router.$root);
+      },
+      onLoad: function onLoad() {
+        // 第一个页面 拦截所有生命周期
+        if (_config.uniAppHook.onLaunched && !_config.uniAppHook.pageReady) {
+          _config.uniAppHook.onLaunched = false;
+          _hooks.proxyIndexHook.call(this, Router.$root);
+        }
+        (0, _init2.removeBackPressEvent)(this.$mp.page, this.$options); // 移除页面的onBackPress事件
+      },
+      onBackPress: function onBackPress() {for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}
+        return _init2.pageIsHeadBack.call(Router.$root, this.$mp.page, this.$options, args);
+      } },
+
+    APPLETS: {
+      onLaunch: function onLaunch() {
+        _config.uniAppHook.onLaunched = true; // 标志已经触发了 onLaunch 事件
+        _init3.default.call(this, Router.$root);
+      },
+      onLoad: function onLoad() {
+        if (_config.uniAppHook.onLaunched && !_config.uniAppHook.pageReady) {// 必须是第一个页面
+          _config.uniAppHook.onLaunched = false;
+          _hooks2.appletsProxyIndexHook.call(this, Router.$root);
+        }
+      } } };
+
+
+};
+
+var initMixins = function initMixins(Vue, Router) {
+  Vue.mixin(_objectSpread({},
+  getMixins(Router)[(0, _util.appPlatform)(true)]));
+
+};var _default =
+
+initMixins;exports.default = _default;
+
+/***/ }),
+
+/***/ 37:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/vueRouter/init.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _concat = __webpack_require__(/*! ./concat */ 31);
+var _util = __webpack_require__(/*! ./util */ 29);
+var _warn = __webpack_require__(/*! ../helpers/warn */ 16);
+var _proxy = __webpack_require__(/*! ./proxy/proxy */ 30);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   * 重写掉H5端 uni-app原始存在的bug
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   * @param {Object} Router
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   */
+var rewriteUniFun = function rewriteUniFun(Router) {
+  if (Router.CONFIG.h5.rewriteFun === false) {// 不需要重写
+    return false;
+  }
+  uni.reLaunch = function (_ref)
+
+  {var url = _ref.url;
+    if (url === '/') {
+      (0, _warn.warn)('H5端 uni.reLaunch(\'/\')时 默认被重写了! 你可以使用 this.$Router.replaceAll() 或者 uni.reLaunch(\'/\'?xxx)');
+      // eslint-disable-next-line
+      if (history.length > 1) {// 只有在有历史记录的时候才返回  不然直接返回首页
+        return Router.back();
+      }
+      return Router.replaceAll('/');
+    }
+    var path = url.match(/^[^?]+|(\/)/)[0];
+    try {
+      var query = {};
+      url.replace(/([^?&]+)=([^?&]+)/g, function (s, v, k) {
+        query[v] = decodeURIComponent(k);
+        return "".concat(k, "=").concat(v);
+      });
+      Router.replaceAll({
+        path: path,
+        query: query });
+
+    } catch (e) {
+      (0, _warn.err)("".concat(url, "\u89E3\u6790\u5931\u8D25\u4E86....  \u8BD5\u8BD5 this.$Router.replaceAll() \u5427"));
+    }
+  };
+  uni.navigateBack = function (delta) {
+    var backLayer = delta;
+    if (delta.constructor === Object) {// 这种可能就只是uni-app自带的返回按钮,还有种可能就是开发者另类传递的
+      backLayer = 1;
+    }
+    Router.back(backLayer, delta);
+  };
+};
+/**
+    * 拦截并注册vueRouter中的生命钩子，路由表解析
+    * @param {Object} Router
+    * @param {vueRouter} vueRouter
+    */
+var init = function init(Router, vueRouter) {
+  var CONFIG = Router.CONFIG.h5;
+  vueRouter.afterHooks = (0, _proxy.proxyEachHooks)(Router, 'afterHooks', _concat.afterHooks);
+  vueRouter.beforeHooks = (0, _proxy.proxyEachHooks)(Router, 'beforeHooks', _concat.beforeHooks);
+  var objVueRoutes = (0, _util.fromatRoutes)(vueRouter.options.routes, false, {}); // 返回一个格式化好的routes 键值对的形式
+  var objSelfRoutes = (0, _util.fromatRoutes)(Router.CONFIG.routes, true, CONFIG);
+  Router.vueRoutes = objVueRoutes; // 挂载vue-routes到当前的路由下
+  Router.selfRoutes = _objectSpread({},
+  Router.selfRoutes || {}, {},
+  objSelfRoutes);
+  // 挂载self-routes到当前路由下
+  Router.$route = vueRouter; // 挂载vue-router到$route
+  rewriteUniFun(Router); // 重新掉uniapp上的一些有异常的方法
+  (0, _concat.registerRouter)(Router, vueRouter, CONFIG.vueRouterDev);
+};var _default =
+init;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 38:
+/*!************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appRouter/init.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.appInit = exports.pageIsHeadBack = exports.removeBackPressEvent = exports.registerLoddingPage = exports.rewriteUniFun = void 0;var _hooks = __webpack_require__(/*! ./hooks */ 18);
+
+
+var _config = __webpack_require__(/*! ../helpers/config */ 14);
+var _util = __webpack_require__(/*! ./util */ 22);
+var _warn = __webpack_require__(/*! ../helpers/warn */ 16);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _objectWithoutProperties(source, excluded) {if (source == null) return {};var target = _objectWithoutPropertiesLoose(source, excluded);var key, i;if (Object.getOwnPropertySymbols) {var sourceSymbolKeys = Object.getOwnPropertySymbols(source);for (i = 0; i < sourceSymbolKeys.length; i++) {key = sourceSymbolKeys[i];if (excluded.indexOf(key) >= 0) continue;if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;target[key] = source[key];}}return target;}function _objectWithoutPropertiesLoose(source, excluded) {if (source == null) return {};var target = {};var sourceKeys = Object.keys(source);var key, i;for (i = 0; i < sourceKeys.length; i++) {key = sourceKeys[i];if (excluded.indexOf(key) >= 0) continue;target[key] = source[key];}return target;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 重写掉uni-app的 uni.getLocation 和 uni.chooseLocation APi
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @param {Object} Router  当前路由对象
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+var rewriteUniFun = function rewriteUniFun(Router) {
+  var oldSwitchTab = uni.switchTab; // 缓存 跳转到 tabBar 页面
+  uni.switchTab = function (_ref) {var url = _ref.url,args = _objectWithoutProperties(_ref, ["url"]);var normal = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    if (normal === true || _config.uniAppHook.pageReady === false) {// 调用原始的uni-app  api
+      oldSwitchTab(_objectSpread({
+        url: url },
+      args));
+
+    } else {
+      if (_config.uniAppHook.pageReady) {// 只有在路由守卫等  处理完所有操作后才能触发
+        var path = Router.$Route.path; // 获取当前路径
+        if (path == url) {// 路径相同不执行
+          return (0, _warn.warn)("\u5F53\u524D\u8DF3\u8F6C\u8DEF\u5F84\uFF1A".concat(url, "  \u5DF2\u5728\u672C\u9875\u9762\u65E0\u987B\u8DF3\u8F6C"));
+        }
+        _hooks.beforeTabHooks.call(Router, url.substring(1)); // 不要 /
+      } else {
+        (0, _warn.warn)('路由守卫正在忙碌中 不允许执行 ‘uni.switchTab’');
+      }
+    }
+  };
+};
+
+/**
+    * 对当前app做一个动画页面 用来过渡首次next 等待时间过长的尴尬
+    * @param {Object} Router 当前路由对象
+    */exports.rewriteUniFun = rewriteUniFun;
+var registerLoddingPage = function registerLoddingPage(Router) {var _Router$CONFIG$APP =
+  Router.CONFIG.APP,loddingPageHook = _Router$CONFIG$APP.loddingPageHook,loddingPageStyle = _Router$CONFIG$APP.loddingPageStyle; // 获取app所有配置
+  var view = new plus.nativeObj.View('router-loadding', _objectSpread({
+    top: '0px',
+    left: '0px',
+    height: '100%',
+    width: '100%' },
+  loddingPageStyle.call(Router)));
+
+  loddingPageHook.call(Router, view); // 触发等待页面生命周期
+};
+/**
+    * 移除当前 页面上 非router 声明的 onBackPress 事件
+    * @param {Object} page 当前 vue 组件对象
+    * @param {Object} options	当前page对象的 $options
+    * 修复 https://github.com/SilurianYang/uni-simple-router/issues/106
+    */exports.registerLoddingPage = registerLoddingPage;
+var removeBackPressEvent = function removeBackPressEvent(page, options) {
+  var isBack = (0, _util.assertCanBack)(page);
+  if (isBack) {// 可返回
+    options.onBackPress = [options.onBackPress[0]]; // 路由混入的都干掉
+  }
+};
+/**
+    * 判断当前页面是否需要拦截返回
+    *
+    * @param {Object} page 当前 vue 组件对象
+    * @param {Object} options 当前 vue 组件对象下的$options对象
+    * @param {Array} args  当前页面是点击头部返回还是底部返回
+    * 修复 https://github.com/SilurianYang/uni-simple-router/issues/66
+    *
+    * this 为当前 Router 对象
+    */exports.removeBackPressEvent = removeBackPressEvent;
+var pageIsHeadBack = function pageIsHeadBack(page, options, args) {
+  if (args[0].from == 'navigateBack') {// 调用api返回
+    if (_config.Global.LockStatus) {// 正在跳转的时候 返回按键按的太快啦
+      (0, _warn.warn)('当前页面正在处于跳转状态，请稍后再进行跳转....');
+      return true;
+    }
+    _config.Global.LockStatus = true; // 设置为锁住状态
+    _hooks.backApiCallHook.call(this, options, args);
+    return true;
+  }
+  var isBack = (0, _util.assertCanBack)(page);
+  if (isBack) {// 可返回
+    if (_config.Global.LockStatus) {// 正在跳转的时候 返回按键按的太快啦
+      (0, _warn.warn)('当前页面正在处于跳转状态，请稍后再进行跳转....');
+      return true;
+    }
+    _config.Global.LockStatus = true; // 设置为锁住状态
+    _hooks.beforeBackHooks.call(this, options, args);
+    return true;
+  }
+  return false;
+};
+
+/**
+    * 开始初始化app端路由配置
+    *
+    * @param {Object} Router
+    *
+    * this 为当前 page 对象
+    */exports.pageIsHeadBack = pageIsHeadBack;
+var appInit = function appInit(Router) {
+  _hooks.proxyLaunchHook.call(this);var
+  holdTabbar = Router.CONFIG.APP.holdTabbar;
+  if (holdTabbar) {// 开启tab拦截时
+    rewriteUniFun(Router);
+  }
+  registerLoddingPage(Router);
+};exports.appInit = appInit;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 39:
+/*!****************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/appletsRouter/init.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _hooks = __webpack_require__(/*! ./hooks */ 24);
+
+/**
+                                                                                                                                      * 开始初始化app端路由配置
+                                                                                                                                      *
+                                                                                                                                      * @param {Object} Router 	当前Router对象
+                                                                                                                                      *
+                                                                                                                                      * this 为当前 page 对象
+                                                                                                                                      */
+var appletsInit = function appletsInit() {
+  _hooks.proxyLaunchHook.call(this);
+};var _default =
+appletsInit;exports.default = _default;
+
+/***/ }),
+
 /***/ 4:
-/*!***************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/pages.json ***!
-  \***************************************************************************/
+/*!**********************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/pages.json ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9638,10 +12736,1628 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 51:
-/*!********************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/baron-xiaoha/baron-xiaoha/static/images/chat/send.png ***!
-  \********************************************************************************************/
+/***/ 40:
+/*!**************************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/node_modules/uni-simple-router/helpers/urlQuery.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = __webpack_require__(/*! ./config */ 14);
+var _warn = __webpack_require__(/*! ./warn */ 16);function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+
+var nodeURL = __webpack_require__(/*! query-string */ 41);var
+
+ParseQuery = /*#__PURE__*/function () {function ParseQuery() {_classCallCheck(this, ParseQuery);}_createClass(ParseQuery, [{ key: "isDepthObject",
+
+
+
+
+    /**
+                                                                                                                                                    * 判断当前这个对象是否为深度对象
+                                                                                                                                                    * @param {Object} obj
+                                                                                                                                                    */value: function isDepthObject(
+    obj) {
+      var str = JSON.stringify(obj);
+      return str.match(/}/g).length > 1;
+    }
+
+    /**
+       * 从URL中提取查询字符串
+       * @param {String} url
+       */ }, { key: "extract", value: function extract(
+    url) {
+      return nodeURL.extract(url);
+    }
+
+    /**
+       * 把一个 key=value&key1=value 的字符串转成对象
+       * @param {string} strQuery key=value&key1=value 类型的字符串
+       */ }, { key: "parse", value: function parse(
+    strQuery) {
+      return nodeURL.parse(strQuery);
+    }
+
+    /**
+       * 把一个对象转成 key=value&key1=value 类型的字符串
+       * @param {Object} ObjQuery 符合js标注的对象
+       * @param {Boolean} intact 是否在转成的字符串前添加？号
+       */ }, { key: "stringify", value: function stringify(
+    ObjQuery) {var intact = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var strQuery = nodeURL.stringify(ObjQuery);
+      if (intact) {
+        return "?".concat(strQuery);
+      }
+      return strQuery;
+    }
+
+    /**
+       * 把一个对象或者 key=value&key1=value 类型的数据加密成 query=encodeURIComponent(value)
+       * @param {Object|String} query 符合js标注的对象 或者 key=value&key1=value 字符串
+       * @param {Boolean} intact 是否在转成的字符串前添加？号
+       */ }, { key: "encode", value: function encode(
+    query) {var intact = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;var
+      strQuery = '',formatQuery = '';
+      if (query == null) {
+        (0, _warn.warn)('加密参数没有传递，你知道？', true);
+        return '';
+      }
+      if (query.constructor === String) {// 字符串 尝试 转成 对象
+        strQuery = JSON.stringify(this.parse(query));
+      } else if (query.constructor === Object) {// 直接转成字符串对象即可
+        if (Object.keys(query).length === 0) {
+          (0, _warn.warn)('当前参数不满足加密规范！');
+          return '';
+        }
+        strQuery = JSON.stringify(query);
+      }
+      if (intact) {
+        formatQuery = '?';
+      }
+      formatQuery += "query=".concat(encodeURIComponent(strQuery));
+      return formatQuery;
+    }
+
+    /**
+       * 把一个已经加密好的字符串 query=encodeURIComponent(value) 解密成 对象
+       * @param {string} strQuery  已经加密好的字符串 query=encodeURIComponent(value)
+       */ }, { key: "decode", value: function decode(
+    strQuery) {
+      if (strQuery == null) {
+        (0, _warn.warn)('解密参数没有传递，你知道？', true);
+        return {};
+      }
+      var jsonQuery = strQuery;
+      if (strQuery.constructor === Object) {// 如果是对象 看能不能满足要求
+        jsonQuery = strQuery.query;
+        if (jsonQuery == null) {
+          (0, _warn.warn)('当前解密参数不满足编码规则');
+          return {};
+        }
+        jsonQuery = "query=".concat(jsonQuery);
+      }
+      var decode = {};
+      // query 长这个样  query=encodeURIComponent(value)
+      var decodeStr = decodeURIComponent(jsonQuery);var _this$parse =
+      this.parse(decodeStr),query = _this$parse.query; // 转成 json 获取到正真的json字符串
+      if (query == null) {
+        (0, _warn.warn)('当前解密参数不满足编码规则');
+      } else {
+        try {
+          decode = JSON.parse(query);
+        } catch (error) {
+          (0, _warn.warn)('当前解密参数不满足编码规则');
+        }
+      }
+      return decode;
+    } }, { key: "queryGet", value: function queryGet(
+
+    query) {var
+      encodeURI = _config.Global.Router.CONFIG.encodeURI; // 获取到路由配置
+      var decode = query,historyObj = query,strQuery = '';
+      switch (encodeURI) {
+        case true:{// 加密模式
+            decode = this.decode(query);
+            strQuery = this.encode(decode);
+            historyObj = {
+              query: encodeURIComponent(JSON.stringify(decode)) };
+
+            break;
+          }
+        case false:{// 不加密模式
+            strQuery = this.stringify(query);
+            break;
+          }
+        default:{
+            (0, _warn.err)('未知参数模式，请检查 \'encodeURI\'', true);
+          }}
+
+      return { strQuery: strQuery, historyObj: historyObj, decode: decode };
+    }
+
+
+    /**
+       * 对需要传递的参数进行加密解密
+       * @param {Object|String} query get为false 必须为 Object 类型
+       * @param {String} get 是取值 还是通过api传值
+       */ }, { key: "transfer", value: function transfer()
+    {var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var
+      encodeURI = _config.Global.Router.CONFIG.encodeURI; // 获取到路由配置
+      switch (encodeURI) {
+        case true:{
+            // 加密模式
+            return this.encode(query, false);
+          }
+        case false:{
+            // 不加密模式
+            return this.stringify(query);
+          }
+        default:{
+            (0, _warn.err)('未知参数模式，请检查 \'encodeURI\' ', true);
+          }}
+
+    } }, { key: "queryName", get: function get() {return nodeURL;} }]);return ParseQuery;}();var _default =
+
+
+ParseQuery;exports.default = _default;
+
+/***/ }),
+
+/***/ 41:
+/*!********************************************!*\
+  !*** ./node_modules/query-string/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var strictUriEncode = __webpack_require__(/*! strict-uri-encode */ 42);
+var objectAssign = __webpack_require__(/*! object-assign */ 43);
+
+function encoderForArrayFormat(opts) {
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, index) {
+				return value === null ? [
+					encode(key, opts),
+					'[',
+					index,
+					']'
+				].join('') : [
+					encode(key, opts),
+					'[',
+					encode(index, opts),
+					']=',
+					encode(value, opts)
+				].join('');
+			};
+
+		case 'bracket':
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'[]=',
+					encode(value, opts)
+				].join('');
+			};
+
+		default:
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'=',
+					encode(value, opts)
+				].join('');
+			};
+	}
+}
+
+function parserForArrayFormat(opts) {
+	var result;
+
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, accumulator) {
+				result = /\[(\d*)\]$/.exec(key);
+
+				key = key.replace(/\[\d*\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				}
+
+				if (accumulator[key] === undefined) {
+					accumulator[key] = {};
+				}
+
+				accumulator[key][result[1]] = value;
+			};
+
+		case 'bracket':
+			return function (key, value, accumulator) {
+				result = /(\[\])$/.exec(key);
+				key = key.replace(/\[\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				} else if (accumulator[key] === undefined) {
+					accumulator[key] = [value];
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+
+		default:
+			return function (key, value, accumulator) {
+				if (accumulator[key] === undefined) {
+					accumulator[key] = value;
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+	}
+}
+
+function encode(value, opts) {
+	if (opts.encode) {
+		return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
+	}
+
+	return value;
+}
+
+function keysSorter(input) {
+	if (Array.isArray(input)) {
+		return input.sort();
+	} else if (typeof input === 'object') {
+		return keysSorter(Object.keys(input)).sort(function (a, b) {
+			return Number(a) - Number(b);
+		}).map(function (key) {
+			return input[key];
+		});
+	}
+
+	return input;
+}
+
+exports.extract = function (str) {
+	return str.split('?')[1] || '';
+};
+
+exports.parse = function (str, opts) {
+	opts = objectAssign({arrayFormat: 'none'}, opts);
+
+	var formatter = parserForArrayFormat(opts);
+
+	// Create an object with no prototype
+	// https://github.com/sindresorhus/query-string/issues/47
+	var ret = Object.create(null);
+
+	if (typeof str !== 'string') {
+		return ret;
+	}
+
+	str = str.trim().replace(/^(\?|#|&)/, '');
+
+	if (!str) {
+		return ret;
+	}
+
+	str.split('&').forEach(function (param) {
+		var parts = param.replace(/\+/g, ' ').split('=');
+		// Firefox (pre 40) decodes `%3D` to `=`
+		// https://github.com/sindresorhus/query-string/pull/37
+		var key = parts.shift();
+		var val = parts.length > 0 ? parts.join('=') : undefined;
+
+		// missing `=` should be `null`:
+		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+		val = val === undefined ? null : decodeURIComponent(val);
+
+		formatter(decodeURIComponent(key), val, ret);
+	});
+
+	return Object.keys(ret).sort().reduce(function (result, key) {
+		var val = ret[key];
+		if (Boolean(val) && typeof val === 'object' && !Array.isArray(val)) {
+			// Sort object keys, not values
+			result[key] = keysSorter(val);
+		} else {
+			result[key] = val;
+		}
+
+		return result;
+	}, Object.create(null));
+};
+
+exports.stringify = function (obj, opts) {
+	var defaults = {
+		encode: true,
+		strict: true,
+		arrayFormat: 'none'
+	};
+
+	opts = objectAssign(defaults, opts);
+
+	var formatter = encoderForArrayFormat(opts);
+
+	return obj ? Object.keys(obj).sort().map(function (key) {
+		var val = obj[key];
+
+		if (val === undefined) {
+			return '';
+		}
+
+		if (val === null) {
+			return encode(key, opts);
+		}
+
+		if (Array.isArray(val)) {
+			var result = [];
+
+			val.slice().forEach(function (val2) {
+				if (val2 === undefined) {
+					return;
+				}
+
+				result.push(formatter(key, val2, result.length));
+			});
+
+			return result.join('&');
+		}
+
+		return encode(key, opts) + '=' + encode(val, opts);
+	}).filter(function (x) {
+		return x.length > 0;
+	}).join('&') : '';
+};
+
+
+/***/ }),
+
+/***/ 42:
+/*!*************************************************!*\
+  !*** ./node_modules/strict-uri-encode/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function (str) {
+	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+		return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+	});
+};
+
+
+/***/ }),
+
+/***/ 43:
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
+
+/***/ 44:
+/*!***********************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/router/modules/index.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var files = __webpack_require__(45);
+var modules = [];
+
+files.keys().forEach(function (key) {
+  if (key === './index.js') return;
+  var item = files(key).default;
+  modules.push.apply(modules, _toConsumableArray(item));
+});var _default =
+
+modules;exports.default = _default;
+
+/***/ }),
+
+/***/ 45:
+/*!**************************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/router/modules sync nonrecursive \.js$ ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./home.js": 46,
+	"./index.js": 44
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) { // check for number or string
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return id;
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 45;
+
+/***/ }),
+
+/***/ 46:
+/*!**********************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/router/modules/home.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var home = [
+{
+  path: "/pages/login/login",
+  name: 'login',
+  aliasPath: '/',
+  meta: {
+    title: '登录' } },
+
+
+{
+  path: "/pages/register/register",
+  name: 'register',
+  meta: {
+    title: '注册' } },
+
+{
+  path: "/pages/home/home",
+  name: 'home',
+  meta: {
+    title: '首页' } },
+
+{
+  path: "/pages/relation_find/relation_find",
+  name: 'relation_find',
+  meta: {
+    title: '首页' } },
+
+{
+  path: "/pages/chat/chat",
+  name: 'chat',
+  meta: {
+    title: '首页' } },
+
+{
+  path: "/pages/user/user",
+  name: 'user',
+  meta: {
+    title: '首页' } },
+
+
+{
+  path: "/pages/notice/notice",
+  name: 'notice',
+  meta: {
+    title: '首页' } },
+
+
+{
+  path: "/pages/edit/edit",
+  name: 'edit',
+  meta: {
+    title: '首页' } },
+
+
+{
+  path: "/pages/Room/Room",
+  name: 'Room',
+  meta: {
+    title: '首页' } },
+
+
+{
+  path: "/pages/watchArticle/watchArticle",
+  name: 'watchArticle',
+  meta: {
+    title: '首页' } }];var _default =
+
+
+
+home;exports.default = _default;
+
+/***/ }),
+
+/***/ 53:
+/*!************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _createSuper(Derived) {return function () {var Super = _getPrototypeOf(Derived),result;if (_isNativeReflectConstruct()) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _wrapNativeSuper(Class) {var _cache = typeof Map === "function" ? new Map() : undefined;_wrapNativeSuper = function _wrapNativeSuper(Class) {if (Class === null || !_isNativeFunction(Class)) return Class;if (typeof Class !== "function") {throw new TypeError("Super expression must either be null or a function");}if (typeof _cache !== "undefined") {if (_cache.has(Class)) return _cache.get(Class);_cache.set(Class, Wrapper);}function Wrapper() {return _construct(Class, arguments, _getPrototypeOf(this).constructor);}Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });return _setPrototypeOf(Wrapper, Class);};return _wrapNativeSuper(Class);}function _construct(Parent, args, Class) {if (_isNativeReflectConstruct()) {_construct = Reflect.construct;} else {_construct = function _construct(Parent, args, Class) {var a = [null];a.push.apply(a, args);var Constructor = Function.bind.apply(Parent, a);var instance = new Constructor();if (Class) _setPrototypeOf(instance, Class.prototype);return instance;};}return _construct.apply(null, arguments);}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _isNativeFunction(fn) {return Function.toString.call(fn).indexOf("[native code]") !== -1;}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var e = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {};function t(e) {return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;}function n(e, t) {return e(t = { exports: {} }, t.exports), t.exports;}var r = n(function (e, t) {var n;e.exports = (n = n || function (e, t) {var n = Object.create || function () {function e() {}return function (t) {var n;return e.prototype = t, n = new e(), e.prototype = null, n;};}(),r = {},o = r.lib = {},s = o.Base = { extend: function extend(e) {var t = n(this);return e && t.mixIn(e), t.hasOwnProperty("init") && this.init !== t.init || (t.init = function () {t.$super.init.apply(this, arguments);}), t.init.prototype = t, t.$super = this, t;}, create: function create() {var e = this.extend();return e.init.apply(e, arguments), e;}, init: function init() {}, mixIn: function mixIn(e) {for (var t in e) {e.hasOwnProperty(t) && (this[t] = e[t]);}e.hasOwnProperty("toString") && (this.toString = e.toString);}, clone: function clone() {return this.init.prototype.extend(this);} },i = o.WordArray = s.extend({ init: function init(e, t) {e = this.words = e || [], this.sigBytes = null != t ? t : 4 * e.length;}, toString: function toString(e) {return (e || c).stringify(this);}, concat: function concat(e) {var t = this.words,n = e.words,r = this.sigBytes,o = e.sigBytes;if (this.clamp(), r % 4) for (var s = 0; s < o; s++) {var i = n[s >>> 2] >>> 24 - s % 4 * 8 & 255;t[r + s >>> 2] |= i << 24 - (r + s) % 4 * 8;} else for (s = 0; s < o; s += 4) {t[r + s >>> 2] = n[s >>> 2];}return this.sigBytes += o, this;}, clamp: function clamp() {var t = this.words,n = this.sigBytes;t[n >>> 2] &= 4294967295 << 32 - n % 4 * 8, t.length = e.ceil(n / 4);}, clone: function clone() {var e = s.clone.call(this);return e.words = this.words.slice(0), e;}, random: function random(t) {for (var n, r = [], o = function o(t) {t = t;var n = 987654321,r = 4294967295;return function () {var o = ((n = 36969 * (65535 & n) + (n >> 16) & r) << 16) + (t = 18e3 * (65535 & t) + (t >> 16) & r) & r;return o /= 4294967296, (o += .5) * (e.random() > .5 ? 1 : -1);};}, s = 0; s < t; s += 4) {var a = o(4294967296 * (n || e.random()));n = 987654071 * a(), r.push(4294967296 * a() | 0);}return new i.init(r, t);} }),a = r.enc = {},c = a.Hex = { stringify: function stringify(e) {for (var t = e.words, n = e.sigBytes, r = [], o = 0; o < n; o++) {var s = t[o >>> 2] >>> 24 - o % 4 * 8 & 255;r.push((s >>> 4).toString(16)), r.push((15 & s).toString(16));}return r.join("");}, parse: function parse(e) {for (var t = e.length, n = [], r = 0; r < t; r += 2) {n[r >>> 3] |= parseInt(e.substr(r, 2), 16) << 24 - r % 8 * 4;}return new i.init(n, t / 2);} },u = a.Latin1 = { stringify: function stringify(e) {for (var t = e.words, n = e.sigBytes, r = [], o = 0; o < n; o++) {var s = t[o >>> 2] >>> 24 - o % 4 * 8 & 255;r.push(String.fromCharCode(s));}return r.join("");}, parse: function parse(e) {for (var t = e.length, n = [], r = 0; r < t; r++) {n[r >>> 2] |= (255 & e.charCodeAt(r)) << 24 - r % 4 * 8;}return new i.init(n, t);} },l = a.Utf8 = { stringify: function stringify(e) {try {return decodeURIComponent(escape(u.stringify(e)));} catch (e) {throw new Error("Malformed UTF-8 data");}}, parse: function parse(e) {return u.parse(unescape(encodeURIComponent(e)));} },f = o.BufferedBlockAlgorithm = s.extend({ reset: function reset() {this._data = new i.init(), this._nDataBytes = 0;}, _append: function _append(e) {"string" == typeof e && (e = l.parse(e)), this._data.concat(e), this._nDataBytes += e.sigBytes;}, _process: function _process(t) {var n = this._data,r = n.words,o = n.sigBytes,s = this.blockSize,a = o / (4 * s),c = (a = t ? e.ceil(a) : e.max((0 | a) - this._minBufferSize, 0)) * s,u = e.min(4 * c, o);if (c) {for (var l = 0; l < c; l += s) {this._doProcessBlock(r, l);}var f = r.splice(0, c);n.sigBytes -= u;}return new i.init(f, u);}, clone: function clone() {var e = s.clone.call(this);return e._data = this._data.clone(), e;}, _minBufferSize: 0 }),p = (o.Hasher = f.extend({ cfg: s.extend(), init: function init(e) {this.cfg = this.cfg.extend(e), this.reset();}, reset: function reset() {f.reset.call(this), this._doReset();}, update: function update(e) {return this._append(e), this._process(), this;}, finalize: function finalize(e) {return e && this._append(e), this._doFinalize();}, blockSize: 16, _createHelper: function _createHelper(e) {return function (t, n) {return new e.init(n).finalize(t);};}, _createHmacHelper: function _createHmacHelper(e) {return function (t, n) {return new p.HMAC.init(e, n).finalize(t);};} }), r.algo = {});return r;}(Math), n);}),o = (n(function (e, t) {var n;e.exports = (n = r, function (e) {var t = n,r = t.lib,o = r.WordArray,s = r.Hasher,i = t.algo,a = [];!function () {for (var t = 0; t < 64; t++) {a[t] = 4294967296 * e.abs(e.sin(t + 1)) | 0;}}();var c = i.MD5 = s.extend({ _doReset: function _doReset() {this._hash = new o.init([1732584193, 4023233417, 2562383102, 271733878]);}, _doProcessBlock: function _doProcessBlock(e, t) {for (var n = 0; n < 16; n++) {var r = t + n,o = e[r];e[r] = 16711935 & (o << 8 | o >>> 24) | 4278255360 & (o << 24 | o >>> 8);}var s = this._hash.words,i = e[t + 0],c = e[t + 1],h = e[t + 2],d = e[t + 3],y = e[t + 4],v = e[t + 5],g = e[t + 6],_ = e[t + 7],m = e[t + 8],b = e[t + 9],w = e[t + 10],E = e[t + 11],T = e[t + 12],O = e[t + 13],S = e[t + 14],k = e[t + 15],A = s[0],P = s[1],I = s[2],N = s[3];A = u(A, P, I, N, i, 7, a[0]), N = u(N, A, P, I, c, 12, a[1]), I = u(I, N, A, P, h, 17, a[2]), P = u(P, I, N, A, d, 22, a[3]), A = u(A, P, I, N, y, 7, a[4]), N = u(N, A, P, I, v, 12, a[5]), I = u(I, N, A, P, g, 17, a[6]), P = u(P, I, N, A, _, 22, a[7]), A = u(A, P, I, N, m, 7, a[8]), N = u(N, A, P, I, b, 12, a[9]), I = u(I, N, A, P, w, 17, a[10]), P = u(P, I, N, A, E, 22, a[11]), A = u(A, P, I, N, T, 7, a[12]), N = u(N, A, P, I, O, 12, a[13]), I = u(I, N, A, P, S, 17, a[14]), A = l(A, P = u(P, I, N, A, k, 22, a[15]), I, N, c, 5, a[16]), N = l(N, A, P, I, g, 9, a[17]), I = l(I, N, A, P, E, 14, a[18]), P = l(P, I, N, A, i, 20, a[19]), A = l(A, P, I, N, v, 5, a[20]), N = l(N, A, P, I, w, 9, a[21]), I = l(I, N, A, P, k, 14, a[22]), P = l(P, I, N, A, y, 20, a[23]), A = l(A, P, I, N, b, 5, a[24]), N = l(N, A, P, I, S, 9, a[25]), I = l(I, N, A, P, d, 14, a[26]), P = l(P, I, N, A, m, 20, a[27]), A = l(A, P, I, N, O, 5, a[28]), N = l(N, A, P, I, h, 9, a[29]), I = l(I, N, A, P, _, 14, a[30]), A = f(A, P = l(P, I, N, A, T, 20, a[31]), I, N, v, 4, a[32]), N = f(N, A, P, I, m, 11, a[33]), I = f(I, N, A, P, E, 16, a[34]), P = f(P, I, N, A, S, 23, a[35]), A = f(A, P, I, N, c, 4, a[36]), N = f(N, A, P, I, y, 11, a[37]), I = f(I, N, A, P, _, 16, a[38]), P = f(P, I, N, A, w, 23, a[39]), A = f(A, P, I, N, O, 4, a[40]), N = f(N, A, P, I, i, 11, a[41]), I = f(I, N, A, P, d, 16, a[42]), P = f(P, I, N, A, g, 23, a[43]), A = f(A, P, I, N, b, 4, a[44]), N = f(N, A, P, I, T, 11, a[45]), I = f(I, N, A, P, k, 16, a[46]), A = p(A, P = f(P, I, N, A, h, 23, a[47]), I, N, i, 6, a[48]), N = p(N, A, P, I, _, 10, a[49]), I = p(I, N, A, P, S, 15, a[50]), P = p(P, I, N, A, v, 21, a[51]), A = p(A, P, I, N, T, 6, a[52]), N = p(N, A, P, I, d, 10, a[53]), I = p(I, N, A, P, w, 15, a[54]), P = p(P, I, N, A, c, 21, a[55]), A = p(A, P, I, N, m, 6, a[56]), N = p(N, A, P, I, k, 10, a[57]), I = p(I, N, A, P, g, 15, a[58]), P = p(P, I, N, A, O, 21, a[59]), A = p(A, P, I, N, y, 6, a[60]), N = p(N, A, P, I, E, 10, a[61]), I = p(I, N, A, P, h, 15, a[62]), P = p(P, I, N, A, b, 21, a[63]), s[0] = s[0] + A | 0, s[1] = s[1] + P | 0, s[2] = s[2] + I | 0, s[3] = s[3] + N | 0;}, _doFinalize: function _doFinalize() {var t = this._data,n = t.words,r = 8 * this._nDataBytes,o = 8 * t.sigBytes;n[o >>> 5] |= 128 << 24 - o % 32;var s = e.floor(r / 4294967296),i = r;n[15 + (o + 64 >>> 9 << 4)] = 16711935 & (s << 8 | s >>> 24) | 4278255360 & (s << 24 | s >>> 8), n[14 + (o + 64 >>> 9 << 4)] = 16711935 & (i << 8 | i >>> 24) | 4278255360 & (i << 24 | i >>> 8), t.sigBytes = 4 * (n.length + 1), this._process();for (var a = this._hash, c = a.words, u = 0; u < 4; u++) {var l = c[u];c[u] = 16711935 & (l << 8 | l >>> 24) | 4278255360 & (l << 24 | l >>> 8);}return a;}, clone: function clone() {var e = s.clone.call(this);return e._hash = this._hash.clone(), e;} });function u(e, t, n, r, o, s, i) {var a = e + (t & n | ~t & r) + o + i;return (a << s | a >>> 32 - s) + t;}function l(e, t, n, r, o, s, i) {var a = e + (t & r | n & ~r) + o + i;return (a << s | a >>> 32 - s) + t;}function f(e, t, n, r, o, s, i) {var a = e + (t ^ n ^ r) + o + i;return (a << s | a >>> 32 - s) + t;}function p(e, t, n, r, o, s, i) {var a = e + (n ^ (t | ~r)) + o + i;return (a << s | a >>> 32 - s) + t;}t.MD5 = s._createHelper(c), t.HmacMD5 = s._createHmacHelper(c);}(Math), n.MD5);}), n(function (e, t) {var n, o, s;e.exports = (o = (n = r).lib.Base, s = n.enc.Utf8, void (n.algo.HMAC = o.extend({ init: function init(e, t) {e = this._hasher = new e.init(), "string" == typeof t && (t = s.parse(t));var n = e.blockSize,r = 4 * n;t.sigBytes > r && (t = e.finalize(t)), t.clamp();for (var o = this._oKey = t.clone(), i = this._iKey = t.clone(), a = o.words, c = i.words, u = 0; u < n; u++) {a[u] ^= 1549556828, c[u] ^= 909522486;}o.sigBytes = i.sigBytes = r, this.reset();}, reset: function reset() {var e = this._hasher;e.reset(), e.update(this._iKey);}, update: function update(e) {return this._hasher.update(e), this;}, finalize: function finalize(e) {var t = this._hasher,n = t.finalize(e);return t.reset(), t.finalize(this._oKey.clone().concat(n));} })));}), n(function (e, t) {e.exports = r.HmacMD5;}));var s = /*#__PURE__*/function (_Error) {_inherits(s, _Error);var _super = _createSuper(s);function s(e) {var _this;_classCallCheck(this, s);_this = _super.call(this, e.message), _this.errMsg = e.message || "", Object.defineProperties(_assertThisInitialized(_this), { code: { get: function get() {return e.code;} }, requestId: { get: function get() {return e.requestId;} }, message: { get: function get() {return this.errMsg;}, set: function set(e) {this.errMsg = e;} } });return _this;}return s;}( /*#__PURE__*/_wrapNativeSuper(Error));var i = { sign: function sign(e, t) {var n = "";return Object.keys(e).sort().forEach(function (t) {e[t] && (n = n + "&" + t + "=" + e[t]);}), n = n.slice(1), o(n, t).toString();}, wrappedRequest: function wrappedRequest(e) {return new Promise(function (t, n) {uni.request(Object.assign(e, { complete: function complete(e) {e || (e = {}), 0 === e.errMsg.indexOf("request:fail") && "h5" === "mp-weixin" && "development" === "development" && console.warn("发布H5，需要在uniCloud后台操作，绑定安全域名，否则会因为跨域问题而无法访问。教程参考：https://uniapp.dcloud.io/uniCloud/quickstart?id=H5%E4%B8%AD%E4%BD%BF%E7%94%A8unicloud");var r = e.data && e.data.header && e.data.header["x-serverless-request-id"] || e.header && e.header["request-id"];if (!e.statusCode || e.statusCode >= 400) return n(new s({ code: "SYS_ERR", message: e.errMsg || "request:fail", requestId: r }));var o = e.data;if (o.error) return n(new s({ code: o.error.code, message: o.error.message, requestId: r }));o.result = o.data, o.requestId = r, delete o.data, t(o);} }));});} };var a = { image: "image/*", jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", gif: "image/gif", webp: "image/webp", svg: "image/svg+xml", mp3: "audio/mp3", mp4: "video/mp4", ogg: "audio/ogg", webm: "video/webm" };function c(e) {return a[e.toLowerCase()];}var u = /*#__PURE__*/function () {function u(e) {_classCallCheck(this, u);["spaceId", "clientSecret"].forEach(function (t) {if (!Object.prototype.hasOwnProperty.call(e, t)) throw new Error("\u7F3A\u5C11\u53C2\u6570".concat(t));}), this.config = Object.assign({}, { endpoint: "https://api.bspapp.com" }, e), this.config.provider = "aliyun", this.config.requestUrl = this.config.endpoint + "/client", this.config.envType = this.config.envType || "public", this.config.accessTokenKey = "access_token_" + this.config.spaceId;}_createClass(u, [{ key: "setAccessToken", value: function setAccessToken(e) {this.accessToken = e;} }, { key: "requestAuth", value: function requestAuth(e) {return i.wrappedRequest(e);} }, { key: "request", value: function request(e, t) {var _this2 = this;return this.hasAccessToken ? t ? i.wrappedRequest(e) : i.wrappedRequest(e).catch(function (t) {return new Promise(function (e, n) {!t || "GATEWAY_INVALID_TOKEN" !== t.code && "InvalidParameter.InvalidToken" !== t.code ? n(t) : e();}).then(function () {return _this2.getAccessToken();}).then(function () {var t = _this2.rebuildRequest(e);return _this2.request(t, !0);});}) : this.getAccessToken().then(function () {var t = _this2.rebuildRequest(e);return _this2.request(t, !0);});} }, { key: "rebuildRequest", value: function rebuildRequest(e) {var t = Object.assign({}, e);return t.data.token = this.accessToken, t.header["x-basement-token"] = this.accessToken, t.header["x-serverless-sign"] = i.sign(t.data, this.config.clientSecret), t;} }, { key: "setupRequest", value: function setupRequest(e, t) {var n = Object.assign({}, e, { spaceId: this.config.spaceId, timestamp: Date.now() }),r = { "Content-Type": "application/json" };return "auth" !== t && (n.token = this.accessToken, r["x-basement-token"] = this.accessToken), r["x-serverless-sign"] = i.sign(n, this.config.clientSecret), { url: this.config.requestUrl, method: "POST", data: n, dataType: "json", header: r };} }, { key: "getAccessToken", value: function getAccessToken() {var _this3 = this;return this.requestAuth(this.setupRequest({ method: "serverless.auth.user.anonymousAuthorize", params: "{}" }, "auth")).then(function (e) {return new Promise(function (t, n) {e.result && e.result.accessToken ? (_this3.setAccessToken(e.result.accessToken), t(_this3.accessToken)) : n(new s({ code: "AUTH_FAILED", message: "获取accessToken失败" }));});});} }, { key: "authorize", value: function authorize() {this.getAccessToken();} }, { key: "callFunction", value: function callFunction(e) {var _this4 = this;var t = { method: "serverless.function.runtime.invoke", params: JSON.stringify({ functionTarget: e.name, functionArgs: e.data || {} }) };return this.config.useDebugFunction ? this.request(this.setupRequest(t)).then(function (t) {if (t && t.requestId) {var _n = JSON.stringify({ spaceId: _this4.config.spaceId, functionName: e.name, requestId: t.requestId });console.log("[aliyun-request]".concat(_n, "[/aliyun-request]"));}return Promise.resolve(t);}).catch(function (t) {if (t && t.requestId) {var _n2 = JSON.stringify({ spaceId: _this4.config.spaceId, functionName: e.name, requestId: t.requestId });console.log("[aliyun-request]".concat(_n2, "[/aliyun-request]"));}return Promise.reject(t);}) : this.request(this.setupRequest(t));} }, { key: "getOSSUploadOptionsFromPath", value: function getOSSUploadOptionsFromPath(e) {var t = { method: "serverless.file.resource.generateProximalSign", params: JSON.stringify(e) };return this.request(this.setupRequest(t));} }, { key: "uploadFileToOSS", value: function uploadFileToOSS(_ref) {var e = _ref.url,t = _ref.formData,n = _ref.fileName,r = _ref.name,o = _ref.filePath,i = _ref.fileType,a = _ref.contentType,c = _ref.onUploadProgress;return new Promise(function (a, u) {var l = uni.uploadFile({ url: e, formData: t, fileName: n, name: r, filePath: o, fileType: i, header: { "X-OSS-server-side-encrpytion": "AES256" }, success: function success(e) {e && e.statusCode < 400 ? a(e) : u(new s({ code: "UPLOAD_FAILED", message: "文件上传失败" }));}, fail: function fail(e) {u(e);} });"function" == typeof c && l.onProgressUpdate(function (e) {c({ loaded: e.totalBytesSent, total: e.totalBytesExpectedToSend });});});} }, { key: "reportOSSUpload", value: function reportOSSUpload(e) {var t = { method: "serverless.file.resource.report", params: JSON.stringify(e) };return this.request(this.setupRequest(t));} }, { key: "uploadFile", value: function uploadFile(_ref2) {var _this5 = this;var e = _ref2.filePath,t = _ref2.cloudPath,n = _ref2.onUploadProgress,r = _ref2.config;var o = r && r.envType || this.config.envType;var i,u,l,f,p,h = t || e.split("/").pop();return (i =  false ? undefined : c(u = e.split("?")[0].split(".").pop()) ? Promise.resolve() : Promise.reject(new s({ code: "UNSUPPORTED_FILE_TYPE", message: "不支持的文件类型" }))).then(function () {return new Promise(function (t, n) {uni.getFileInfo ? uni.getFileInfo({ filePath: e, success: function success(e) {t(e.size);}, fail: function fail(e) {n(e);} }) : t(0);});}).then(function (e) {return _this5.getOSSUploadOptionsFromPath({ env: o, filename: h, size: e });}).then(function (t) {var r = t.result;l = c(u), f = r.id, p = "https://" + r.cdnDomain + "/" + r.ossPath;var o = { url: "https://" + r.host, formData: { "Cache-Control": "max-age=2592000", "Content-Disposition": "attachment", OSSAccessKeyId: r.accessKeyId, Signature: r.signature, host: r.host, id: f, key: r.ossPath, policy: r.policy, success_action_status: 200 }, fileName: "file", name: "file", filePath: e, fileType: "image", contentType: l };return _this5.uploadFileToOSS(Object.assign({}, o, { onUploadProgress: n }));}).then(function () {return _this5.reportOSSUpload({ id: f, contentType: l });}).then(function (t) {return new Promise(function (n, r) {t.success ? n({ success: !0, filePath: e, fileID: p }) : r(new s({ code: "UPLOAD_FAILED", message: "文件上传失败" }));});});} }, { key: "deleteFile", value: function deleteFile(_ref3) {var e = _ref3.fileList;var t = { method: "serverless.file.resource.delete", params: JSON.stringify({ id: e[0] }) };return this.request(this.setupRequest(t));} }, { key: "hasAccessToken", get: function get() {return !!this.accessToken;} }]);return u;}();var l = __webpack_require__(/*! uni-stat-config */ 54).default || __webpack_require__(/*! uni-stat-config */ 54),f = "__DC_STAT_UUID",p = "__DC_UUID_VALUE",h = "https://ide.dcloud.net.cn/serverless/function/invoke";var d, y;function v() {if ("n" === g()) {try {d = plus.runtime.getDCloudId();} catch (e) {d = "";}return d;}return d || (d = Date.now() + "" + Math.floor(1e7 * Math.random()), uni.setStorage({ key: f, data: d })), d;}function g() {return { "app-plus": "n", h5: "h5", "mp-weixin": "wx", "mp-alipay": "ali", "mp-baidu": "bd", "mp-toutiao": "tt", "mp-qq": "qq", "quickapp-native": "qn" }["mp-weixin"];}function _(e) {return function (t) {if (!((t = t || {}).success || t.fail || t.complete)) return e.call(this, t);e.call(this, t).then(function (e) {t.success && t.success(e), t.complete && t.complete(e);}).catch(function (e) {t.fail && t.fail(e), t.complete && t.complete(e);});};}setTimeout(function () {uni.getStorage({ key: f, success: function success(e) {d = e.data;}, fail: function fail() {d = p;} }), y = "qn" === g() ? "android" : uni.getSystemInfoSync().platform;}, 0);var m = { init: function init(e) {var t = new u(e);return ["uploadFile", "deleteFile"].forEach(function (e) {t[e] = _(t[e]).bind(t);}), setTimeout(function () {t.authorize();}, 0), t;} };var b;function w(e, t, n) {void 0 === n && (n = {});var r = /\?/.test(t),o = "";for (var s in n) {"" === o ? !r && (t += "?") : o += "&", o += s + "=" + encodeURIComponent(n[s]);}return /^http(s)?\:\/\//.test(t += o) ? t : "" + e + t;}!function (e) {e.local = "local", e.none = "none", e.session = "session";}(b || (b = {}));var _E,T = (_E = function E(e, t) {return (_E = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(e, t);}, function (e, t) {function n() {this.constructor = e;}_E(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n());}),_O = function O() {return (_O = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);};var S = function (e) {function t() {return null !== e && e.apply(this, arguments) || this;}return T(t, e), t.prototype.post = function (e) {var t = e.url,n = e.data,r = e.headers;return new Promise(function (e, o) {uni.request({ url: w("https:", t), data: n, method: "POST", header: r, success: function success(t) {e(t);}, fail: function fail(e) {o(e);} });});}, t.prototype.upload = function (e) {return new Promise(function (t) {var n = e.url,r = e.file,o = e.data,s = e.headers;uni.uploadFile({ url: w("https:", n), name: "file", formData: Object.assign({}, o), filePath: r, header: s, success: function success(e) {var n = { statusCode: e.statusCode, data: e.data || {} };200 === e.statusCode && o.success_action_status && (n.statusCode = parseInt(o.success_action_status, 10)), t(n);}, fail: function fail(e) {t(e);} });});}, t.prototype.download = function (e) {var t = e.url,n = e.headers;return new Promise(function (e, r) {uni.downloadFile({ url: w("https:", t), header: n, success: function success(t) {200 === t.statusCode && t.tempFilePath ? e({ statusCode: 200, tempFilePath: t.tempFilePath }) : e(t);}, fail: function fail(e) {r(e);} });});}, t;}(function () {}),k = { setItem: function setItem(e, t) {uni.setStorageSync(e, t);}, getItem: function getItem(e) {return uni.getStorageSync(e);}, removeItem: function removeItem(e) {uni.removeStorageSync(e);}, clear: function clear() {uni.clearStorageSync();} },A = function A(e, t) {void 0 === t && (t = {});var n = uni.connectSocket(_O({ url: e }, t));return { set onopen(e) {n.onOpen(e);}, set onmessage(e) {n.onMessage(e);}, set onclose(e) {n.onClose(e);}, set onerror(e) {n.onError(e);}, send: function send(e) {return n.send({ data: e });}, close: function close(e, t) {return n.close({ code: e, reason: t });}, get readyState() {return n.readyState;}, CONNECTING: 0, OPEN: 1, CLOSING: 2, CLOSED: 3 };};var P = { genAdapter: function genAdapter() {return { root: {}, reqClass: S, wsClass: A, localStorage: k, primaryStorage: b.local };}, isMatch: function isMatch() {return "undefined" != typeof uni && !!uni.request;}, runtime: "uni_app" },I = n(function (e, t) {Object.defineProperty(t, "__esModule", { value: !0 }), t.getQuery = function (e, t) {if ("undefined" == typeof window) return !1;var n = t || window.location.search,r = new RegExp("(^|&)" + e + "=([^&]*)(&|$)"),o = n.substr(n.indexOf("?") + 1).match(r);return null != o ? o[2] : "";}, t.getHash = function (e) {var t = window.location.hash.match(new RegExp("[#?&/]" + e + "=([^&#]*)"));return t ? t[1] : "";}, t.removeParam = function (e, t) {var n = t.split("?")[0],r = [],o = -1 !== t.indexOf("?") ? t.split("?")[1] : "";if ("" !== o) {for (var s = (r = o.split("&")).length - 1; s >= 0; s -= 1) {r[s].split("=")[0] === e && r.splice(s, 1);}n = n + "?" + r.join("&");}return n;}, t.createPromiseCallback = function () {var e;if (!Promise) {(e = function e() {}).promise = {};var t = function t() {throw new Error('Your Node runtime does support ES6 Promises. Set "global.Promise" to your preferred implementation of promises.');};return Object.defineProperty(e.promise, "then", { get: t }), Object.defineProperty(e.promise, "catch", { get: t }), e;}var n = new Promise(function (t, n) {e = function e(_e, r) {return _e ? n(_e) : t(r);};});return e.promise = n, e;}, t.getWeixinCode = function () {return t.getQuery("code") || t.getHash("code");}, t.getMiniAppCode = function () {return new Promise(function (e, t) {wx.login({ success: function success(t) {e(t.code);}, fail: function fail(e) {t(e);} });});}, t.isArray = function (e) {return "[object Array]" === Object.prototype.toString.call(e);}, t.isString = function (e) {return "string" == typeof e;}, t.isUndefined = function (e) {return void 0 === e;}, t.isInstanceOf = function (e, t) {return e instanceof t;}, t.isFormData = function (e) {return "[object FormData]" === Object.prototype.toString.call(e);}, t.genSeqId = function () {return Math.random().toString(16).slice(2);}, t.getArgNames = function (e) {var t = e.toString();return t.slice(t.indexOf("(") + 1, t.indexOf(")")).match(/([^\s,]+)/g);}, t.formatUrl = function (e, t, n) {void 0 === n && (n = {});var r = /\?/.test(t),o = "";for (var s in n) {"" === o ? !r && (t += "?") : o += "&", o += s + "=" + encodeURIComponent(n[s]);}return /^http(s)?\:\/\//.test(t += o) ? t : "" + e + t;};});t(I);I.getQuery, I.getHash, I.removeParam, I.createPromiseCallback, I.getWeixinCode, I.getMiniAppCode, I.isArray, I.isString, I.isUndefined, I.isInstanceOf, I.isFormData, I.genSeqId, I.getArgNames, I.formatUrl;var N,C = "dist/index.js",R = "./dist/index.d.ts",x = { build: "npm run tsc && webpack", tsc: "tsc -p tsconfig.json", "tsc:w": "tsc -p tsconfig.json -w", test: "jest --verbose false -i", e2e: 'NODE_ENV=e2e webpack && jest --config="./jest.e2e.config.js"  --verbose false -i "e2e"', start: "webpack-dev-server --hot --open", eslint: 'eslint "./**/*.js" "./**/*.ts"', "eslint-fix": 'eslint --fix "./**/*.js" "./**/*.ts"', test_web: "npm run tsc && webpack-dev-server --devtool eval-source-map --progress --colors --hot --inline --content-base ./dist --host jimmytest-088bef.tcb.qcloud.la --port 80 --disableHostCheck true --mode development --config webpack.test.js" },q = { type: "git", url: "https://github.com/TencentCloudBase/tcb-js-sdk" },U = ["tcb", "js-sdk"],j = { "@cloudbase/adapter-interface": "^0.2.0", "@cloudbase/adapter-wx_mp": "^0.2.1", "@cloudbase/database": "^0.9.8" },L = { "@babel/core": "^7.6.2", "@babel/plugin-proposal-class-properties": "^7.5.5", "@babel/plugin-proposal-object-rest-spread": "^7.6.2", "@babel/plugin-transform-runtime": "^7.6.2", "@babel/preset-env": "^7.6.2", "@babel/preset-typescript": "^7.6.0", "@babel/runtime": "^7.6.2", "@types/jest": "^23.1.4", "@types/node": "^10.14.4", "@types/superagent": "^4.1.4", axios: "^0.19.0", "babel-eslint": "^10.0.1", "babel-loader": "^8.0.6", "babel-polyfill": "^6.26.0", eslint: "^5.16.0", "eslint-config-alloy": "^1.4.2", "eslint-config-prettier": "^4.1.0", "eslint-plugin-prettier": "^3.0.1", "eslint-plugin-typescript": "^1.0.0-rc.3", express: "^4.17.1", husky: "^3.1.0", jest: "^24.7.1", "jest-puppeteer": "^4.3.0", "lint-staged": "^9.5.0", "power-assert": "^1.6.1", puppeteer: "^1.20.0", "serve-static": "^1.14.1", "ts-jest": "^23.10.4", "ts-loader": "^6.2.1", typescript: "^3.4.3", "typescript-eslint-parser": "^22.0.0", webpack: "^4.41.3", "webpack-bundle-analyzer": "^3.4.1", "webpack-cli": "^3.3.0", "webpack-dev-server": "^3.3.1", "webpack-merge": "^4.2.2", "webpack-visualizer-plugin": "^0.1.11" },D = { hooks: { "pre-commit": "lint-staged" } },F = { name: "tcb-js-sdk", version: "1.3.5", description: "js sdk for tcb", main: C, types: R, scripts: x, repository: q, keywords: U, author: "jimmyjzhang", license: "ISC", dependencies: j, devDependencies: L, husky: D, "lint-staged": { "*.{js,ts}": ["eslint --fix", "git add"] } },M = (N = Object.freeze({ __proto__: null, name: "tcb-js-sdk", version: "1.3.5", description: "js sdk for tcb", main: C, types: R, scripts: x, repository: q, keywords: U, author: "jimmyjzhang", license: "ISC", dependencies: j, devDependencies: L, husky: D, default: F })) && N.default || N,K = n(function (t, n) {var r = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var o = r(M);n.SDK_VERISON = o.version, n.ACCESS_TOKEN = "access_token", n.ACCESS_TOKEN_Expire = "access_token_expire", n.REFRESH_TOKEN = "refresh_token", n.ANONYMOUS_UUID = "anonymous_uuid", n.LOGIN_TYPE_KEY = "login_type", n.protocol = "undefined" != typeof location && "http:" === location.protocol ? "http:" : "https:", n.BASE_URL =  false ? undefined : "//tcb-api.tencentcloudapi.com/web";});t(K);var G;K.SDK_VERISON, K.ACCESS_TOKEN, K.ACCESS_TOKEN_Expire, K.REFRESH_TOKEN, K.ANONYMOUS_UUID, K.LOGIN_TYPE_KEY, K.protocol, K.BASE_URL;!function (e) {e.local = "local", e.none = "none", e.session = "session";}(G || (G = {}));var H = function H() {},Y = function Y() {};var V = Object.freeze({ __proto__: null, get StorageType() {return G;}, AbstractSDKRequest: H, AbstractStorage: Y, formatUrl: function formatUrl(e, t, n) {void 0 === n && (n = {});var r = /\?/.test(t),o = "";for (var s in n) {"" === o ? !r && (t += "?") : o += "&", o += s + "=" + encodeURIComponent(n[s]);}return /^http(s)?\:\/\//.test(t += o) ? t : "" + e + t;} }),B = n(function (t, n) {var r = e && e.__extends || function () {var _e2 = function e(t, n) {return (_e2 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e2(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__assign || function () {return (o = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},s = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},i = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 });var a = function (e) {function t() {return null !== e && e.apply(this, arguments) || this;}return r(t, e), t.prototype.get = function (e) {return this._request(o(o({}, e), { method: "get" }));}, t.prototype.post = function (e) {return this._request(o(o({}, e), { method: "post" }));}, t.prototype.upload = function (e) {var t = e.data,n = e.file,r = e.name,s = new FormData();for (var i in t) {s.append(i, t[i]);}return s.append("key", r), s.append("file", n), this._request(o(o({}, e), { data: s, method: "post" }));}, t.prototype.download = function (e) {return s(this, void 0, void 0, function () {var t, n;return i(this, function (r) {return t = decodeURIComponent(new URL(e.url).pathname.split("/").pop() || ""), (n = document.createElement("a")).href = e.url, n.setAttribute("download", t), n.setAttribute("target", "_blank"), document.body.appendChild(n), n.click(), [2, new Promise(function (t) {t({ statusCode: 200, tempFilePath: e.url });})];});});}, t.prototype._request = function (e) {var t = String(e.method).toLowerCase() || "get";return new Promise(function (n) {var r = e.url,o = e.headers,s = void 0 === o ? {} : o,i = e.data,a = e.responseType,c = I.formatUrl(K.protocol, r, "get" === t ? i : {}),u = new XMLHttpRequest();for (var l in u.open(t, c), a && (u.responseType = a), s) {u.setRequestHeader(l, s[l]);}u.onreadystatechange = function () {if (4 === u.readyState) {var e = { statusCode: u.status };try {e.data = JSON.parse(u.responseText);} catch (e) {}n(e);}}, u.send("post" === t && I.isFormData(i) ? i : JSON.stringify(i || {}));});}, t;}(V.AbstractSDKRequest);n.WebRequest = a, n.genAdapter = function () {return { root: window, reqClass: a, wsClass: WebSocket, localStorage: localStorage, sessionStorage: sessionStorage };};});t(B);B.WebRequest, B.genAdapter;var W = n(function (t, n) {var r = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var o,s = r(B);!function (e) {e.WEB = "web", e.WX_MP = "wx_mp";}(o = n.RUNTIME || (n.RUNTIME = {})), n.useAdapters = function (e) {for (var t = 0, n = I.isArray(e) ? e : [e]; t < n.length; t++) {var r = n[t],o = r.isMatch,s = r.genAdapter,i = r.runtime;if (o()) return { adapter: s(), runtime: i };}}, n.useDefaultAdapter = function () {return { adapter: s.genAdapter(), runtime: o.WEB };}, n.Adapter = { adapter: null, runtime: void 0 };});t(W);W.RUNTIME, W.useAdapters, W.useDefaultAdapter, W.Adapter;var z = n(function (t, n) {var r = e && e.__extends || function () {var _e3 = function e(t, n) {return (_e3 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e3(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}();Object.defineProperty(n, "__esModule", { value: !0 });var o = function () {function e(e) {switch (W.Adapter.adapter.primaryStorage || e) {case "local":this.storageClass = W.Adapter.adapter.localStorage || new s();break;case "none":this.storageClass = new s();break;default:this.storageClass = W.Adapter.adapter.sessionStorage || new s();}}return e.prototype.setStore = function (e, t, n) {try {if (!this.storageClass) return;} catch (e) {return;}var r,o = {};o.version = n || "localCachev1", o.content = t, r = JSON.stringify(o);try {this.storageClass.setItem(e, r);} catch (e) {return;}}, e.prototype.getStore = function (e, t) {try {if (!this.storageClass) return;} catch (e) {return "";}t = t || "localCachev1";var n = this.storageClass.getItem(e);return n && n.indexOf(t) >= 0 ? JSON.parse(n).content : "";}, e.prototype.removeStore = function (e) {this.storageClass.removeItem(e);}, e;}();n.Cache = o;var s = function (e) {function t() {var t = e.call(this) || this;return W.Adapter.adapter.root.tcbObject || (W.Adapter.adapter.root.tcbObject = {}), t;}return r(t, e), t.prototype.setItem = function (e, t) {W.Adapter.adapter.root.tcbObject[e] = t;}, t.prototype.getItem = function (e) {return W.Adapter.adapter.root.tcbObject[e];}, t.prototype.removeItem = function (e) {delete W.Adapter.adapter.root.tcbObject[e];}, t.prototype.clear = function () {delete W.Adapter.adapter.root.tcbObject;}, t;}(V.AbstractStorage);});t(z);z.Cache;var J = n(function (t, n) {var r = e && e.__extends || function () {var _e4 = function e(t, n) {return (_e4 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e4(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__spreadArrays || function () {for (var e = 0, t = 0, n = arguments.length; t < n; t++) {e += arguments[t].length;}var r = Array(e),o = 0;for (t = 0; t < n; t++) {for (var s = arguments[t], i = 0, a = s.length; i < a; i++, o++) {r[o] = s[i];}}return r;};Object.defineProperty(n, "__esModule", { value: !0 });var s = function s(e, t) {this.data = t || null, this.name = e;};n.IEvent = s;var i = function (e) {function t(t, n) {var r = e.call(this, "error", { error: t, data: n }) || this;return r.error = t, r;}return r(t, e), t;}(s);n.IErrorEvent = i;var a = function () {function e() {this._listeners = {};}return e.prototype.on = function (e, t) {return function (e, t, n) {n[e] = n[e] || [], n[e].push(t);}(e, t, this._listeners), this;}, e.prototype.off = function (e, t) {return function (e, t, n) {if (n && n[e]) {var r = n[e].indexOf(t);-1 !== r && n[e].splice(r, 1);}}(e, t, this._listeners), this;}, e.prototype.fire = function (e, t) {if (I.isInstanceOf(e, i)) return console.error(e.error), this;var n = I.isString(e) ? new s(e, t || {}) : e,r = n.name;if (this._listens(r)) {n.target = this;for (var a = 0, c = this._listeners[r] ? o(this._listeners[r]) : []; a < c.length; a++) {c[a].call(this, n);}}return this;}, e.prototype._listens = function (e) {return this._listeners[e] && this._listeners[e].length > 0;}, e;}();n.IEventEmitter = a;var c = new a();n.addEventListener = function (e, t) {c.on(e, t);}, n.activateEvent = function (e, t) {void 0 === t && (t = {}), c.fire(e, t);}, n.removeEventListener = function (e, t) {c.off(e, t);}, n.EVENTS = { LOGIN_STATE_CHANGED: "loginStateChanged", LOGIN_STATE_EXPIRE: "loginStateExpire", LOGIN_TYPE_CHANGE: "loginTypeChanged", ANONYMOUS_CONVERTED: "anonymousConverted", REFRESH_ACCESS_TOKEN: "refreshAccessToken" };});t(J);J.IEvent, J.IErrorEvent, J.IEventEmitter, J.addEventListener, J.activateEvent, J.removeEventListener, J.EVENTS;var X = n(function (t, n) {var r = e && e.__assign || function () {return (r = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},o = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},s = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 });var i = ["auth.getJwt", "auth.logout", "auth.signInWithTicket", "auth.signInAnonymously"],a = { "X-SDK-Version": K.SDK_VERISON };function c(e, t, n) {var o = e[t];e[t] = function (t) {var s = {},i = {};n.forEach(function (n) {var r = n.call(e, t),o = r.data,a = r.headers;Object.assign(s, o), Object.assign(i, a);});var a = t.data;return a && function () {if (I.isFormData(a)) for (var e in s) {a.append(e, s[e]);} else t.data = r(r({}, a), s);}(), t.headers = r(r({}, t.headers || {}), i), o.call(e, t);};}function u() {var e = I.genSeqId();return { data: { seqId: e }, headers: r(r({}, a), { "x-seqid": e }) };}var l = function () {function e(e) {void 0 === e && (e = {}), this.config = e, this.cache = new z.Cache(e.persistence), this.accessTokenKey = K.ACCESS_TOKEN + "_" + e.env, this.accessTokenExpireKey = K.ACCESS_TOKEN_Expire + "_" + e.env, this.refreshTokenKey = K.REFRESH_TOKEN + "_" + e.env, this.anonymousUuidKey = K.ANONYMOUS_UUID + "_" + e.env, this.loginTypeKey = K.LOGIN_TYPE_KEY + "_" + e.env, this._reqClass = new W.Adapter.adapter.reqClass(), c(this._reqClass, "post", [u]), c(this._reqClass, "upload", [u]), c(this._reqClass, "download", [u]);}return e.prototype.post = function (e) {return o(this, void 0, void 0, function () {return s(this, function (t) {switch (t.label) {case 0:return [4, this._reqClass.post(e)];case 1:return [2, t.sent()];}});});}, e.prototype.upload = function (e) {return o(this, void 0, void 0, function () {return s(this, function (t) {switch (t.label) {case 0:return [4, this._reqClass.upload(e)];case 1:return [2, t.sent()];}});});}, e.prototype.download = function (e) {return o(this, void 0, void 0, function () {return s(this, function (t) {switch (t.label) {case 0:return [4, this._reqClass.download(e)];case 1:return [2, t.sent()];}});});}, e.prototype.refreshAccessToken = function () {return o(this, void 0, void 0, function () {var e, t, n;return s(this, function (r) {switch (r.label) {case 0:this._refreshAccessTokenPromise || (this._refreshAccessTokenPromise = this._refreshAccessToken()), r.label = 1;case 1:return r.trys.push([1, 3,, 4]), [4, this._refreshAccessTokenPromise];case 2:return e = r.sent(), [3, 4];case 3:return n = r.sent(), t = n, [3, 4];case 4:if (this._refreshAccessTokenPromise = null, this._shouldRefreshAccessTokenHook = null, t) throw t;return [2, e];}});});}, e.prototype._refreshAccessToken = function () {return o(this, void 0, void 0, function () {var e, t, n, r;return s(this, function (o) {switch (o.label) {case 0:if (this.cache.removeStore(this.accessTokenKey), this.cache.removeStore(this.accessTokenExpireKey), !(e = this.cache.getStore(this.refreshTokenKey))) throw new Error("[tcb-js-sdk] 未登录CloudBase");return t = { refresh_token: e }, this.cache.getStore(this.loginTypeKey) === $.LOGINTYPE.ANONYMOUS && (t.anonymous_uuid = this.cache.getStore(this.anonymousUuidKey)), [4, this.request("auth.getJwt", t)];case 1:if ((n = o.sent()).data.code) throw "SIGN_PARAM_INVALID" !== (r = n.data.code) && "REFRESH_TOKEN_EXPIRED" !== r && "INVALID_REFRESH_TOKEN" !== r || (J.activateEvent(J.EVENTS.LOGIN_STATE_EXPIRE), this.cache.removeStore(this.refreshTokenKey)), new Error("[tcb-js-sdk] 刷新access token失败：" + n.data.code);return n.data.access_token ? (J.activateEvent(J.EVENTS.REFRESH_ACCESS_TOKEN), this.cache.setStore(this.accessTokenKey, n.data.access_token), this.cache.setStore(this.accessTokenExpireKey, n.data.access_token_expire + Date.now()), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, n.data.login_type), [2, { accessToken: n.data.access_token, accessTokenExpire: n.data.access_token_expire }]) : (n.data.refresh_token && (this.cache.removeStore(this.refreshTokenKey), this.cache.setStore(this.refreshTokenKey, n.data.refresh_token), this._refreshAccessToken()), [2]);}});});}, e.prototype.getAccessToken = function () {return o(this, void 0, void 0, function () {var e, t, n, r;return s(this, function (o) {switch (o.label) {case 0:return e = this.cache.getStore(this.accessTokenKey), t = this.cache.getStore(this.accessTokenExpireKey), n = !0, (r = this._shouldRefreshAccessTokenHook) ? [4, this._shouldRefreshAccessTokenHook(e, t)] : [3, 2];case 1:r = !o.sent(), o.label = 2;case 2:return r && (n = !1), (!e || !t || t < Date.now()) && n ? [2, this.refreshAccessToken()] : [2, { accessToken: e, accessTokenExpire: t }];}});});}, e.prototype.request = function (e, t, n) {return o(this, void 0, void 0, function () {var o, a, c, u, l, f, p, h, d, y, v, g;return s(this, function (s) {switch (s.label) {case 0:return o = "application/x-www-form-urlencoded", a = r({ action: e, env: this.config.env, dataVersion: "2019-08-16" }, t), -1 !== i.indexOf(e) ? [3, 2] : (c = a, [4, this.getAccessToken()]);case 1:c.access_token = s.sent().accessToken, s.label = 2;case 2:if ("storage.uploadFile" === e) {for (l in u = new FormData()) {u.hasOwnProperty(l) && void 0 !== u[l] && u.append(l, a[l]);}o = "multipart/form-data";} else o = "application/json;charset=UTF-8", u = a;return f = { headers: { "content-type": o } }, n && n.onUploadProgress && (f.onUploadProgress = n.onUploadProgress), p = t.parse, h = t.query, d = t.search, y = { env: this.config.env }, p && (y.parse = !0), h && (y = r(r({}, h), y)), v = I.formatUrl(K.protocol, K.BASE_URL, y), d && (v += d), [4, this.post(r({ url: v, data: u }, f))];case 3:if (g = s.sent(), 200 !== Number(g.status) && 200 !== Number(g.statusCode) || !g.data) throw new Error("network request error");return [2, g];}});});}, e.prototype.send = function (e, t) {return void 0 === t && (t = {}), o(this, void 0, void 0, function () {var n, r, o;return s(this, function (s) {switch (s.label) {case 0:return n = setTimeout(function () {console.warn("Database operation is longer than 3s. Please check query performance and your network environment.");}, 3e3), [4, this.request(e, t, { onUploadProgress: t.onUploadProgress })];case 1:return r = s.sent(), clearTimeout(n), "ACCESS_TOKEN_EXPIRED" !== r.data.code || -1 !== i.indexOf(e) ? [3, 4] : [4, this.refreshAccessToken()];case 2:return s.sent(), [4, this.request(e, t, { onUploadProgress: t.onUploadProgress })];case 3:if ((o = s.sent()).data.code) throw new Error("[" + o.data.code + "] " + o.data.message);return [2, o.data];case 4:if (r.data.code) throw new Error("[" + r.data.code + "] " + r.data.message);return [2, r.data];}});});}, e;}();n.Request = l;});t(X);X.Request;var $ = n(function (t, n) {var r,o = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},s = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 }), function (e) {e.ANONYMOUS = "ANONYMOUS", e.WECHAT = "WECHAT", e.CUSTOM = "CUSTOM", e.NULL = "NULL";}(r = n.LOGINTYPE || (n.LOGINTYPE = {}));var i = function () {function e(e) {this._loginType = r.NULL, this.config = e, this.onLoginTypeChanged = this.onLoginTypeChanged.bind(this), J.addEventListener(J.EVENTS.LOGIN_TYPE_CHANGE, this.onLoginTypeChanged);}return e.prototype.init = function () {this.httpRequest = new X.Request(this.config), this.cache = new z.Cache(this.config.persistence), this.accessTokenKey = K.ACCESS_TOKEN + "_" + this.config.env, this.accessTokenExpireKey = K.ACCESS_TOKEN_Expire + "_" + this.config.env, this.refreshTokenKey = K.REFRESH_TOKEN + "_" + this.config.env, this.loginTypeKey = K.LOGIN_TYPE_KEY + "_" + this.config.env;}, e.prototype.onLoginTypeChanged = function (e) {this._loginType = e.data, this.cache.setStore(this.loginTypeKey, this._loginType);}, Object.defineProperty(e.prototype, "loginType", { get: function get() {return this._loginType;}, enumerable: !0, configurable: !0 }), e.prototype.setRefreshToken = function (e) {this.cache.removeStore(this.accessTokenKey), this.cache.removeStore(this.accessTokenExpireKey), this.cache.setStore(this.refreshTokenKey, e);}, e.prototype.getRefreshTokenByWXCode = function (e, t, n) {return o(this, void 0, void 0, function () {var r;return s(this, function (o) {return "auth.getJwt", r = W.Adapter.runtime === W.RUNTIME.WX_MP ? "1" : "0", [2, this.httpRequest.send("auth.getJwt", { appid: e, loginType: t, code: n, hybridMiniapp: r }).then(function (e) {if (e.code) throw new Error("[tcb-js-sdk] 微信登录失败: " + e.code);if (e.refresh_token) return { refreshToken: e.refresh_token, accessToken: e.access_token, accessTokenExpire: e.access_token_expire };throw new Error("[tcb-js-sdk] getJwt未返回refreshToken");})];});});}, e;}();n.default = i;});t($);$.LOGINTYPE;var Q = n(function (t, n) {var r = e && e.__extends || function () {var _e5 = function e(t, n) {return (_e5 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e5(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},s = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}},i = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var a,c,u = i(I),l = i($);!function (e) {e.snsapi_base = "snsapi_base", e.snsapi_userinfo = "snsapi_userinfo", e.snsapi_login = "snsapi_login";}(a || (a = {})), function (e) {e.redirect = "redirect", e.prompt = "prompt";}(c || (c = {}));var f = {},p = function (e) {function t(t, n, r, o, s) {var i = e.call(this, t) || this;return i.config = t, i.appid = n, i.scope = W.Adapter.runtime === W.RUNTIME.WX_MP ? "snsapi_base" : r, i.state = s || "weixin", i.loginMode = o || "redirect", i;}return r(t, e), t.prototype.signIn = function () {return o(this, void 0, void 0, function () {var e, t, n;return s(this, function (r) {switch (r.label) {case 0:f[this.config.env] || (f[this.config.env] = this._signIn()), r.label = 1;case 1:return r.trys.push([1, 3,, 4]), [4, f[this.config.env]];case 2:return e = r.sent(), [3, 4];case 3:return n = r.sent(), t = n, [3, 4];case 4:if (f[this.config.env] = null, t) throw t;return [2, e];}});});}, t.prototype._signIn = function () {return o(this, void 0, void 0, function () {var e, t, n, r, o, i;return s(this, function (s) {switch (s.label) {case 0:if (e = this.cache.getStore(this.accessTokenKey), t = this.cache.getStore(this.accessTokenExpireKey), e) {if (t && t > Date.now()) return [2, { credential: { accessToken: e, refreshToken: this.cache.getStore(this.refreshTokenKey) } }];this.cache.removeStore(this.accessTokenKey), this.cache.removeStore(this.accessTokenExpireKey);}if (!1 === Object.values(a).includes(a[this.scope])) throw new Error("错误的scope类型");return W.Adapter.runtime !== W.RUNTIME.WX_MP ? [3, 2] : [4, u.getMiniAppCode()];case 1:return n = s.sent(), [3, 4];case 2:return [4, u.getWeixinCode()];case 3:if (!(n = s.sent())) return [2, this.redirect()];s.label = 4;case 4:return r = function (e) {switch (e) {case a.snsapi_login:return "WECHAT-OPEN";default:return "WECHAT-PUBLIC";}}(this.scope), [4, this.getRefreshTokenByWXCode(this.appid, r, n)];case 5:return o = s.sent(), i = o.refreshToken, this.cache.setStore(this.refreshTokenKey, i), o.accessToken && this.cache.setStore(this.accessTokenKey, o.accessToken), o.accessTokenExpire && this.cache.setStore(this.accessTokenExpireKey, o.accessTokenExpire + Date.now()), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, l.LOGINTYPE.WECHAT), [2, { credential: { refreshToken: i } }];}});});}, t.prototype.redirect = function () {var e = u.removeParam("code", location.href);e = u.removeParam("state", e), e = encodeURIComponent(e);var t = "//open.weixin.qq.com/connect/oauth2/authorize";"snsapi_login" === this.scope && (t = "//open.weixin.qq.com/connect/qrconnect"), "redirect" === c[this.loginMode] && (location.href = t + "?appid=" + this.appid + "&redirect_uri=" + e + "&response_type=code&scope=" + this.scope + "&state=" + this.state + "#wechat_redirect");}, t;}(l.default);n.default = p;});t(Q);var Z = n(function (t, n) {var r = e && e.__extends || function () {var _e6 = function e(t, n) {return (_e6 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e6(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__assign || function () {return (o = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},s = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},i = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}},a = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var c = a($),u = function (e) {function t(t) {var n = e.call(this, o(o({}, t), { persistence: "local" })) || this;return n._anonymousUuidKey = K.ANONYMOUS_UUID + "_" + n.config.env, n._loginTypeKey = K.LOGIN_TYPE_KEY + "_" + n.config.env, n;}return r(t, e), t.prototype.init = function () {e.prototype.init.call(this);}, t.prototype.signIn = function () {return s(this, void 0, void 0, function () {var e, t, n;return i(this, function (r) {switch (r.label) {case 0:return e = this.cache.getStore(this._anonymousUuidKey) || void 0, t = this.cache.getStore(this.refreshTokenKey) || void 0, [4, this.httpRequest.send("auth.signInAnonymously", { anonymous_uuid: e, refresh_token: t })];case 1:return (n = r.sent()).uuid && n.refresh_token ? (this._setAnonymousUUID(n.uuid), this.setRefreshToken(n.refresh_token), [4, this.httpRequest.refreshAccessToken()]) : [3, 3];case 2:return r.sent(), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, c.LOGINTYPE.ANONYMOUS), [2, { credential: { refreshToken: n.refresh_token } }];case 3:throw new Error("[tcb-js-sdk] 匿名登录失败");}});});}, t.prototype.linkAndRetrieveDataWithTicket = function (e) {return s(this, void 0, void 0, function () {var t, n, r;return i(this, function (o) {switch (o.label) {case 0:return t = this.cache.getStore(this._anonymousUuidKey), n = this.cache.getStore(this.refreshTokenKey), [4, this.httpRequest.send("auth.linkAndRetrieveDataWithTicket", { anonymous_uuid: t, refresh_token: n, ticket: e })];case 1:return (r = o.sent()).refresh_token ? (this._clearAnonymousUUID(), this.setRefreshToken(r.refresh_token), [4, this.httpRequest.refreshAccessToken()]) : [3, 3];case 2:return o.sent(), J.activateEvent(J.EVENTS.ANONYMOUS_CONVERTED, { refresh_token: r.refresh_token }), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, c.LOGINTYPE.CUSTOM), [2, { credential: { refreshToken: r.refresh_token } }];case 3:throw new Error("[tcb-js-sdk] 匿名转化失败");}});});}, t.prototype.getAllStore = function () {var e = {};return e[this.refreshTokenKey] = this.cache.getStore(this.refreshTokenKey) || "", e[this._loginTypeKey] = this.cache.getStore(this._loginTypeKey) || "", e[this.accessTokenKey] = this.cache.getStore(this.accessTokenKey) || "", e[this.accessTokenExpireKey] = this.cache.getStore(this.accessTokenExpireKey) || "", e;}, t.prototype._setAnonymousUUID = function (e) {this.cache.removeStore(this._anonymousUuidKey), this.cache.setStore(this._anonymousUuidKey, e), this.cache.setStore(this._loginTypeKey, c.LOGINTYPE.ANONYMOUS);}, t.prototype._clearAnonymousUUID = function () {this.cache.removeStore(this._anonymousUuidKey);}, t;}(c.default);n.AnonymousAuthProvider = u;});t(Z);Z.AnonymousAuthProvider;var ee = n(function (t, n) {var r = e && e.__extends || function () {var _e7 = function e(t, n) {return (_e7 = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function (e, t) {e.__proto__ = t;} || function (e, t) {for (var n in t) {t.hasOwnProperty(n) && (e[n] = t[n]);}})(t, n);};return function (t, n) {function r() {this.constructor = t;}_e7(t, n), t.prototype = null === n ? Object.create(n) : (r.prototype = n.prototype, new r());};}(),o = e && e.__assign || function () {return (o = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},s = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},i = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}},a = e && e.__importDefault || function (e) {return e && e.__esModule ? e : { default: e };},c = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;};Object.defineProperty(n, "__esModule", { value: !0 });var u = a(Q),l = c($),f = function (e) {function t(t) {var n = e.call(this, t) || this;return n.config = t, n;}return r(t, e), t.prototype.init = function () {e.prototype.init.call(this), this.customAuthProvider = new l.default(this.config), this.customAuthProvider.init();}, t.prototype.weixinAuthProvider = function (e) {var t = e.appid,n = e.scope,r = e.loginMode,o = e.state,s = new u.default(this.config, t, n, r, o);return s.init(), s;}, t.prototype.signInAnonymously = function () {return s(this, void 0, void 0, function () {var e = this;return i(this, function (t) {switch (t.label) {case 0:return this._anonymousAuthProvider || (this._anonymousAuthProvider = new Z.AnonymousAuthProvider(this.config), this._anonymousAuthProvider.init()), J.addEventListener(J.EVENTS.LOGIN_TYPE_CHANGE, function (t) {if (t && t.data === l.LOGINTYPE.ANONYMOUS) {var n = e._anonymousAuthProvider.getAllStore();for (var r in n) {n[r] && e.httpRequest.cache.setStore(r, n[r]);}}}), [4, this._anonymousAuthProvider.signIn()];case 1:return [2, t.sent()];}});});}, t.prototype.linkAndRetrieveDataWithTicket = function (e) {return s(this, void 0, void 0, function () {var t = this;return i(this, function (n) {switch (n.label) {case 0:return this._anonymousAuthProvider || (this._anonymousAuthProvider = new Z.AnonymousAuthProvider(this.config), this._anonymousAuthProvider.init()), J.addEventListener(J.EVENTS.ANONYMOUS_CONVERTED, function (e) {var n = e.data.refresh_token;n && t.httpRequest.cache.setStore(t.refreshTokenKey, n);}), [4, this._anonymousAuthProvider.linkAndRetrieveDataWithTicket(e)];case 1:return [2, n.sent()];}});});}, t.prototype.signOut = function () {return s(this, void 0, void 0, function () {var e, t, n, r, o, s, a;return i(this, function (i) {switch (i.label) {case 0:if (this.loginType === l.LOGINTYPE.ANONYMOUS) throw new Error("[tcb-js-sdk] 匿名用户不支持登出操作");return e = this.httpRequest, t = e.cache, n = e.refreshTokenKey, r = e.accessTokenKey, o = e.accessTokenExpireKey, "auth.logout", (s = t.getStore(n)) ? [4, this.httpRequest.send("auth.logout", { refresh_token: s })] : [2];case 1:return a = i.sent(), t.removeStore(n), t.removeStore(r), t.removeStore(o), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, l.LOGINTYPE.NULL), [2, a];}});});}, t.prototype.getAccessToken = function () {return s(this, void 0, void 0, function () {var e;return i(this, function (t) {switch (t.label) {case 0:return e = {}, [4, this.httpRequest.getAccessToken()];case 1:return [2, (e.accessToken = t.sent().accessToken, e.env = this.config.env, e)];}});});}, t.prototype.onLoginStateExpire = function (e) {J.addEventListener("loginStateExpire", e);}, t.prototype.getLoginState = function () {return s(this, void 0, void 0, function () {var e, t, n, r, o;return i(this, function (s) {switch (s.label) {case 0:if (e = this.httpRequest, t = e.cache, n = e.refreshTokenKey, r = e.accessTokenKey, !(o = t.getStore(n))) return [3, 5];s.label = 1;case 1:return s.trys.push([1, 3,, 4]), [4, this.httpRequest.refreshAccessToken()];case 2:return s.sent(), [3, 4];case 3:return s.sent(), [2, null];case 4:return [2, { isAnonymous: this.loginType === l.LOGINTYPE.ANONYMOUS, credential: { refreshToken: o, accessToken: t.getStore(r) } }];case 5:return [2, null];}});});}, t.prototype.signInWithTicket = function (e) {return s(this, void 0, void 0, function () {var t, n, r, o;return i(this, function (s) {switch (s.label) {case 0:if ("string" != typeof e) throw new Error("ticket must be a string");return t = this.httpRequest, n = t.cache, r = t.refreshTokenKey, [4, this.httpRequest.send("auth.signInWithTicket", { ticket: e, refresh_token: n.getStore(r) || "" })];case 1:return (o = s.sent()).refresh_token ? (this.customAuthProvider.setRefreshToken(o.refresh_token), [4, this.httpRequest.refreshAccessToken()]) : [3, 3];case 2:return s.sent(), J.activateEvent(J.EVENTS.LOGIN_STATE_CHANGED), J.activateEvent(J.EVENTS.LOGIN_TYPE_CHANGE, l.LOGINTYPE.CUSTOM), [2, { credential: { refreshToken: o.refresh_token } }];case 3:throw new Error("[tcb-js-sdk] 自定义登录失败");}});});}, t.prototype.shouldRefreshAccessToken = function (e) {this.httpRequest._shouldRefreshAccessTokenHook = e.bind(this);}, t.prototype.getUserInfo = function () {return this.httpRequest.send("auth.getUserInfo", {}).then(function (e) {return e.code ? e : o(o({}, e.data), { requestId: e.seqId });});}, t;}(l.default);n.default = f;});t(ee);var te = n(function (t, n) {var r = e && e.__awaiter || function (e, t, n, r) {return new (n || (n = Promise))(function (o, s) {function i(e) {try {c(r.next(e));} catch (e) {s(e);}}function a(e) {try {c(r.throw(e));} catch (e) {s(e);}}function c(e) {var t;e.done ? o(e.value) : (t = e.value, t instanceof n ? t : new n(function (e) {e(t);})).then(i, a);}c((r = r.apply(e, t || [])).next());});},o = e && e.__generator || function (e, t) {var n,r,o,s,i = { label: 0, sent: function sent() {if (1 & o[0]) throw o[1];return o[1];}, trys: [], ops: [] };return s = { next: a(0), throw: a(1), return: a(2) }, "function" == typeof Symbol && (s[Symbol.iterator] = function () {return this;}), s;function a(s) {return function (a) {return function (s) {if (n) throw new TypeError("Generator is already executing.");for (; i;) {try {if (n = 1, r && (o = 2 & s[0] ? r.return : s[0] ? r.throw || ((o = r.return) && o.call(r), 0) : r.next) && !(o = o.call(r, s[1])).done) return o;switch (r = 0, o && (s = [2 & s[0], o.value]), s[0]) {case 0:case 1:o = s;break;case 4:return i.label++, { value: s[1], done: !1 };case 5:i.label++, r = s[1], s = [0];continue;case 7:s = i.ops.pop(), i.trys.pop();continue;default:if (!(o = (o = i.trys).length > 0 && o[o.length - 1]) && (6 === s[0] || 2 === s[0])) {i = 0;continue;}if (3 === s[0] && (!o || s[1] > o[0] && s[1] < o[3])) {i.label = s[1];break;}if (6 === s[0] && i.label < o[1]) {i.label = o[1], o = s;break;}if (o && i.label < o[2]) {i.label = o[2], i.ops.push(s);break;}o[2] && i.ops.pop(), i.trys.pop();continue;}s = t.call(e, i);} catch (e) {s = [6, e], r = 0;} finally {n = o = 0;}}if (5 & s[0]) throw s[1];return { value: s[0] ? s[1] : void 0, done: !0 };}([s, a]);};}};Object.defineProperty(n, "__esModule", { value: !0 }), n.uploadFile = function (e, t) {t = t || I.createPromiseCallback();var n = new X.Request(this.config),r = e.cloudPath,o = e.filePath,s = e.onUploadProgress;return n.send("storage.getUploadMetadata", { path: r }).then(function (e) {var i = e.data,a = i.url,c = i.authorization,u = i.token,l = i.fileId,f = i.cosFileId,p = e.requestId,h = { key: r, signature: c, "x-cos-meta-fileid": f, success_action_status: "201", "x-cos-security-token": u };n.upload({ url: a, data: h, file: o, name: r, onUploadProgress: s }).then(function (e) {201 === e.statusCode ? t(null, { fileID: l, requestId: p }) : t(new Error("STORAGE_REQUEST_FAIL: " + e.data));}).catch(function (e) {t(e);});}).catch(function (e) {t(e);}), t.promise;}, n.deleteFile = function (e, t) {var n = e.fileList;if (t = t || I.createPromiseCallback(), !n || !Array.isArray(n)) return { code: "INVALID_PARAM", message: "fileList必须是非空的数组" };for (var r = 0, o = n; r < o.length; r++) {var s = o[r];if (!s || "string" != typeof s) return { code: "INVALID_PARAM", message: "fileList的元素必须是非空的字符串" };}var i = { fileid_list: n };return new X.Request(this.config).send("storage.batchDeleteFile", i).then(function (e) {e.code ? t(null, e) : t(null, { fileList: e.data.delete_list, requestId: e.requestId });}).catch(function (e) {t(e);}), t.promise;}, n.getTempFileURL = function (e, t) {var n = e.fileList;t = t || I.createPromiseCallback(), n && Array.isArray(n) || t(null, { code: "INVALID_PARAM", message: "fileList必须是非空的数组" });for (var r = [], o = 0, s = n; o < s.length; o++) {var i = s[o];"object" == typeof i ? (i.hasOwnProperty("fileID") && i.hasOwnProperty("maxAge") || t(null, { code: "INVALID_PARAM", message: "fileList的元素必须是包含fileID和maxAge的对象" }), r.push({ fileid: i.fileID, max_age: i.maxAge })) : "string" == typeof i ? r.push({ fileid: i }) : t(null, { code: "INVALID_PARAM", message: "fileList的元素必须是字符串" });}var a = { file_list: r };return new X.Request(this.config).send("storage.batchGetDownloadUrl", a).then(function (e) {e.code ? t(null, e) : t(null, { fileList: e.data.download_list, requestId: e.requestId });}).catch(function (e) {t(e);}), t.promise;}, n.downloadFile = function (e, t) {var s = e.fileID;return r(this, void 0, void 0, function () {var e, r, i, a, c;return o(this, function (o) {switch (o.label) {case 0:return [4, n.getTempFileURL.call(this, { fileList: [{ fileID: s, maxAge: 600 }] })];case 1:return e = o.sent(), "SUCCESS" !== (r = e.fileList[0]).code ? [2, t ? t(r) : new Promise(function (e) {e(r);})] : (i = r.download_url, i = encodeURI(i), a = new X.Request(this.config), t ? [4, a.download({ url: i })] : [3, 3]);case 2:return c = o.sent(), t(c), [3, 4];case 3:return [2, a.download({ url: i })];case 4:return [2];}});});};});t(te);te.uploadFile, te.deleteFile, te.getTempFileURL, te.downloadFile;var ne = n(function (e, t) {Object.defineProperty(t, "__esModule", { value: !0 }), t.callFunction = function (e, t) {var n,r = e.name,o = e.data,s = e.query,i = e.parse,a = e.search,c = t || I.createPromiseCallback();try {n = o ? JSON.stringify(o) : "";} catch (e) {return Promise.reject(e);}if (!r) return Promise.reject(new Error("函数名不能为空"));var u = { query: s, parse: i, search: a, function_name: r, request_data: n };return new X.Request(this.config).send("functions.invokeFunction", u).then(function (e) {if (e.code) c(null, e);else {var t = e.data.response_data;if (i) c(null, { result: t, requestId: e.requestId });else try {t = JSON.parse(e.data.response_data), c(null, { result: t, requestId: e.requestId });} catch (e) {c(new Error("response data must be json"));}}return c.promise;}).catch(function (e) {c(e);}), c.promise;};});t(ne);ne.callFunction;var re = t(n(function (t) {var n = e && e.__assign || function () {return (n = Object.assign || function (e) {for (var t, n = 1, r = arguments.length; n < r; n++) {for (var o in t = arguments[n]) {Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);}}return e;}).apply(this, arguments);},r = e && e.__importDefault || function (e) {return e && e.__esModule ? e : { default: e };},o = e && e.__importStar || function (e) {if (e && e.__esModule) return e;var t = {};if (null != e) for (var n in e) {Object.hasOwnProperty.call(e, n) && (t[n] = e[n]);}return t.default = e, t;},s = r(P),i = r(ee),a = o(te),c = o(ne),u = { timeout: 15e3 },l = new (function () {function e(e) {var t = this;this.config = e || this.config, this.authObj = void 0, J.addEventListener(J.EVENTS.LOGIN_TYPE_CHANGE, function (e) {e.data === $.LOGINTYPE.ANONYMOUS && (t.config.persistence = "local");});}return e.prototype.init = function (t) {return this.config = n(n({}, u), t), W.Adapter.adapter || this._useDefaultAdapter(), new e(this.config);}, e.prototype.auth = function (e) {var t = (void 0 === e ? {} : e).persistence;return this.authObj ? this.authObj : (this.config = n(n({}, this.config), { persistence: t || W.Adapter.adapter.primaryStorage || "session" }), this.authObj = new i.default(this.config), this.authObj.init(), this.authObj);}, e.prototype.on = function (e, t) {return J.addEventListener.apply(this, [e, t]);}, e.prototype.off = function (e, t) {return J.removeEventListener.apply(this, [e, t]);}, e.prototype.callFunction = function (e, t) {return c.callFunction.apply(this, [e, t]);}, e.prototype.deleteFile = function (e, t) {return a.deleteFile.apply(this, [e, t]);}, e.prototype.getTempFileURL = function (e, t) {return a.getTempFileURL.apply(this, [e, t]);}, e.prototype.downloadFile = function (e, t) {return a.downloadFile.apply(this, [e, t]);}, e.prototype.uploadFile = function (e, t) {return a.uploadFile.apply(this, [e, t]);}, e.prototype.useAdapters = function (e) {var t = W.useAdapters(e) || {},n = t.adapter,r = t.runtime;n && (W.Adapter.adapter = n), r && (W.Adapter.runtime = r);}, e.prototype._useDefaultAdapter = function () {var e = W.useDefaultAdapter(),t = e.adapter,n = e.runtime;W.Adapter.adapter = t, W.Adapter.runtime = n;}, e;}())();l.useAdapters(s.default);try {window.tcb = l;} catch (e) {}t.exports = l;}));re.useAdapters(P);var oe = re,se = oe.init;var ie, ae;function ce(e) {ie || (ie = { PLATFORM: "mp-weixin", OS: y, APPID: l.appid }, ae = { ak: l.appid, p: "android" === y ? "a" : "i", ut: g(), uuid: v() });var t = JSON.parse(JSON.stringify(e.data || {})),n = e.name,r = this.config.spaceId,o = { tencent: "t", aliyun: "a" }[this.config.provider],s = Object.assign({}, ae, { fn: n, sid: r, pvd: o });return Object.assign(t, { clientInfo: ie, uniCloudClientInfo: encodeURIComponent(JSON.stringify(s)) }), e.data = t, e;}function ue(e) {var t = ce.call(this, e),n = { tencent: "tcb", aliyun: "aliyun" }[this.config.provider],r = ae.ak,o = this.config.spaceId,i = JSON.stringify(t.data),a = t.name,c = JSON.stringify({ body: { provider: n, appid: r, spaceId: o, functionName: a, run_params: i }, header: { token: "ec330800-9507-11ea-b30e-e316cc8a693b" } });return new Promise(function (e, t) {uni.request({ url: h, method: "POST", data: { param: c }, complete: function complete(r) {r || (r = {});var o = r.data && r.data.body;if (!o) return void t(new s({ message: "[FUNCTIONS_EXECUTE_FAIL] Request Fail: [".concat(a, "]") }));if ("tcb" === n && o.log && "" !== o.log.trim() && console.log(o.log), 0 !== o.invokeResult && "0" !== o.invokeResult) return void t(new s({ message: o.errorMsg }));var i = o.requestId;var c = {};try {c = JSON.parse(o.result);} catch (e) {c = o.result;}e({ requestId: i, result: c });} });});}oe.init = function (e) {e.env = e.spaceId;var t = se.call(this, e);t.config.provider = "tencent", t.config.spaceId = e.spaceId;var n = t.auth;t.auth = function (e) {var t = n.call(this, e);return ["linkAndRetrieveDataWithTicket", "signInAnonymously", "signOut", "getAccessToken", "getLoginState", "signInWithTicket", "getUserInfo"].forEach(function (e) {t[e] = _(t[e]).bind(t);}), t;};if (["uploadFile", "deleteFile", "getTempFileURL", "downloadFile"].forEach(function (e) {t[e] = _(t[e]).bind(t);}), !1 !== e.autoSignIn) {var _e8 = t.auth();_e8.getLoginState().then(function (t) {t || _e8.signInAnonymously();});}return  true && console.log("使用腾讯云作为服务商时，调用云函数的同时会获取云函数运行日志，云函数响应会比发行慢，云函数实际响应时间应以发行为准"), t;};var le = { init: function init(e) {var t = {},n = !(!1 === e.debugFunction || "development" !== "development" || !"ec330800-9507-11ea-b30e-e316cc8a693b");switch (e.provider) {case "tencent":t = oe.init(Object.assign(e, { useDebugFunction: n }));break;case "aliyun":n = n && ( false || "app-plus" === "mp-weixin"), t = m.init(Object.assign(e, { useDebugFunction: n }));break;default:throw new Error("未提供正确的provider参数");}return function (e) {var t = e.callFunction;e.config.useDebugFunction && "tencent" === e.config.provider && (t = ue), e.callFunction = function (e) {var _this6 = this;var n = ce.call(this, e);return new Promise(function (r, o) {t.call(_this6, n).then(function (e) {r(e);}).catch(function (t) {t && t.message && (t.message = "[".concat(e.name, "]: ").concat(t.message)), o(t);});});};var n = e.callFunction;e.callFunction = function (e) {return _(n).call(this, e);};}(t), t.init = this.init, t;} };var fe = le;try {var _e9 = {};1 === [{"provider":"aliyun","spaceName":"baron-xiaoha","spaceId":"f25e336d-b856-4e8e-960b-8cf98037aa01","clientSecret":"+7/VV9pG+U5gtxMuikRVxA==","endpoint":"https://api.bspapp.com"}].length && (_e9 = [{"provider":"aliyun","spaceName":"baron-xiaoha","spaceId":"f25e336d-b856-4e8e-960b-8cf98037aa01","clientSecret":"+7/VV9pG+U5gtxMuikRVxA==","endpoint":"https://api.bspapp.com"}][0]), fe = le.init(_e9);} catch (e) {["auth", "callFunction", "uploadFile", "deleteFile", "getTempFileURL", "downloadFile"].forEach(function (e) {fe[e] = function () {var e = [{"provider":"aliyun","spaceName":"baron-xiaoha","spaceId":"f25e336d-b856-4e8e-960b-8cf98037aa01","clientSecret":"+7/VV9pG+U5gtxMuikRVxA==","endpoint":"https://api.bspapp.com"}].length > 0 ? "应用有多个服务空间，请通过uniCloud.init方法指定要使用的服务空间" : "应用未关联服务空间，请在cloudfunctions目录右键关联服务空间";return console.error(e), Promise.reject(new s({ code: "SYS_ERR", message: e }));};});}var pe = fe;var _default = pe;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 54:
+/*!**************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/pages.json?{"type":"stat"} ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__A9BC531" };exports.default = _default;
+
+/***/ }),
+
+/***/ 55:
+/*!********************************************!*\
+  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
+  \********************************************/
+/*! exports provided: Store, install, mapState, mapMutations, mapGetters, mapActions, createNamespacedHelpers, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
+/**
+ * vuex v3.0.1
+ * (c) 2017 Evan You
+ * @license MIT
+ */
+var applyMixin = function (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+};
+
+var devtoolHook =
+  typeof window !== 'undefined' &&
+  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+/**
+ * Deep copy the given object considering circular structure.
+ * This function caches all nested objects and its copies.
+ * If it detects circular structure, use cached copy to avoid infinite loop.
+ *
+ * @param {*} obj
+ * @param {Array<Object>} cache
+ * @return {*}
+ */
+
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  this._children = Object.create(null);
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors$1 = { namespaced: { configurable: true } };
+
+prototypeAccessors$1.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors$1 );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if (true) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+function update (path, targetModule, newModule) {
+  if (true) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if (true) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if (true) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "Store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  var state = options.state; if ( state === void 0 ) state = {};
+  if (typeof state === 'function') {
+    state = state() || {};
+  }
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  if (Vue.config.devtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors = { state: { configurable: true } };
+
+prototypeAccessors.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors.state.set = function (v) {
+  if (true) {
+    assert(false, "Use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+     true &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if (true) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  this._actionSubscribers.forEach(function (sub) { return sub(action, this$1.state); });
+
+  return entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+};
+
+Store.prototype.subscribe = function subscribe (fn) {
+  return genericSubscribe(fn, this._subscribers)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn) {
+  return genericSubscribe(fn, this._actionSubscribers)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if (true) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (true) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors );
+
+function genericSubscribe (fn, subs) {
+  if (subs.indexOf(fn) < 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    computed[key] = function () { return fn(store); };
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if ( true && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  var gettersProxy = {};
+
+  var splitPos = namespace.length;
+  Object.keys(store.getters).forEach(function (type) {
+    // skip if the target getter is not match this namespace
+    if (type.slice(0, splitPos) !== namespace) { return }
+
+    // extract local getter type
+    var localType = type.slice(splitPos);
+
+    // Add a port to the getters proxy.
+    // Define as getter property because
+    // we do not want to evaluate the getters in this time.
+    Object.defineProperty(gettersProxy, localType, {
+      get: function () { return store.getters[type]; },
+      enumerable: true
+    });
+  });
+
+  return gettersProxy
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload, cb) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload, cb);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if (true) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if (true) {
+      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.length
+    ? path.reduce(function (state, key) { return state[key]; }, state)
+    : state
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if (true) {
+    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if (true) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if ( true && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+function normalizeMap (map) {
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if ( true && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index_esm = {
+  Store: Store,
+  install: install,
+  version: '3.0.1',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+
+/* harmony default export */ __webpack_exports__["default"] = (index_esm);
+
+
+/***/ }),
+
+/***/ 86:
+/*!***************************************************************!*\
+  !*** C:/Users/asus/Desktop/Baron/static/images/chat/send.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

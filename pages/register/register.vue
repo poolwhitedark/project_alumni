@@ -2,59 +2,77 @@
 	<view class="content">
 		<!-- 图标 -->
 		<view class="title">
-			<text class="f18 fb">注册小哈账号</text>
-			<p class="f12 pt_10">输入手机号进行注册</p>
+			<text class="f18 fb">{{ resetPwd ? '忘记密码' : '注册小哈账号' }}</text>
+			<p class="f12 pt_10">{{ resetPwd ? '下次不要忘了呦！' : '输入手机号进行注册' }}</p>
 		</view>
 		<!-- 登陆 -->
 		<view class="main">
 			<view class="inputs">
 				<view class="inputs-div">
 					<p class="f12 pt_10">手机号</p>
-					<input class="input" type="number"  maxlength="11"  v-model="phoneNum" />
+					<input class="input" type="number" maxlength="11" v-model="phoneNum" />
 				</view>
 
 				<view class="inputs-div">
 					<p class="f12">验证码</p>
 					<input class="input" type="text" v-model="code" />
-					<button class="f12" :style="smsFlag?'background:rgb(38, 113, 255);':''" @click="checkPhone">{{ smsFlag ? '获取验证码' : '剩余' + startVal + 's' }}</button>
+					<button class="f12" :style="smsFlag ? 'background:rgb(38, 113, 255);color:#fff;' : ''" @click="checkPhone">{{ smsFlag ? '获取验证码' : '剩余' + startVal + 's' }}</button>
 				</view>
 				<view class="inputs-div">
-					<p class="f12">密码</p>
-					<input class="input" :type="type"  @blur="checknumber()" v-model="password" />
+					<p class="f12">新密码</p>
+					<input class="input" :type="type1" @blur="checknumber()" v-model="password" />
+					<image :src="showurl1" class="show" @click="showon(1)"></image>
+				</view>
+				<view class="inputs-div">
+					<p class="f12">确认密码</p>
+					<input class="input" :type="type2" @blur="check()" v-model="check_password" />
 					<text class="checknumber" v-show="checkshow">{{ rulesTxt }}</text>
-					<image :src="showurl" class="show" @click="showon()"></image>
+					<image :src="showurl2" class="show" @click="showon(2)"></image>
 				</view>
 			</view>
 		</view>
 		<!-- 登陆按钮 -->
-		<view class="submit" @click="submit">{{ registerTxt}}</view>
+		<view class="submit" @click="submit">{{ registerTxt }}</view>
 	</view>
 </template>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 let phoneVerify = /^1[3456789]\d{9}$/;
 let Password = /^[a-zA-Z][a-zA-Z0-9]*$/;
 export default {
 	data() {
 		return {
-			type: 'password',
-			isuser: 0, //用户名是否占用
+			type1: 'password',
+			type2: 'password',
 			isemail: 0, //邮箱是否占位
-			show: false, // 是否显示密码
+			show1: false, // 是否显示密码
+			show2: false, // 是否显示密码
 			invalid: false, // 邮箱是否符合
 			employ: false, //是否被占用
-			showurl: '../../static/images/register/showin.png',
+			showurl1: '../../static/images/register/showin.png',
+			showurl2: '../../static/images/register/showin.png',
 			email: '',
 			phoneNum: '',
 			code: '',
 			password: '',
 			checkshow: false,
+			check_password: '',
 			registerTxt: '注册',
 			rulesTxt: '',
 			smsFlag: true,
 			startVal: 60,
-			codeDisabled : true
+			codeDisabled: true,
+			appId: 'EUCP-EMY-SMS0-252MR',
+			timestamp: '20200619110912',
+			secretKey: '0033140387416947',
+			resetPwd: false
 		};
+	},
+	onLoad() {
+		if(this.$route.query.resetPwd){
+			this.resetPwd = this.$route.query.resetPwd
+			this.registerTxt='提交'
+			}
 	},
 	methods: {
 		//验证码倒计时
@@ -74,15 +92,28 @@ export default {
 			}
 		},
 		//密码是否显隐
-		showon: function() {
-			if (this.show) {
-				this.type = 'password';
-				this.show = !this.show;
-				this.showurl = '../../static/images/register/showin.png';
+		showon: function(e) {
+			console.log(e);
+			if (e == 1) {
+				if (this.show1) {
+					this.type1 = 'password';
+					this.show1 = !this.show1;
+					this.showurl1 = '../../static/images/register/showin.png';
+				} else {
+					this.type1 = 'text';
+					this.show1 = !this.show;
+					this.showurl1 = '../../static/images/register/showon.png';
+				}
 			} else {
-				this.type = 'text';
-				this.show = !this.show;
-				this.showurl = '../../static/images/register/showon.png';
+				if (this.show2) {
+					this.type2 = 'password';
+					this.show2 = !this.show1;
+					this.showurl2 = '../../static/images/register/showin.png';
+				} else {
+					this.type2 = 'text';
+					this.show2 = !this.show;
+					this.showurl2 = '../../static/images/register/showon.png';
+				}
 			}
 		},
 
@@ -97,7 +128,15 @@ export default {
 				this.checkshow = false;
 			} else {
 				this.checkshow = true;
-				return (this.rulesTxt = '请输入6-20位字母数字组合');
+				return (this.rulesTxt = '请输入6-20位字母数字组合的新密码');
+			}
+		},
+		check() {
+			if (this.check_password.length > 0 && this.password !== this.check_password) {
+				this.checkshow = true;
+				return (this.rulesTxt = '确认密码必须与首次密码一致');
+			} else {
+				this.checkshow = false;
 			}
 		},
 		submit() {
@@ -119,10 +158,11 @@ export default {
 					name: 'register',
 					data: {
 						user_id: this.phoneNum,
-						code:this.code,
+						code: this.code,
 						password: this.password
 					}
-				}).then(res => {
+				})
+				.then(res => {
 					uni.navigateTo({
 						url: '../login/login'
 					});
@@ -136,38 +176,66 @@ export default {
 				this.checkshow = true;
 				return (this.rulesTxt = '请输入正确的手机号码');
 			}
-			if(this.codeDisabled){
+			if (this.codeDisabled) {
 				this.checkshow = false;
 				this.codeDisabled = false;
-				uniCloud
-					.callFunction({
-						name: 'checkUsername',
-						data: {
-							user_id: this.phoneNum
-						}
-					})
-					.then(res => {
-						if (res.result.status === true) {
-							this.isuser = false;
-							uni.showModal({
-								title: '提示',
-								content: '该手机号已经存在',
-								success: function(res) {
-									if (res.confirm) {
-										console.log('用户点击确定');
-									} else if (res.cancel) {
-										console.log('用户点击取消');
-									}
-								}
-							});
-							this.codeDisabled = true;
-						} else {
-							this.settime()
-							this.isuser = true;
-						}
-					});
+				let sign = this.$md5(this.appId + this.timestamp + this.secretKey);
+
+				// uni.navigateTo('http://www.btom.cn:8080/simpleinter/sendSMS')
+				// window.location.href =
+				// 	'http://www.btom.cn:8080/simpleinter/sendSMS?appId=' +
+				// 	this.appId +
+				// 	'&timestamp=' +
+				// 	this.timestamp +
+				// 	'&sign=' +
+				// 	sign +
+				// 	'&mobiles=' +
+				// 	this.phoneNum +
+				// 	'&content=' +
+				// 	'欢迎加入百仁小哈!';
+				// this.$http({
+				// 	method: 'get',
+				// 	url: 'http://www.btom.cn:8080/simpleinter/sendSMS',
+				// 	contentType: 'application/json;charset=UTF-8',
+				// 	data: {
+				// 		appId: this.appId,
+				// 		timestamp: this.timestamp,
+				// 		sign,
+				// 		mobiles: this.phoneNum,
+				// 		content: '欢迎加入百仁小哈!'
+				// 	},
+				// 	dataType: 'json'
+				// }).then(res=>{
+				// 	console.log(res,"sendSMS");
+
+				// })
+				// 	uniCloud
+				// 		.callFunction({
+				// 			name: 'checkUsername',
+				// 			data: {
+				// 				user_id: this.phoneNum
+				// 			}
+				// 		})
+				// 		.then(res => {
+				// 			if (res.result.status === true) {
+				// 				uni.showModal({
+				// 					title: '提示',
+				// 					content: '该手机号已经存在',
+				// 					success: function(res) {
+				// 						if (res.confirm) {
+				// 							console.log('用户点击确定');
+				// 						} else if (res.cancel) {
+				// 							console.log('用户点击取消');
+				// 						}
+				// 					}
+				// 				});
+				// 				this.codeDisabled = true;
+				// 			} else {
+								this.settime();
+
+				// 			}
+				// 		});
 			}
-			
 		}
 	}
 };

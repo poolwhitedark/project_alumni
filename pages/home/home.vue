@@ -6,7 +6,7 @@
 			out-of-bounds="true"
 			class="card-content"
 			v-for="(item , index) in lastDataList"
-			v-bind:key="item.user_id"
+			:key="index"
 			@change="onChange"
 			@touchend="nextcard"
 			@touchcancel="nextcard"
@@ -26,32 +26,31 @@
 				<view class="card-icon">
 					<view class="card-icon-left">
 						<image src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-baron-xiaoha/5f7c65b0-a7a2-11ea-b94e-47f67ecf8268.png"></image>
-						<h>{{ item.address }}</h>
+						<text>{{ item.address }}</text>
 					</view>
 					<view class="card-icon-right">
 						<image src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-baron-xiaoha/65de9d10-a7a2-11ea-9e8b-05a3242b26f2.png"></image>
-						<h>{{ item.profession }}</h>
+						<text>{{ item.profession }}</text>
 					</view>
 				</view>
 				<view class="card-bottom">
 					<view class="card-bottom-item">
 						<p>动态</p>
-						<h>{{ item.collection }}</h>
+						<text>{{ item.collection }}</text>
 					</view>
 					<view class="card-bottom-item">
 						<p>粉丝</p>
-						<h>{{ item.followers }}</h>
+						<text>{{ item.followers }}</text>
 					</view>
 					<view class="card-bottom-item">
 						<p>关注</p>
-						<h>{{ item.followings }}</h>
+						<text>{{ item.followings }}</text>
 					</view>
 				</view>
 			</view>
 		</movable-view>
 	</movable-area>
 </template>
-
 <script>
 export default {
 	created() {
@@ -70,6 +69,7 @@ export default {
 	},
 	methods: {
 		getusers() {
+  
 			uniCloud
 				.callFunction({
 					name: 'home'

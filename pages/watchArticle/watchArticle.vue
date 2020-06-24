@@ -70,7 +70,6 @@
 				const userId = res[1].data
 				
 				this.userId = userId
-				console.log(this.userId)
 				this.getDetail()
 			})
 			
@@ -169,7 +168,7 @@
 			},
 			getDetail(){
 				
-				
+				console.log(this.userId,this.article_id,'0000')
 				uniCloud.callFunction({
 					name:'get_detail',
 					data:{
@@ -178,7 +177,7 @@
 					}
 				}).then(res=>{
 					this.content=res.result.data[0].content
-					console.log(this.content)
+					console.log(this.content,'this.content')
 					this.is_author_like=res.result.data[0].is_author_like
 				})
 			}

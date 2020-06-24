@@ -8,11 +8,26 @@ Vue.use(Router)
 const router = new Router({
 	routes: [...ROUTES] //路由表
 });
+let token = ''
 
+
+console.log('token', token)
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	console.log(to)
-	next()
+	uni.getStorage({
+		key: 'token',
+		success(res){
+			if (res.data == 'ok') return token=res.data
+		}
+	})
+	console.log(token,'token');
+	if (to.path !== '/pages/login/login' && to.path !== '/pages/register/register' && token === '') {
+		next('/pages/login/login');
+	} else if (to.path == '/pages/login/login' && token !== '') {
+		next('/pages/home/home');
+	} else {
+		next()
+	}
 })
 // 全局路由后置守卫
 router.afterEach((to, from) => {

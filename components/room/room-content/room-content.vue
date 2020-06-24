@@ -1,9 +1,9 @@
 <template >
-	<view class="user_card" @click="gotoWatch()">
+	<view class="user_card" >
 		<view class="user_card-box">
 			<view class="add-image" >
 				<view class="image-box">
-					<image :src='list.actionBg'></image>
+					<image  @click="gotoWatch()" :src='list.actionBg'></image>
 
 					<view >
 						<image class="add" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-baron-xiaoha/83960970-a7ec-11ea-b244-a9f5e5565f30.png"
@@ -67,12 +67,12 @@
 				this.$emit('add')
 			},
 			gotoWatch() {
-				uni.navigateTo({
-					url: '../../../pages/watchArticle/watchArticle'
+				// uni.navigateTo({
+				// 	url: '../../../pages/watchArticle/watchArticle'
 
 
-				})
-				this.$emit('Watch')
+				// })
+				this.$emit('gotoWatch')
 			}
 		}
 	}

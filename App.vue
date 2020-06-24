@@ -2,20 +2,20 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch');
-			uni.getStorage({
-				key: 'token',
-				success: function(res) {
-					console.log(res.data);
-					if (res.data == 'ok') {
-						uni.switchTab({
-							url: '/pages/home/home',
-							fail(err) {
-								console.log(err);
-							}
-						});
-					}
-				}
-			});
+			// uni.getStorage({
+			// 	key: 'token',
+			// 	success: function(res) {
+			// 		console.log(res.data);
+			// 		if (res.data == 'ok') {
+			// 			uni.switchTab({
+			// 				url: '/pages/home/home',
+			// 				fail(err) {
+			// 					console.log(err);
+			// 				}
+			// 			});
+			// 		}
+			// 	}
+			// });
 		},
 		onShow: function() {
 			console.log('App Show');
@@ -38,6 +38,7 @@
 	uni-page-head .uni-page-head .uni-page-head-ft {
 		padding-right: 60rpx;
 	}
+	/* 弹框的样式 */
 	uni-modal .uni-modal {
 	    position: fixed;
 	    z-index: 999;
