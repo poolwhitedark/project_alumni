@@ -21,6 +21,9 @@ page.data-v-ef11f380, page.data-v-ef11f380 {
   border: 0;
   outline: 0;
 }
+._a.data-v-ef11f380 {
+  text-decoration: none;
+}
 /* 颜色变量 */
 /* 行为相关颜色 */
 /* 文字基本颜色 */

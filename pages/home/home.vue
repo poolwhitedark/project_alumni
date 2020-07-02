@@ -42,7 +42,7 @@
 						<p>粉丝</p>
 						<text>{{ item.followers }}</text>
 					</view>
-					<view class="card-bottom-item">
+					<view class="card-bottom-item" @click="$Router.push('/pages/text/index')">
 						<p>关注</p>
 						<text>{{ item.followings }}</text>
 					</view>
@@ -195,7 +195,7 @@ export default {
 					width: 60rpx;
 					height: 60rpx;
 				}
-				h {
+				text {
 					margin-top: 5rpx;
 					font-weight: bold;
 					color: white;

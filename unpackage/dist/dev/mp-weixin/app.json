@@ -9,7 +9,10 @@
     "pages/notice/notice",
     "pages/edit/edit",
     "pages/Room/Room",
-    "pages/watchArticle/watchArticle"
+    "pages/watchArticle/watchArticle",
+    "pages/text/index",
+    "pages/text/list",
+    "pages/text/wangEditor"
   ],
   "subPackages": [],
   "window": {
@@ -48,6 +51,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap52.json"
+  "usingComponents": {}
 }

@@ -1,0 +1,76 @@
+<template>
+	<view class="identity-container" >
+		<tj_panel class="mt_15" round shadow v-for="(item, i) in identityData" :key="i">
+			<view @click="goIdentity(i)">
+				<tj_row flex align="center" >
+					<view class="tj-col" style="flex: 1;">
+						<view class="f20 fb mt_8">
+							{{item.type}}
+						</view>
+						<view class="f12 grey">
+							{{item.details}}
+						</view>
+					</view>
+					<view class="tj-col" style="flex: 1;"><image :src="item.url" mode=""></image></view>
+				</tj_row>
+			</view>
+		</tj_panel>
+	</view>
+</template>
+
+<script>
+import tj_panel from 'library/panel/index.vue';
+import tj_row from 'library/row/index.vue';
+
+export default {
+	data() {
+		return {
+			identityData: [
+				{
+
+					type: '企业版',
+					details: '展现企业文化',
+					url: require('common/images/企业信息@2x.png')
+				},
+				{
+					type: '企业版',
+					details: '展现企业文化',
+					url: require('common/images/好友 (1)@2x.png')
+				}
+			]
+		};
+	},
+	components: {
+		tj_panel,
+		tj_row
+	},
+	methods:  {
+		goIdentity(i){
+			if(i==1){
+				uni.navigateTo({
+					url:'/pages/identity/personal/index'
+				})
+			}
+			
+		}
+	}
+};
+</script>
+
+<style lang="scss">
+.identity-container {
+	padding: 30rpx;
+	.tj-col {
+		height: 190rpx;
+		view{
+			line-height: 68.5rpx;
+		}
+		> image {
+			vertical-align: middle;
+			margin-top: 23rpx;
+			width: 114rpx;
+			height: 114rpx;
+		}
+	}
+}
+</style>

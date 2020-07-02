@@ -21,6 +21,9 @@ page.data-v-16c80b9c, page.data-v-16c80b9c {
   border: 0;
   outline: 0;
 }
+._a.data-v-16c80b9c {
+  text-decoration: none;
+}
 /* 颜色变量 */
 /* 行为相关颜色 */
 /* 文字基本颜色 */

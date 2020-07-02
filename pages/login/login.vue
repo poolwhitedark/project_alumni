@@ -61,7 +61,7 @@ export default {
 		//跳转到注册页面
 		onNavigationBarButtonTap: function(e) {
 			uni.navigateTo({
-				url: '../register/register'
+				url: './register/register'
 			});
 		},
 		getUser() {
@@ -97,6 +97,7 @@ export default {
 					console.log(res);
 					if (res.result.status === 0) {
 						const userId = this.user;
+						
 						uni.switchTab({
 							url: '/pages/home/home',
 							success() {
@@ -180,7 +181,6 @@ export default {
 }
 
 .main {
-	width: 100%;
 	padding: 0 100rpx 160rpx;
 
 	.title {

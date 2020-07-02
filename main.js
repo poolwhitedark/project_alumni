@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import App from './App'
+import './library/index.js'
+// import Cell from './library/cell/index'
 import store from 'store/index.js'
-import {
-	RouterMount
-} from './router'
+import './common/style/font-face.css';
+import { RouterMount } from './router'
 //axios引入
 import axios from 'axios'
 Vue.prototype.$http = axios
@@ -15,7 +16,7 @@ Vue.prototype.$md5 = md5;
 Vue.config.productionTip = false
 
 App.mpType = 'app'
-
+// Vue.component(Cell.name, Cell)
 const app = new Vue({
 	store,
 	...App

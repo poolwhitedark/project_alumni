@@ -16,13 +16,15 @@ console.log('token', token)
 router.beforeEach((to, from, next) => {
 	uni.getStorage({
 		key: 'token',
-		success(res){
-			if (res.data == 'ok') return token=res.data
+		success(res) {
+			if (res.data == 'ok') return token = res.data
 		}
 	})
-	console.log(token,'token');
-	if (to.path !== '/pages/login/login' && to.path !== '/pages/register/register' && token === '') {
+	console.log(token,to, 'token');
+	if (to.path !== '/pages/login/login' && to.path !== '/pages/login/register/register' &&
+		token === '') {
 		next('/pages/login/login');
+		
 	} else if (to.path == '/pages/login/login' && token !== '') {
 		next('/pages/home/home');
 	} else {

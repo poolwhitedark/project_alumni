@@ -16,13 +16,11 @@
 			}
 		},
 		{
-			"path": "pages/register/register",
+			"path": "pages/login/register/register",
 			"style": {}
 		}, {
 			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": ""
-			}
+			"style": {}
 		}, {
 			"path": "pages/relation_find/relation_find",
 			"style": {
@@ -67,7 +65,20 @@
 		{
 		    "path" : "pages/text/wangEditor",
 		    "style" : {}
+		},
+		{
+		    "path" : "pages/identity/identity",
+		    "style" : {
+				"navigationBarTitleText": "选择版本"
+			}
+		},
+		{
+		    "path" : "pages/identity/personal/index",
+		    "style" : {
+				"navigationBarTitleText": "编辑资料"
+			}
 		}
+		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

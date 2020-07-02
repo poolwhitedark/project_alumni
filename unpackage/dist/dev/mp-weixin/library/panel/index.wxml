@@ -1,0 +1,1 @@
+<view class="{{['tj-panel','tj-panel--'+type,[(noPadding)?'no-padding':'',(round)?'is-round':'',(gutter)?'is-gutter':'',(shadow)?'is-shadow':'']]}}"><view class="tj-panel__inner"><slot></slot></view></view>

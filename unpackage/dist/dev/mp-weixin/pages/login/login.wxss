@@ -21,6 +21,9 @@ page, page {
   border: 0;
   outline: 0;
 }
+._a {
+  text-decoration: none;
+}
 /* 颜色变量 */
 /* 行为相关颜色 */
 /* 文字基本颜色 */
@@ -218,7 +221,6 @@ page, page {
   height: 300rpx;
 }
 .main {
-  width: 100%;
   padding: 0 100rpx 160rpx;
 }
 .main .title {
@@ -258,8 +260,8 @@ page, page {
   line-height: 56rpx;
 }
 .wxIcon {
-  width: 85rpx;
-  height: 85rpx;
+  width: 76rpx;
+  height: 76rpx;
 }
 .submit {
   margin: 0 auto;

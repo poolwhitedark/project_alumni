@@ -26,7 +26,9 @@ html, body {
     border:0;
     outline:0;	
 }
-/* 颜色变量 */
+a{
+	text-decoration:none
+}
 
 /* 行为相关颜色 */
 $uni-color-primary: rgba(255,228,49,1);
@@ -95,6 +97,9 @@ $uni-font-size-paragraph:30rpx;
 	}
 	.f14 {
 	  font-size: 28rpx;
+  }
+  .f15 {
+	  font-size: 30rpx;
 	}
 	.f16 {
 	  font-size: 32rpx;
@@ -268,3 +273,30 @@ $uni-font-size-paragraph:30rpx;
 .ml_30 {
   margin-left: 60rpx
 }
+/* 颜色变量 */
+.mainColor{
+  color: #2658FF;
+}
+.dark-grey {
+  color: #333;
+}
+.grey{
+  color: #666;
+} 
+.light-grey{
+  color: #999;
+} 
+.light-grey-s{
+  color: #ccc;
+} 
+.light-grey-ss {
+  color: #eee;
+}
+.light-grey-sss {
+  color: #fcfcfc;
+}
+.active-grey {
+  color: #e8e8e8;
+}
+
+
