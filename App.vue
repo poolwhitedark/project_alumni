@@ -1,12 +1,4 @@
-<template>
-  <view id="app">
-    <router-view/>
-    <!-- <keep-alive>
-      <router-view v-if="$route.meta.keepAlive"/>
-    </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"/>-->
-  </view>
-</template>
+
 <script>
 export default {
 	onLaunch: function() {
@@ -36,9 +28,22 @@ export default {
 </script>
 
 <style lang="scss">
-@import './common/style/module.scss';s
-#app{
-	color:#333;
-	}
-
+@import './common/style/module.scss';
+uni-app, uni-page-head {
+    display: block;
+    box-sizing: border-box;
+	color: #333;
+}
+uni-tabbar .uni-tabbar-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0px; 
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
+uni-tabbar .uni-tabbar{
+	box-shadow:0px 2px 29px 0px rgba(0,20,48,0.08);
+}
 </style>

@@ -63,6 +63,10 @@
 		    "style" : {}
 		},
 		{
+		    "path" : "pages/text/card",
+		    "style" : {}
+		},
+		{
 		    "path" : "pages/text/wangEditor",
 		    "style" : {}
 		},
@@ -77,8 +81,16 @@
 		    "style" : {
 				"navigationBarTitleText": "编辑资料"
 			}
+		},
+		{
+		    "path" : "pages/identity/personal/index",
+		    "style" : {
+				"navigationBarTitleText": "编辑资料"
+			}
+		},
+		{
+		    "path" : "pages/enterprise/home/index"
 		}
-		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -86,11 +98,12 @@
 		"backgroundColor": "#FFFFFF"
 	},
 	"tabBar": {
-		"color": "#555555",
-		"selectedColor": "#3c7de9",
+		"color": "#999",
+		"selectedColor": "#2658FF",
 		"backgroundColor": "#FFFFFF",
+		"border":"0",
 		"list": [{
-				"pagePath": "pages/home/home",
+				"pagePath": "pages/enterprise/home/index",
 				"iconPath": "static/images/tabbar/home_before.png",
 				"selectedIconPath": "static/images/tabbar/home_after.png",
 				"text": "首页"
