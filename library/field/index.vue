@@ -8,7 +8,7 @@
       </span>
       <div class="tj-field__box">
         <input
-          class="tj-field__input"
+          :class="['tj-field__input',align?'t'+align:'']"
           :type="type"
           :value="currentValue"
           :disabled="disabled ? 'disabled' : false"
@@ -16,6 +16,7 @@
           @change="handleChange"
           @blur="handleBlur"
           @input="handleInput"
+          style="font-size: 15px;"
         >
         <i
           class="tj-field__clear tj-icon tj-close-b"
@@ -48,7 +49,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    }
+    },
+    align: String,
+      
   },
 
   data() {
@@ -88,3 +91,7 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+
+  
+</style>

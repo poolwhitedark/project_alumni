@@ -99,7 +99,7 @@ export default {
 						const userId = this.user;
 						
 						uni.switchTab({
-							url: '/pages/home/home',
+							url: '/pages/home/index',
 							success() {
 								uni.setStorage({
 									key: 'token',
@@ -113,6 +113,10 @@ export default {
 						});
 						this.$store.commit('setUser_id', this.user);
 					} else {
+						uni.showToast({
+						title:res.result.message,
+						icon:'none'
+					})
 						console.log('登陆失败');
 					}
 				});

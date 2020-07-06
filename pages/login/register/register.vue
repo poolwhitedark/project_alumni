@@ -164,7 +164,7 @@ export default {
 				})
 				.then(res => {
 					uni.navigateTo({
-						url: '../login/login'
+						url: '../login'
 					});
 				});
 		},
@@ -211,13 +211,14 @@ export default {
 				// })
 					uniCloud
 						.callFunction({
-							name: 'checkUsername',
+							name: 'checkRegister',
 							data: {
 								user_id: this.phoneNum
 							}
 						})
 						.then(res => {
 							if (res.result.status === true) {
+								console.log('0000000')
 								uni.showModal({
 									content: '该手机号已经存在',
 									success: function(res) {

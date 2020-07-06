@@ -14,7 +14,7 @@
       <div class="tj-cell__solt" v-if="$slots.default">
         <slot></slot>
       </div>
-      <div class="tj-cell__right tj-icon tj-right1" v-if="!noIcon" @click="handleClick($event)"></div>
+      <div class="tj-cell__right tj-icon tj-right1 pt_5" v-if="!noIcon" @click="handleClick($event)"></div>
     </router-link>
   </div>
 </template>

@@ -6,7 +6,7 @@
 			<!-- 搜索 -->
 			<view class='searchInput999'>
 				<view class='searchBox999'>
-					<image src='../../../common/images/dhl_icon_ss@2x.png' class='search999'></image>
+					<image src='../../common/images/dhl_icon_ss@2x.png' class='search999'></image>
 				</view>
 				<input @input="onKeyInput" @tap="inputClick" :value="isSearch" class='input999' placeholder="输入搜索内容"></input>
 			</view>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-	const util = require('../../../util/util.js');
+	const util = require('../../util/util.js');
 import refresh from 'components/refresh.vue';
 import tj_card from 'library/card/index.vue';
 import tj_row from 'library/row/index.vue';
@@ -63,7 +63,8 @@ import tj_row from 'library/row/index.vue';
 				             { name:'收藏',num:5835},
 				              { name:'粉丝',num:5835}
 						],
-						address:'重庆'
+						address:'重庆',
+						rate:1
 					},
 					{
 					    name:'闫志宏',
@@ -205,7 +206,6 @@ import tj_row from 'library/row/index.vue';
 		color: #797979;
 		padding-top: 30rpx;
 	}
-
 	.bottom {
 		width: 100vw;
 		position: relative;

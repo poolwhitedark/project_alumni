@@ -19,9 +19,6 @@
 			"path": "pages/login/register/register",
 			"style": {}
 		}, {
-			"path": "pages/home/home",
-			"style": {}
-		}, {
 			"path": "pages/relation_find/relation_find",
 			"style": {
 				"navigationBarTitleText": ""
@@ -88,8 +85,15 @@
 				"navigationBarTitleText": "编辑资料"
 			}
 		},
+		
 		{
-		    "path" : "pages/enterprise/home/index"
+		    "path" : "pages/home/index"
+		},
+		{
+		    "path" : "pages/identity/enterprise/index",
+		    "style" : {
+				"navigationBarTitleText": "实名认证"
+			}
 		}
     ],
 	"globalStyle": {
@@ -103,7 +107,7 @@
 		"backgroundColor": "#FFFFFF",
 		"border":"0",
 		"list": [{
-				"pagePath": "pages/enterprise/home/index",
+				"pagePath": "pages/home/index",
 				"iconPath": "static/images/tabbar/home_before.png",
 				"selectedIconPath": "static/images/tabbar/home_after.png",
 				"text": "首页"
