@@ -1,15 +1,11 @@
 <template>
-	<view class="identity-container" >
+	<view class="identity-container">
 		<tj_panel class="mt_15" round shadow v-for="(item, i) in identityData" :key="i">
 			<view @click="goIdentity(i)">
-				<tj_row flex align="center" >
+				<tj_row flex align="center">
 					<view class="tj-col" style="flex: 1;">
-						<view class="f20 fb mt_8">
-							{{item.type}}
-						</view>
-						<view class="f12 grey">
-							{{item.details}}
-						</view>
+						<view class="f20 fb mt_8">{{ item.type }}</view>
+						<view class="f12 grey">{{ item.details }}</view>
 					</view>
 					<view class="tj-col" style="flex: 1;"><image :src="item.url" mode=""></image></view>
 				</tj_row>
@@ -27,7 +23,6 @@ export default {
 		return {
 			identityData: [
 				{
-
 					type: '企业版',
 					details: '展现企业文化',
 					url: require('common/images/企业信息@2x.png')
@@ -37,21 +32,55 @@ export default {
 					details: '展现企业文化',
 					url: require('common/images/好友 (1)@2x.png')
 				}
-			]
+			],
+			user_id: ''
 		};
 	},
 	components: {
 		tj_panel,
 		tj_row
 	},
-	methods:  {
-		goIdentity(i){
-			if(i==1){
-				uni.navigateTo({
-					url:'/pages/identity/personal/index'
-				})
+	created() {},
+	async onLoad() {
+		let that = this;
+		await uni.getStorage({
+			key: 'user_id',
+			success: function(res) {
+				that.user_id = res.data;
+				that.getUserInfor();
 			}
-			
+		});
+	},
+	methods: {
+		getUserInfor() {
+			uniCloud
+				.callFunction({
+					name: 'userinfo',
+					data: {
+						phone: this.user_id
+					}
+				})
+				.then(res => {
+					console.log(res, 'res');
+					this._id=res.result.data._id
+				});
+		},
+		goIdentity(i) {
+			uniCloud
+				.callFunction({
+					name: 'version_choose',
+					data: {
+						user_id: this._id,
+						status: i + 1
+					}
+				})
+				.then(res => {
+					if (i == 1) {
+						uni.navigateTo({
+							url: '/pages/identity/personal/index'
+						});
+					}
+				});
 		}
 	}
 };
@@ -62,7 +91,7 @@ export default {
 	padding: 30rpx;
 	.tj-col {
 		height: 190rpx;
-		view{
+		view {
 			line-height: 68.5rpx;
 		}
 		> image {

@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "tj_panel": "/library/panel/index",
-    "tj_cell": "/library/cell/index",
-    "tj_col": "/library/col/index",
-    "tj_row": "/library/row/index",
-    "tj_popup": "/library/popup/index"
-  }
-}

@@ -2,18 +2,19 @@
 	<view>
 		<view class="zhtx-imgs">
 			<view class="zhtx-single" v-for="(item, index) in list" :key="index" >
-				<image :src="item" :data-src="item" mode="aspectFit" @tap="previewImg" />
+				<image :src="item" :data-src="item" mode="aspectFit"  @tap="previewImg" />
 				<view class="zhtx-del" @tap="deleteItem(index)">x</view> 
 			</view>
-			<view v-if="limit>list.length" class="zhtx-single zhtx-addNew" @tap="chooseFile">
-				<text class="zhtx-add">+</text>
+			<view v-if="limit>list.length" class="zhtx-single zhtx-addNew" :class="'bg'+loadbgurl" @tap="chooseFile" >
+				<!-- <text class="zhtx-add">+</text> -->
+				<image src="../../common/images/相机@2x.png"></image>
 			</view>
 		</view>
-		<view class="num">
+		<!-- <view class="num">
 			<text style="color: #007AFF;font-size: 14px;">{{list.length}}</text>
 			
 			/{{limit}}
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -55,7 +56,8 @@
 			canUploadFile: { //是否更新
 				type: Boolean,
 				default: true
-			}
+			},
+			loadbgurl: Number
 		},
 		computed: {
 			list: {
@@ -200,7 +202,7 @@
 	};
 </script>
 
-<style  >
+<style  lang="scss">
 	.zhtx-imgs {
 		display: flex;
 		flex-wrap: wrap;
@@ -222,15 +224,34 @@
 	}
 	.zhtx-single {
 		position: relative;
-		width: 180rpx;
-		height: 180rpx;
-		border: 1px solid #ccc;
-		margin: 10rpx;
+		width: 354rpx;
+		height: 245rpx;
+		border: 1px dashed #ccc;
+		margin: 20rpx 10rpx;
+		
+	}
+	.bg0{
+		background:url("../../common/images/组 7@2x.png") no-repeat  center/100% 100%;
+	}
+	.bg1{
+		background:url("../../common/images/反@2x.png") no-repeat  center/100% 100%;
+	}
+	.bg2{
+		width: 526rpx;
+		height: 366rpx;
+		margin: 20rpx auto;
+		background:url("../../common/images/yyzz.png") no-repeat  center/100% 100%;
 	}
 	.zhtx-addNew {
 		display: flex;
 		justify-content: center;
-		align-items: center;	
+		align-items: center;
+		image {
+			width: 121rpx;
+			height: 121rpx;
+			display: block;
+		}
+			
 	}
 	text {
 		font-size: 50rpx;

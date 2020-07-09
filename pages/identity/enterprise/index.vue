@@ -14,28 +14,60 @@
       </view>
     </view>
     <view v-if="step==0" class="realname">
-        <view class="subhead">人脸识别</view>
-		<view></view>
         <view class="subhead">请扫描身份证</view>
-		<view>
-			<uImg
-				ref="upimg"
-				:canUploadFile="true"
-				:limit="limitNum"
-				:uploadFileUrl="uploadFileUrl"
-				:heaer="header"
-				:fileKeyName="name"
-				:uImgList.sync="uImgList"
-				@uploadSuccess="uploadSuccess"
-			></uImg>
+		<view class="idCard">
+			<view>
+				<uImg
+					ref="upimg"
+					:canUploadFile="true"
+					:limit="limitNum"
+					:uploadFileUrl="uploadFileUrl"
+					:heaer="header"
+					:loadbgurl="0"
+					:fileKeyName="name"
+					:uImgList.sync="uImgList"
+					@uploadSuccess="uploadSuccess"
+				></uImg>
+				<view class="grey f12"  align='center'>请上传身份证正面</view>
+			</view>
+			<view>
+				<uImg
+					ref="upimg"
+					:canUploadFile="true"
+					:limit="limitNum"
+					:uploadFileUrl="uploadFileUrl"
+					:heaer="header"
+					:loadbgurl="1"
+					:fileKeyName="name"
+					:uImgList.sync="uImgList"
+					@uploadSuccess="uploadSuccess"
+				></uImg>
+				<view class="grey f12"  align='center'>请上传身份证反面</view>
+			</view>
 		</view>
         <view class="subhead">基本信息</view>
         <tj_field class="f15" title="职业" align="r" v-model="field" placeholder="请输入真实姓名"></tj_field>
         <tj_field class="f15" title="毕业院校" align="r" v-model="field" placeholder="保存后无法修改"></tj_field>
+		<view align='center' @click="onlogin">下一步</view>
     </view>
     <view v-if="step==1" class="enterprise">
       <view class="subhead">营业执照</view>
-	  <view></view>
+	  <view  class="pb_20">
+		  <view>
+				<uImg
+					ref="upimg"
+					:canUploadFile="true"
+					:limit="limitNum"
+					:uploadFileUrl="uploadFileUrl"
+					:heaer="header"
+					:loadbgurl="2"
+					:fileKeyName="name"
+					:uImgList.sync="uImgList"
+					@uploadSuccess="uploadSuccess"
+				></uImg>
+				<view class="grey f12"  align='center'>请上传身份证正面</view>
+			</view>
+	  </view>
       <view class="subhead">基本信息</view>
       <tj_field
         labelWidth="180rpx"
@@ -53,8 +85,10 @@
         v-model="field"
         placeholder="请输入企业法人"
       ></tj_field>
-      <tj_cell class="f15" title="企业类型" value="请选择取车地点"></tj_cell>
+      <!-- <tj_cell class="f15" title="企业类型" value="请选择取车地点"></tj_cell> -->
+	  <view align='center' @click="onlogin">提交</view>
     </view>
+	
     <view v-if="step==2" class="submit">
 		<view align='center'>
 			<image :src='submitState[0].url'></image>
@@ -92,7 +126,7 @@ export default {
 	  header: {
 	  	// 如果需要header，请上传
 	  },
-	  uImgList: []
+	  uImgList: [],
     };
   },
   components: {
@@ -108,6 +142,8 @@ export default {
   },
   methods: {
 	  uploadSuccess(result) {
+		  console.log(111)
+		  console.log(result,'result')
 	  	if (result.statusCode == 200) {
 	  		//上传成功的回调处理
 	  		toast('上传成功');
@@ -181,6 +217,16 @@ export default {
       }
     }
   }
+  .realname,.enterprise{
+	  >view:nth-last-child(1){
+		  width: 690rpx;
+		  line-height: 88rpx;
+		  border-radius: 16rpx;
+		  color: #fff;
+		  margin:60rpx auto;
+		  background-image: linear-gradient(to right, #1777f9 , #2658ff);
+	  }
+  }
   .subhead {
     font-weight: 500;
     padding: 0 30rpx;
@@ -188,6 +234,12 @@ export default {
     height: 60rpx;
     line-height: 60rpx;
     background: rgba(241, 247, 254, 1);
+  }
+  .realname{
+	  .idCard{
+		  padding: 0 0 40rpx;
+		  display: flex;
+	  }
   }
   .tj-field {
     padding: 0 30rpx;
@@ -214,6 +266,7 @@ export default {
 		    
 	  }
   }
+
   
 }
 </style>

@@ -1,1 +1,0 @@
-<transition vue-id="2ceefde9-1" name="{{currentTransition}}" bind:__l="__l" vue-slots="{{['default']}}"><view hidden="{{!(currentValue)}}" class="{{['tj-popup _div',position?'tj-popup-'+position:'']}}"><slot></slot></view></transition>
