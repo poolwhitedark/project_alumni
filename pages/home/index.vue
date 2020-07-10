@@ -116,7 +116,7 @@ export default {
     uni.setTabBarItem({
       index: 1,
       pagePath: "pages/relation_find/relation_find",
-      iconPath: "static/images/tabbar/职业@2x.png",
+      iconPath: "static/images/tabbar/zhiye@2x.png",
       selectedIconPath: "static/images/tabbar/press@2x.png",
       text: "生涯"
     });

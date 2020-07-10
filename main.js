@@ -3,7 +3,6 @@ import App from './App'
 import './library/index.js'
 // import Cell from './library/cell/index'
 import store from 'store/index.js'
-import './common/style/font-face.css';
 import {
 	RouterMount
 } from './router'

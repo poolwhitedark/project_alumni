@@ -3,7 +3,7 @@
 		<tj_panel class="mt_15" round shadow v-for="(item, i) in identityData" :key="i">
 			<view @click="goIdentity(i)">
 				<tj_row flex align="center">
-					<view class="tj-col" style="flex: 1;">
+					<view  class="tj-col" style="flex: 1;">
 						<view class="f20 fb mt_8">{{ item.type }}</view>
 						<view class="f12 grey">{{ item.details }}</view>
 					</view>
@@ -25,12 +25,12 @@ export default {
 				{
 					type: '企业版',
 					details: '展现企业文化',
-					url: require('common/images/企业信息@2x.png')
+					url: require('common/images/qiye@2x.png')
 				},
 				{
 					type: '个人版',
 					details: '体现个人魅力',
-					url: require('common/images/好友 (1)@2x.png')
+					url: require('common/images/haoyou@2x.png')
 				}
 			],
 			user_id: ''

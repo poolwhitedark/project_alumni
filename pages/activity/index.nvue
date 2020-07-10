@@ -47,7 +47,7 @@
 			<view>
 				<scroll-view class="scroll-view_H" scroll-x="true" :show-scrollbar="false" @scroll="scroll">
 					<view v-for="item in 9" :key="item" class="scroll-view-item_H">
-						<img src="../../common/images/8_3前端开发@2x.png" alt="" srcset="" />
+						<img src="../../common/images/qianduankaifa.png" alt="" srcset="" />
 						<view class="f15 fb pt_10" align="center">前端工程师</view>
 						<tj_rate class="notes pt_5" v-model="rate" :size="14" disabled></tj_rate>
 					</view>
@@ -61,7 +61,7 @@
 			</view>
 			<view>
 				<div align="center" v-for="item in 4" :key="item">
-					<img class='mt_15' src="../../common/images/8_3前端开发@2x.png" alt="" srcset="" />
+					<img class='mt_15' src="../../common/images/qianduankaifa.png" alt="" srcset="" />
 					<view class="f15 fb pt_10" align="center">前端工程师</view>
 					<tj_rate class="notes pt_5" v-model="rate" :size="14" disabled></tj_rate>
 				</div>
@@ -301,7 +301,7 @@ export default {
 		width: 100%;
 		height: 88rpx;
 		padding: 14rpx 30rpx;
-		box-sizing: border-box;
+		// box-sizing: border-box;
 		z-index: 9;
 		background: #fff;
 		> view {
@@ -381,23 +381,18 @@ export default {
 		}
 	}
 }
-/* #ifndef APP-PLUS */
 page {
 	width: 100%;
 	min-height: 100%;
 	display: flex;
 }
 
-/* #endif */
-
 .tabs {
 	flex: 1;
 	flex-direction: column;
 	overflow: hidden;
 	background-color: #ffffff;
-	/* #ifdef MP-ALIPAY || MP-BAIDU */
 	height: 100vh;
-	/* #endif */
 }
 .subhead {
 	font-weight: 500;
@@ -411,19 +406,11 @@ page {
 .scroll-h {
 	width: 750rpx;
 	flex-direction: row;
-	/* #ifndef APP-PLUS */
 	white-space: nowrap;
-	/* #endif */
-	/* flex-wrap: nowrap; */
-	/* border-color: #cccccc;
-		border-bottom-style: solid;
-		border-bottom-width: 1px; */
 }
 
 .uni-tab-item {
-	/* #ifndef APP-PLUS */
 	display: inline-block;
-	/* #endif */
 	flex-wrap: nowrap;
 	padding-left: 34rpx;
 	padding-right: 34rpx;
@@ -441,9 +428,7 @@ page {
 	height: 80rpx;
 	line-height: 80rpx;
 	flex-wrap: nowrap;
-	/* #ifndef APP-PLUS */
 	white-space: nowrap;
-	/* #endif */
 }
 
 .uni-tab-item-title-active {
@@ -461,9 +446,7 @@ page {
 
 .scroll-v {
 	flex: 1;
-	/* #ifndef MP-ALIPAY */
 	flex-direction: column;
-	/* #endif */
 	width: 750rpx;
 	.uni-scroll-view-content {
 		> view:nth-last-of-type(1) {

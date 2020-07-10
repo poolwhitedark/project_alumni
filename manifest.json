@@ -48,7 +48,9 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         },
         "nativePlugins" : {
             "PP-BaiduOCR" : {

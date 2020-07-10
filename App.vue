@@ -29,6 +29,7 @@ export default {
 
 <style lang="scss">
 @import './common/style/module.scss';
+@import './common/style/font-face.css';
 uni-app, uni-page-head {
     display: block;
     box-sizing: border-box;
