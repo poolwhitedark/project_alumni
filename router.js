@@ -26,7 +26,7 @@ router.beforeEach((to, from, next) => {
 		next('/pages/login/login');
 		
 	} else if (to.path == '/pages/login/login' && token !== '') {
-		next('/pages/home/index');
+		next('/pages/identity/identity');
 	} else {
 		next()
 	}

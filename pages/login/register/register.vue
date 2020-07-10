@@ -217,7 +217,7 @@ export default {
 							}
 						})
 						.then(res => {
-							if (res.result.status === true) {
+							if (res.result.code === 200) {
 								console.log('0000000')
 								uni.showModal({
 									content: '该手机号已经存在',

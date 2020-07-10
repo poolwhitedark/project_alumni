@@ -95,11 +95,10 @@ export default {
 				})
 				.then(res => {
 					console.log(res);
-					if (res.result.status === 0) {
+					if (res.result.code === 200) {
 						const userId = this.user;
-						
-						uni.switchTab({
-							url: '/pages/home/index',
+						uni.navigateTo({
+							url: '/pages/identity/identity',
 							success() {
 								uni.setStorage({
 									key: 'token',

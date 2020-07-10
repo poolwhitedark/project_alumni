@@ -37,7 +37,7 @@
               <div class="sp">
 
                 <div class="noData">
-                  <img src="../../image/grzy_img_wushipan.png" alt />
+                  <!-- <img src="../../image/grzy_img_wushipan.png" alt /> -->
                   <h3>Ta还没有接入任何实盘</h3>
                 </div>
               </div>
@@ -46,196 +46,7 @@
               <h3>Ta还没有接入任何实盘</h3>
             </div> -->
             </div>
-            <!-- 动态 -->
-            <div class="dynamic_list" v-if="active==2">
-              <div v-for="(item,index) in communityList" :key="index">
-                <div @click="gocommentDetail(item.ThemeID)">
-                  <div>
-                    <img :src="item.AvatarUrl" alt srcset />
-                    <img src="../../common/image/v_da.png" alt />
-                  </div>
-                  <div class="pl_10">
-                    <p class="f14 f_bold">{{item.NickName}}</p>
-                    <p class="f12 pt_5">{{item.DateTime}}</p>
-                  </div>
-                </div>
-                <!-- type=1 普通红包 -->
-                <div class="type1" v-if="item.Type==1">
-                  <div>
-                    <p
-                      :class="['dynamic_Content'+index,ynamic_num[index]/3>26.5&&ynamicArray[index]?'dynamic_Content':'']">
-                      {{item.Content}}</p>
-                    <p v-if="ynamic_num[index]/3>26.5" class="pt_15 f_bold"
-                      @click="onFlag(ynamicArray[index],index,ynamicArray)">
-                      {{ynamicArray[index]?'阅读全文':'收起'}}
-                      <x-icon type="ios-arrow-down" size="16"></x-icon>
-                    </p>
-
-                    <div class="imglist">
-                      <img v-for="items in item.PhotoAlbum" :src="items" alt="">
-                    </div>
-                    <!-- 埋红包 -->
-                    <div class="mai" v-if="item.TaskId != 0" @click="gocommentDetail(item.ThemeID)">
-                      <img src="../../image/qz_img_xhb.png" alt="">
-                    </div>
-                  </div>
-
-                </div>
-                <!-- 红包动态 -->
-                <div class="type2" v-if="item.Type==2">
-                  <img src="../../image/redbg.png" alt="" class="red">
-               
-                  <h3></h3>
-                  <div>
-                    <p>{{item.TaskInfo.Content}}</p>
-                    <a class="btn" v-if="item.TaskInfo.IsClose==1" @click="gocommentDetail(item.ThemeID)">点击领取</a>
-                    <a class="btn" v-else >已领完</a>
-                  </div>
-                </div>
-                <!-- 3.合约动态 4.现货动态 -->
-                <div class="type1 type3" v-if="item.Type==3 || item.Type==4">
-                  <div>
-                    <p
-                      :class="['dynamic_Content'+index,ynamic_num[index]/3>26.5&&ynamicArray[index]?'dynamic_Content':'']">
-                      {{item.Content}}</p>
-                    <p v-if="ynamic_num[index]/3>26.5" class="pt_15 f_bold"
-                      @click="onFlag(ynamicArray[index],index,ynamicArray)">
-                      {{ynamicArray[index]?'阅读全文':'收起'}}
-                      <x-icon type="ios-arrow-down" size="16"></x-icon>
-                    </p>
-
-                  </div>
-                  <!-- <div class="sp" id="sp" v-if="item.ContractInfo" @click="oooofa(item.ContractInfo)">
-                      <div class="box c-r">
-                        <div class="top">
-                          <a  class="btn">多20倍</a>
-                          <p class="f32 c333 fb">{{item.ContractInfo.Currency}}</p>
-                          <i>平</i>
-                        </div>
-                        <div class="li">
-                          <div class="libox">
-                            <p class="f34 c333">5.555</p>
-                            <p class="f34 c333 ">20.62%</p>
-                            <p class="f34 c333 ">买入</p>
-                          </div>
-                          <div class="libox mt10">
-                            <p class="f24 c999">均</p>
-                            <p class="f24 c999">持仓量</p>
-                            <p class="f24 c999">方向</p>
-                          </div>
-                         
-                        </div>
-                        <div class="li2">
-                            <p class="f24 c999">20-2065052</p>
-                            <p class="btn f36 c333">实盘分享</p>
-                        </div>
-                      </div>
-                  </div> -->
-                  <div class="sp" id="sp" v-if="item.ContractInfo" @click="gocommentDetail(item.ThemeID)">
-                      <div class="box c-r">
-                        <div class="top">
-                          <a  class="btn">{{item.ContractInfo.Type}} {{item.ContractInfo.Multiple}} 倍</a>
-                          <p class="f32 c333 fb">{{item.ContractInfo.Name}}</p>
-                          <i>合约</i>
-                        </div>
-                        <div class="li">
-                          <div class="libox">
-                            <p class="f34 c333">{{item.ContractInfo.TransactionPrice}}</p>
-                            <p class="f34 c333 ">{{item.ContractInfo.TransactionNum}}%</p>
-                            <p class="f34 c333 " :class="[item.ContractInfo.Direction=='卖出平空'?'c-g':'c-r']">{{item.ContractInfo.Direction}}</p>
-                          </div>
-                          <div class="libox mt10">
-                            <p class="f24 c999">均</p>
-                            <p class="f24 c999">持仓量</p>
-                            <p class="f24 c999">方向</p>
-                          </div>
-                         
-                        </div>
-                        <div class="li2">
-                            <p class="f24 c999">{{item.ContractInfo.CreateTime}}</p>
-                            <p class="btn f36 c333">实盘操作分享</p>
-                        </div>
-                      </div>
-                  </div>
-                   <div class="sp" id="sp" v-if="item.StockInfo" @click="gocommentDetail(item.ThemeID)">
-                      <div class="box c-r">
-                        <div class="top">
-                          <!-- <a  class="btn">多{{item.StockInfo.Multiple}}倍</a> -->
-                          <p class="f32 c333 fb">{{item.StockInfo.Name}}-{{item.StockInfo.Currency}}</p>
-                          <i>现货</i>
-                        </div>
-                        <div class="li">
-                          <div class="libox">
-                            <p class="f34 c333">{{item.StockInfo.TransactionPrice}}</p>
-                            <p class="f34 c333 ">{{item.StockInfo.TransactionNum}}%</p>
-                            <p class="f34 c333" :class="[item.StockInfo.Type=='卖出'?'c-g':'c-r']">{{item.StockInfo.Type}}</p>
-                          </div>
-                          <div class="libox mt10">
-                            <p class="f24 c999">均</p>
-                            <p class="f24 c999">持仓量</p>
-                            <p class="f24 c999">方向</p>
-                          </div>
-                         
-                        </div>
-                        <div class="li2">
-                            <p class="f24 c999">{{item.StockInfo.CreateTime}}</p>
-                            <p class="btn f36 c333">实盘操作分享</p>
-                        </div>
-                      </div>
-                  </div>
-
-
-                </div>
-                <!-- 评论 -->
-                <div class="pinlun">
-                  <p v-for="(pop,i) in item.CommentList.slice(0,5)" :key="i">
-                    <span>{{pop.NickName}}：</span>
-                    {{pop.Content}}
-                  </p>
-
-                  <p v-if="item.CommentList==''">暂无评论</p>
-                  <div v-else>
-                    <p v-if="item.CommentList.length>5" class="f12">查看更多评论></p>
-                    <p v-if="item.CommentList.length>=0&&item.CommentList.length<=5">暂无更多评论</p>
-                  </div>
-                </div>
-
-                <!-- 4个点击按钮 -->
-                <div class="clicklist">
-                  <div @click="gocommentDetail(item.ThemeID)">
-                    <img src="../../common/image/icon_pl.png" alt srcset />
-                    {{item.CommentQuantity}}
-                  </div>
-                  <div @click="onLike(item.IsLike,item.ThemeID)">
-                    <img v-if="item.IsLike=='0'" src="../../common/image/icon_dz_normal.png" alt srcset />
-
-                    <img v-else src="../../common/image/icon_dz_press.png" alt srcset />
-                    {{item.LikeTimes}}
-                  </div>
-                  <div @click="goshareKX(item.ThemeID)">
-                    <img src="../../common/image/icon_fx.png" alt srcset />
-                  </div>
-                  <!-- <div v-if="UserID==SearchUserID" @click="onFlag(MoreArray[index],index,MoreArray)"> -->
-                  <div v-if="UserID==SearchUserID" @click="onFlag(index)">
-                    <img src="../../common/image/icon_gd_qz.png" alt srcset />
-                  </div>
-                   <div v-if="ismarkshow" class="marktop" @click="close03(index)">
-
-                   </div>
-                  <div  v-show="MoreArray[index]" class="f14">
-                    <div  @click="goToup(item.ThemeID)">
-                      <img src="../../common/image/icon_zd_gd.png" alt srcset />
-                      <span>{{item.Top=='0'?'置顶':'取消置顶'}}</span>
-                    </div>
-                    <div @click="delectTheme(item.ThemeID)">
-                      <img src="../../common/image/icon_sc.png" alt srcset />
-                      <span>删除</span>
-                    </div>
-                  </div>
-                   
-                </div>
-              </div>
-            </div>
+            
             <div id="warp" v-if="active!=0" :class="[active==1?'active1':'']"></div>
           </main>
         </div>
@@ -245,7 +56,7 @@
         <div class="header">
           <img src="../../common/images/dhl_icon_jt.png" alt="" @click="appGoback()" class="img1">
           <h3>{{Userinfo.NickName}}</h3>
-          <img src="../../image/dhl_icon_fxan_b.png" alt="" @click="goshareIndex()" class="img2">
+          <!-- <img src="../../image/dhl_icon_fxan_b.png" alt="" @click="goshareIndex()" class="img2"> -->
         </div>
         <div>
           <div v-for="(item,index) in tab" :key="index" @click="onTab(index)">
@@ -256,7 +67,7 @@
       </div>
 
       <div class="pop" v-if="ispop">
-        <img src="../../image/tc_icon_gb .png" alt class="close" @click="close()" />
+        <!-- <img src="../../image/tc_icon_gb .png" alt class="close" @click="close()" /> -->
         <div class="head">
           <h3 class="f32 c333 fb">分享实盘到广场</h3>
           <i class="btn" @click="goshareSPGC(poplist.ID)">发布</i>
@@ -314,7 +125,7 @@ import tj_myCard from 'library/myCard/index.vue';
             name: "dynamic"
           }
         ],
-        imageSrc: require("../../common/image/img_beijing_zc.png"),
+        imageSrc: '',
         getBarWidth: function (index) {
           return 44 + "px";
         },
@@ -640,7 +451,7 @@ import tj_myCard from 'library/myCard/index.vue';
         } else if (this.active == 2) {
           this.mescrollUp.empty = {
             warpId: "warp",
-            icon: require("../../common/image/img_wdt.png"),
+            // icon: require("../../common/image/img_wdt.png"),
             tip: "Ta说沉默是金"
           }
         } else {
@@ -1626,7 +1437,7 @@ console.log(opacity);
                   width: 190rpx;
                   height: 66rpx;
                   line-height: 74rpx;
-                  background: url('../../image/btnbg.png') no-repeat 100% 100%;
+                  // background: url('../../image/btnbg.png') no-repeat 100% 100%;
                   background-size: 100% 100%;
                   font-size: 24rpx;
                   color: #333;
@@ -2625,7 +2436,7 @@ console.log(opacity);
       width: 708rpx;
       height: 104rpx;
       line-height: 88rpx;
-      background: url("../../image/tongyong_img_daands.png") no-repeat;
+      // background: url("../../image/tongyong_img_daands.png") no-repeat;
       background-size: 100% 100%;
       text-align: center;
       font-size: 30rpx;

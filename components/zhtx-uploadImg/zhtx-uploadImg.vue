@@ -109,47 +109,48 @@
 			},
 
 			chooseFile() {
+				this.$emit('toIdentify')
 				//双重保证
-				// console.log(this.list);
-				if (this.list.length >= this.limit) {
-					toast('已达到最大上传数量')
-					return; 
-				}
+				// console.log(this.list,'pppp');
+				// if (this.list.length >= this.limit) {
+				// 	toast('已达到最大上传数量')
+				// 	return; 
+				// }
 				
-				let canUploadFile = this.canUploadFile;
-				let tempFiles;
-				if (canUploadFile) {
-					uni.chooseImage({
-						count: this.limit - this.list.length,
-						sizeType: ['original', 'compressed'], 
-						sourceType: ['album', 'camera'],
-						success: (res) => {
-							// console.log(res.tempFilePaths);
-							tempFiles = res.tempFilePaths;
+				// let canUploadFile = this.canUploadFile;
+				// let tempFiles;
+				// if (canUploadFile) {
+				// 	uni.chooseImage({
+				// 		count: this.limit - this.list.length,
+				// 		sizeType: ['original', 'compressed'], 
+				// 		sourceType: ['album', 'camera'],
+				// 		success: (res) => {
+				// 			// console.log(res.tempFilePaths);
+				// 			tempFiles = res.tempFilePaths;
 							
-							this.imageList = this.imageList.concat(tempFiles)
+				// 			this.imageList = this.imageList.concat(tempFiles)
 							
-							console.log(this.imageList);
-							this.list.push(...tempFiles)//如果图片一次性就超过这个值怎么使他赋的值回退
+				// 			console.log(this.imageList);
+				// 			this.list.push(...tempFiles)//如果图片一次性就超过这个值怎么使他赋的值回退
 							
-							// #ifdef H5
-							if (this.list.length >= this.limit) {
-								this.list.splice(this.limit)
-								toast('已达到最大上传数量')
-								return; 
-							}
-							// #endif
+				// 			// #ifdef H5
+				// 			if (this.list.length >= this.limit) {
+				// 				this.list.splice(this.limit)
+				// 				toast('已达到最大上传数量')
+				// 				return; 
+				// 			}
+				// 			// #endif
 							
-							this.$emit('update:uImgList', this.list); //类似双向数据绑定,更新数据, 使用.sync修饰
-							this.$forceUpdate();
-							console.log(this.list);
-						},
-						fail:err=>{
-							console.log(err);
-						}
-					});
+				// 			this.$emit('update:uImgList', this.list); //类似双向数据绑定,更新数据, 使用.sync修饰
+				// 			this.$forceUpdate();
+				// 			console.log(this.list);
+				// 		},
+				// 		fail:err=>{
+				// 			console.log(err);
+				// 		}
+				// 	});
 						
-				} 
+				// } 
 			},
 			
 			upload(){
@@ -197,6 +198,63 @@
 				}
 				
 			},
+			inter(inx) {
+				const _self = this;
+				const PPOCR = uni.requireNativePlugin('PP-BaiduOCR');
+			
+				if (inx == 1) {
+					PPOCR.IDFront({ "auto": false }, result => {
+						_self.sendmsg(result);
+					});
+				} else if (inx == 2) {
+					PPOCR.IDFront({ "auto": true }, result => {
+						_self.sendmsg(result);
+					});
+				} else if (inx == 3) {
+					PPOCR.IDBack({ "auto": false }, result => {
+						_self.sendmsg(result);
+					});
+				} else if (inx == 4) {
+					PPOCR.IDBack({ "auto": true }, result => {
+						_self.sendmsg(result);
+					});
+				} else if (inx == 5) {
+					PPOCR.Text({ "exact": false }, result => {
+						_self.sendmsg(result);
+					});
+				} else if (inx == 6) {
+					PPOCR.Text({ "exact": true }, result => {
+						_self.sendmsg(result);
+					});
+				} else if (inx == 7) {
+					PPOCR.CustomOrder({ "order": 122 }, result => {
+						_self.sendmsg(result);
+					});
+				}
+				else if (inx == 8) {
+					PPOCR.CustomOrder({ "order": 121 }, result => {
+						_self.sendmsg(result);
+					});
+				}
+			},
+			sendmsg(result) {
+				let _self = this;
+				_self.msg = JSON.stringify(result);
+				if (result.imgbase64)
+					_self.bitmapsave(result.imgbase64)
+			},
+			bitmapsave(basedata) {
+				let _self = this;
+				var bitmap = new plus.nativeObj.Bitmap("test");
+				console.log(_self.logoSrcs)
+				bitmap.loadBase64Data(basedata, function(e) {
+					bitmap.save('_doc/_tmp/ocr' + new Date().getTime() + '.png', {}, function(e) {
+						_self.logoSrcs = e.target;
+					});
+				}, function() {
+					console.log('加载Base64图片数据失败：' + JSON.stringify(e));
+				});
+			}
 			
 		}
 	};

@@ -28,8 +28,8 @@ export default {
 					url: require('common/images/企业信息@2x.png')
 				},
 				{
-					type: '企业版',
-					details: '展现企业文化',
+					type: '个人版',
+					details: '体现个人魅力',
 					url: require('common/images/好友 (1)@2x.png')
 				}
 			],
@@ -47,37 +47,35 @@ export default {
 			key: 'user_id',
 			success: function(res) {
 				that.user_id = res.data;
-				that.getUserInfor();
 			}
 		});
 	},
 	methods: {
-		getUserInfor() {
-			uniCloud
-				.callFunction({
-					name: 'userinfo',
-					data: {
-						phone: this.user_id
-					}
-				})
-				.then(res => {
-					console.log(res, 'res');
-					this._id=res.result.data._id
-				});
-		},
 		goIdentity(i) {
 			uniCloud
 				.callFunction({
 					name: 'version_choose',
 					data: {
-						user_id: this._id,
+						phone: this.user_id,
 						status: i + 1
 					}
 				})
 				.then(res => {
+					console.log(res, 'res', i);
+
 					if (i == 1) {
+						if (res.result.account_status == 1) {
+							uni.switchTab({
+								url: '/pages/home/index'
+							});
+						} else {
+							uni.navigateTo({
+								url: '/pages/identity/personal/index'
+							});
+						}
+					} else {
 						uni.navigateTo({
-							url: '/pages/identity/personal/index'
+							url: '/pages/identity/enterprise/index'
 						});
 					}
 				});

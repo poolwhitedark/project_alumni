@@ -26,7 +26,7 @@
 					:loadbgurl="0"
 					:fileKeyName="name"
 					:uImgList.sync="uImgList"
-					@uploadSuccess="uploadSuccess"
+					@tap="chooseFile"
 				></uImg>
 				<view class="grey f12"  align='center'>请上传身份证正面</view>
 			</view>
@@ -40,7 +40,6 @@
 					:loadbgurl="1"
 					:fileKeyName="name"
 					:uImgList.sync="uImgList"
-					@uploadSuccess="uploadSuccess"
 				></uImg>
 				<view class="grey f12"  align='center'>请上传身份证反面</view>
 			</view>
@@ -63,7 +62,7 @@
 					:loadbgurl="2"
 					:fileKeyName="name"
 					:uImgList.sync="uImgList"
-					@uploadSuccess="uploadSuccess"
+					@toIdentify="toIdentify(1)"
 				></uImg>
 				<view class="grey f12"  align='center'>请上传身份证正面</view>
 			</view>
@@ -115,7 +114,7 @@ export default {
     return {
       field: "",
       stepsTxt: ["实名认证", "企业认证", "提交"],
-	  step: 0,
+	  step: 1,
 	  submitState:[{url:require('common/images/组 3@2x.png'),txt:'请耐心等待，后台正在快马加鞭审核！'},{url:require('common/images/组 1@2x.png'),txt:'认证成功啦！'},{url:require('common/images/圆角矩形 3 拷贝@2x.png'),txt:'很遗憾，认证失败啦！'}],
 	  msg: '',
 	  length: 140,
@@ -141,6 +140,10 @@ export default {
   	}
   },
   methods: {
+	  toIdentify(e){
+		  console.log(e)
+		  this.$refs.upimg.inter(e);
+	  },
 	  uploadSuccess(result) {
 		  console.log(111)
 		  console.log(result,'result')

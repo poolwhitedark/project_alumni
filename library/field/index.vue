@@ -16,6 +16,7 @@
           @change="handleChange"
           @blur="handleBlur"
           @input="handleInput"
+          :maxlength="maxlength"
           style="font-size: 15px;"
         >
         <i
@@ -39,6 +40,7 @@ export default {
       type: String,
       default: "148rpx"
     },
+    maxlength:Number,
     must: Boolean,
     icon: String,
     placeholder: String,
