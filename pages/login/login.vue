@@ -61,7 +61,7 @@ export default {
 		//跳转到注册页面
 		onNavigationBarButtonTap: function(e) {
 			uni.navigateTo({
-				url: '../register/register'
+				url: './register/register'
 			});
 		},
 		getUser() {
@@ -95,10 +95,10 @@ export default {
 				})
 				.then(res => {
 					console.log(res);
-					if (res.result.status === 0) {
+					if (res.result.code === 200) {
 						const userId = this.user;
-						uni.switchTab({
-							url: '/pages/home/home',
+						uni.navigateTo({
+							url: '/pages/identity/identity',
 							success() {
 								uni.setStorage({
 									key: 'token',
@@ -112,6 +112,10 @@ export default {
 						});
 						this.$store.commit('setUser_id', this.user);
 					} else {
+						uni.showToast({
+						title:res.result.message,
+						icon:'none'
+					})
 						console.log('登陆失败');
 					}
 				});
@@ -180,7 +184,6 @@ export default {
 }
 
 .main {
-	width: 100%;
 	padding: 0 100rpx 160rpx;
 
 	.title {

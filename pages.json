@@ -1,94 +1,161 @@
 {
-	"pages": [ 
+	"pages": [
 		{
 			"path": "pages/login/login",
 			"style": {
-						"navigationBarTitleText": "",
-						"app-plus": {
-							"titleNView": {
-							"buttons": [{
-							"text": "注册",
-							"fontSize": "36rpx",
-							"float": "right"
-						}]
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"text": "注册",
+								"fontSize": "36rpx",
+								"float": "right"
+							}
+						]
 					}
 				}
 			}
 		},
 		{
-			"path": "pages/register/register",
+			"path": "pages/login/register/register",
 			"style": {}
-		}, {
-			"path": "pages/home/home",
-			"style": {
-				"navigationBarTitleText": ""
-			}
-		}, {
+		},
+		{
 			"path": "pages/relation_find/relation_find",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
-		}, {
+		},
+		{
 			"path": "pages/chat/chat",
 			"style": {
 				"navigationBarTitleText": ""
 			}
-		}, {
+		},
+		{
 			"path": "pages/user/user",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": true
 			}
-		}
-	    ,{
-            "path" : "pages/notice/notice",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/edit/edit",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/Room/Room",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/watchArticle/watchArticle",
-            "style" : {}
-        },
-		{
-		    "path" : "pages/text/index",
-		    "style" : {}
 		},
 		{
-		    "path" : "pages/text/list",
-		    "style" : {}
+			"path": "pages/notice/notice",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
 		},
 		{
-		    "path" : "pages/text/wangEditor",
-		    "style" : {}
+			"path": "pages/activity/index",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/edit/edit",
+			"style": {}
+		},
+		{
+			"path": "pages/Room/Room",
+			"style": {}
+		},
+		{
+			"path": "pages/watchArticle/watchArticle",
+			"style": {}
+		},
+		{
+			"path": "pages/text/index",
+			"style": {}
+		},
+		{
+			"path": "pages/text/list",
+			"style": {}
+		},
+		{
+			"path": "pages/text/card",
+			"style": {}
+		},
+		{
+			"path": "pages/text/wangEditor",
+			"style": {}
+		},
+		{
+			"path": "pages/identity/identity",
+			"style": {
+				"navigationBarTitleText": "选择版本"
+			}
+		},
+		{
+			"path": "pages/identity/personal/index",
+			"style": {
+				"navigationBarTitleText": "编辑资料"
+			}
+		},
+		{
+			"path": "pages/identity/personal/index",
+			"style": {
+				"navigationBarTitleText": "编辑资料"
+			}
+		},
+		{
+			"path": "pages/home/index"
+		},
+		{
+			"path": "pages/identity/enterprise/index",
+			"style": {
+				"navigationBarTitleText": "实名认证"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false,
+				"disableScroll": true,
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": false
+				},
+				"mp-alipay": {
+					"allowsBounceVertical": "NO"
+				}
+			}
+			
 		}
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarBackgroundColor": "#FFFFFF",
+		"navigationBarBackgroundColor": 
+		"#FFFFFF",
 		"backgroundColor": "#FFFFFF"
 	},
 	"tabBar": {
-		"color": "#555555",
-		"selectedColor": "#3c7de9",
+		"color": "#999",
+		"selectedColor": "#2658FF",
 		"backgroundColor": "#FFFFFF",
-		"list": [{
-				"pagePath": "pages/home/home",
+		"border": "0",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
 				"iconPath": "static/images/tabbar/home_before.png",
 				"selectedIconPath": "static/images/tabbar/home_after.png",
 				"text": "首页"
 			},
 			{
-				"pagePath": "pages/relation_find/relation_find",
-				"iconPath": "static/images/tabbar/search_before.png",
-				"selectedIconPath": "static/images/tabbar/search_after.png",
-				"text": "找人脉"
+				"pagePath": "pages/activity/index",
+				"iconPath": "static/images/tabbar/huodong@2x.png",
+				"selectedIconPath": "static/images/tabbar/活动.png",
+				"text": "活动"
 			},
 			{
 				"pagePath": "pages/notice/notice",
@@ -97,20 +164,20 @@
 				"text": "消息"
 			},
 			{
-				"pagePath": "pages/user/user",
+				"pagePath": "pages/mine/mine",
 				"iconPath": "static/images/tabbar/mine_before.png",
 				"selectedIconPath": "static/images/tabbar/mine_after.png",
 				"text": "我的"
 			}
 		]
 	},
-	"condition" : { 
-		"current": 0, 
+	"condition": {
+		"current": 0,
 		"list": [
 			{
 				"name": "",
-				"path": "", 
-				"query": "" 
+				"path": "",
+				"query": ""
 			}
 		]
 	}
