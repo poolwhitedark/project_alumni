@@ -115,7 +115,7 @@ export default {
       field: "",
       stepsTxt: ["实名认证", "企业认证", "提交"],
 	  step: 1,
-	  submitState:[{url:require('common/images/组 3@2x.png'),txt:'请耐心等待，后台正在快马加鞭审核！'},{url:require('common/images/组 1@2x.png'),txt:'认证成功啦！'},{url:require('common/images/圆角矩形 3 拷贝@2x.png'),txt:'很遗憾，认证失败啦！'}],
+	  submitState:[{url:require('common/images/zu3@2x.png'),txt:'请耐心等待，后台正在快马加鞭审核！'},{url:require('common/images/zu1@2x.png'),txt:'认证成功啦！'},{url:require('common/images/juxing1@2x.png'),txt:'很遗憾，认证失败啦！'}],
 	  msg: '',
 	  length: 140,
 	  placeholder: '欢迎反馈任何意见和问题,您的反馈也是我们产品的动力哦',

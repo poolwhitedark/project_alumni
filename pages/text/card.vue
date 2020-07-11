@@ -51,7 +51,7 @@ export default {
 					type: '企业版',
 					details: '展现企业文化',
 					url: 'static/images/企业信息@2x.png',
-					icon: 'static/images/标签@2x.png',
+					icon: 'static/images/biaoqian@2x.png',
 					
                     follows:[
                         { name:'关注',num:5835},

@@ -75,8 +75,8 @@ export default {
           occupation: "视觉传达-UI设计师",
           type: "企业版",
           details: "展现企业文化",
-          url: require("common/images/头像@2x.png"),
-          icon: require("common/images/标签@2x.png"),
+          url: require("common/images/touxiang1@2x.png"),
+          icon: require("common/images/biaoqian@2x.png"),
 
           follows: [
             { name: "关注", num: 5835 },
@@ -91,8 +91,8 @@ export default {
           occupation: "视觉传达-UI设计师",
           type: "企业版",
           details: "展现企业文化",
-          url: require("common/images/头像@2x.png"),
-          icon: require("common/images/标签@2x.png"),
+          url: require("common/images/touxiang1@2x.png"),
+          icon: require("common/images/biaoqian@2x.png"),
 
           follows: [
             { name: "关注", num: 5835 },

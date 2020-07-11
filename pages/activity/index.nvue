@@ -27,7 +27,7 @@
 							:style="tab.data2.length == index3 + 1 && 'border:0;'"
 						></media-item>
 					</view>
-					<view><image src="../../common/images/添加@2x.png" /></view>
+					<view><image src="../../common/images/tianjia@2x.png" /></view>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -40,7 +40,7 @@
 		<main>
 			<view class="identifier">
 				<text>
-					<img src="../../common/images/火@2x.png" alt="" srcset="" />
+					<img src="../../common/images/huo@2x.png" alt="" srcset="" />
 					热门职业
 				</text>
 			</view>
@@ -55,7 +55,7 @@
 			</view>
 			<view class="identifier">
 				<text>
-					<img src="../../common/images/推荐@2x.png" alt="" srcset="" />
+					<img src="../../common/images/tuijian@2x.png" alt="" srcset="" />
 					推荐职业
 				</text>
 			</view>

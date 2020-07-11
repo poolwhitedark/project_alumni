@@ -5,16 +5,16 @@
 
       <div class="header" ref="ref4" v-if="!searchBarFixed2">
         <img src="../../common/images/dhl_iocn_fh.png" alt="" @click="appGoback()" class="img1">
-        <img src="../../common/images/设置.png" alt="" @click="goshareIndex()" class="img2">
+        <img src="../../common/images/shezhi.png" alt="" @click="goshareIndex()" class="img2">
 
       </div>
       <div class="header" ref="ref4" v-if="searchBarFixed2" :style="opacity2">
         <img src="../../common/images/dhl_icon_jt.png" alt="" @click="appGoback()" class="img1">
         <h3>{{Userinfo.NickName}}</h3>
-        <img src="../../common/images/设置.png" alt="" @click="goshareIndex()" class="img2">
+        <img src="../../common/images/shezhi.png" alt="" @click="goshareIndex()" class="img2">
 
       </div>
-      <img src="../../common/images/图层 2 拷贝@2x.png" class="bgimg" :style="opacity" alt="">
+      <img src="../../common/images/tucheng2@2x.png" class="bgimg" :style="opacity" alt="">
       <mescroll-vue ref="mescroll" :down="mescrollDown" :up="mescrollUp" @init="mescrollInit" class="scrollView">
 
         <div class="mine-main mainJR">
@@ -220,8 +220,8 @@ import tj_myCard from 'library/myCard/index.vue';
 				        occupation:'视觉传达-UI设计师',
 						type: '企业版',
 						details: '展现企业文化',
-						url: require('common/images/头像@2x.png'),
-            icon: require('common/images/标签@2x.png'),
+						url: require('common/images/touxiang1@2x.png'),
+            icon: require('common/images/biaoqian@2x.png'),
             icon2: require('common/images/dhl_icon_jt 3@2x.png'),
 						
 				        follows:[

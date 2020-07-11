@@ -54,7 +54,7 @@ export default {
 	data() {
 		return {
 			preview: require('common/images/guanxingliang.png'),
-			support: require('common/images/点赞@2x(1).png')
+			support: require('common/images/dianzan@2x(1).png')
 		};
 	},
 	methods: {

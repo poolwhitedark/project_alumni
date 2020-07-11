@@ -153,7 +153,7 @@
 			},
 			{
 				"pagePath": "pages/activity/index",
-				"iconPath": "static/images/tabbar/活动@2x.png",
+				"iconPath": "static/images/tabbar/huodong@2x.png",
 				"selectedIconPath": "static/images/tabbar/活动.png",
 				"text": "活动"
 			},

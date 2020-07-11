@@ -7,7 +7,7 @@
 			</view>
 			<view v-if="limit>list.length" class="zhtx-single zhtx-addNew" :class="'bg'+loadbgurl" @tap="chooseFile" >
 				<!-- <text class="zhtx-add">+</text> -->
-				<image src="../../common/images/相机@2x.png"></image>
+				<image src="../../common/images/xiangji@2x.png"></image>
 			</view>
 		</view>
 		<!-- <view class="num">
@@ -289,10 +289,10 @@
 		
 	}
 	.bg0{
-		background:url("../../common/images/组 7@2x.png") no-repeat  center/100% 100%;
+		background:url("../../common/images/zu7@2x.png") no-repeat  center/100% 100%;
 	}
 	.bg1{
-		background:url("../../common/images/反@2x.png") no-repeat  center/100% 100%;
+		background:url("../../common/images/fan@2x.png") no-repeat  center/100% 100%;
 	}
 	.bg2{
 		width: 526rpx;
