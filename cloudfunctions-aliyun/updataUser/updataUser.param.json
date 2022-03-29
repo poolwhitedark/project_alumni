@@ -1,6 +1,0 @@
-// 本文件中的json内容将在云函数【上传并运行】时作为参数传给云函数。
-
-{
-	"avatarUrl": "http://tmp/wx3fbd8c8ce5e4c98d.o6zAJs3iYxNTaxN1KobZwCgSliX4.7z4NynfvwcpG9a77d09d315259ea8a8f4e78cd25a74b.png",
-	"user_id": "18094941835"
-}
