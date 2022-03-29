@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    password: MyNewPass4!
+    url: jdbc:mysql://47.99.190.97:3306/xiaohazhiyou?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 47.99.190.97
+    port: 6379
+    database: 0
+    password: 123456
+mybatis-plus:
+  mapper-locations: classpath*:com/baron/xiaohazhiyouapi/mapper/xml/*Mapper.xml
+  type-aliases-package: com.baron.xiaoha.model.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

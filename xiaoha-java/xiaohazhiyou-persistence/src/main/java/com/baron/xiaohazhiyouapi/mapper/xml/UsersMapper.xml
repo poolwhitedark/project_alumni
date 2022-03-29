@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baron.xiaohazhiyouapi.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.baron.xiaohazhiyouapi.model.entity.Users">
+        <id column="id" property="id" />
+        <result column="nickname" property="nickname" />
+        <result column="address" property="address" />
+        <result column="avatar" property="avatar" />
+        <result column="introduce" property="introduce" />
+        <result column="gender" property="gender" />
+        <result column="prefer" property="prefer" />
+        <result column="school" property="school" />
+        <result column="major" property="major" />
+        <result column="occupation" property="occupation" />
+        <result column="lng_lat" property="lngLat" />
+        <result column="occupation_desc" property="occupationDesc" />
+        <result column="is_show" property="isShow" />
+        <result column="identity_type" property="identityType" />
+        <result column="status" property="status" />
+        <result column="answer5" property="answer5" />
+        <result column="answer28" property="answer28" />
+        <result column="answer93" property="answer93" />
+        <result column="home_address" property="homeAddress" />
+        <result column="classes" property="classes" />
+        <result column="education" property="education" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>
