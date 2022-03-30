@@ -1,0 +1,134 @@
+@charset "UTF-8";
+@import "../../../lib/weui.wxss";
+
+.contraint {
+  width: 100vw;
+  padding: 160rpx 30rpx 19rpx ;
+  box-sizing: border-box;
+}
+.contraint >view:nth-of-type(1){
+  border: 1px solid #999;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10rpx 0;
+  margin-bottom: 20rpx;
+  width: 50rpx;
+  text-align: center;
+  float: right;
+}
+
+.item {
+  display: flex;
+  border-bottom: 1px solid #2658FF;
+  margin: 0 37rpx;
+ 
+  padding: 34rpx 0 31rpx;
+}
+.professional_item_input {
+  width: 100%;
+  font-size: 26rpx;
+  color: rgba(196, 200, 220, 1);
+  padding-left: 140rpx;
+}
+.placeholder{
+  font-size: 13px;
+  color: rgba(196, 200, 220, 1);
+}
+.zhanghao {
+  width: 37rpx;
+  height: 41rpx;
+  margin:0 4.5rpx;
+}
+.item-img{
+  width: 46rpx;
+  height: 41rpx;
+}
+
+.diqu {
+  font-family: Adobe Heiti Std;
+  font-weight: normal;
+  color: rgba(122, 124, 138, 1);
+}
+.image_sex {
+  width: 46rpx;
+  height: 28rpx;
+}
+.image_professional {
+  width: 20rpx;
+  height: 43rpx;
+  margin: 0 13rpx;
+}
+.image_women {
+  margin-left: 119rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+.image_school {
+  width: 46rpx;
+  height: 33rpx;
+}
+.image_men {
+  margin-left: 110rpx;
+  width: 141rpx;
+  height: 140rpx;
+}
+.itemsMainView {
+  background-color: white;
+  padding-bottom: 10rpx;
+}
+.hotItem {
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+  display: inline-table;
+  border-radius: 26rpx;
+  border: 3rpx solid rgba(38, 88, 25, 1);
+}
+.arrowIcon image{
+  width: 14rpx;
+  height: 24rpx;
+}
+.submit{
+  position: fixed;
+  bottom: 60rpx;
+  width: 690rpx;
+}
+.button {
+  width: 467rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  margin: auto;
+  background: -webkit-linear-gradient(135deg, #2759ff 0%, #1777f9 100%);
+  background: linear-gradient(-45deg, #2759ff 0%, #1777f9 100%);
+}
+.prefer_text {
+  font-size: 26rpx;
+  font-family: Adobe Heiti Std;
+  font-weight: normal;
+  color: #9b9ea7;
+  line-height: 48rpx;
+}
+.black{
+  color: #333;
+}
+.prefer_item {
+  margin:70rpx 0 10rpx;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  text-align: center;
+}
+
+.prefer_text1 {
+  color: rgba(45, 57, 97, 1);
+  font-size: 26rpx;
+  font-family: Adobe Heiti Std;
+  font-weight: normal;
+  line-height: 48rpx;
+}
+.hotItem1 {
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+  display: inline-table;
+  border-radius: 26rpx;
+  border: 3rpx solid rgba(38, 88, 255, 1);
+}

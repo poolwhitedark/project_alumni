@@ -1,0 +1,120 @@
+@charset "UTF-8";
+.login-container{
+  padding-top: 150rpx;
+}
+.pwdCol {
+  line-height: 80rpx;
+  color: #a2afc8;
+}
+.uni-input-placeholder {
+  position: absolute;
+  top: auto !important;
+  left: 0;
+  color: #999;
+  padding-left: 39rpx;
+  font-size: 12rpx;
+}
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 88rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.top-bar .top-bar-left {
+  float: right;
+  margin-left: 50rpx;
+}
+.top-bar .top-bar-left .text {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 510;
+  color: #333333;
+  line-height: 88rpx;
+  padding-right: 56rpx;
+}
+.logo .logo-image {
+  width: 320rpx;
+  height: 300rpx;
+  margin-top: 40rpx;
+}
+.main {
+  padding: 0 100rpx 240rpx;
+}
+.main .title {
+  font-size: 56rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #272832;
+  line-height: 80rpx;
+}
+.main .slogan {
+  text-align: center;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #32373f;
+}
+.main .inputs {
+  padding-top: 52rpx;
+  position: relative;
+}
+.main .inputs .input {
+  height: 88rpx;
+  width: 560rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #272832;
+  line-height: 88rpx;
+  border-bottom: 0.2rpx solid #cfced3;
+}
+.main .inputs > .code {
+  position: absolute;
+  bottom: 0;
+  right: 50rpx;
+  z-index: 88;
+}
+.main .tips {
+  float: left;
+  color: #ff5d5b;
+  line-height: 56rpx;
+}
+.wxIcon {
+  width: 96rpx;
+  height: 96rpx;
+}
+.submit button {
+  margin: 0 auto;
+  width: 580rpx;
+  height: 96rpx;
+  background: #2658ff;
+  box-shadow: 0px 20px 16px -18px #2658ff;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  font-weight: 520;
+  color: white;
+  line-height: 96rpx;
+  text-align: center;
+}
+.submit button:active {
+  background-color: #48689e;
+}
+.wx button{
+  line-height: 0;
+  background: #fff;
+}
+.checkbox{
+  position: fixed;
+  bottom: 100rpx;
+  width: 100%;
+}
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+}
+.test-underline {
+  text-decoration: underline;
+}
+
+
+

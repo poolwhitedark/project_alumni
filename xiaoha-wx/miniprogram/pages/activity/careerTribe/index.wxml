@@ -1,0 +1,43 @@
+<view class="careerTribe_container">
+	<view class="_main">
+		<view class="partition f18 fb">
+			<view>我的部落</view>
+			<view wx:if="{{moreMyTribeList.length>3}}" class="f14 grey" bindtap='getMoreMyTribeList'>
+				{{text}}
+			</view>
+		</view>
+		<scroll-view class="scroll-view_H" scroll-x="{{true}}">
+			<block wx:for="{{myTribeList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+				<view class="scroll-view-item_H"  data-id="{{item.id}}" bindtap="gotoDetail">
+					<image src="{{item.icon}}" alt srcset class="_img"></image>
+					<view>{{item.name}}</view>
+				</view>
+			</block>
+		</scroll-view>
+		<view class="partition f18 fb">
+			<view>推荐部落</view>
+		</view>
+		<scroll-view class="scroll-view_H" scroll-x="{{true}}">
+			<block wx:for="{{recommendTribeList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+				<view class="scroll-view-item_H" bindtap="onDetail" data-id="{{item.id}}" bindtap="gotoDetail">
+					<image src="{{item.icon}}" alt srcset class="_img"></image>
+					<view>{{item.name}}</view>
+				</view>
+			</block>
+		</scroll-view>
+		<view class="partition f18 fb">
+			<view>精英部落</view>
+			<view bindtap='getBestTribe'>
+				<image src="../../../images/tabbar/Refresh.png"></image>
+			</view>
+		</view>
+		<scroll-view class="scroll-view_H" scroll-x="{{true}}" >
+			<block wx:for="{{bestTribeList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+				<view class="scroll-view-item_H" bindtap="onDetail" data-id="{{item.id}}" bindtap="gotoDetail">
+					<image src="{{item.icon}}" alt srcset class="_img"></image>
+					<view>{{item.name}}</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>

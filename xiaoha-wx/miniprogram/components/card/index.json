@@ -1,0 +1,6 @@
+
+{
+  "usingComponents": {"tj_panel": "/components/panel/index",
+    "tj_row": "/components/row/index", "tj_rate": "/components/rate/index"},
+  "component": true
+}

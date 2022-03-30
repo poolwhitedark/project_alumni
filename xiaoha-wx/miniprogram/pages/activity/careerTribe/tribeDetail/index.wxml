@@ -1,0 +1,32 @@
+<!--pages/activity/careerTribe/tribeDetail/index.wxml-->
+<view class="tribeDetail_container">
+  <view class="_main">
+     <view class="tribe_introduce">
+         <view class="left">
+             <image src="{{info.icon}}"></image> 
+         </view>
+           <view class="right">
+             <text class="name pt_10">{{info.name}}</text>
+             <view class="recommend">
+               <text class="remok">推荐星级:</text><image src="../../../../images/icon_xingxing@2x.png" wx:for="{{info.stars}}" class="level_icon"></image>
+             </view>
+         </view>
+     </view>
+    	<view class="identifier">
+			<text >部落宗旨</text>
+		</view>
+    <view class="tribe_study">
+     {{info.introduce}}
+    </view>
+    	<view class="identifier">
+			<text >部落接头人</text>
+		</view>
+    <view class="QRcode">
+       <image src="{{info.qrCode}}" show-menu-by-longpress></image>
+    </view>
+    <view class="QRcode_text">长按保存上面二维码，加接头人微信 后输入暗号即可加入部落</view>
+    <view class="btn" bindtap="getTribe" >
+      {{info.state?"已获取暗号":"点击获取暗号"}}
+    </view>
+  </view>
+</view>

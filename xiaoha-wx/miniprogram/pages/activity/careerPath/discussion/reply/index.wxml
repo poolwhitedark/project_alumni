@@ -1,0 +1,36 @@
+<view class="discussion-container f14">
+	<view class="list ">
+		<view class="list_item">
+			<view class="mr_8 ">
+				<image class="_image " src="{{reply.avatar}}"></image>
+			</view>
+			<view>
+				<view class="fb space-between">
+					<view>{{reply.nickname}} <text class="f13 light-grey">{{reply.status}}</text></view>
+					<view bindtap="report" class="light-grey">举报</view>
+				</view>
+				<view class="user-content-view pt_10 {{reply.isF?'hide':'show'}}">
+					<text  id="wdy" class="user-content">{{reply.content}}</text>
+				</view>
+				<view class="light-grey tr row-height" wx:if="{{reply.colNum>3}}" bindtap="change" data-index="{{index}}">
+					{{reply.isF?'展开全部':'收起'}}
+				</view>
+				<view class="space-between row-height">
+					<view>{{reply.createTime}}</view>
+					<view>{{reply.starNum}}
+						<image bindtap="star" src="{{reply.starType==1?'../../../../../images/tabbar/Fabulous_before.png':'../../../../../images/tabbar/Fabulous_after.png'}}"></image>
+						<image data-item="{{item}}" bindtap="onReply" class="ml_15" src="../../../../../images/tabbar/news.png"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="reply">
+			<view class="mainColor tc f18">
+				<view bindtap="goback" class="tj-icon tj-guanbi f12 fb"></view> 回复楼主
+			</view>
+			<view class="pl_10">我的看法：</view>
+			<textarea placeholder="请发表评论" bindinput="getContent" value="{{content}}"></textarea>
+			<view bindtap="addComment">发布评论</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,11 @@
+<view class="mine-editor-revise">
+	<view>
+		<input type="text" placeholder="{{reviseData.content}}" value="{{value}}" bindinput="getValue" maxlength="{{maxlength}}"></input>
+		<text wx:if='{{reviseData.index!==3&&reviseData.index!==4}}'>{{surplus}}</text>
+	</view>
+	<view wx:if="{{preserve}}" class="f14 bgmainColor" style="color:#fff;" bindtap="submit">保存</view>
+	<view wx:else class="f14 bg-grey-ss">保存</view>
+	<view class="select" wx:if="{{show}}">
+		<view wx:for='{{array}}' data-item="{{item}}"  bindtap="selection" >{{item}}</view>
+	</view>
+</view>

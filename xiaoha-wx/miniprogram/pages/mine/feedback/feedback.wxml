@@ -1,0 +1,13 @@
+<view class="feedback-container">
+	<view class="contant">
+		<view class="currentWordNumber">{{currentWordNumber||0}}/{{max}}</view>
+		<textarea name="bindTextAreaBlur" placeholder="请您留下宝贵的意见或建议，我们将会不断改进让您满意（内容不少于10个字）" bindinput="getValueLength" value="{{content}}" maxlength="{{max}}" minlength="{{min}}" >
+      <text class="minWord">{{minWord}}</text>
+     </textarea>
+	</view>
+	<view class="phone">
+		<view>请留下您的手机号方便我们回复您</view>
+		<input type="text" placeholder="如：15864562684" value="{{phone}}" bindinput="getPhone" maxlength="11"></input>
+	</view>
+	<button class="Submit" bindtap="Submit" style="width:60vw">提交</button>
+</view>

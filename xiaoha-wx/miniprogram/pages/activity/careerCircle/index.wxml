@@ -1,0 +1,42 @@
+<view class='careerCircle'>
+	<view class="partition">我的小哈</view>
+	<view bindtap="goIdentity">
+		<image src="{{careerCircle.image}}"></image>
+	</view>
+	<view class="partition">已入驻生涯</view>
+	<view class='inner'>
+		<movable-area>
+			<view class="grey f12 subhead">主生涯</view>
+			
+			<view class="mb_20 mt_20">
+				<block wx:if="{{careerCircle.mainCareer.careerName!=''}}">
+					<view class='item' id="{{careerCircle.mainCareer.id}}" data-index='-1' bindtap="onDetail" data-item="{{careerCircle.mainCareer}}"  bindlongpress='_longtap' bindtouchstart='touchs' bindtouchend='touchend' catchtouchmove='touchm'>
+						<image src="{{careerCircle.mainCareer.icon}}" alt srcset class="_img"></image>
+						<view class="f15 fb pt_10">{{careerCircle.mainCareer.careerName}}</view>
+						<button data-id="{{careerCircle.mainCareer.id}}" catchtap="settlement" data-tag="{{careerCircle.mainCareer.tag}}">取消入驻</button>
+					</view>
+				</block>
+			</view>
+			<view class="grey f12 subhead">辅生涯</view>
+			
+			<view class="mb_20 mt_20">
+				<block wx:for="{{careerCircle.assistCareerList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+					<view class='item' id="{{item.id}}" data-index='{{i}}' bindtap="onDetail" data-item="{{item}}" bindlongpress='_longtap' bindtouchstart='touchs' bindtouchend='touchend' catchtouchmove='touchm'>
+						<image src="{{item.icon}}" alt srcset class="_img"></image>
+						<view class="f15 fb pt_10">{{item.careerName}}</view>
+						<button data-id="{{item.id}}" catchtap="settlement" data-tag="{{item.tag}}">取消入驻</button>
+					</view>
+				</block>
+				
+			</view>
+			
+			<movable-view x="{{x}}" y="{{y}}" direction="all" damping="{{5000}}" friction="{{1}}" disabled="{{disabled}}">
+				<view hidden='{{hidden}}' class='item-move'>
+						<image src="{{movableInfo.icon}}" alt srcset class="_img"></image>
+						<view class="f15 fb pt_10">{{movableInfo.careerName}}</view>
+						<button>取消入驻</button>
+					</view>
+			</movable-view>
+		</movable-area>
+	</view>
+</view>

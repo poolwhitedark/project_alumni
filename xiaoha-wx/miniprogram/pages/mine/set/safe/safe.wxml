@@ -1,0 +1,15 @@
+<view class="safe">
+  <view class="phone" wx:for='{{accountSafe}}' bindtap="modifyPhone" data-id="{{index}}" wx:key="i">
+    <view>
+    </view>
+    <view>
+      <view>
+        {{item.title}}
+      </view>
+      <view class="grey">
+        {{item.content}}
+        <image src="{{arrowIcon}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

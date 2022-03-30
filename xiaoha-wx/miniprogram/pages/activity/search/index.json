@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "tj_rate": "/components/rate/index",
+    "tj_panel": "/components/panel/index",
+    "tj_row": "/components/row/index"
+  }
+}

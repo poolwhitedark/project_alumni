@@ -1,0 +1,29 @@
+<view class="content">
+	<view class="title"><text class="f18 fb" >{{resetPwd?'忘记密码':'注册小哈账号'}}</text>
+		<view class="f12 pt_10 _p">{{resetPwd?'下次不要忘了呦！':'输入手机号进行注册'}}</view>
+	</view>
+	<view class="main">
+		<view class="inputs">
+			<view class="inputs-div">
+				<view class="f12 pt_10 _p">手机号</view><input class="input" type="number" maxlength="11" value="{{phoneNum}}" bindinput="getPhoneNum" />
+			</view>
+			<view class="inputs-div">
+				<view class="f12 _p">验证码</view><input class="input" type="text" value="{{code}}" bindinput="getCode" /><button class="f12" style="{{(smsFlag?'background:rgb(38, 113, 255);color:#fff;':'')}}" bindtap="checkPhone">{{smsFlag?'获取验证码':'剩余'+startVal+'s'}}</button>
+			</view>
+			<view class="inputs-div">
+				<view class="f12 _p">新密码</view>
+				<input wx:if="{{show1}}" class="input" type="text" value="{{password}}" bindblur="checknumber" bindinput="getPassword" />
+				<input wx:else class="input" type="password" value="{{password}}" bindblur="checknumber" bindinput="getPassword" />
+				<image class="show" src="{{showurl1}}" data-type="1" catchtap="showon"></image>
+			</view>
+			<view class="inputs-div">
+				<view class="f12 _p">确认密码</view>
+				<input wx:if="{{show2}}"  class="input" type="text" value="{{check_password}}" bindblur="check" bindinput="getCheck_password" />
+				<input wx:else class="input" type="password" value="{{check_password}}" bindblur="check" bindinput="getCheck_password" />
+				<text hidden="{{!(checkshow)}}" class="checknumber">{{rulesTxt}}</text>
+				<image class="show" src="{{showurl2}}" data-type="2" bindtap="showon"></image>
+			</view>
+		</view>
+	</view>
+	<view class="submit" bindtap="submit">{{registerTxt}}</view>
+</view>

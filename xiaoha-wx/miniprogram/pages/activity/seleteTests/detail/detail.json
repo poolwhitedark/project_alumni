@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "生涯题库",
+  "usingComponents": {
+    "tj_panel": "/components/panel/index"
+  }
+}

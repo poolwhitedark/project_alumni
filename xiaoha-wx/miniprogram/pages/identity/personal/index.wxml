@@ -1,0 +1,98 @@
+<view class="contraint">
+	<view bindtap="cancel"><view class="grey tj-icon tj-guanbi f12 fb"></view></view>
+	<form catchsubmit="formSubmit">
+		<!-- <view class="item">
+			<view class="item-img tc">
+				<image class="zhanghao" src="{{images[0]}}"></image>
+			</view>
+			<input class="professional_item_input black" placeholder-class="placeholder" placeholder="请填写您的小哈昵称" name="nickname"></input>
+		</view>
+		<view class="item" style="border:0">
+			<view class="item-img tc">
+				<image class="image_sex" src="{{images[1]}}"></image>
+			</view>
+			<view class="professional_item_input" name="gender">请选择您的性别</view>
+		</view>
+		<view class="item">
+			<image wx:if="{{man_isShow}}" class="image_men" src="{{man_unchoose_url}}" bindtap="man_image_click"></image>
+			<image wx:else class="image_men" src="{{man_choose_url}}" bindtap="man_image_click"></image>
+			<image wx:if="{{woman_isShow}}" class="image_women" src="{{woman_unchoose_url}}" bindtap="woman_image_click"></image>
+			<image wx:else class="image_women" src="{{woman_choose_url}}" bindtap="woman_image_click"></image>
+		</view>
+		<block wx:if="{{userInfo.type==2}}">
+			<view class="item" bindtap="handleClick" data-index="4" data-title="学校" data-content="{{school}}">
+				<view class="item-img tc">
+					<image class="image_school" src="{{images[2]}}"></image>
+				</view>
+				<view class="professional_item_input {{userInfo.school.length<=0?'':'black'}}">{{userInfo.school.length<=0?'请填写您的毕业学校':userInfo.school}} </view>
+				<view class="arrowIcon">
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+			<view class="item" bindtap="handleClick" data-index="3" data-title="职业" data-content="{{occupation}}">
+				<view class="item-img tc">
+					<image class="image_professional" src="{{images[3]}}"></image>
+				</view>
+				<view class="professional_item_input {{userInfo.occupation.length<=0?'':'black'}}"> {{userInfo.occupation.length<=0?'请填写您的现任职业':userInfo.occupation}} </view>
+				<view class="arrowIcon">
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</block>
+		<block wx:else>
+			<view class="item" bindtap="handleClick" data-index="4" data-title="学校">
+				<view class="item-img tc">
+					<image class="image_school" src="{{images[2]}}"></image>
+				</view>
+				<view class="professional_item_input {{userInfo.school.length<=0?'':'black'}}">{{userInfo.school.length<=0?'请填写您的在读学校':userInfo.school}} </view>
+				<view class="arrowIcon">
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+			<view class="item" bindtap="handleClick" data-index="3" data-title="专业">
+				<view class="item-img tc">
+					<image class="image_professional" src="{{images[5]}}"></image>
+				</view>
+				<view class="professional_item_input {{userInfo.major.length<=0?'':'black'}}"> {{userInfo.major.length<=0?'请填写您的在读专业':userInfo.major}}</view>
+				<view class="arrowIcon">
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</block>
+		<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+			<view class="item">
+				<view class="item-img tc">
+					<image class="zhanghao" src="{{images[6]}}"></image>
+				</view>
+				<view class="professional_item_input {{region.length<=0?'':'black'}}">
+					{{region.length<=0?"请选择您的家乡":region[0]+" "+region[1]+" "+region[2]}}
+				</view>
+				<view class="arrowIcon">
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</picker>
+
+		  <picker mode="multiSelector" bindchange="bindYearPickerChange"  value="{{yearIndex}}" range="{{yearArray}}">
+			<view class="item">
+				<view class="item-img tc">
+					<image class="zhanghao" src="{{images[7]}}"></image>
+				</view>
+				<view class="professional_item_input {{yearIndex.length<=0?'':'black'}}">
+					{{yearIndex.length<=0?"请选择年级":yearArray[0][yearIndex[0]]+" "+yearArray[1][yearIndex[1]]}}
+				</view>
+				<view class="arrowIcon">
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</picker> -->
+		<view class="prefer_item">选择您感兴趣的就业方向：</view>
+		<view class="f14 grey tc pb_20">--选择越多，推荐越丰富--</view>
+		<view class='itemsMainView'>
+			<view class="{{item.ifclick==true?'hotItem1':'hotItem'}}" wx:for='{{label}}' wx:for-index='index' wx:key='index' bindtap='itemClicked' data-index="{{index}}" data-item="{{item}}">
+				<view style="margin-left:24rpx;margin-right:24rpx;"><text class="{{item.ifclick==true?'prefer_text1':'prefer_text'}}">{{item.name}}</text></view>
+			</view>
+		</view>
+		<view class="submit"><button class="button" form-type="submit">下一步</button></view>
+	</form>
+</view>

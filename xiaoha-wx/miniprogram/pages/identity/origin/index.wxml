@@ -1,0 +1,12 @@
+<view class="identity-origin">
+	<view>
+		<image src="{{images[1]}}"></image>
+		<image src="{{images[0]}}"></image>
+	</view>
+	<view>
+		<view class="fb f18">哈喽，主人！</view>
+		<view class="fb f18 mb_10">我是你的宠物——小哈</view>
+    <view class="f14">为了给主人推送更精准的服务，小哈专门为主人 定制了六道题目，请主人认真填写哦！ </view>
+	</view>
+  <view class="tc" bindtap="handleClick">开启定制之旅</view>
+</view>

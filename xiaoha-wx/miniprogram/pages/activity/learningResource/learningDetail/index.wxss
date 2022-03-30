@@ -1,0 +1,128 @@
+.learningResource_container{
+  width:100%;
+  height:100%;
+}
+
+.student_item {
+  width: 690rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  margin: 40rpx auto;
+  box-shadow: 0px 0px 16rpx 0px rgba(12, 47, 166, 0.1);
+  border-radius: 20rpx;
+}
+.identifier {
+  font-size: 36rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+
+}
+.tribe_study {
+
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 52rpx;
+  padding:10rpx 30rpx;
+
+}
+.student .title {
+  color: #333333;
+  font-size: 30rpx;
+
+}
+
+.student .introduce {
+  color: #999999;
+  font-size: 26rpx;
+  color: #999999;
+  padding: 0 10rpx;
+}
+
+.student .content {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.student .images {
+  width: 200rpx;
+  height: 240rpx;
+  position: relative;
+}
+.leftTitle{
+  position: absolute;
+  top:37rpx;
+
+width:100%;
+text-align: center;
+
+font-size: 30rpx;
+font-weight: bold;
+color: #fff!important;
+
+}
+.student .images image {
+  width: 100%;
+  height: 100%;
+}
+
+.student .content_text {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.resources {
+  font-size: 28rpx;
+  color:#999999;
+  padding: 19rpx 0 10rpx 0;
+}
+
+.resources_content {
+  font-size: 28rpx;
+  color:#999999;
+  padding: 5rpx 0;
+}
+.level_icon{
+  height:24rpx;
+  width:24rpx;
+  display: inline-block;
+  padding:0 5rpx;
+
+}
+.difficulty_H{
+  padding-top:10rpx;
+}
+.difficulty{
+  color:#999999;
+  font-size: 25rpx;
+}
+.btn_box{
+ 
+}
+.btn_box>.redBtn{
+  width: 290rpx;
+  position: fixed;
+  left: 50%;
+  bottom: 60rpx;
+  transform: translate(-50%);
+  height: 80rpx;
+  margin: 0 auto;
+  line-height: 80rpx;
+  text-align: center;
+  color:#fff;
+  background: linear-gradient(90deg, #FF039D 0%, #FF4800 100%);
+  border-radius: 40rpx;
+}
+.learningResource_container >view>view:nth-of-type(4),view:nth-of-type(5){
+  width: 100%;
+  box-sizing: border-box;
+  line-height:52rpx ;
+  margin: 0 30rpx;
+}
+.learningResource_container >view ._image{
+  width: 28rpx;
+  height: 32rpx;
+}

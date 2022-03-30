@@ -1,0 +1,20 @@
+<view class="activity-container">
+	<view wx:for="{{questionList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+			<tj_panel round="{{true}}" shadow="{{true}}">
+				<view bindtap="goIdentity" data-type="{{i}}" data-state="{{questionList[i+1].state}}">
+					<tj_row flex="{{true}}">
+						<view class="tj-col" style="flex:1;">
+							<view class="f20">
+								<image src="{{item.state==true?url1:url}}"></image> {{item.type}}
+							</view>
+							<view class="f12 pl_29">{{item.english}}</view>
+							<view class="f12 pl_29">{{i==0?"":i==1?"中级测试可解锁爱情观哦":'高级测试可解锁职业方向'}}</view>
+							<view class="f14 pl_29">{{item.details}}</view>
+						</view>
+					</tj_row>
+					<image class='_img' src="{{item.bgu}}"></image>
+				</view>
+			</tj_panel>
+			<view wx:if="{{i!==identityData.length-1}}"></view>
+		</view>
+</view>

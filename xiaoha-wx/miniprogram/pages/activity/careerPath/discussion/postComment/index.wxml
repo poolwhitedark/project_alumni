@@ -1,0 +1,5 @@
+<view class="postComment">
+	<view class="mt_25 mb_25">我的看法：</view>
+	<textarea placeholder="请发表评论" bindinput="getContent" value="{{content}}"></textarea>
+  <view bindtap="addComment">发布评论</view>
+</view>

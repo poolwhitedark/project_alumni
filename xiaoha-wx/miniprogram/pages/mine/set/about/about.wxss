@@ -1,0 +1,16 @@
+.about>image {
+  width: 400rpx;
+  height: 400rpx;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 0rpx;
+}
+
+.about>view {
+  color: grey;
+  line-height: 50rpx;
+  padding: 31rpx 31rpx;
+  text-align: justify;
+  text-justify: distribute-all-lines;
+}

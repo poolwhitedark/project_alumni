@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "生涯之路",
+  "usingComponents": {
+    "tj_card": "/components/card/index"
+  }
+}

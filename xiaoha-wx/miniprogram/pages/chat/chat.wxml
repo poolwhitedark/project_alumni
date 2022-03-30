@@ -1,0 +1,48 @@
+<!-- <view class="chat_title {{gotop? 'main_title_hide':'main_title_show'}}">
+	<text>聊天</text>
+</view> -->
+
+<!-- <view class="chat_list_wraper" > -->
+<scroll-view scroll-y="true" class="chat_list_wraper {{gotop? (isIPX? 'goTopX': 'goTop'): 'goback'}}" style="padding-bottom: {{isIPX?'270rpx':'226rpx'}}">
+
+
+
+
+
+	<view wx:for="{{ arr }}" wx:key="index" wx:for-item="item" wx:for-index="index" class="chat_list" data-item="{{ item }}" catchtap='del_chat'>
+
+		<swipe-delete>
+
+			<view class="tap_mask" catchtap="into_singleChatRoom" data-index='{{index}}' data-item="{{ item }}">
+				<view class="list_box">
+
+					<view class="list_left" data-username="{{ item.username }}">
+						<view class="list_pic">
+							<view class="em-msgNum" wx:if="{{ item.unReadCount > 0 || item.unReadCount == '99+' }}">{{ item.unReadCount }}</view>
+							<image  src="{{item.image_url}}"></image>
+						</view>
+						<view class="list_text">
+							<text  class="list_user" >{{item.nickname}}</text>
+							<text class="list_word" wx:if="{{ item.msg.data[0].data }}">{{item.msg.data[0].data}}</text>
+							<text class="list_word" wx:if="{{ item.msg.type == 'img' }}">[图片]</text>
+							<text class="list_word" wx:if="{{ item.msg.type == 'audio' }}">[语音]</text>
+						</view>
+					</view>
+					<view class="list_right">
+						<text data-username="{{ item.username }}">{{item.time}}</text>
+					</view>
+				</view>
+			</view>
+		</swipe-delete>
+	</view>
+
+	<view wx:if="{{arr.length == 0}}" class="chat_noChat">
+		当前未收到好友消息。
+	</view>
+	<!-- </view> -->
+</scroll-view>
+<!-- bug: margin-bottom 不生效 需要加一个空标签-->
+<view style="height: 1px;"></view>
+
+
+<view class="mask" bindtap="close_mask" wx:if="{{show_mask}}"></view>

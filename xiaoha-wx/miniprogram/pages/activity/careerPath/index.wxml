@@ -1,0 +1,83 @@
+<view class="activity-careerPath">
+	<view>
+		<view>
+			<view>
+				<view class="f16 fb pt_5">{{careerName}}</view>
+				<view class="mainColor f12 pt_10">已入驻人数{{count}}</view>
+			</view>
+			<view class="ml_10">
+				<image src="{{goutou}}" mode></image>
+			</view>
+		</view>
+		<view class="f14 tc">
+			<view wx:if="{{state!=0}}" bindtap="settlement" data-tag="{{tag}}">{{state==1?"点击入驻":'取消入驻'}}</view>
+			<view wx:if="{{isFinish}}" bindtap="discussion" class="mt_10">讨论圈 {{commentNum}}人</view>
+		</view>
+	</view>
+	<view class="subhead">
+		<view>成长之路</view>
+		<view class="f12 notes">点击黄色图标获取阶段步骤详情</view>
+	</view>
+	<view>
+		<block wx:for="{{careerPath}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+			<view>
+				<view data-index="{{i}}" bindtap="getVenetica">
+					<block wx:if="{{i==1||i==3}}">
+						<view wx:if="{{animation===i}}" class="animationR">
+							<image class="xiaoha" src="{{goutou}}" mode></image>
+
+							<view class="fill">
+								<view wx:for="{{item.details.focus}}" wx:for-item="pop" wx:for-index="index" wx:key="index">
+									{{index+1}}:{{pop}}</view>
+							</view>
+						</view> <text class="mainColor f15 fb pr_10">{{item.title}}</text>
+					</block>
+					<image src="{{item.url}}" mode></image>
+					<block wx:if="{{i==0||i==2}}">
+						<view wx:if="{{animation===i}}" class="animationL">
+							<image class="xiaoha" src="{{goutou}}" mode></image>
+							<view class="fill">
+								<view wx:for="{{item.details.focus}}" wx:for-item="pop" wx:for-index="index" wx:key="index">
+									{{index+1}}:{{pop}}</view>
+							</view>
+						</view><text class="mainColor f15 fb pl_10">{{item.title}}</text>
+					</block>
+				</view>
+				<view class="{{[i==3?'':'datumine']}}"></view>
+				<view class="content">{{item.details.introduction}}
+				</view>
+			</view>
+		</block>
+	</view>
+	<view wx:if="{{state==2}}" class="subhead">推荐部落</view>
+	<scroll-view class="scroll-view_H" scroll-x="{{true}}">
+		<block wx:for="{{tribeList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+			<view class="scroll-view-item_H" data-id="{{item.id}}" bindtap="gotoDetail">
+				<image src="{{item.icon}}" alt srcset class="_img"></image>
+				<view>{{item.name}}</view>
+			</view>
+		</block>
+	</scroll-view>
+	<view wx:if="{{state==2}}" class="subhead">推荐职友</view>
+	<view wx:if="{{state==2}}">
+		<view style="padding:90rpx 30rpx 30rpx;" wx:for="{{recommendUserList}}" wx:for-item="item" wx:for-index="i"
+			wx:key="i" bindtap="changebtn" data-id="{{item.id}}">
+			<tj_card cardData="{{item}}"></tj_card>
+		</view>
+	</view>
+	<view class="showModal-container" wx:if="{{showModal}}" bindtap="close">
+		<view class="showModal-slot">
+			<view>
+				<view class="f15 tc">
+					生涯官方微信群
+				</view>
+				<view>
+					<image show-menu-by-longpress src="../../../images/xiaohaerweima.png"></image>
+				</view>
+				<view class="f13">
+					长按识别小哈职友官方微信号二维码或搜索微信号{{wechatNumber}}，添加并回复{{careerName}}，即可加入。
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

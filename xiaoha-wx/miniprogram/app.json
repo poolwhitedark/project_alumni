@@ -1,0 +1,83 @@
+{
+  "pages": [ 
+    
+    "pages/login/login",
+    "pages/login/register/register",
+    "pages/login/agreement/agreement",
+    
+  
+    "pages/activity/careerTribe/index",
+    "pages/activity/careerCircle/index",
+    "pages/activity/careerTribe/tribeDetail/index",
+    "pages/activity/index",
+    "pages/activity/search/index",
+    "pages/activity/learningResource/index",
+    "pages/activity/learningResource/learningDetail/index",
+    "pages/activity/careerPath/index",
+    "pages/activity/careerPath/discussion/index",
+    "pages/activity/careerPath/discussion/postComment/index",
+    "pages/activity/careerPath/discussion/report/index",
+    "pages/activity/careerPath/discussion/report/agreement/agreement",
+    
+    "pages/activity/careerPath/discussion/reply/index",
+    "pages/activity/seleteTests/index",
+    "pages/activity/seleteTests/detail/detail",
+    "pages/activity/seleteTests/detail/careerReport/index",
+
+    "pages/home/index",
+    "pages/home/card/index",
+
+    "pages/find/index",
+ 
+    "pages/mine/index",
+    "pages/mine/set/set",
+    "pages/mine/editor/editor",
+    "pages/mine/editor/revise/index",
+    "pages/mine/follow/index",
+    "pages/mine/feedback/feedback",
+
+    "pages/chatroom/chatroom",
+    "pages/chat/chat"
+  ],
+  "subpackages": [{
+    "root": "pages/identity/",
+    "pages": ["identity", "personal/index", "origin/index"]
+  }],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为你推荐附近的职友"
+    }
+  },
+  
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#2658FF",
+    "backgroundColor": "#FFFFFF",
+    "list": [{
+        "pagePath": "pages/home/index",
+        "iconPath": "images/tabbar/icon_jili@2x.png",
+        "selectedIconPath": "images/tabbar/location_wps.png",
+        "text": "附近"
+      },
+      {
+        "pagePath": "pages/activity/index",
+        "iconPath": "images/tabbar/shengya_before.png",
+        "selectedIconPath": "images/tabbar/shengya_after.png",
+        "text": "生涯"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "iconPath": "images/tabbar/mine_before.png",
+        "selectedIconPath": "images/tabbar/mine_after.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,43 @@
+<view class="mine-editor">
+	<view wx:for='{{mineeditorInfo}}' wx:for-item="item" wx:for-index="i" wx:key="i" data-index="{{i}}"
+		bindtap="handleClick">
+		<view>{{item.title}}</view>
+
+		<view wx:if="{{i!=6}}" class="grey">
+			<view wx:if="{{i==0}}">
+				<image src="{{item.url}}" mode="aspectFill"></image>
+			</view>
+			<view wx:else>{{item.content}}</view>
+			<view wx:if="{{i!=8}}">
+				<image src="{{arrowIcon}}"></image>
+			</view>
+		</view>
+
+		<view wx:else>
+			<view wx:for='{{photoList}}' wx:for-item="item" wx:for-index="i" wx:key="i">
+				<image data-photo="{{item.photo}}" bindtap="previewImage" src="{{item.photo}}" mode="aspectFill"></image>
+				<view data-id="{{item.id}}" bindtap="delete" class="tj-icon tj-shanchu "></view>
+			</view>
+			<view class="tc" bindtap="upload">+</view>
+		</view>
+
+	</view>
+	<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+		<view class="item">
+			<view >家乡</view>
+			<view class="grey">
+				{{homeAddress}}
+				<image src="{{arrowIcon}}"></image>
+			</view>
+		</view>
+	</picker>
+	<picker mode="multiSelector" bindchange="bindYearPickerChange"  value="{{yearIndex}}" range="{{yearArray}}">
+			<view class="item">
+				<view>年级</view>
+				<view class="grey">
+					{{classes}}
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</picker> 
+</view>

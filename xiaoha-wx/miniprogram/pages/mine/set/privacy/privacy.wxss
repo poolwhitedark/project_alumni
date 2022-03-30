@@ -1,0 +1,15 @@
+.privacy{
+  padding: 20rpx;
+  display: flex;
+}
+.privacy>view:nth-of-type(1)>view{
+  padding-top: 40rpx;
+  padding-left: 29rpx;
+}
+.privacy>view:nth-of-type(2)>switch{
+  padding-left: 280rpx;
+  width: 110rpx;
+  height: 60rpx;
+  padding-top: 35rpx;
+  padding-right: 30rpx;
+}

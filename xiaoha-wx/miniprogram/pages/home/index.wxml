@@ -1,0 +1,47 @@
+<view class="home-container">
+	<!-- <view wx:if="{{card}}" class="tc f13 card" bindtap="goMycard">我的卡片</view> -->
+	<view wx:if='{{active==i&&particulars==false}}' wx:for="{{userList}}" wx:for-item="item" wx:for-index="i" wx:key="i" class="{{animation?'':active==i&&closure?'closure':'begin'}} particulars" data-index="{{i}}" data-userid="{{item.id}}" bindtouchstart="buttonStart" catchtouchmove="buttonMove" bindtouchend="buttonEnd" style="position: absolute;top:{{buttonTop}}px;left:{{buttonLeft}}px;">
+		<view bindtap="open" data-id="{{item.id}}">
+			<image src="{{item.avatar}}" mode="aspectFill"></image>
+			<view>
+				<image src="{{item.gender=='男'?images[11]:images[12]}}"></image>
+			</view>
+		</view>
+		<view bindtap="open" data-id="{{item.id}}" class="tc f16">LOOK!</view>
+		<view class="f13">
+			<view>
+				<image class="mr_5" src="{{images[3]}}"></image>{{item.distance}}
+			</view>
+			<view>{{item.status}}</view>
+		</view>
+		<view class="tc f18 fb pb_20">{{item.nickname}}</view>
+		<view class="tc f14 pb_30">{{item.type==1?item.major:item.occupation}}</view>
+		<view class="tc f14 grey">{{item.introduce!=""?item.introduce:"主人很懒,还未留下任何痕迹"}}</view>
+		<view class="tc  pt_25">
+			<view class="f13">关注<text class="f20 pl_10">{{userList[active].followCount}}</text>
+			</view>
+			<view class="f13">粉丝<text class="f20 pl_10">{{userList[active].fansCount}}</text>
+			</view>
+		</view>
+		<view></view>
+		<view></view>
+	</view>
+	<view hidden="{{card}}" data-type="1" bindtap="close" class="tj-icon tj-icon_workmore tc fb"></view>
+	<view hidden="{{!card}}">
+		<view>
+			<view bindtap="goMycard">
+				<view class=" fb">
+					<image src="../../images/tabbar/card.png"></image>
+				</view>
+				<view>我的卡片</view>
+			</view>
+			<view class="mt_10" bindtap="into_singleChatRoom">
+				<view class="fb">
+					<image src="../../images/tabbar/Inbox.png"></image>
+				</view>
+				<view>我的消息</view>
+			</view>
+			<view data-type="2" bindtap="close" class="tj-icon tj-guanbi tc fb mt_10"></view>
+		</view>
+	</view>
+</view>

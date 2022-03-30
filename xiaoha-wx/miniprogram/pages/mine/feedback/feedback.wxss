@@ -1,0 +1,44 @@
+.feedback-container {
+  padding: 30rpx 30rpx 50rpx;
+}
+.feedback-container .phone {
+  line-height: 40rpx;
+}
+.feedback-container .phone>input {
+  padding: 31rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.feedback-container .contant {
+  position: relative;
+}
+.feedback-container .contant>textarea {
+  width: 690rpx;
+  height: 340rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  margin-bottom: 60rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.feedback-container .contant>view:nth-of-type(1) {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+}
+.feedback-container .contant  .minWord {
+  position: absolute;
+  top: 60px;
+  left: 20rpx;
+  color: red;
+  font-size: 14px;
+}
+.Submit {
+  margin: 200rpx auto 0;
+  width: 450rpx;
+  height: 88rpx;
+  background-color: rgba(39, 89, 255, 1);
+  border-radius: 44rpx;
+  color: rgba(254, 254, 254, 1);
+  font-size: 32rpx;
+  text-align: center;
+}

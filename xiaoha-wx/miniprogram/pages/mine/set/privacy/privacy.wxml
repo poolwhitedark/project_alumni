@@ -1,0 +1,9 @@
+<view class="privacy">
+  <view>
+    <view>个人卡片是否公开</view>
+  </view>
+  <view>
+    <switch type="switch" checked="{{isShow}}" bindchange="listenerSwitch" color="blue">
+    </switch>
+  </view>
+</view>

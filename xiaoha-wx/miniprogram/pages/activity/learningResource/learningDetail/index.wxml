@@ -1,0 +1,42 @@
+<view class="learningResource_container">
+	<view>
+		<view class="student">
+			<view>
+				<view class="student_item">
+					<text class="title">{{learning.category}}</text><text class="introduce">{{learning.introduce}}</text>
+					<view class="content">
+						<view class="images">
+							<image src="../../../../images/img_shu1@2x.png"></image>
+							<view class="leftTitle">
+								{{learning.title}}
+							</view>
+						</view>
+						<view class="content_text">
+							<text class="title">{{learning.title}}</text>
+							<view class="resources">资源包括:</view>
+	
+							<view wx:for="{{item.content}}" wx:for-item="pop" wx:for-index="index" wx:key="index">
+								<view class="resources_content">{{pop}}</view>
+							</view>
+							<view class="difficulty_H">
+								<text class="difficulty">难度:</text><text class="difficulty">{{learning.level*1==2?'中等':learning.level*1==1?'简单':'困难'}}</text>
+								<image src="../../../../images/icon_xingxing@2x.png" wx:for="{{learning.level}}" wx:for-index="index" wx:key="index" class="level_icon"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="identifier">
+			<text >资源介绍</text>
+		</view>
+		<view class="tribe_study">
+			{{learning.detail}}
+		</view>
+		<view wx:if='{{share}}' data-text="{{learning.url}}" bindtap="getCopyTxt">网盘地址：<text class="grey">{{url}}</text><image class="_image ml_10" src="../../../../images/tabbar/copy.jpg"></image> </view>
+		<view wx:if='{{share}}' data-text="{{learning.pwd}}" bindtap="getCopyTxt">提取码： <text class="grey">{{learning.pwd}}</text><image class="_image ml_10" src="../../../../images/tabbar/copy.jpg"></image></view>
+		<view wx:if='{{!share}}' class="btn_box">
+			<button open-type="share" class="redBtn" data-info="{{learning}}">分享免费获得</button>
+		</view>
+	</view>
+</view>

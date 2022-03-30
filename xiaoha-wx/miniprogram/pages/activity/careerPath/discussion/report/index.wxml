@@ -1,0 +1,7 @@
+<view class="report">
+	<view class="light-grey f16 fb">请选择举报原因</view>
+	<view>
+		<view data-content="{{item}}" bindtap="report" wx:for='{{reportType}}' wx:key="index">{{item}}</view>
+	</view>
+	<view bindtap="agreement" class="mainColor fb f16 tc pt_20">举报须知</view>
+</view>

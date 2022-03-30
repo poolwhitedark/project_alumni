@@ -1,0 +1,5 @@
+<view class="tj-rate _div">
+	<block wx:for="{{max}}" wx:for-item="item" wx:for-index="index" wx:key="index" >
+		<label data-event-opts="{{[['tap',[['handleClick',['$0',index],[[['max','',index]]]]]]]}}" class="{{['tj-icon _span',index<currentValue?'tj-pingfenshoucang-':'tj-pingfen']}}" style="{{['font-size:'+(size+'px')+';']}}" bindtap="__e"></label>
+  </block>
+</view>

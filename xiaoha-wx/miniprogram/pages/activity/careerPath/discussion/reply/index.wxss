@@ -1,0 +1,100 @@
+page {
+  background: #f3f3f3;
+    height: 100%;
+}
+.discussion-container {
+  padding: 30rpx 30rpx 100rpx;
+  box-sizing: border-box;
+}
+.discussion-container .list {
+  padding: 30rpx 0 0;
+}
+
+.discussion-container .list .list_item>view:nth-of-type(2) image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.discussion-container .list>view:nth-of-type(1) {
+  display: flex;
+}
+
+.list_item>view:nth-of-type(2){
+  flex: 1;
+}
+.discussion-container .list ._image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-content-view {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 45rpx;
+  text-align: justify;
+}
+
+.hide {
+  display: -webkit-box;
+}
+
+.show {
+  display: block
+}
+
+.row-height {
+  line-height: 58rpx;
+  height: 58rpx;
+}
+
+.line {
+  line-height: 48rpx;
+}
+
+.discussion-container .list .reply {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 270rpx;
+  width: 650rpx;
+  margin: 28rpx 20rpx 152rpx;
+  padding: 20rpx;
+  line-height: 40rpx;
+  box-sizing: border-box;
+  border-radius: 32rpx;
+  background-color: rgba(255, 255, 255, 100);
+  color: rgba(136, 136, 136, 100);
+  box-shadow: 0px 4rpx 12rpx 0px rgba(0, 0, 0, 40);
+  font-family: Microsoft Yahei;
+  border: 1px solid rgba(255, 255, 255, 100);
+}
+
+.discussion-container .list .reply>view:nth-last-of-type(1) {
+  width: 218rpx;
+  line-height: 86rpx;
+  border-radius: 32rpx;
+  background-color: rgba(38, 88, 255, 100);
+  color: rgba(255, 255, 255, 100);
+  text-align: center;
+  margin: auto ;
+  box-shadow: 0px 4rpx 12rpx 0px rgba(0, 0, 0, 40);
+}
+.discussion-container .list .reply>view:nth-of-type(1) {
+padding: 40rpx 0 80rpx;
+}
+.discussion-container .list .reply>view:nth-of-type(1)>view{
+  width: 40rpx;
+  float: left;
+  color: #333;
+}

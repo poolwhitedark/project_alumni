@@ -1,0 +1,28 @@
+@import '../../common/main.wxss';
+.card-container .card-item-t {
+  position: relative;
+
+}
+
+.card-container .card-item-t ._img image {
+  position: absolute;
+  top: -120%;
+  left: 50%;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.card-container .card-item-c {
+  padding: 20rpx 0 39rpx;
+}
+.card-container .tj-col {
+  height: 85rpx;
+}
+/* .card-container .tj-col>image {
+  vertical-align: middle;
+  margin-top: 23rpx;
+  width: 140rpx;
+  height: 140rpx;
+  
+} */

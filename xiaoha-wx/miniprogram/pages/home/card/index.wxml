@@ -1,0 +1,178 @@
+<view class="home-card">
+	<!-- <view class="tj-icon tj-shanchu"></view>
+	<view class="tj-icon tj-bottom"></view>
+	<view class="tj-icon tj-dianpu1"></view>
+	<view class="tj-icon tj-icon_workmore"></view>
+	<view class="tj-icon tj-lijiyuyue"></view>
+	<view class="tj-icon tj-dianhua"></view>
+	<view class="tj-icon tj-yuyue"></view>
+	<view class="tj-icon tj-time2"></view>
+	<view class="tj-icon tj-daohang"></view>
+	<view class="tj-icon tj-shenglvehao"></view>
+	<view class="tj-icon tj-iconfontcheck"></view>
+	<view class="tj-icon tj-xuanzhong1"></view>
+	<view class="tj-icon tj-search"></view>
+	<view class="tj-icon tj-top"></view>
+	<view class="tj-icon tj-jiuyuanxiadan"></view>
+	<view class="tj-icon tj-right1"></view>
+	<view class="tj-icon tj-dianhua1"></view>
+	<view class="tj-icon tj-xuanzhong"></view>
+	<view class="tj-icon tj-gouwuche"></view>
+	<view class="tj-icon tj-time"></view>
+	<view class="tj-icon tj-ren"></view>
+	<view class="tj-icon tj-guanbi"></view>
+	<view class="tj-icon tj-buoumaotubiao46"></view>
+	<view class="tj-icon tj-shaixuan"></view>
+	<view class="tj-icon tj-left1"></view>
+	<view class="tj-icon tj-wushuju"></view>
+	<view class="tj-icon tj-weizhi"></view>
+	<view class="tj-icon tj-pingfen"></view>
+	<view class="tj-icon tj-close-b"></view>
+	<view class="tj-icon tj-yiwen"></view>
+	<view class="tj-icon tj-jiahao"></view>
+	<view class="tj-icon tj-dingwei"></view>
+	<view class="tj-icon tj-loading"></view>
+	<view class="tj-icon tj-gangbi"></view>
+	<view class="tj-icon tj-pingfenshoucang-"></view> -->
+	<view wx:if="{{userId==0}}" class="partition f19 fb">
+		<view>小哈卡片</view>
+		<view bindtap='shareImg1'>
+			<image src="{{images[0]}}"></image>
+		</view>
+	</view>
+	<view class="card" wx:if="{{userId==0}}">
+		<view>
+			<view>
+				<image src="{{userInfo.avatar}}" mode="aspectFill"></image>
+			</view>
+			<view>
+				<view class="f18 fb">{{userInfo.nickname}}
+					<image class="ml_5" src="{{userInfo.gender=='女'?images[3]:images[2]}}"></image>
+				</view>
+				<view>
+					{{userInfo.introduce!=""?userInfo.introduce:"主人很懒,还未留下任何痕迹"}}
+				</view>
+			</view>
+		</view>
+		<view class="f15 pt_5 tc">
+			<view>
+				<image src="{{images[5]}}"></image>
+				<view>{{userInfo.profile}}</view>
+			</view>
+			<view>
+				<image src="{{images[6]}}"></image>
+				<view>{{userInfo.type==1?major:occupation}}</view>
+			</view>
+		</view>
+		<view class="tc pt_20">
+			<view data-type="0" bindtap="toFollow">关注 <text class="mainColor f16 fb">{{userInfo.followCount}}</text></view>
+			<view data-type="1" bindtap="toFollow">粉丝 <text class="mainColor f16 fb">{{userInfo.fansCount}}</text></view>
+		</view>
+		<image src="{{images[1]}}"></image>
+	</view>
+	<view class="partition f19 fb">
+		<view>微简历</view>
+		<view  wx:if="{{userId!==0}}" bindtap='shareImg1'>
+			<image src="{{images[0]}}"></image>
+		</view>
+	</view>
+	<view class="main">
+		<view>
+			<view>
+				<image src="{{userInfo.avatar}}" mode="aspectFill"></image>
+			</view>
+			<view>
+				<view class="f18 fb">{{userInfo.nickname}}
+					<image class="ml_5" src="{{userInfo.gender=='女'?images[3]:images[2]}}"></image>
+				</view>
+				<view>
+					<view>关注 <text class="mainColor f16 fb">{{userInfo.followCount}}</text></view>
+					<view class="pl_25">粉丝 <text class="mainColor f16 fb">{{userInfo.fansCount}}</text></view>
+				</view>
+				<view>
+					{{userInfo.introduce!=""?userInfo.introduce:"主人很懒,还未留下任何痕迹"}}
+
+				</view>
+			</view>
+		</view>
+		<view class="subhead f15 pt_5">
+			<view>{{userInfo.type==1?"专业":"职业"}}</view>
+			<view>{{userInfo.type==1?userInfo.major:userInfo.occupation}}</view>
+		</view>
+		<view class="subhead f15">
+			<view>{{userInfo.type==1?"学校":"毕业学校"}}</view>
+			<view>{{userInfo.school}}</view>
+		</view>
+		<view class="subhead f15">
+			<view>{{"家乡"}}</view>
+			<view>{{userInfo.homeAddress}}</view>
+		</view>
+		<view class="subhead f15">
+			<view>{{"年级"}}</view>
+			<view>{{userInfo.classes}}</view>
+		</view>
+		<view class="subhead f15">
+			<view>相册</view>
+		</view>
+		<scroll-view class="scroll-view f14" scroll-x="{{true}}">
+			<block wx:for="{{userInfo.photoList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+				<view class="scroll-view-item">
+					<image data-photo="{{item.photo}}" bindtap="previewImage" src="{{item.photo}}" mode="aspectFill"></image>
+				</view>
+			</block>
+			<view wx:if="{{userInfo.photoList.length<=0}}" class='default tc'>
+				<image src="{{images[13]}}"></image>
+				<view class="f12 light-grey">小主，你还没有相册</view>
+			</view>
+		</scroll-view>
+		<view class="subhead f15">
+			<view>生涯</view>
+		</view>
+		<scroll-view class="scroll-view_H f14" scroll-x="{{true}}">
+			<block wx:if="{{userInfo.careerList.length>0}}" wx:for="{{userInfo.careerList}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+				<view class="scroll-view-item_H tc" bindtap="onDetail" data-id="{{item.id}}">
+					<image src="{{item.icon}}" alt srcset class="_img"></image>
+					<view class="nameWidth">{{item.careerName}}</view>
+				</view>
+			</block>
+			<view wx:if="{{userInfo.careerList.length<=0}}" class=" scroll-view-item_H tc f12 light-grey">
+				<image src="{{images[8]}}"></image>未入驻生涯
+			</view>
+		</scroll-view>
+		<view class="tc f16 follow" wx:if="{{userId!==0}}">
+			<view bindtap="setfollow">
+				<image src="{{images[11]}}"></image>{{userInfo.followStatus==1?"关注TA":"取消关注"}}
+			</view>
+			<view bindtap="into_singleChatRoom">
+				<image src="{{images[12]}}"></image>私聊
+			</view>
+		</view>
+		<view class="tc pt_20 _image" bindtap="retract"  wx:if="{{userId!==0&&back}}">
+			<image src="{{images[14]}}"></image>
+		</view>
+	</view>
+	<view class="partition f19 fb " wx:if="{{userId==0}}">
+		<view>小哈名片</view>
+		<view bindtap='shareImg3'>
+			<image src="{{images[0]}}"></image>
+		</view>
+	</view>
+	<view wx:if="{{userId==0}}" class="visitingCard">
+		<view class="tc f13">
+			<image src="{{userInfo.avatar}}" mode="aspectFill"></image>
+			<view>{{userInfo.profile}}</view>
+		</view>
+		<view>
+			<view class="f18 fb">{{userInfo.nickname}}</view>
+			<view class="pb_10 f12">
+				<image class="mr_8" src="{{images[10]}}"></image>{{userInfo.type==1?userInfo.major:userInfo.occupation}}
+			</view>
+			<view class="f12">
+				<image class="mr_8" src="{{images[9]}}"></image>手机号：{{userInfo.phone}}
+			</view>
+			<image src="{{images[7]}}"></image>
+		</view>
+	</view>
+</view>
+<canvas canvas-id="shareImg1" style="width:660px;height:869px"></canvas>
+<canvas canvas-id="shareImg3" style="width:660px;height:787px"></canvas>

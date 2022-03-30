@@ -1,0 +1,37 @@
+<view class="learningResource_container">
+	<view>
+			<view class="identifier">
+				<text >为你推荐</text>
+			</view>
+
+		<view class="student">
+			<view wx:for="{{learningList}}" wx:for-item="item" wx:for-index="i" wx:key="i" bindtap="gotoDetail" data-title="{{item.title}}" data-id="{{item.id}}">
+				<view class="student_item">
+					<text class="title f15">{{item.category}}</text><text class="introduce">{{item.introduce}}</text>
+					<view class="content">
+						<view class="images">
+							<image src="../../../images/img_shu1@2x.png"></image>
+							<view class="leftTitle">
+							  {{item.title}}
+							</view>
+						</view>
+						<view class="content_text">
+							<text class="title f16">{{item.title}}</text>
+							<view class="resources">资源包括:</view>
+							<view wx:for="{{item.content}}" wx:for-item="pop" wx:for-index="index" wx:key="index">
+								<view class="resources_content">{{pop}}</view>
+							</view>
+							<view class="difficulty_H">
+								<text class="difficulty">难度:</text><text class="difficulty">{{item.level*1==2?'中等':item.level*1==1?'简单':'困难'}}</text>
+								<image src="../../../images/icon_xingxing@2x.png" wx:for="{{item.level}}" wx:for-index="index" wx:key="index" class="level_icon"></image>
+							</view>
+						</view>
+
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+		</view>
+</view>

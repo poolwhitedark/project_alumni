@@ -1,0 +1,232 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 500px;
+}
+.careerReport-container{
+  touch-action: auto;
+}
+.careerReport-container>view:nth-child(1) {
+  padding: 50rpx 110rpx 23rpx;
+  width: 100%;
+  height: 330rpx;
+  box-sizing: border-box;
+}
+.careerReport-container>view:nth-child(1) image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 330rpx;
+  z-index: -1;
+}
+
+.careerReport-container .title {
+  padding: 50rpx 0 30rpx;
+}
+
+.careerReport-container>view:nth-child(2) {
+  padding: 0 30rpx 100rpx;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio {
+  display: flex;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view {
+  width: 50%;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view:nth-of-type(1)>view>view>view {
+  float: right;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view:nth-of-type(2)>view>view>view {
+  float: left;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view {
+  font-size: 30rpx;
+  padding-bottom: 30rpx;
+  display: flex;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-last-of-type(1) {
+  padding: 0;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view>view {
+  border-radius: 5rpx;
+  margin: 13rpx 0;
+  width: 235rpx;
+  height: 10rpx;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view>view>view {
+  border-radius: 5rpx;
+  height: 100%;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(1)>view {
+  background-color: #FAEBE3;
+
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(2)>view {
+  background-color: #FFF4E5;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(3)>view {
+  background-color: #E5EDFF;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(4)>view {
+  background-color: #E5F6FF;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(1)>view>view {
+  background-color: #FC5F00;
+
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(2)>view>view {
+  background-color: #FC9400;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(3)>view>view {
+  background-color: #004DFC;
+}
+
+.careerReport-container>view:nth-child(2)>.ratio>view>view:nth-of-type(4)>view>view {
+  background-color: #00A6FC;
+}
+
+.careerReport-container>view:nth-child(2) .substance {
+  position: relative;
+  font-size: 30rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0px 1px 16px 0px rgba(12, 48, 166, 0.1);
+  border-radius: 10px;
+}
+
+.careerReport-container>view:nth-child(2) .substance>view {
+  line-height: 48rpx;
+  border-radius: 24rpx;
+}
+
+.careerReport-container>view:nth-child(2) .substance>view:nth-of-type(2) {
+  padding: 0 18rpx;
+  height: 57rpx;
+  line-height: 57rpx;
+  background: #FF8125;
+  border-radius: 18rpx;
+}
+
+.careerReport-container>view:nth-child(2) .substance>image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 24rpx;
+}
+
+.careerReport-container>view:nth-child(2) .recommend {
+  display: flex;
+  justify-content: space-between;
+  height: 82rpx;
+  color: #fff;
+}
+
+.careerReport-container>view:nth-child(2)>.Tips {
+  padding: 40rpx 0;
+  line-height: 48rpx;
+}
+
+.careerReport-container>view:nth-child(2)>view:nth-last-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+}
+
+.careerReport-container>view:nth-child(2)>view:nth-last-of-type(1)>view,
+view>button {
+  width: 260rpx;
+  line-height: 63rpx;
+  background-color: #167DFF;
+  color: #fff;
+  border-radius: 44rpx;
+}
+
+.careerReport-container>view:nth-child(2)>view:nth-last-of-type(1)>view:nth-of-type(2) {
+  display: flex;
+  width: 396rpx;
+}
+
+.careerReport-container>view:nth-child(2)>view:nth-last-of-type(1)>view:nth-of-type(2)>view {
+  flex: 1;
+}
+
+.careerReport-container>view:nth-child(2)>view:nth-last-of-type(1)>view:nth-of-type(2)>view:nth-of-type(2) {
+  background-color: #2759FF;
+  border-radius: 0 44rpx 44rpx 0;
+}
+
+.careerReport-container>view:nth-child(2) .btn>view {
+  background-color: #285AFF;
+  padding: 10rpx 16rpx;
+  margin: auto;
+}
+.careerReport-container .showModal-container{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+.careerReport-container .showModal-container .showModal-slot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 600rpx;
+  width: 600rpx;
+  height: 580rpx;
+  background-color: #f1f7fe;
+  padding: 50rpx;
+  box-sizing: border-box;
+  z-index: 888;
+}
+.careerReport-container .showModal-container .showModal-slot >view{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+}
+.careerReport-container .showModal-container .showModal-slot >view>view:nth-of-type(1){
+  position: absolute;
+  top: -27.5rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 244rpx;
+  line-height: 55rpx;
+  color: #666;
+  background-color: #f1f7fe;
+}
+.careerReport-container .showModal-container .showModal-slot >view>view:nth-of-type(2){
+  margin: 57rpx auto 37rpx;
+  width: 240rpx;
+  height: 230rpx;
+}
+.careerReport-container .showModal-container .showModal-slot >view>view:nth-of-type(2)>image{
+  width: 100%;
+  height: 100%;
+}
+.careerReport-container .showModal-container .showModal-slot >view>view:nth-of-type(3){
+  width: 398rpx;
+  margin: auto;
+  color: #999;
+  line-height: 39rpx;
+}

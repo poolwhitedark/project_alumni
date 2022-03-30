@@ -1,0 +1,26 @@
+
+<view class="card-container">
+		<tj_panel class="mt_45" round shadow>
+			<view class="card-item-t">
+				<tj_row flex class="notes">
+					<view class="tj-col " style="flex: 1;"><tj_rate value="{{cardData.stars}}" size="{{14}}" disabled></tj_rate></view>
+					<view class="tj-col tr" style="flex: 1;">
+						<text class="f12">{{ cardData.address }}</text>
+					</view>
+				</tj_row>
+				<view class="_img"><image src="{{cardData.avatar}}"></image></view>
+			</view>
+			<view class="tc f15 fb card-item-c">
+				<view>{{ cardData.nickname }}</view>
+				<view class="f12 light-grey mt_10">{{ cardData.introduce }}</view>
+			</view>
+			<view class="card-item-f">
+				<tj_row flex="{{true}}" class="tc">
+					<view wx:for='{{cardData.follows}}' wx:for-item="item" wx:for-index="i" wx:key="*this" class="tj-col" style="flex: 1;">
+						<view class="f20 mainColor fb">{{ item.num }}</view>
+						<view class="f14 grey mt_8">{{ item.name }}</view>
+					</view>
+				</tj_row>
+			</view>
+		</tj_panel>
+	</view>

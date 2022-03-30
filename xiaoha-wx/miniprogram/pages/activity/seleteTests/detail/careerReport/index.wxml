@@ -1,0 +1,68 @@
+<view class="careerReport-container">
+	<view>
+		<image src="{{careerReportInfo.image}}"></image>
+	</view>
+	<view>
+		<view wx:if='{{type!=0}}' class="title fb f18">性格描述</view>
+		<view class="ratio" wx:if='{{type!=0}}'>
+			<view>
+				<view wx:for='{{careerReportInfo.resultList}}' wx:for-item='item' wx:for-index="i" wx:key="i"><text class="grey mr_8">{{characterRatios[i].describe}} {{characterRatios[i].name}}</text>
+					<view>
+						<view style="width:{{characterRatios[i].name==item.answer?item.percentage:'auto'}};"></view>
+					</view>
+				</view>
+			</view>
+			<view>
+				<view wx:for='{{careerReportInfo.resultList}}' wx:for-item='item' wx:for-index="i" wx:key="i">
+					<view>
+						<view style="width:{{characterRatios[i+4].name==item.answer?item.percentage:'auto'}};"></view>
+					</view><text class="grey ml_8">{{characterRatios[i+4].name}} {{characterRatios[i+4].describe}}</text>
+				</view>
+			</view>
+
+		</view>
+		<view class="title fb f18">性格介绍</view>
+		<view class="substance white">
+			<view>{{careerReportInfo.description}}</view>
+			<image src="{{xingge}}"></image>
+		</view>
+		<view wx:if='{{origin===false}}' class="title fb f18">爱情观</view>
+		<view wx:if='{{origin===false}}' class="substance white">
+			<view style="{{type==0&&'text-shadow: 2px -1px 0px #333;filter: blur(6rpx);'}}">{{careerReportInfo.love}}</view>
+			<image src="{{aiqingguan}}"></image>
+		</view>
+		<view wx:if='{{type!==0}}' class="title fb f18">适合领域</view>
+		<view wx:if='{{type!==0}}' class="substance white">
+			<view style="{{type==1&&'text-shadow: 2px -1px 0px #333;filter: blur(6rpx);'}}">{{careerReportInfo.field}}</view>
+			<image src="{{field}}"></image>
+		</view>
+		<view wx:if='{{type==2}}' class="title fb f18">推荐生涯</view>
+		<view wx:if='{{type==2}}'>
+			<view wx:for='{{careerReportInfo.careerList}}' wx:for-item='item' wx:for-index="i" wx:key="i" class="substance recommend mb_25" bindtap="onDetail" data-id="{{item.id}}">
+				<view class="f18">
+					<view>{{item.careerName}}
+						<tj_rate class="notes" size="{{12}}" disabled="{{true}}" value="{{item.stars}}"></tj_rate>
+					</view>
+					<view class="f13 pl_5">
+						匹配度<text class="notes f20 fb ml_10">{{item.matchingDegree}}</text>
+					</view>
+				</view>
+				<view catchtap="settlement" data-item="{{item}}" class="tc f14" data-tag="{{item.tag}}">{{item.status==1?"入驻":'取消入驻'}}</view>
+				<image src="{{shengyatuijian}}"></image>
+			</view>
+		</view>
+		<view wx:if='{{type!=2&&origin===false}}' class="f14 Tips">{{type==0?"中级测试可解锁爱情观哦":type==1?"高级测试可解锁职业方向":'欢迎来到小哈世界，让我们一起乘风破浪吧!'}}</view>
+		<view wx:if='{{origin}}' class="f14 Tips"><text space="ensp"> 	  你是{{careerReportInfo.profile}}，欢迎来到小哈的世界！让我们共同成长吧！</text></view>
+		<view wx:if='{{origin}}' class="tc btn">
+			<view catchtap="goHome">Let's GO!!</view>
+		</view>
+		<view wx:else class="tc">
+			<view bindtap="shareImg1"> 分享测试</view>
+			<view>
+				<view catchtap="retest">重新测试</view>
+				<view catchtap="continueTest" wx:if='{{type!=2}}'>{{type==0?"中":"高"}}级测试</view>
+			</view>
+		</view>
+	</view>
+</view>
+<canvas canvas-id="shareImg1" style="width:660px;height:869px"></canvas>

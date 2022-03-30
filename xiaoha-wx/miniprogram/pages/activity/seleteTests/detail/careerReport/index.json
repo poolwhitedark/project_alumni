@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "生涯测试结果",
+  "usingComponents": {
+    "tj_rate": "/components/rate/index"}
+}

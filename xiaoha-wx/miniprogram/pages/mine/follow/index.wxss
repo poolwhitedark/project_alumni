@@ -1,0 +1,32 @@
+.tabs{
+  padding-bottom: 40rpx;
+}
+.title {
+  height: 62rpx;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #F2F2F2;
+}
+.item_box {
+  padding: 19rpx 50rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #F2F2F2;
+  display: flex;
+}
+.item_box .img image {
+  width: 124rpx;
+  height: 119rpx;
+  border-radius: 50%;
+}
+.item_box .name{
+  flex: 1;
+}
+.item_box .btn {
+  align-self: center;
+  width: 165rpx;
+  line-height: 62rpx;
+  border-radius: 8rpx;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}

@@ -1,0 +1,5 @@
+<view class="{{['tj-row',flex?'is-flex':'']}}">
+	<view class="tj-row__inner">
+		<slot></slot>
+	</view>
+</view>

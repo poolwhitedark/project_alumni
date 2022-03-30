@@ -1,0 +1,133 @@
+@charset "UTF-8";
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 88rpx;
+  padding-top: 25px;
+  box-sizing: border-box;
+  background: #ffffff;
+  margin-top: 16rpx;
+}
+.top-bar .top-bar-left {
+  float: left;
+  padding-left: 24rpx;
+  padding-top: 20rpx;
+}
+.top-bar .top-bar-left .back {
+  width: 48rpx;
+  height: 48rpx;
+}
+.top-bar .top-bar-right {
+  float: right;
+  margin-bottom: 30rpx;
+  padding-right: 24rpx;
+  padding-top: 20rpx;
+}
+.top-bar .top-bar-right .close {
+  width: 48rpx;
+  height: 48rpx;
+}
+.uni-input-placeholder {
+  position: absolute;
+  top: auto !important;
+  left: 0;
+  color: #999;
+  padding-left: 39rpx;
+  font-size: 12rpx;
+}
+.title {
+  padding: 100rpx 0 0 80rpx;
+  color: #222222;
+}
+.title .logo-image {
+  width: 400rpx;
+  height: 400rpx;
+}
+.title > ._p {
+  color: #666666;
+}
+.main {
+  padding: 54rpx 60rpx 120rpx;
+}
+.main ._p {
+  color: #666;
+}
+.main .inputs .input {
+  border: none;
+  height: 60rpx;
+  width: 590rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #272832;
+  line-height: 88rpx;
+  border-bottom: 1rpx solid #cfced3;
+}
+.main .inputs .inputs-div {
+  position: relative;
+  padding: 20rpx 20rpx 0;
+}
+.main .inputs .inputs-div > button {
+  width: 180rpx;
+  line-height: 44rpx;
+  color: #a1afc8;
+  position: absolute;
+  bottom: 14rpx;
+  right: 20rpx;
+  z-index: 8;
+}
+.main .inputs .employ,
+.main .inputs .checknumber {
+  position: absolute;
+  top: 100rpx;
+  left: 10rpx;
+  margin-top: 20rpx;
+  margin-left: 5rpx;
+  font-size: 28rpx;
+  color: #f07373;
+}
+.main .inputs .invalid {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  float: right;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ff5d5b;
+  line-height: 40rpx;
+  padding-left: 10rpx;
+}
+.main .inputs .show {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  width: 42rpx;
+  height: 32rpx;
+  padding: 20rpx;
+  z-index: 8;
+}
+.main .inputs .ok {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 42rpx;
+  height: 32rpx;
+}
+.submit {
+  margin: 140rpx auto 0;
+  width: 560rpx;
+  height: 96rpx;
+  background: #2658ff;
+  box-shadow: 0px 20px 16px -18px #2658ff;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  font-weight: 520;
+  color: white;
+  line-height: 96rpx;
+  text-align: center;
+}
+.submit:active {
+  background-color: #48689e;
+}
+

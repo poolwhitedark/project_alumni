@@ -1,0 +1,29 @@
+.identity-container {
+  padding:180rpx 30rpx 30rpx;
+}
+
+.identity-container>view {
+  position: relative;
+  color: #fff;
+}
+
+.identity-container>view>view:nth-child(1) {
+  height: 30rpx;
+}
+
+.identity-container .tj-col {
+  height: 190rpx;
+}
+
+.identity-container .tj-col view {
+  line-height: 68.5rpx;
+}
+
+.identity-container image {
+  position: absolute;
+  top: 30rpx;
+  left: 0;
+  width: 690rpx;
+  height: 250rpx;
+  z-index: -1;
+}

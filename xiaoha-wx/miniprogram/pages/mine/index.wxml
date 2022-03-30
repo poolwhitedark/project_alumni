@@ -1,0 +1,54 @@
+<view class="mine-container">
+	<view>
+		<image src="{{bgu}}"></image>
+	</view>
+	<view bindtap="toEditor">
+		<view  class="grey f12">
+			<image src="{{locationIcon}}"></image> {{userInfo.address}}
+		</view>
+		<view class="tc f18 fb" style="{{userInfo.identityAuthState?'':'padding-left:0rpx;'}}">{{userInfo.nickname}}  <image wx:if='{{userInfo.identityAuthState}}' src="{{images[0]}}"></image>
+		</view>
+		<view class="tc f13 major">{{userInfo.type==2?userInfo.occupation:userInfo.major}}</view>
+		<view class="mt_10">
+			<text class="grey f14">个人介绍：{{userInfo.introduce==''?'未填写':userInfo.introduce}}</text>
+		</view>
+		<view>
+			<image src="{{userInfo.avatar}}" mode="aspectFill"></image>
+			<view>
+				<image src="{{userInfo.gender=='男'?images[1]:images[3]}}"></image>
+			</view>
+		</view>
+	</view>
+	<view class="whiteHeight">
+	</view>
+		<view class="follow">
+			<view data-type="0" bindtap="toFollow">关注<text class="mainColor f18 fb pl_5">{{userInfo.followCount}}</text></view>
+			<view data-type="1" bindtap="toFollow">粉丝<text class="mainColor f18 fb pl_5">{{userInfo.fansCount}}</text></view>
+			<view data-type="2" bindtap="toFollow">足迹<text class="mainColor f18 fb pl_5">{{userInfo.historyCount}}</text></view>
+		</view>
+	<!-- <view class="partition"></view> -->
+	<view class="main">
+		<view class="f15" wx:for='{{mineInfo}}' bindtap="changebtn"  data-id="{{index}}" wx:key="i" >
+			<view class="mr_10">
+				<image src="{{item.url}}"></image>
+			</view>
+			<view>
+				<view class="sizeColor">{{item.title}}</view>
+				<view>
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</view>
+		<button class="f15" open-type="contact">
+			<view class="mr_10">
+				<image src="{{images[2]}}"></image>
+			</view>
+			<view>
+				<view >人工客服</view>
+				<view>
+					<image src="{{arrowIcon}}"></image>
+				</view>
+			</view>
+		</button>
+	</view>
+</view>

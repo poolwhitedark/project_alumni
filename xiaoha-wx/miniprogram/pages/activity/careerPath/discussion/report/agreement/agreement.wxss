@@ -1,0 +1,12 @@
+.agreement{
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  text-align: justify;
+  text-justify: distribute-all-lines;
+}
+.red{
+  color: rgba(161, 7, 7, 0.877);
+}
+text{
+  line-height: 40rpx;
+}

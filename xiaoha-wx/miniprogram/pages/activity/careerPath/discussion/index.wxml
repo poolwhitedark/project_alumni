@@ -1,0 +1,65 @@
+<scroll-view scroll-y="true" scroll-top='{{topNum}}' scroll-into-view="{{toView}}" scroll-with-animation="true">
+	<view class="discussion-container f14">
+		<view bindtap="postComment" class="comment tc">
+			添加评论
+		</view>
+		<view  class="list " wx:for='{{commentList}}' wx:for-index="index" wx:key="index" id='{{"i"+item.id}}'>
+			<view class="list_item">
+				<view class="mr_8 ">
+					<image class="_image " src="{{item.avatar}}"></image>
+				</view>
+				<view>
+					<view class="fb space-between">
+						<view>{{item.nickname}} <text class="f13 light-grey">{{item.status}}</text></view>
+						<view wx:if="{{!item.myself}}" data-title="{{item.nickname}}" data-userId="{{item.userId}}" bindtap="report" class="light-grey">举报</view>
+					</view>
+					<view class="user-content-view pt_10 {{item.isF?'hide':'show'}}">
+						<text  id="{{'wdy'+index}}" class="user-content">{{item.content}}</text>
+					</view>
+					<view class="light-grey tr row-height" wx:if="{{item.colNum>3}}" bindtap="change" data-index="{{index}}">
+						{{item.isF?'展开全部':'收起'}}
+					</view>
+					<view class="space-between row-height">
+						<view>{{item.createTime}}</view>
+						<view>{{item.starNum}}
+							<image data-index="{{index}}" data-id="{{item.id}}" data-type="1" data-starType="{{item.starType}}" bindtap="star" src="{{item.starType==1?'../../../../images/tabbar/Fabulous_before.png':'../../../../images/tabbar/Fabulous_after.png'}}"></image>
+							<image data-item="{{item}}" bindtap="onReply" class="ml_15" src="../../../../images/tabbar/news.png"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="list_item_footer">
+				<view class="list_item pt_5" wx:for='{{item.children}}' wx:for-index="i" wx:for-item='pop' wx:key="i">
+					<view class="mr_5">
+						<image class="image" src="{{pop.avatar}}"></image>
+					</view>
+					<view>
+						<view class="fb space-between">
+							<view>{{pop.nickname}}</view>
+							<view wx:if="{{!pop.myself}}" data-title="{{pop.nickname}}" data-userid="{{pop.userId}}" bindtap="report" class="light-grey">举报</view>
+						</view>
+						<view class="pt_5 line">
+							<text>{{pop.content}}</text>
+						</view>
+						<view class="space-between row-height">
+							<view>{{pop.createTime}}</view>
+							<view>{{pop.starNum}}
+								<image data-index="{{index}}" data-i="{{i}}" data-id="{{pop.id}}" data-type="2" data-starType="{{pop.starType}}" bindtap="star" src="{{pop.starType==1?'../../../../images/tabbar/Fabulous_before.png':'../../../../images/tabbar/Fabulous_after.png'}}"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if='{{commentList.length<=0}}' class="noData tc">
+			<image src="../../../../images/tabbar/noData.png"></image>
+			<view>{{title}}还未有人评论哦！快来添加你的评论</view>
+		</view>
+	</view>
+	<view class=" f16" wx:if="{{total && total>1}}">
+		<view wx:if="{{pageNum*pageSize<total}}" class="weui-loadmore">
+			<icon type="loading"></icon> 上拉加载更多
+		</view>
+		<view wx:else class="weui-loadmore">没有更多内容啦</view>
+	</view>
+</scroll-view>

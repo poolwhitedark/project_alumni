@@ -1,0 +1,37 @@
+<view class="login-container">
+	<!-- <view bindtap="onNavigationBar" class="f20 pl_15">注册</view> -->
+	<view class="logo tc">
+		<image class="logo-image"
+			src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-baron-xiaoha/a81c29e0-a7a2-11ea-b244-a9f5e5565f30.png"></image>
+	</view>
+	<view class="main">
+		<view class="slogan tc fb">欢迎来到小哈</view>
+		<!-- <view class="inputs">
+			<input class="input pt_10" type="number" placeholder="请输入手机号/账号" maxlength="11" value="{{user}}" bindinput="getUser" />
+			<input wx:if="{{LoginMethod}}" class="input pt_10" type="number" placeholder="请输入验证码" value="{{vcode}}" bindinput="getVcode" />
+			<input wx:else class="input pt_10" type="text" placeholder="请输入密码" password="true" value="{{password}}" bindinput="getPwd" />
+			<view wx:if="{{LoginMethod}}" class="pwdCol f12 code" bindtap="checkPhone">{{ smsFlag ? '获取验证码' : '剩余' + startVal + 's' }}</view>
+			<navigator wx:else url="./register/register?resetPwd=true" open-type="navigate" class="pwdCol fr tr f12">
+				<text>忘记密码</text>
+			</navigator>
+		</view>
+		<view hidden="{{!(login)}}" class="tips f14">{{rulesTxt}}</view> -->
+	</view>
+	<view class="submit">
+		<button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" data-type='wx' bindgetuserinfo="onGotUserInfo"
+			hover-class="none">
+			微信注册
+		</button>
+		<!-- <button wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhone" hover-class="none">
+			请授权你得手机号
+		</button> -->
+	</view>
+	<view class="pwdCol mt_10 tc f12">微信注册后小哈职友将获取到头像.昵称.性别用以展示</view>
+	<!-- <view class="checkbox pwdCol f16" bindtap="agreement">
+		<label>
+			<checkbox color='#2658ff' value="cb" checked="{{checked}}" /><text class="pl_5">用户协议与隐私政策</text>
+		</label></view> -->
+	<view class="checkbox pwdCol f12 tc" bindtap="agreement">
+		点击授权手机号即同意小哈的<text class="f16 test-underline">用户协议与隐私政策</text>
+	</view>
+</view>

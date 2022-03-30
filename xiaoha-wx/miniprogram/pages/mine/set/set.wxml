@@ -1,0 +1,17 @@
+<view class="set">
+	<view class="f15" wx:if="{{index!=0||isShowPhone!==false}}" wx:for='{{mineeditorInfo}}' wx:for-index="index" bindtap="tochange" data-id="{{index}}" wx:key="index">
+		<view class="mr_10">
+			<image src="{{item.url}}"></image>
+		</view>
+		<view>
+			<view>{{item.title}}</view>
+			<view class="grey">
+				{{item.content}}
+				<image src="{{arrowIcon}}"></image>
+			</view>
+		</view>
+	</view>
+	<!-- <view class="exit">
+		<button style="width:60vw" bindtap="toExit">退出登录</button>
+	</view> -->
+</view>

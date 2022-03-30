@@ -1,0 +1,30 @@
+@import './common/main.wxss';
+page{
+  font-family: PingFangSC, 'PingFang SC', PingFangSC-light, PingHei, "Helvetica Neue", STHeiti, "黑体", '思源黑体', Arial, HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, Helvetica, Arial, sans-serif;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-overflow-scrolling: touch;
+}
+button::before {
+  border: 0;
+  border: none;
+}
+
+button::after {
+  border: 0;
+  border: none;
+}
+.uploadImage {
+  width: 300rpx;
+  height: 300rpx;
+  margin-left: 76rpx;
+  border: 2rpx dashed #ddd;
+  border-radius: 16rpx;
+}
+.uploadImage1 {
+  margin-left: 168rpx;
+  border: 2rpx dashed #ddd;
+}

@@ -1,0 +1,19 @@
+<view class="identity-container">
+	<block wx:for="{{identityData}}" wx:for-item="item" wx:for-index="i" wx:key="i">
+		<view>
+			<view></view>
+			<tj_panel round="{{true}}" shadow="{{true}}">
+				<view data-type="{{i}}" bindtap="goIdentity">
+					<tj_row class="tc" flex="{{true}}">
+						<view class="tj-col" style="flex:1;">
+							<view class="f20 fb mt_8">{{item.type}}</view>
+							<view class="f12">{{item.details}}</view>
+						</view>
+						<view class="tj-col" style="flex:1;"> </view>
+						<image src="{{item.url}}" mode></image>
+					</tj_row>
+				</view>
+			</tj_panel>
+		</view>
+	</block>
+</view>

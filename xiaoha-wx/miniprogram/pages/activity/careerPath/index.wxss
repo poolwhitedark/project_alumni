@@ -1,0 +1,267 @@
+.activity-careerPath>view:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx 30rpx 30rpx;
+}
+.activity-careerPath>view:nth-of-type(1)>view:nth-of-type(1){
+  display: flex;
+}
+.activity-careerPath>view:nth-of-type(1)>view:nth-of-type(1)>view:nth-of-type(2)>image {
+  width: 51rpx;
+  height: 100rpx;
+}
+.activity-careerPath>view:nth-of-type(1)>view:nth-of-type(2) >view{
+  padding: 0 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #2759FF;
+  border-radius: 8px;
+  color: #fff;
+}
+.activity-careerPath>view:nth-of-type(1)>view:nth-of-type(2) >view:nth-of-type(2){
+  background-color: #f1f7fe;
+  color: #333;
+}
+.activity-careerPath .subhead {
+  line-height: 60rpx;
+  background: #f1f7fe;
+  font-size: 26rpx;
+  font-weight: 600;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-careerPath>view:nth-of-type(3) {
+  padding: 24rpx 0 240rpx;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(odd) {
+  position: relative;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(odd)>view:nth-of-type(1) {
+  height: 92rpx;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(odd)>view:nth-of-type(1) >image {
+  margin-left: 263rpx;
+  width: 92rpx;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(odd)>.datumine {
+  margin: 0 0 170rpx 310rpx;
+  width: 200rpx;
+  height: 4rpx;
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  background-color: #2658ff;
+  opacity: 0.1;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(odd)>.content {
+  position: absolute;
+  top: 120rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  width: 344rpx;
+  display: inline-block;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(even) {
+  position: relative;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(even)>view:nth-of-type(1) {
+  margin-left: 300rpx;
+  height: 92rpx;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(even)>view:nth-of-type(1) >image {
+  width: 92rpx;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(even)>.datumine {
+  margin: 0 0 170rpx 434rpx;
+  width: 200rpx;
+  height: 4rpx;
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  background-color: #2658ff;
+  opacity: 0.1;
+}
+
+.activity-careerPath>view:nth-of-type(3)>view:nth-child(even)>.content {
+  position: absolute;
+  top: 120rpx;
+  left: 30rpx;
+  font-size: 28rpx;
+  width: 344rpx;
+  display: inline-block;
+  text-align: right;
+}
+
+.activity-careerPath>view:nth-of-type(7) {
+  padding: 40rpx 0;
+}
+.activity-careerPath .scroll-view_H {
+  white-space: nowrap;
+  width: 100%;
+
+}
+
+.activity-careerPath .scroll-view_H .uni-scroll-view::-webkit-scrollbar {
+  width: 0;
+}
+
+.activity-careerPath .scroll-view_H .scroll-view-item_H {
+  width: 220rpx;
+  height: 250rpx;
+  background: #FFFFFF;
+  /* border: 1px solid #E9EDFF; */
+  box-shadow: 0px 0px 10rpx 0px rgba(12, 47, 166, 0.1);
+  border-radius: 20rpx;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 20rpx 0 20rpx 20rpx;
+  text-align: center;
+}
+.activity-careerPath .scroll-view_H .scroll-view-item_H>._img {
+
+  width: 112rpx;
+  height: 112rpx;
+  display: block;
+  margin: 25rpx auto;
+}
+.activity-careerPath   .xiaoha{
+  position: absolute;
+  top: -38rpx;
+  left: 50%;
+  transform: translate(-50%);
+  width: 45rpx;
+  height: 87rpx;
+}
+.activity-careerPath .animationL {
+  position: absolute;
+  left: 30rpx;
+  top: 10rpx;
+  width: 230rpx;
+  animation: slideleft .6s ease-in-out;
+  animation-direction: reverse;
+}
+
+.activity-careerPath .animationR {
+  position: absolute;
+  right: 30rpx;
+  top: 10rpx;
+  width: 240rpx;
+  animation: slideright .6s ease-in-out;
+  animation-direction: reverse;
+}
+.activity-careerPath .fill{
+  position: absolute;
+  padding: 20rpx;
+  min-height: 100rpx;
+  width: 100%;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  line-height: 41rpx;
+  font-size: 28rpx;
+  color: #fff;
+  box-shadow: 0px 1px 16px 0px #e8edff;
+  z-index:3;
+  background-color: #9cb3d1;
+}
+.card-container {
+  padding: 90rpx 30rpx 30rpx;
+}
+.activity-careerPath .showModal-container{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+.activity-careerPath .showModal-container .showModal-slot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 600rpx;
+  width: 600rpx;
+  height: 580rpx;
+  background-color: #f1f7fe;
+  padding: 50rpx;
+  box-sizing: border-box;
+  z-index: 888;
+}
+.activity-careerPath .showModal-container .showModal-slot >view{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+}
+.activity-careerPath .showModal-container .showModal-slot >view>view:nth-of-type(1){
+  position: absolute;
+  top: -27.5rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 244rpx;
+  line-height: 55rpx;
+  color: #666;
+  background-color: #f1f7fe;
+}
+.activity-careerPath .showModal-container .showModal-slot >view>view:nth-of-type(2){
+  margin: 57rpx auto 37rpx;
+  width: 240rpx;
+  height: 230rpx;
+}
+.activity-careerPath .showModal-container .showModal-slot >view>view:nth-of-type(2)>image{
+  width: 100%;
+  height: 100%;
+}
+.activity-careerPath .showModal-container .showModal-slot >view>view:nth-of-type(3){
+  width: 398rpx;
+  margin: auto;
+  color: #999;
+  line-height: 39rpx;
+}
+@keyframes slideleft {
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(280rpx);
+    opacity: 1;
+  }
+}
+
+@keyframes slideright {
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(-280rpx);
+    opacity: 1;
+  }
+}

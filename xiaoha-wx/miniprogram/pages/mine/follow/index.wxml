@@ -1,0 +1,19 @@
+<view class="tabs">
+	<view class="title">
+    {{title}}
+	</view>
+	<view class="content" wx:for='{{newsList}}' bindtap="changebtn"  data-id="{{item.id}}" wx:key="i">
+     <view class="item_box">
+				<view class="img">
+					<image src="{{item.avatar}}" mode="aspectFill"></image>
+				</view>
+				<view class="name ml_15">
+					<view class="f15 fb pt_8">{{item.nickname}}   <text class="grey">{{item.profile}}</text></view>
+					<view class="f12 grey pt_15">{{item.position}}</view>
+				</view>
+				<view catchtap="setfollow" data-item="{{item}}"  class="btn f13 {{item.status==1?'bgNotes':'bgmainColor'}}">
+					 {{item.status==2?'取消关注':type==1?"回关":'关注'}}
+				</view>
+		 </view>
+	</view>
+</view>

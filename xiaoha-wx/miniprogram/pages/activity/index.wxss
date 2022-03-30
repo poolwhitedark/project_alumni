@@ -1,0 +1,262 @@
+.activity-container {
+  margin-bottom: 40rpx;
+  width: 100vw;
+  height: 100vh;
+}
+
+.activity-container ._main .identifier {
+  font-size: 36rpx;
+  padding: 30rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchcion {
+  position: absolute;
+  left: 60rpx;
+  top: 48rpx;
+  z-index: 2;
+  width: 28rpx;
+  height: 30rpx;
+}
+
+.identifier input {
+  width: 690rpx;
+  height: 68rpx;
+  background: #F5F7F9;
+  border-radius: 34px;
+  padding: 0 80rpx;
+  box-sizing: border-box;
+  font-size: 25rpx;
+}
+
+.identifier_left {
+  flex: 1;
+}
+
+.identifier_right {
+  text-align: right;
+  flex: 1;
+  font-size: 30rpx;
+  color: #999999;
+}
+
+.activity-container ._main .identifier ._img {
+  width: 40rpx;
+  height: 48rpx;
+  vertical-align: bottom;
+  flex: 1;
+}
+
+.activity-container ._main .meun {
+  display: flex;
+  align-items: center;
+}
+
+.activity-container ._main .meun>view {
+  flex: 1;
+}
+
+.activity-container ._main .meun>view>image {
+  width: 96rpx;
+  height: 96rpx;
+}
+
+.activity-container ._main .meun>view>view {
+  font-size: 24rpx;
+  color: #333333;
+}
+
+.activity-container ._main>view:nth-of-type(2) {
+  padding: 0 30rpx 40rpx;
+}
+
+.activity-container ._main .scroll-view_H {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.activity-container ._main .scroll-view_H .uni-scroll-view::-webkit-scrollbar {
+  width: 0;
+}
+
+.activity-container ._main .scroll-view_H {
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.activity-container ._main .scroll-view_H .scroll-view-item_H {
+  width: 250rpx;
+  height: 250rpx;
+  background: #FFFFFF;
+  border: 1px solid #E9EDFF;
+  box-shadow: 0px 0px 10rpx 0px rgba(12, 48, 166, 0.1);
+  border-radius: 20rpx;
+  padding: 0 10rpx;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 30rpx 0 0;
+  text-align: center;
+}
+
+.activity-container ._main .scroll-view_H .scroll-view-item_H>._img {
+  width: 84rpx;
+  height: 84rpx;
+  display: block;
+  margin: 40rpx auto;
+}
+
+.activity-container ._main>.recommend {
+  padding: 0 30rpx;
+}
+
+.activity-container ._main>.recommend>._div {
+  display: inline-block;
+  margin-bottom: 30rpx;
+  width: 330rpx;
+  height: 318rpx;
+  background: white;
+  box-shadow: 0px 1rpx 16rpx 0px rgba(12, 48, 166, 0.1);
+  border-radius: 10rpx;
+}
+
+.activity-container ._main>.recommend>._div ._img {
+  width: 84rpx;
+  height: 84rpx;
+}
+
+.activity-container ._main>.recommend>._div:nth-of-type(2n + 1) {
+  margin-right: 30rpx;
+}
+
+.activity-container ._main .student {
+  color: #fff;
+}
+
+.student_item {
+  width: 690rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+
+  background: #FFFFFF;
+  margin: 40rpx auto;
+  box-shadow: 0px 0px 16rpx 0px rgba(12, 47, 166, 0.1);
+  border-radius: 20rpx;
+}
+
+.student {
+  padding-bottom: 40rpx;
+}
+
+.student .title {
+  color: #333333;
+  font-size: 30rpx;
+
+}
+
+.student .introduce {
+  color: #999999;
+  font-size: 26rpx;
+  color: #999999;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+
+.student .content {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.student .images {
+  width: 200rpx;
+  height: 240rpx;
+  position: relative;
+}
+
+.leftTitle {
+  position: absolute;
+  top: 37rpx;
+
+  width: 100%;
+  text-align: center;
+
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #fff !important;
+
+}
+
+.student .images image {
+  width: 100%;
+  height: 100%;
+}
+
+.student .content_text {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.resources {
+  font-size: 28rpx;
+  color: #999999;
+  padding: 19rpx 0 10rpx 0;
+}
+
+.resources_content {
+  font-size: 28rpx;
+  color: #999999;
+  padding: 5rpx 0;
+}
+
+.level_icon {
+  height: 24rpx;
+  width: 24rpx;
+  display: inline-block;
+  padding: 0 5rpx;
+
+}
+
+.difficulty_H {
+  padding-top: 10rpx;
+}
+
+.difficulty {
+  color: #999999;
+  font-size: 25rpx;
+}
+
+.nameWidth {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+
+/* .activity-container ._main .student>view>view:nth-of-type(1) {
+  height: 40rpx;
+  
+}
+
+.activity-container ._main .student .tj-col image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.activity-container ._main .student>view {
+  position: relative;
+}
+
+.activity-container ._main .student>view ._img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 690rpx;
+  height: 232rpx;
+  z-index: -1;
+}
+
+.activity-container ._main .student>view .tj-col>view:nth-last-child(1) {
+  padding: 39rpx 58rpx 0;
+} */

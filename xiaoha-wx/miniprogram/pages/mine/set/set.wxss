@@ -1,0 +1,45 @@
+.set>view {
+  box-sizing: border-box;
+  line-height: 119rpx;
+  display: flex;
+}
+.set>view>view:nth-of-type(1){
+  width: 48rpx;
+  height: 48rpx;
+  padding-top: 30rpx;
+  padding-left: 26rpx;
+}
+.set>view>view:nth-of-type(1)>image {
+  width: 100%;
+  height: 100%;
+}
+.set>view>view:nth-of-type(2) {
+  color: #333333;
+  font-size: 30rpx;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 17.5rpx;
+  margin-left: 0rpx;
+  border-bottom: 1px solid #eee;
+}
+.set>view>view:nth-of-type(2) >view:nth-of-type(2) >image{
+  width: 14rpx;
+  height: 24rpx;
+  margin-right: 30rpx;
+}
+.exit>button{
+  margin-top: 300rpx;
+  border-radius:44rpx;
+  width:450rpx;
+  height:88rpx;
+  background-color:rgba(39,89,255,1);
+  color:#FEFEFE;
+  font-size:32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+
+

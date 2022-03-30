@@ -1,0 +1,29 @@
+<view class="activity-detail">
+	<view class="begin question" wx:if="{{active==i}}" wx:for="{{questions}}" wx:for-index="i" wx:key="i">
+		<view></view>
+		<tj_panel round="{{true}}" shadow="{{true}}">
+			<view class="qCard">
+				<view class="f20"> {{questions[i].question}} </view>
+				<button style="{{answer[i].flag==item&&'background-color: #2658ff;color:#fff'}}" wx:for="{{2}}" wx:key="{{item}}" data-reply="{{questions[i]}}" data-answer="{{item}}" data-index="{{i}}" bindtap="setAnswer">
+					<p>{{item==0?'A. ':'B. '}}{{item==0?questions[i].a.matching:questions[i].b.matching}}</p>
+				</button>
+			</view>
+		</tj_panel>
+	</view>
+	<view class="closure question" wx:if="{{active==i&&active>0}}" wx:for="{{questions}}" wx:for-index="i" wx:key="i">
+		<view></view>
+		<tj_panel round="{{true}}" shadow="{{true}}">
+			<view class="qCard">
+				<view class="f20"> {{questions[i].question}} </view>
+				<button style="{{item.flag&&'background-color: #2658ff;color:#fff'}}" wx:for="{{2}}" wx:key="{{item}}">
+					<p>{{item==0?'A. ':'B. '}}{{item==0?questions[i].a.matching:questions[i].b.matching}}</p>
+				</button>
+			</view>
+		</tj_panel>
+	</view>
+
+	<view>
+	<view bindtap="qBack">上一题</view>
+	<view class="tc">{{active+1}}/{{questions.length}}</view>
+	</view>
+</view>
